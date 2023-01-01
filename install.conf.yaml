@@ -1,0 +1,33 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      #force: true
+
+
+- clean: ['~']
+
+- link:
+    # Home
+    ~/.bashrc: bashrc
+    ~/.bash_profile: bash_profile
+    ~/.zshrc: zshrc
+    ~/.gitconfig: gitconfig
+    ~/.alacritty.yml: alacritty.yml
+    ~/.alacritty-keybinds.yml: alacritty-keybinds.yml
+    ~/.vimrc: vimrc
+
+    # Config 
+    ~/.config/gtk-3.0: config/gtk-3.0
+    ~/.config/gtk-4.0: config/gtk-4.0
+    ~/.config/ranger/rc.conf: config/ranger/rc.conf
+    ~/.config/ranger/scope.sh: config/ranger/scope.sh
+    ~/.config/ranger/rc.conf: config/ranger/rc.conf
+    ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
+    ~/.config/kitty: config/kitty
+    ~/.config/evolution: config/evolution
+    ~/.config/starship.toml: config/starship.toml
+
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
