@@ -52,6 +52,7 @@ cursor:
         blinking: On
     thickness: 0.1
     blink_timeout: 0
+    vi_mode_style: 'Block'
 
 # Graphite colourscheme
 colors: *graphite

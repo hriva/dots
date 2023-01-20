@@ -27,13 +27,22 @@ fi
 unset rc
 eval "$(starship init bash)"
 
+HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
+# After each command, append to the history file and reread it
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
 # Aliases
 alias cdranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias exa='exa -lar --icons --sort modified'
+alias ll='exa -lar --icons --sort modified'
+alias ls='exa -lar --icons'
 alias docker='podman'
 alias ducks='du -cks * | sort -rn'
 alias pkghist='rpm -qa --last | less'
 alias dt='date "+%Y%m%dT%H%M%S"'
+alias nbash='nvim .bashrc'
 
 # Alias's to modified commands
 alias cp='cp -i'
@@ -50,4 +59,13 @@ alias freshclam='sudo freshclam'
 
 # Remove a directory and all files
 alias rmd='/bin/rm  --recursive --force --verbose '
+
+# GPU
+alias check-driver='lspci -nnk | grep -iA2 vga'
+alias fgovernor='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+
+# CPU 
+alias governors='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors'
+alias alsa-cards='cat /proc/asound/cards'
+alias cpu-low='echo conservative | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
 
