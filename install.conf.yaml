@@ -22,12 +22,12 @@
     ~/.config/gtk-4.0: config/gtk-4.0
     ~/.config/ranger/rc.conf: config/ranger/rc.conf
     ~/.config/ranger/scope.sh: config/ranger/scope.sh
-    ~/.config/ranger/rc.conf: config/ranger/rc.conf
     ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
     ~/.config/kitty: config/kitty
     ~/.config/evolution: config/evolution
     ~/.config/starship.toml: config/starship.toml
-
+    ~/.config/nvim: config/nvim
+    ~/.config/wezterm: config/wezterm
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

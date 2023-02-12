@@ -27,6 +27,7 @@ fi
 unset rc
 eval "$(starship init bash)"
 
+HISTSIZE=10000
 HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
@@ -37,7 +38,8 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; h
 # Aliases
 alias cdranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias ll='exa -lar --icons --sort modified'
-alias ls='exa -lar --icons'
+alias ls='exa -lr --icons'
+alias la='exa -lar --icons'
 alias docker='podman'
 alias ducks='du -cks * | sort -rn'
 alias pkghist='rpm -qa --last | less'
@@ -69,3 +71,7 @@ alias governors='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_gove
 alias alsa-cards='cat /proc/asound/cards'
 alias cpu-low='echo conservative | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
 
+# Conditional Aliases
+if rpm -V btrbk; then
+	alias baks='sudo btrbk list snapshots'
+fi
