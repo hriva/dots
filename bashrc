@@ -75,3 +75,13 @@ alias cpu-low='echo conservative | sudo tee /sys/devices/system/cpu/cpu*/cpufreq
 if rpm -V btrbk; then
 	alias baks='sudo btrbk list snapshots'
 fi
+
+# Functions
+flatpak-purge(){
+    flatpak uninstall $1
+    flatpak_conf=~/.var/app/$1
+    if [[ -d $flatpak_conf ]]; then
+        trash -v $flatpak_conf
+        echo "$flatpak_conf removed"
+    fi
+}

@@ -23,7 +23,7 @@ $scala\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
 [](fg:#06969A bg:#33658A)\
-$time\
+$duration\
 [  ](fg:#33658A)
 \\$ """
 
@@ -36,6 +36,11 @@ show_always = true
 style_user = "bg:#3B4252"
 style_root = "bg:#3B4252"
 format = '[$user]($style)'
+
+[cmd_duration]
+min_time = 1_000
+show_milliseconds = true
+format = 'took [$duration](bold yellow)'
 
 [hostname]
 ssh_only = false
