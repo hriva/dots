@@ -1,6 +1,8 @@
 [Desktop Entry]
 Version=1.0
-Name=Brave
+Name=Brave VAAPI
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
 GenericName=Web Browser
 GenericName[ar]=متصفح الشبكة
 GenericName[bg]=Уеб браузър
@@ -42,6 +44,7 @@ GenericName[uk]=Навігатор Тенет
 GenericName[zh_CN]=网页浏览器
 GenericName[zh_HK]=網頁瀏覽器
 GenericName[zh_TW]=網頁瀏覽器
+# Not translated in KDE, from Epiphany 2.26.1-0ubuntu1.
 GenericName[bn]=ওয়েব ব্রাউজার
 GenericName[fil]=Web Browser
 GenericName[hr]=Web preglednik
@@ -51,6 +54,7 @@ GenericName[sk]=WWW prehliadač
 GenericName[sr]=Интернет прегледник
 GenericName[te]=మహాతల అన్వేషి
 GenericName[vi]=Bộ duyệt Web
+# Gnome and KDE 3 uses Comment.
 Comment=Access the Internet
 Comment[ar]=الدخول إلى الإنترنت
 Comment[bg]=Достъп до интернет
@@ -101,16 +105,15 @@ Comment[vi]=Truy cập Internet
 Comment[zh_CN]=访问互联网
 Comment[zh_HK]=連線到網際網路
 Comment[zh_TW]=連線到網際網路
-StartupNotify=true
 StartupWMClass=brave-browser
-Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave --file-forwarding com.brave.Browser @@u %U @@
+Exec=env EGL_PLATFORM=x11 /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave --file-forwarding com.brave.Browser @@u %U @@ --use-gl=egl  --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecoder 
 Terminal=false
 Icon=com.brave.Browser
 Type=Application
 Categories=Network;WebBrowser;
 MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ipfs;x-scheme-handler/ipns;
 Actions=new-window;new-private-window;
-X-Flatpak=com.brave.Browser
+X-Flatpak=com.bave.Browser
 
 [Desktop Action new-window]
 Name=New Window
@@ -164,7 +167,7 @@ Name[uk]=Нове вікно
 Name[vi]=Cửa sổ Mới
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave com.brave.Browser
+Exec=env EGL_PLATFORM=x11 /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave com.brave.Browser  --use-gl=egl  --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecoder
 
 [Desktop Action new-private-window]
 Name=New Incognito Window
@@ -216,5 +219,4 @@ Name[uk]=Нове вікно в режимі анонімного перегля
 Name[vi]=Cửa sổ ẩn danh mới
 Name[zh_CN]=新建隐身窗口
 Name[zh_TW]=新增無痕式視窗
-Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave com.brave.Browser --incognito
-MimeType=x-scheme-handler/unknown;x-scheme-handler/about;text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;
+Exec=env EGL_PLATFORM=x11 /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave com.brave.Browser  --use-gl=egl  --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecoder --incognito
