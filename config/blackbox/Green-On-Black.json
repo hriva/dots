@@ -1,7 +1,7 @@
 {
   "name": "Green-On-Black",
   "comment": "Green on black terminal",
-  "background-color": "#030303",
+  "background-color": "#16161D",
   "foreground-color": "#33DA7A",
   "badge-color": "#626880",
   "bold-color": "#626880",
