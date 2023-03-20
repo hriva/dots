@@ -5,6 +5,11 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
+# Get non-reproducible specific vars
+if [ -f ~/.user_specific_vars ]; then
+	source ~/.user_specific_vars
+fi
+
 # User specific environment and startup programs
 if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
 	export MOZ_ENABLE_WAYLAND=1
@@ -12,7 +17,7 @@ if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
 fi
 
 # Override libva Driver for amd
-export LIBVA_DRIVER_NAME=radeonsi
+#export LIBVA_DRIVER_NAME=radeonsi
 
 # Export VAAPI for Nvidia
 #if rpm -V nvidia-vaapi-driver; then
@@ -23,4 +28,4 @@ export LIBVA_DRIVER_NAME=radeonsi
 #fi
 
 # Export THEME
-export GTK_THEME=Colloid-Dark
+#export GTK_THEME=Colloid-Dark
