@@ -79,7 +79,7 @@ fi
 # Functions
 flatpak-purge(){
     flatpak uninstall $1
-    flatpak_conf=~/.var/app/$1
+    local flatpak_conf=~/.var/app/$1
     if [[ -d $flatpak_conf ]]; then
         trash -v $flatpak_conf
         echo "$flatpak_conf removed"
