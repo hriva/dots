@@ -1,0 +1,91 @@
+[appindicator]
+icon-saturation=2.7755575615628914e-17
+
+[blur-my-shell]
+brightness=0.0
+
+[caffeine]
+indicator-position-max=1
+nightlight-control='never'
+
+[dash-to-panel]
+animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
+appicon-margin=2
+appicon-padding=4
+available-monitors=[0]
+dot-position='BOTTOM'
+hotkeys-overlay-combo='TEMPORARILY'
+leftbox-padding=-1
+panel-anchors='{"0":"MIDDLE"}'
+panel-element-positions='{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
+panel-lengths='{"0":100}'
+panel-sizes='{"0":51}'
+primary-monitor=0
+show-apps-icon-file='/home/alquimista/Descargas/fedora-white.svg'
+show-window-previews=true
+status-icon-padding=-1
+taskbar-locked=true
+trans-panel-opacity=0.70000000000000007
+trans-use-custom-bg=false
+trans-use-custom-opacity=true
+tray-padding=-1
+window-preview-title-position='TOP'
+
+[ding]
+show-home=false
+show-trash=true
+show-volumes=false
+
+[just-perfection]
+accessibility-menu=false
+activities-button=false
+app-menu-icon=true
+app-menu-label=true
+clock-menu-position=0
+keyboard-layout=true
+panel-icon-size=0
+ripple-box=false
+show-apps-button=false
+startup-status=0
+weather=false
+window-menu-take-screenshot-button=false
+window-picker-icon=false
+window-preview-caption=false
+workspace=false
+workspaces-in-app-grid=false
+world-clock=false
+
+[pop-shell]
+active-hint=false
+active-hint-border-radius=uint32 1
+gap-inner=uint32 2
+gap-outer=uint32 2
+pop-workspace-down=@as []
+pop-workspace-up=@as []
+tile-by-default=true
+
+[rounded-window-corners]
+border-color=(0.0, 0.0, 0.0, 1.0)
+border-width=-1
+custom-rounded-corner-settings=@a{sv} {}
+enable-preferences-entry=true
+focused-shadow={'vertical_offset': 10, 'horizontal_offset': 0, 'blur_offset': 26, 'spread_radius': 12, 'opacity': 68}
+global-rounded-corner-settings={'padding': <{'left': <uint32 0>, 'right': <uint32 0>, 'top': <uint32 0>, 'bottom': <uint32 0>}>, 'keep_rounded_corners': <{'maximized': <false>, 'fullscreen': <false>}>, 'border_radius': <uint32 11>, 'smoothing': <0.80000000000000004>, 'enabled': <true>}
+settings-version=uint32 5
+skip-libadwaita-app=false
+skip-libhandy-app=false
+tweak-kitty-terminal=false
+unfocused-shadow={'vertical_offset': 10, 'horizontal_offset': 0, 'blur_offset': 26, 'spread_radius': 6, 'opacity': 68}
+
+[user-theme]
+name='Colloid-Dark'
+
+[vitals]
+fixed-widths=true
+hide-icons=false
+hot-sensors=['__network-rx_max__', '_system_uptime_', '_processor_usage_', '_processor_frequency_', '__temperature_avg__']
+include-static-info=true
+position-in-panel=3
+show-processor=true
+show-storage=true
+update-time=3
