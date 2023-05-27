@@ -45,6 +45,7 @@ alias ducks='du -cks * | sort -rn'
 alias pkghist='rpm -qa --last | less'
 alias dt='date "+%Y%m%dT%H%M%S"'
 alias nbash='nvim .bashrc'
+alias zps="ps aux | awk '$8 ~ /^[Zz]/'"
 
 # Alias's to modified commands
 alias cp='cp -i'
