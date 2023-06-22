@@ -12,9 +12,9 @@ local window_frame = require('lua/green-on-black').window_frame()
 return {
 	-- OpenGL for GPU acceleration, Software for CPU
 	front_end = "OpenGL",
-    color_scheme = "tokyonight",
---	color_scheme = 'green-on-black',
---	colors = colors,
+
+	color_scheme = 'green-on-black',
+	colors = colors,
 	window_frame = window_frame, -- needed only if using fancy tab bar
 
 	-- Font config
@@ -29,17 +29,17 @@ return {
 			font = font_with_fallback(font_name, { bold = true }),
 		},
 		{
-			intensity = "Bold",
-			font = font_with_fallback(font_name, { bold = true }),
+			intensity = "Half",
+			font = font_with_fallback(font_name, { bold = false }),
 		},
 	},
 	warn_about_missing_glyphs = false,
-	font_size = 15,
+	font_size = 16,
 	line_height = 1.0,
-	dpi = 96.0,
+	dpi = 99.0,
 
 	-- Cursor style
-	default_cursor_style = "BlinkingBlock",
+	default_cursor_style = "BlinkingUnderline",
 
 	-- X11
 	enable_wayland = true,
@@ -66,11 +66,6 @@ return {
 			mods = "CTRL",
 			action = wezterm.action({ CloseCurrentPane = { confirm = false } }),
 		},
-        {
-            key = "q",
-            mods = "SUPER",
-            action = wezterm.action({ CloseCurrentPane = { confirm = false }}),
-        },
 		{
 			key = "h",
 			mods = "CTRL|SHIFT",
@@ -167,7 +162,7 @@ return {
 	-- General
 	automatically_reload_config = true,
 	inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
-	window_background_opacity = 0.90,
+	window_background_opacity = .85,
 	window_close_confirmation = 'AlwaysPrompt',
 	window_decorations = "RESIZE",
 }
