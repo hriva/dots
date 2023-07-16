@@ -18,8 +18,10 @@
     ~/.vimrc: vimrc
 
     # Config 
+    ~/.config/htop/htoprc: config/htop/htoprc
+    ~/.config/rog/rog-control-center.cfg: config/rog/rog-control-center.cfg
     ~/.config/gtk-3.0/settings.ini: config/gtk-3.0/settings.ini
-    ~/.config/gtk-4.0: config/gtk-4.0
+    ~/.config/gtk-4.0/settings.ini: config/gtk-4.0/settings.ini
     ~/.config/ranger/rc.conf: config/ranger/rc.conf
     ~/.config/ranger/scope.sh: config/ranger/scope.sh
     ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
