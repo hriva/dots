@@ -29,11 +29,15 @@ eval "$(starship init bash)"
 
 HISTSIZE=10000
 HISTCONTROL=ignoredups:erasedups
+HISTFILESIZE=11000
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
 
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+# vars
+EDITOR=/usr/bin/nvim
 
 # Aliases
 alias cdranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
@@ -46,9 +50,11 @@ alias pkghist='rpm -qa --last | less'
 alias dt='date "+%Y%m%dT%H%M%S"'
 alias nbash='nvim .bashrc'
 alias zps="ps aux | awk '$8 ~ /^[Zz]/'"
+alias gitstat='git status -uno'
+alias diffside='diff --side-by-side --ignore-all-space'
 
 # Alias's to modified commands
-alias cp='cp -i'
+alias cp='cp -ipdv'
 alias mv='mv -i'
 alias rm='trash -v'
 alias mkdir='mkdir -p'
