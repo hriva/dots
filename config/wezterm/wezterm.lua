@@ -5,7 +5,7 @@ local function font_with_fallback(name, params)
 	return wezterm.font_with_fallback(names, params)
 end
 
-local font_name = "FiraCode NFM"
+--local font_name = "FiraCode NFM"
 local colors = require('lua/green-on-black').colors()
 local window_frame = require('lua/green-on-black').window_frame()
 
@@ -39,7 +39,7 @@ return {
 	dpi = 99.0,
 
 	-- Cursor style
-	default_cursor_style = "BlinkingUnderline",
+	default_cursor_style = "BlinkingBlock",
 
 	-- X11
 	enable_wayland = true,

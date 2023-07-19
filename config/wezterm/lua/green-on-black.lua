@@ -4,7 +4,7 @@ local M = {}
 
 local palette = {
     base = '#030303',
-    overlay = '#26233a',
+    overlay = '#030303',
     muted = '#6e6a86',
     text = '#33DA7A',
 }
@@ -30,8 +30,8 @@ function M.colors()
             new_tab_hover = active_tab,
             inactive_tab_edge = palette.muted, -- (Fancy tab bar only)
         },
-	ansi = {'#171421','#C01C28','#26A269','#A2734C','#12488B','#A347BA','#2AA1B3','#D0CFCC'},
-	brights = {'#5E5C64','#F66151','#33DA7A','#E9AD0C','#2A7BDE','#C061CB','#33C7DE','#FFFFFF'},
+	    ansi = {'#171421','#C01C28','#26A269','#A2734C','#12488B','#A347BA','#2AA1B3','#D0CFCC'},
+	    brights = {'#5E5C64','#F66151','#33DA7A','#E9AD0C','#2A7BDE','#C061CB','#33C7DE','#FFFFFF'},
     }
 end
 
