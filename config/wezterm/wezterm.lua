@@ -147,11 +147,13 @@ return {
 	bold_brightens_ansi_colors = true,
 	-- Padding
 	window_padding = {
-		left = 15,
-		right = 15,
-		top = 15,
-		bottom = 15,
+		left = 12,
+		right = 12,
+		top = 12,
+		bottom = 12,
 	},
+    initial_cols = 100,
+    --initial_rows = 24,
 
 	-- Tab Bar
 	enable_tab_bar = true,
@@ -162,7 +164,7 @@ return {
 	-- General
 	automatically_reload_config = true,
 	inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
-	window_background_opacity = .85,
+	window_background_opacity = .90,
 	window_close_confirmation = 'AlwaysPrompt',
 	window_decorations = "RESIZE",
 }
