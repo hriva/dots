@@ -16,6 +16,7 @@
     ~/.alacritty.yml: alacritty.yml
     ~/.alacritty-keybinds.yml: alacritty-keybinds.yml
     ~/.vimrc: vimrc
+    ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
 
     # Config 
     ~/.config/htop/htoprc: config/htop/htoprc
