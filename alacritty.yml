@@ -35,14 +35,14 @@ schemes:
 # Font settings
 font:
     normal:
-        family: FiraCode NFM
+      family: JetBrainsMonoNL Nerd Font Mono
     size: 16
 
 # Window settings
 window:
     dimensions:
-      columns: 85
-      lines: 30
+      columns: 105
+      lines: 24
     padding:
         x: 12
         y: 12
