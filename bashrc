@@ -1,4 +1,5 @@
 # .bashrc
+iatest=$(expr index "$-" i)
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -27,6 +28,7 @@ fi
 unset rc
 eval "$(starship init bash)"
 
+HISTIGNORE='rm *:svn revert*:source /home/*/devel-env/bin/activate:/home/*/devel-env/bin/python'
 HISTSIZE=10000
 HISTCONTROL=ignoredups:erasedups:ignorespace
 HISTFILESIZE=11000
@@ -46,6 +48,10 @@ elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
+# Ignore case on auto-completion
+# Note: bind used instead of sticking these in .inputrc
+if [[ $iatest -gt 0 ]]; then bind "set completion-ignore-case on"; fi
+
 # Show auto-completion list automatically, without double tab
 if [[ $iatest -gt 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
@@ -63,9 +69,12 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Aliases
 alias cdranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+#alias ll='ls -lh --color=always --group-directories-first'
+#alias la='ls -lah --color=always --group-directories-first'
 alias ll='exa -lar --icons --sort modified'
 alias ls='exa -lr --icons'
 alias la='exa -lar --icons'
+alias lR='exa -larTR --icons'
 alias docker='podman'
 alias ducks='du -cks * | sort -rn'
 alias pkghist='rpm -qa --last | less'
@@ -78,6 +87,14 @@ alias gh='cd ~'
 alias gD='cd $HOME/Documentos'
 alias gd='cd $HOME/Descargas'
 alias gs='cd $HOME/DOTFILES'
+alias services='systemctl --type=service --state=running'
+
+# Search running processes
+alias p="ps aux | grep "
+alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
+
+# Search files in the current folder
+alias f="find . | grep "
 
 # Alias's for archives
 alias mktar='tar -cvf'
@@ -87,6 +104,10 @@ alias untar='tar -xvf'
 alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
 
+# Alias's for safe and forced reboots
+alias safereboot='sudo shutdown -r now'
+# alias rebootforce='sudo shutdown -r -n now'
+
 # Count all files (recursively) in the current folder
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
 
@@ -95,6 +116,7 @@ alias mx='chmod a+x'
 alias 000='chmod -R 000'
 alias 644='chmod -R 644'
 alias 666='chmod -R 666'
+alias 750='chmod -R 750'
 alias 755='chmod -R 755'
 alias 777='chmod -R 777'
 
@@ -103,18 +125,20 @@ alias cp='cp -ipdv'
 alias mv='mv -i'
 alias rm='trash -v'
 alias mkdir='mkdir -p'
-alias ps='ps auxf'
+alias px='ps auxf'
 alias ping='ping -c 10'
 alias less='less -R'
 alias cls='clear'
 alias apt-get='sudo apt-get'
 alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
+alias curl="curl --proto '=https' --tlsv1.2 -Sf -L"
 alias fzf='fzf --border=rounded'
 alias fzbat="fzf --border=rounded --preview 'bat --color always {}'"
 alias fzless="fzf --preview 'less {}'"
 alias fzfpath='tree -afR /home/$USER | fzf'
 alias fzfcd='cd $(find /home/$USER -type d | fzf)'
+alias vim='nvim'
 
 # Remove a directory and all files
 alias rmd='/bin/rm  --recursive --force --verbose '
@@ -178,4 +202,9 @@ ftext ()
 	# optional: -F treat search term as a literal, not a regular expression
 	# optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
 	grep -iIHrn --color=always "$1" . | less -r
+}
+
+# Check if directory is writeable
+is-writeable () {
+[ -w "$1" ] && echo "WRITEABLE" || echo "NOT WRITEABLE"
 }
