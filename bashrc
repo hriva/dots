@@ -88,6 +88,7 @@ alias gD='cd $HOME/Documentos'
 alias gd='cd $HOME/Descargas'
 alias gs='cd $HOME/DOTFILES'
 alias services='systemctl --type=service --state=running'
+alias nix-upgrade="sudo -i sh -c 'nix upgrade-nix'"
 
 # Search running processes
 alias p="ps aux | grep "
@@ -207,4 +208,11 @@ ftext ()
 # Check if directory is writeable
 is-writeable () {
 [ -w "$1" ] && echo "WRITEABLE" || echo "NOT WRITEABLE"
+}
+
+# Get process without line wrap
+psg () {
+    printf '\033[?7l' # prevent linewrap
+    ps aux | grep "$1"
+    printf '\033[?7h' # prevent linewrap
 }
