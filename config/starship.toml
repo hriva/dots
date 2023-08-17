@@ -27,6 +27,9 @@ $duration\
 [  ](fg:#33658A)
 \\$ """
 
+# Timeout for commands executed by starship (in milliseconds).
+command_timeout = 1200
+
 # Disable the blank line at the start of the prompt
 add_newline = false
 
