@@ -63,7 +63,7 @@ return {
 		},
 		{
 			key = "q",
-			mods = "CTRL",
+			mods = "CTRL|SHIFT",
 			action = wezterm.action({ CloseCurrentPane = { confirm = false } }),
 		},
 		{
@@ -113,7 +113,7 @@ return {
 		},
 		{
 			key = "w",
-			mods = "CTRL",
+			mods = "CTRL|SHIFT",
 			action = wezterm.action({ CloseCurrentTab = { confirm = false } }),
 		},
 		{
@@ -147,7 +147,7 @@ return {
 	bold_brightens_ansi_colors = true,
 	-- Padding
 	window_padding = {
-		left = 12,
+		left = 10,
 		right = 12,
 		top = 12,
 		bottom = 12,
