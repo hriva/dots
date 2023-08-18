@@ -1,5 +1,5 @@
 --vim.opt.guicursor = ""
-vim.opt.clipboard = "unnamed,unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 vim.opt.termguicolors = true
 vim.opt.nu = true
 --vim.opt.relativenumber = true
