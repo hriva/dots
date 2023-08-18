@@ -55,6 +55,9 @@ if [[ $iatest -gt 0 ]]; then bind "set completion-ignore-case on"; fi
 # Show auto-completion list automatically, without double tab
 if [[ $iatest -gt 0 ]]; then bind "set show-all-if-ambiguous On"; fi
 
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # vars
 export EDITOR=/usr/bin/nvim
 
@@ -71,10 +74,10 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 alias cdranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 #alias ll='ls -lh --color=always --group-directories-first'
 #alias la='ls -lah --color=always --group-directories-first'
-alias ll='exa -lar --icons --sort modified'
-alias ls='exa -lr --icons'
-alias la='exa -lar --icons'
-alias lR='exa -larTR --icons'
+alias ll='exa -lar --icons --sort modified --group-directories-first --git'
+alias ls='exa -lr --icons --group-directories-first --sort name'
+alias la='exa -lar --icons --group-directories-first --sort name'
+alias lR='exa -larTR --icons --group-directories-first --sort name'
 alias docker='podman'
 alias ducks='du -cks * | sort -rn'
 alias pkghist='rpm -qa --last | less'
@@ -93,6 +96,10 @@ alias nix-upgrade="sudo -i sh -c 'nix upgrade-nix'"
 # Search running processes
 alias p="ps aux | grep "
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Search files in the current folder
 alias f="find . | grep "
