@@ -48,15 +48,15 @@ return {
 	disable_default_key_bindings = true,
 	keys = {
 		{
-			key = [[\]],
-			mods = "CTRL|ALT",
+			key = [[/]],
+			mods = "CTRL",
 			action = wezterm.action({
 				SplitHorizontal = { domain = "CurrentPaneDomain" },
 			}),
 		},
 		{
-			key = [[\]],
-			mods = "CTRL",
+			key = [[/]],
+			mods = "CTRL|ALT",
 			action = wezterm.action({
 				SplitVertical = { domain = "CurrentPaneDomain" },
 			}),
@@ -164,7 +164,7 @@ return {
 	-- General
 	automatically_reload_config = true,
 	inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
-	window_background_opacity = .90,
+	window_background_opacity = .92,
 	window_close_confirmation = 'AlwaysPrompt',
 	window_decorations = "RESIZE",
 }
