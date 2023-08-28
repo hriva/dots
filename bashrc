@@ -91,7 +91,6 @@ alias gD='cd $HOME/Documentos'
 alias gd='cd $HOME/Descargas'
 alias gs='cd $HOME/DOTFILES'
 alias services='systemctl --type=service --state=running'
-alias nix-upgrade="sudo -i sh -c 'nix upgrade-nix'"
 
 # Search running processes
 alias p="ps aux | grep "
@@ -120,7 +119,7 @@ alias safereboot='sudo shutdown -r now'
 alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
 
 # alias chmod commands
-alias mx='chmod a+x'
+alias mx='chmod u+x'
 alias 000='chmod -R 000'
 alias 644='chmod -R 644'
 alias 666='chmod -R 666'
@@ -136,7 +135,7 @@ alias mkdir='mkdir -p'
 alias px='ps auxf'
 alias ping='ping -c 10'
 alias less='less -R'
-alias cls='clear'
+alias c='clear'
 alias apt-get='sudo apt-get'
 alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
@@ -147,6 +146,7 @@ alias fzless="fzf --preview 'less {}'"
 alias fzfpath='tree -afR /home/$USER | fzf'
 alias fzfcd='cd $(find /home/$USER -type d | fzf)'
 alias vim='nvim'
+alias pgrep='pgrep -li'
 
 # Remove a directory and all files
 alias rmd='/bin/rm  --recursive --force --verbose '
@@ -158,11 +158,39 @@ alias fgovernor='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
 # CPU 
 alias governors='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors'
 alias alsa-cards='cat /proc/asound/cards'
-alias cpu-low='echo conservative | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+# alias cpu-low='echo conservative | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+
+# Intel Performance Bias (EPB)
+# EPB vales 0,4,6,8,15 for performance, balance-performance, normal default, balance-power, power
+# https://wiki.archlinux.org/title/CPU_frequency_scaling#Intel_performance_and_energy_bias_hint
+alias intel-balance-power='echo 8 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
+alias intel-prefer-power='echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
+alias intel-prefer-balance='echo 6 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
+alias get-intel-epb='cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | uniq'
 
 # Conditional Aliases
-if rpm -V btrbk; then
+if whereis btrbk 2>&1 > /dev/null; then
 	alias baks='sudo btrbk list snapshots'
+fi
+
+# Nix aliases for Determinate Systems install if nix found
+if whereis nix 2>&1 > /dev/null; then
+    alias nix-upgrade="sudo -i sh -c 'nix upgrade-nix'"
+    alias nix-update="nix profile upgrade '.*'"
+    alias nix-search="nix search nixpkgs"
+    alias nix-list="nix profile list | grep 'Flake attribute' | awk '{print $3}'"
+    alias nix-hist="nix profile history"
+    alias nix-rollb="nix profile rollback"
+    #alias nix-install="nix profile install"
+    #alias nix-remove="nix profile remove"
+
+    nix_install () {
+        nix profile install nixpkgs\#"$1"
+    }
+
+    nix_remove () {
+        nix profile remove "$1" && nix-collect-garbage
+    }
 fi
 
 # Functions
