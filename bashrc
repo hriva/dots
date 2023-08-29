@@ -158,19 +158,31 @@ alias fgovernor='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
 # CPU 
 alias governors='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors'
 alias alsa-cards='cat /proc/asound/cards'
-# alias cpu-low='echo conservative | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
-
-# Intel Performance Bias (EPB)
-# EPB vales 0,4,6,8,15 for performance, balance-performance, normal default, balance-power, power
-# https://wiki.archlinux.org/title/CPU_frequency_scaling#Intel_performance_and_energy_bias_hint
-alias intel-balance-power='echo 8 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
-alias intel-prefer-power='echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
-alias intel-prefer-balance='echo 6 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
-alias get-intel-epb='cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | uniq'
 
 # Conditional Aliases
 if whereis btrbk 2>&1 > /dev/null; then
 	alias baks='sudo btrbk list snapshots'
+fi
+
+# CPU Specific tweaks
+if grep -q intel /proc/cpuinfo; then
+    # Intel Performance Bias (EPB)
+    # EPB vales 0,4,6,8,15 for performance, balance-performance, normal default, balance-power, power
+    # https://wiki.archlinux.org/title/CPU_frequency_scaling#Intel_performance_and_energy_bias_hint
+    alias intel-epb-balance-power='echo 8 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
+    alias intel-epb-prefer-power='echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
+    alias intel-epb-prefer-balance='echo 6 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
+    alias get-intel-epb='cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | uniq'
+
+    # Intel HWP performance, balance_performance, default, balance_power, power
+    # https://wiki.archlinux.org/title/Power_management#Processors_with_Intel_HWP_(Intel_Hardware_P-state)_support
+    alias intel-avaliable-policies='cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferenceis'
+    alias intel-balance-power='echo balance_power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
+    alias intel-prefer-power='echo power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
+    alias get-cpu-policy='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq'
+
+elif grep -q amd /proc/cpuinfo; then
+    alias get-cpu-pref='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq' 
 fi
 
 # Nix aliases for Determinate Systems install if nix found
@@ -240,10 +252,6 @@ ftext ()
 	grep -iIHrn --color=always "$1" . | less -r
 }
 
-# Check if directory is writeable
-is-writeable () {
-[ -w "$1" ] && echo "WRITEABLE" || echo "NOT WRITEABLE"
-}
 
 # Get process without line wrap
 psg () {
