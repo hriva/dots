@@ -26,20 +26,56 @@ if [ -d ~/.bashrc.d ]; then
 fi
 
 unset rc
-eval "$(starship init bash)"
+
+__vte_urlencode() (
+  # This is important to make sure string manipulation is handled
+  # byte-by-byte.
+  LC_ALL=C
+  str="$1"
+  while [ -n "$str" ]; do
+    safe="${str%%[!a-zA-Z0-9/:_\.\-\!\'\(\)~]*}"
+    printf "%s" "$safe"
+    str="${str#"$safe"}"
+    if [ -n "$str" ]; then
+      printf "%%%02X" "'$str"
+      str="${str#?}"
+    fi
+  done
+)
+
+__vte_osc7 () {
+  printf "\033]7;file://%s%s\007" "${HOSTNAME:-}" "$(__vte_urlencode "${PWD}")"
+}
+
+__vte_prompt_command() {
+  local command=$(HISTTIMEFORMAT= history 1 | sed 's/^ *[0-9]\+ *//')
+  command="${command//;/ }"
+  local pwd='~'
+  [ "$PWD" != "$HOME" ] && pwd=${PWD/#$HOME\//\~\/}
+  printf "\033]777;Command completed;%s\007\033]0;%s@%s:%s\007%s" "${command}" "${USER}" "${HOSTNAME%%.*}" "${pwd}" "$(__vte_osc7)"
+}
+
+case "$TERM" in
+  xterm*|vte*)
+    [ -n "$BASH_VERSION" ] && PROMPT_COMMAND="__vte_prompt_command"
+    [ -n "$ZSH_VERSION"  ] && precmd_functions+=(__vte_osc7)
+    ;;
+esac
+
 
 HISTIGNORE='rm *:svn revert*:source /home/*/devel-env/bin/activate:/home/*/devel-env/bin/python'
 HISTSIZE=10000
 HISTCONTROL=ignoredups:erasedups:ignorespace
 HISTFILESIZE=11000
+
+# After each command, append to the history file and reread it
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'} history -a; history -c; history -r"
+
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
 
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 shopt -s checkwinsize
-
-# After each command, append to the history file and reread it
-PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # Enable bash programmable completion features in interactive shells
 if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -141,10 +177,10 @@ alias multitail='multitail --no-repeat -c'
 alias freshclam='sudo freshclam'
 alias curl="curl --proto '=https' --tlsv1.2 -Sf -L"
 alias fzf='fzf --border=rounded'
-alias fzbat="fzf --border=rounded --preview 'bat --color always {}'"
-alias fzless="fzf --preview 'less {}'"
+alias fbat="fzf --border=rounded --preview 'bat --color always {}'"
+alias fless="fzf --preview 'less {}'"
 alias fzfpath='tree -afR /home/$USER | fzf'
-alias fzfcd='cd $(find /home/$USER -type d | fzf)'
+alias fcd='cd $(find /home/$USER -type d | fzf)'
 alias vim='nvim'
 alias pgrep='pgrep -li'
 
@@ -176,7 +212,8 @@ if grep -q intel /proc/cpuinfo; then
 
     # Intel HWP performance, balance_performance, default, balance_power, power
     # https://wiki.archlinux.org/title/Power_management#Processors_with_Intel_HWP_(Intel_Hardware_P-state)_support
-    alias intel-avaliable-policies='cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferenceis'
+    alias intel-avaliable-policies='cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferences'
+    alias intel-default-power='echo default | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
     alias intel-balance-power='echo balance_power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
     alias intel-prefer-power='echo power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
     alias get-cpu-policy='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq'
@@ -259,3 +296,6 @@ psg () {
     ps aux | grep "$1"
     printf '\033[?7h' # prevent linewrap
 }
+
+
+eval "$(starship init bash)"
