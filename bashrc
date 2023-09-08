@@ -122,6 +122,7 @@ alias nbash='nvim ~/.bashrc'
 alias zps="ps aux | awk '$8 ~ /^[Zz]/'"
 alias gitstat='git status -uno'
 alias diffside='diff --side-by-side --ignore-all-space'
+alias git-tree='git ls-tree --full-tree --name-only -r HEAD'
 alias gh='cd ~'
 alias gD='cd $HOME/Documentos'
 alias gd='cd $HOME/Descargas'
@@ -208,7 +209,6 @@ if grep -q intel /proc/cpuinfo; then
     alias intel-epb-balance-power='echo 8 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
     alias intel-epb-prefer-power='echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
     alias intel-epb-prefer-balance='echo 6 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
-    alias get-intel-epb='cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | uniq'
 
     # Intel HWP performance, balance_performance, default, balance_power, power
     # https://wiki.archlinux.org/title/Power_management#Processors_with_Intel_HWP_(Intel_Hardware_P-state)_support
@@ -216,7 +216,11 @@ if grep -q intel /proc/cpuinfo; then
     alias intel-default-power='echo default | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
     alias intel-balance-power='echo balance_power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
     alias intel-prefer-power='echo power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
-    alias get-cpu-policy='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq'
+
+get_intel_energy () {
+ cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq
+ cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | uniq
+}
 
 elif grep -q amd /proc/cpuinfo; then
     alias get-cpu-pref='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq' 
