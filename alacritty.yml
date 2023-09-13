@@ -36,6 +36,8 @@ schemes:
 font:
     normal:
       family: JetBrainsMonoNL Nerd Font Mono
+    bold:
+      style: SemiBold
     size: 16
 
 # Window settings
@@ -56,7 +58,7 @@ window:
 # Change cursor style
 cursor:
     style:
-        blinking: On
+        blinking: Always
     thickness: 0.1
     blink_timeout: 0
     vi_mode_style: 'Block'
