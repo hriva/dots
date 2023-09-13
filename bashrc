@@ -121,13 +121,16 @@ alias dt='date "+%Y%m%dT%H%M%S"'
 alias nbash='nvim ~/.bashrc'
 alias zps="ps aux | awk '$8 ~ /^[Zz]/'"
 alias gitstat='git status -uno'
+alias gitsb='git status -sb'
 alias diffside='diff --side-by-side --ignore-all-space'
 alias git-tree='git ls-tree --full-tree --name-only -r HEAD'
+alias glog='git log --pretty=oneline -n 20 --graph --abbrev-commit'
 alias gh='cd ~'
 alias gD='cd $HOME/Documentos'
 alias gd='cd $HOME/Descargas'
 alias gs='cd $HOME/DOTFILES'
 alias services='systemctl --type=service --state=running'
+alias flatpak-list='flatpak --columns=app,name,size list'
 
 # Search running processes
 alias p="ps aux | grep "
@@ -247,14 +250,6 @@ if whereis nix 2>&1 > /dev/null; then
 fi
 
 # Functions
-flatpak-purge(){
-    flatpak uninstall $1
-    local flatpak_conf=~/.var/app/$1
-    if [[ -d $flatpak_conf ]]; then
-        trash -v $flatpak_conf
-        echo "$flatpak_conf removed"
-    fi
-}
 
 # Extracts any archive(s) (if unp isn't installed)
 extract () {
