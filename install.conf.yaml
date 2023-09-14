@@ -12,17 +12,15 @@
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
     ~/.zshrc: zshrc
-    ~/.gitconfig: gitconfig
     ~/.alacritty.yml: alacritty.yml
     ~/.alacritty-keybinds.yml: alacritty-keybinds.yml
     ~/.vimrc: vimrc
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
 
     # Config 
+    ~/.config/git: config/git
     ~/.config/htop/htoprc: config/htop/htoprc
     ~/.config/rog/rog-control-center.cfg: config/rog/rog-control-center.cfg
-    ~/.config/gtk-3.0/settings.ini: config/gtk-3.0/settings.ini
-    ~/.config/gtk-4.0/settings.ini: config/gtk-4.0/settings.ini
     ~/.config/ranger/rc.conf: config/ranger/rc.conf
     ~/.config/ranger/scope.sh: config/ranger/scope.sh
     ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
