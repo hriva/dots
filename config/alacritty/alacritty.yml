@@ -1,5 +1,5 @@
 import:
-  - ~/.alacritty-keybinds.yml
+  - ~/.config/alacritty/alacritty-keybinds.yml
 env:
   TERM: 'alacritty'
 
