@@ -22,9 +22,11 @@ $rust\
 $scala\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
-[](fg:#06969A bg:#33658A)\
-$duration\
-[  ](fg:#33658A)
+[](fg:#06969A)\
+$fill[](fg:#33658A)\
+$time\
+[](bg:#33658A fg:#3B4252)$battery\
+[](fg:#3B4252)
 \\$ """
 
 # Timeout for commands executed by starship (in milliseconds).
@@ -32,6 +34,9 @@ command_timeout = 1200
 
 # Disable the blank line at the start of the prompt
 add_newline = false
+
+[fill]
+symbol = ' '
 
 # You can also replace your username with a neat symbol like  to save some space
 [username]
@@ -41,9 +46,9 @@ style_root = "bg:#3B4252"
 format = '[$user]($style)'
 
 [cmd_duration]
-min_time = 1_000
+min_time = 5
 show_milliseconds = true
-format = 'took [$duration](bold yellow)'
+format = '[ $duration](bg:#33658A)'
 
 [hostname]
 ssh_only = false
@@ -139,4 +144,14 @@ format = '[ $symbol ($version) ]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
-format = '[ $time ]($style)'
+format = '[$time ]($style)'
+
+[battery]
+disabled = false
+discharging_symbol = ''
+unknown_symbol = ''
+format = '[$percentage]($style)'
+
+[[battery.display]]
+threshold = 78
+style = "bg:#3B4252"
