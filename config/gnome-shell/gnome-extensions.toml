@@ -1,4 +1,4 @@
-#Spacebar icons     󰨞  󰈭  󰭺
+#Spacebar icons     󰨞  󰈭  󰵅
 
 [appindicator]
 custom-icons=@a(sss) []
@@ -7,6 +7,7 @@ custom-icons=@a(sss) []
 color-and-noise=false
 
 [blur-my-shell/applications]
+blur=false
 blur-on-overview=false
 
 [blur-my-shell/dash-to-dock]
@@ -14,32 +15,51 @@ blur=false
 customize=false
 override-background=true
 
+[blur-my-shell/dash-to-panel]
+blur-original-panel=false
+
 [blur-my-shell/lockscreen]
 customize=false
 
+[blur-my-shell/panel]
+blur=false
+brightness=0.59999999999999998
+customize=true
+override-background=true
+sigma=0
+static-blur=true
+style-panel=3
+
 [caffeine]
-indicator-position-max=3
+indicator-position-max=1
 restore-state=true
 toggle-state=true
 user-enabled=true
 
 [dash-to-dock]
-apply-custom-theme=false
+apply-custom-theme=true
+autohide-in-fullscreen=false
 background-color='rgb(52,52,53)'
 background-opacity=0.64000000000000001
 custom-background-color=true
 custom-theme-shrink=true
 dash-max-icon-size=64
+dock-fixed=false
 dock-position='BOTTOM'
 height-fraction=0.78000000000000003
 hide-tooltip=false
-intellihide-mode='FOCUS_APPLICATION_WINDOWS'
+hot-keys=false
+intellihide-mode='ALL_WINDOWS'
 isolate-locations=true
 max-alpha=0.80000000000000004
+middle-click-action='minimize'
 preferred-monitor=-2
 preferred-monitor-by-connector='eDP-1'
 pressure-threshold=50.0
+preview-size-scale=0.20999999999999999
 scroll-to-focused-application=true
+shift-click-action='minimize'
+shift-middle-click-action='launch'
 shortcut=['<Super>n']
 shortcut-text='<Super>n'
 show-apps-at-top=true
@@ -66,18 +86,22 @@ hot-corner=true
 notification-banner-position=1
 panel=true
 panel-arrow=false
+panel-button-padding-size=0
 panel-corner-size=1
 panel-in-overview=true
+panel-indicator-padding-size=9
+panel-size=29
 ripple-box=false
 search=true
 show-apps-button=false
 startup-status=0
-theme=true
+theme=false
 weather=false
 window-demands-attention-focus=true
 window-picker-icon=false
-workspace=false
+workspace=true
 workspace-peek=false
+workspace-popup=false
 workspaces-in-app-grid=false
 world-clock=false
 
@@ -89,7 +113,7 @@ gap-outer=uint32 1
 pop-workspace-down=@as []
 pop-workspace-up=@as []
 show-title=true
-tile-by-default=true
+tile-by-default=false
 
 [rounded-window-corners]
 black-list=['org.wezfurlong.wezterm']
@@ -98,7 +122,7 @@ border-width=1
 custom-rounded-corner-settings=@a{sv} {}
 enable-preferences-entry=true
 focused-shadow={'vertical_offset': 10, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 12, 'opacity': 72}
-global-rounded-corner-settings={'padding': <{'left': <uint32 0>, 'right': <uint32 0>, 'top': <uint32 0>, 'bottom': <uint32 0>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <false>}>, 'border_radius': <uint32 10>, 'smoothing': <uint32 1>, 'enabled': <true>}
+global-rounded-corner-settings={'padding': <{'left': <uint32 0>, 'right': <uint32 0>, 'top': <uint32 0>, 'bottom': <uint32 0>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <0.10000000000000001>, 'enabled': <true>}
 settings-version=uint32 5
 skip-libadwaita-app=false
 tweak-kitty-terminal=false
@@ -108,18 +132,22 @@ unfocused-shadow={'horizontal_offset': 0, 'vertical_offset': 2, 'blur_offset': 1
 active-workspace-font-size=14
 active-workspace-font-size-active=true
 active-workspace-font-size-user=14
+active-workspace-font-weight='700'
 active-workspace-padding-h=8
 active-workspace-padding-v=0
 empty-workspace-font-size=14
+empty-workspace-font-weight='700'
 empty-workspace-padding-h=8
 empty-workspace-padding-v=0
 inactive-workspace-font-size=14
+inactive-workspace-font-weight='700'
 inactive-workspace-padding-h=8
 inactive-workspace-padding-v=0
 workspace-margin=4
 workspaces-bar-padding=0
 
 [space-bar/behavior]
+indicator-style='workspaces-bar'
 position-index=0
 smart-workspace-names=false
 toggle-overview=false
@@ -127,6 +155,9 @@ toggle-overview=false
 [space-bar/shortcuts]
 enable-activate-workspace-shortcuts=true
 enable-move-to-workspace-shortcuts=false
+
+[user-theme]
+name=''
 
 [vitals]
 fixed-widths=false
