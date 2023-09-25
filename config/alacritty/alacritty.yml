@@ -1,36 +1,8 @@
 import:
   - ~/.config/alacritty/alacritty-keybinds.yml
+  - ~/.config/alacritty/green-on-black.yml
 env:
   TERM: 'alacritty'
-
-schemes:
-  graphite: &graphite
-    # Default colors
-    primary:
-      background: '#030303'
-      foreground: '#33DA7A'
-
-    # Normal colors
-    normal:
-      black:   '#171421'
-      red:     '#C01C28'
-      green:   '#26A269'
-      yellow:  '#A2734C'
-      blue:    '#12488B'
-      magenta: '#A347BA'
-      cyan:    '#2AA1B3'
-      white:   '#D0CFCC'
-
-    # Bright colors
-    bright:
-      black:   '#5E5C64'
-      red:     '#F66151'
-      green:   '#33DA7A'
-      yellow:  '#E9AD0C'
-      blue:    '#2A7BDE'
-      magenta: '#C061CB'
-      cyan:    '#33C7DE'
-      white:   '#FFFFFF'
 
 # Font settings
 font:
@@ -49,7 +21,7 @@ window:
         x: 12
         y: 12
     decorations: none
-    opacity: 0.90
+    opacity: .90
     startup_mode: Windowed
     position: 
         x: 0
@@ -62,6 +34,3 @@ cursor:
     thickness: 0.1
     blink_timeout: 0
     vi_mode_style: 'Block'
-
-# Graphite colourscheme
-colors: *graphite
