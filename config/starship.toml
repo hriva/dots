@@ -51,8 +51,9 @@ show_milliseconds = true
 format = '[ $duration](bg:#33658A)'
 
 [hostname]
-ssh_only = false
-format = "[$ssh_symbol](bold blue)[@$hostname]($style)"
+ssh_only = true
+ssh_symbol = '🌐'
+format = "[@$hostname]($style)"
 style = "bg:#3B4252"
 trim_at = ".companyname.com"
 disabled = false
@@ -97,7 +98,10 @@ style = "bg:#4C566A"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#86BBD8 fg:#33658A"
+style = "bg:#4C566A fg:#86BBD8"
+modified = ' !${count}'
+staged = ' +${count}'
+untracked = ' ?${count}'
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
