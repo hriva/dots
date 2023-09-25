@@ -31,3 +31,9 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+
+# If not already present, create home directories
+- create:
+    - ~/.bashrc.d
+    - ~/Code
+    - ~/Packages
