@@ -131,6 +131,7 @@ alias gd='cd $HOME/Descargas'
 alias gs='cd $HOME/DOTFILES'
 alias services='systemctl --type=service --state=running'
 alias flatpak-list='flatpak --columns=app,name,size list'
+alias elf='ps -elf'
 
 # Search running processes
 alias p="ps aux | grep "
@@ -198,6 +199,13 @@ alias fgovernor='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
 # CPU 
 alias governors='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors'
 alias alsa-cards='cat /proc/asound/cards'
+# Intel/AMD HWP performance, balance_performance, default, balance_power, power
+# https://wiki.archlinux.org/title/Power_management#Processors_with_Intel_HWP_(Intel_Hardware_P-state)_support
+alias epp-avaliable-policies='cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferences'
+alias epp-default-power='echo default | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
+alias epp-balance-power='echo balance_power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
+alias epp-prefer-power='echo power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
+
 
 # Conditional Aliases
 if whereis btrbk 2>&1 > /dev/null; then
@@ -213,19 +221,12 @@ if grep -q intel /proc/cpuinfo; then
     alias intel-epb-prefer-power='echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
     alias intel-epb-prefer-balance='echo 6 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
 
-    # Intel HWP performance, balance_performance, default, balance_power, power
-    # https://wiki.archlinux.org/title/Power_management#Processors_with_Intel_HWP_(Intel_Hardware_P-state)_support
-    alias intel-avaliable-policies='cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferences'
-    alias intel-default-power='echo default | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
-    alias intel-balance-power='echo balance_power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
-    alias intel-prefer-power='echo power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
-
 get_intel_energy () {
  cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq
  cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | uniq
 }
 
-elif grep -q amd /proc/cpuinfo; then
+elif grep -q AMD /proc/cpuinfo; then
     alias get-cpu-pref='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq' 
 fi
 
