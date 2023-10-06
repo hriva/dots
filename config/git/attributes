@@ -101,6 +101,17 @@ Dockerfile        text
 *.tsx             text
 *.xml             text
 *.xhtml           text diff=html
+*.Rdata						binary
+*.RData 					binary
+*.rda   					binary
+*.rdb   					binary
+*.rds   					binary
+*.Rd    					text
+*.Rdx   					binary
+*.Rmd	  					text
+*.R  	  					text
+*.Rproj 					text
+*.[Rr]md   				linguist-detectable
 
 
 AUTHORS           text
