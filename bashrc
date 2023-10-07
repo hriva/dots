@@ -61,21 +61,19 @@ case "$TERM" in
     [ -n "$ZSH_VERSION"  ] && precmd_functions+=(__vte_osc7)
     ;;
 esac
-
+#<---------------------------------------START--------------------------------------------->
 
 HISTIGNORE='rm *:svn revert*:source /home/*/devel-env/bin/activate:/home/*/devel-env/bin/python'
 HISTSIZE=10000
-HISTCONTROL=ignoredups:erasedups:ignorespace
+HISTCONTROL="ignoredups:erasedups:ignorespace"
 HISTFILESIZE=11000
 
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'} history -a; history -c; history -r"
 
-# When the shell exits, append to the history file instead of overwriting it
-shopt -s histappend
-
-# Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
-shopt -s checkwinsize
+shopt -s histappend # Append to the history file upon exit
+shopt -s checkwinsize # Check the window size after each command 
+shopt -s autocd # Enable auto cd by typing a dir
 
 # Enable bash programmable completion features in interactive shells
 if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -115,7 +113,7 @@ alias ls='exa -lr --icons --group-directories-first --sort name'
 alias la='exa -lar --icons --group-directories-first --sort name'
 alias lR='exa -larTR --icons --group-directories-first --sort name'
 alias docker='podman'
-alias ducks='du -cks * | sort -rn'
+alias ducks='du -cksh *'
 alias pkghist='rpm -qa --last | less'
 alias dt='date "+%Y%m%dT%H%M%S"'
 alias nbash='nvim ~/.bashrc'
@@ -132,6 +130,7 @@ alias gs='cd $HOME/DOTFILES'
 alias services='systemctl --type=service --state=running'
 alias flatpak-list='flatpak --columns=app,name,size list'
 alias elf='ps -elf'
+alias findme='nohup nautilus . 2>&1 > /dev/null &'
 
 # Search running processes
 alias p="ps aux | grep "
@@ -164,6 +163,7 @@ alias mx='chmod u+x'
 alias 000='chmod -R 000'
 alias 644='chmod -R 644'
 alias 666='chmod -R 666'
+alias 740='chmod -R 740'
 alias 750='chmod -R 750'
 alias 755='chmod -R 755'
 alias 777='chmod -R 777'
@@ -196,16 +196,15 @@ alias rmd='/bin/rm  --recursive --force --verbose '
 alias check-driver='lspci -nnk | grep -iA2 vga'
 alias fgovernor='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
 
-# CPU 
+# CPU https://docs.kernel.org/admin-guide/pm/working-state.html
 alias governors='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors'
 alias alsa-cards='cat /proc/asound/cards'
 # Intel/AMD HWP performance, balance_performance, default, balance_power, power
-# https://wiki.archlinux.org/title/Power_management#Processors_with_Intel_HWP_(Intel_Hardware_P-state)_support
 alias epp-avaliable-policies='cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferences'
 alias epp-default-power='echo default | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
 alias epp-balance-power='echo balance_power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
 alias epp-prefer-power='echo power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
-
+alias get-epp='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq' 
 
 # Conditional Aliases
 if whereis btrbk 2>&1 > /dev/null; then
@@ -221,13 +220,12 @@ if grep -q intel /proc/cpuinfo; then
     alias intel-epb-prefer-power='echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
     alias intel-epb-prefer-balance='echo 6 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
 
-get_intel_energy () {
- cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq
- cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | uniq
-}
-
-elif grep -q AMD /proc/cpuinfo; then
-    alias get-cpu-pref='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq' 
+	get_intel_energy () {
+	 cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq
+	 cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | uniq
+	}
+#elif grep -q AMD /proc/cpuinfo; then
+#    true
 fi
 
 # Nix aliases for Determinate Systems install if nix found
@@ -238,8 +236,6 @@ if whereis nix 2>&1 > /dev/null; then
     alias nix-list="nix profile list | grep 'Flake attribute' | awk '{print $3}'"
     alias nix-hist="nix profile history"
     alias nix-rollb="nix profile rollback"
-    #alias nix-install="nix profile install"
-    #alias nix-remove="nix profile remove"
 
     nix_install () {
         nix profile install nixpkgs\#"$1"
@@ -251,6 +247,11 @@ if whereis nix 2>&1 > /dev/null; then
 fi
 
 # Functions
+# Trap non zero errors
+EC() {
+	echo -e '\e[1;33m'code $?'\e[m\n'
+}
+trap EC ERR
 
 # Extracts any archive(s) (if unp isn't installed)
 extract () {
