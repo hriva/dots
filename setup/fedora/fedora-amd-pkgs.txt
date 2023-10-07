@@ -1,0 +1,3 @@
+mesa-va-drivers-freeworld
+mesa-vdpau-drivers-freeworld
+radeontop
