@@ -56,3 +56,4 @@ w3m-img
 wget
 xarchiver
 zlib-devel
+zoxide
