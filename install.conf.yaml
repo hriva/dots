@@ -11,7 +11,7 @@
     # Home
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
-    ~/.zshrc: zshrc
+    ~/.zshenv: zshenv
     ~/.vimrc: vimrc
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
 
@@ -24,10 +24,10 @@
     ~/.config/ranger/scope.sh: config/ranger/scope.sh
     ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
     ~/.config/kitty: config/kitty
-    ~/.config/evolution: config/evolution
     ~/.config/starship.toml: config/starship.toml
     ~/.config/nvim: config/nvim
     ~/.config/wezterm: config/wezterm
+    ~/.config/zsh : config/zsh
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
