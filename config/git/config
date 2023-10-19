@@ -26,7 +26,8 @@
 [alias]
 	force-pull = !"git fetch --all; git reset --hard HEAD; git merge @{u}"
  	stash-pull = !"git fetch --all; git stash; git merge @{u}; git stash pop"
- 	l = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+ 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    lg = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
     a = add
     c = commit --verbose -m
     cm = commit -m
@@ -37,4 +38,3 @@
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
     s = status -s
-
