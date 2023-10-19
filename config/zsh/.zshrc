@@ -16,6 +16,10 @@ setopt extendedglob notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats '%b '
+setopt PROMPT_SUBST
+
 #plugins
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -29,6 +33,11 @@ if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
+if [ -f $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
+  source $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+fi
+
+
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
@@ -38,17 +47,6 @@ export PATH
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
-
-# User specific aliases and functions
-if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
-fi
-
-unset rc
 
 __vte_urlencode() (
   # This is important to make sure string manipulation is handled
@@ -293,8 +291,13 @@ psg () {
     printf '\033[?7h' # prevent linewrap
 }
 
+precmd(){
+    vcs_info
+}
+
 # PROMT
-PROMPT='%n %~ %# '
+PROMPT='%n %~ ${vcs_info_msg_0_}
+%# '
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"

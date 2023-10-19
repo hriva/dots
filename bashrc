@@ -298,5 +298,5 @@ psg () {
     printf '\033[?7h' # prevent linewrap
 }
 
-
+eval "$(zoxide init bash)"
 eval "$(starship init bash)"
