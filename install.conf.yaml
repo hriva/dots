@@ -24,7 +24,7 @@
     ~/.config/ranger/scope.sh: config/ranger/scope.sh
     ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
     ~/.config/kitty: config/kitty
-    ~/.config/starship.toml: config/starship.toml
+    ~/.config/starship.toml: config/starship-themes/default.toml
     ~/.config/nvim: config/nvim
     ~/.config/wezterm: config/wezterm
     ~/.config/zsh : config/zsh
