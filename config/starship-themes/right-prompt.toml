@@ -24,8 +24,8 @@ $scala\
 $docker_context\
 [](fg:#06969A)\
 $fill[](fg:#33658A)\
-$time\
-[](bg:#33658A fg:#3B4252)$battery\
+$character\
+[](bg:#33658A fg:#3B4252)$time\
 [](fg:#3B4252)
 \\$ """
 
@@ -145,10 +145,10 @@ style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
 [time]
-disabled = false
+disabled = true
 time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[$time ]($style)'
+style = "bg:#3B4252"
+format = '[$time  ]($style)'
 
 [battery]
 disabled = false
@@ -159,3 +159,8 @@ format = '[$percentage]($style)'
 [[battery.display]]
 threshold = 78
 style = "bg:#3B4252"
+
+[character]
+format = '$symbol'
+success_symbol = '[ ](bold #33DA7A bg:#33658A)'
+error_symbol = '[✗ ](bold #F66151 bg:#33658A)'
