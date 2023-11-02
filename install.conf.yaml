@@ -28,6 +28,8 @@
     ~/.config/nvim: config/nvim
     ~/.config/wezterm: config/wezterm
     ~/.config/zsh : config/zsh
+    ~/.config/.curlrc : config/curlrc
+    ~/.config/.wgetrc : config/wgetrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
