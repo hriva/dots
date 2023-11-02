@@ -63,17 +63,17 @@ case "$TERM" in
 esac
 #<---------------------------------------START--------------------------------------------->
 
-HISTIGNORE='rm *:svn revert*:source /home/*/devel-env/bin/activate:/home/*/devel-env/bin/python'
+HISTCONTROL=ignoreboth:erasedups
+HISTIGNORE='cd:rm *:svn revert*:source /home/*/devel-env/bin/activate:/home/*/devel-env/bin/python'
 HISTSIZE=10000
-HISTCONTROL="ignoredups:erasedups:ignorespace"
 HISTFILESIZE=11000
-
-# After each command, append to the history file and reread it
-PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'} history -a; history -c; history -r"
 
 shopt -s histappend # Append to the history file upon exit
 shopt -s checkwinsize # Check the window size after each command 
 shopt -s autocd # Enable auto cd by typing a dir
+
+# After each command, append to the history file and reread it
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # Enable bash programmable completion features in interactive shells
 if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -94,6 +94,8 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 # vars
 export EDITOR=/usr/bin/nvim
+export WGETRC=$HOME/.config/.wgetrc
+export MOZ_ENABLE_WAYLAND=1
 
 # Color for manpages in less makes manpages a little easier to read
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -114,6 +116,7 @@ alias la='exa -lar --icons --group-directories-first --sort name'
 alias lR='exa -larTR --icons --group-directories-first --sort name'
 alias docker='podman'
 alias ducks='du -cksh *'
+alias usage='find . -maxdepth 1 -type d -exec du -shx {} \; | sort -hr'
 alias pkghist='rpm -qa --last | less'
 alias dt='date "+%Y%m%dT%H%M%S"'
 alias nbash='nvim ~/.bashrc'
