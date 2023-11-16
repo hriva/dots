@@ -1,8 +1,0 @@
-[/]
-active-hint-border-radius=uint32 1
-gap-inner=uint32 1
-gap-outer=uint32 1
-pop-workspace-down=@as []
-pop-workspace-up=@as []
-show-title=true
-tile-by-default=true

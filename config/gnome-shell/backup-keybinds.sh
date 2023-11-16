@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-dconf dump /org/gnome/shell/extensions/pop-shell/ > ~/DOTFILES/config/gnome-shell/keybinds-pop-shell.toml
+#dconf dump /org/gnome/shell/extensions/pop-shell/ > ~/DOTFILES/config/gnome-shell/keybinds-pop-shell.toml
+dconf dump /org/gnome/shell/extensions/forge/keybindings/ > ~/DOTFILES/config/gnome-shell/keybinds-forge.toml
 dconf dump /org/gnome/desktop/wm/keybindings/ > ~/DOTFILES/config/gnome-shell/keybinds-wm.toml
 dconf dump /org/gnome/mutter/keybindings/ > ~/DOTFILES/config/gnome-shell/keybinds-mutter.toml
 dconf dump /org/gnome/mutter/wayland/keybindings/ > ~/DOTFILES/config/gnome-shell/keybinds-mutter-wayland.toml
