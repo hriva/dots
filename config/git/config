@@ -37,7 +37,6 @@
 
     # list aliases
     la = "!git config -l | grep alias | cut -c 7-"
-    s = status -s
+    s = status -sb
     su = status -uno
-    sb = satus -sb
     R = ls-tree --full-tree --name-only -r HEAD
