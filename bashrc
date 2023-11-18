@@ -16,6 +16,12 @@ export PATH
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
 	for rc in ~/.bashrc.d/*; do
@@ -64,7 +70,7 @@ esac
 #<---------------------------------------START--------------------------------------------->
 
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE='cd:rm *:svn revert*:source /home/*/devel-env/bin/activate:/home/*/devel-env/bin/python'
+HISTIGNORE='cd:htop:rm *:svn revert*:source /home/*/devel-env/bin/activate:/home/*/devel-env/bin/python'
 HISTSIZE=10000
 HISTFILESIZE=11000
 
@@ -108,12 +114,12 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Aliases
 alias cdranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-#alias ll='ls -lh --color=always --group-directories-first'
-#alias la='ls -lah --color=always --group-directories-first'
-alias ll='exa -lar --icons --sort modified --group-directories-first --git'
-alias ls='exa -lr --icons --group-directories-first --sort name'
-alias la='exa -lar --icons --group-directories-first --sort name'
-alias lR='exa -larTR --icons --group-directories-first --sort name'
+alias ls='/usr/bin/ls -lhF --color=always --group-directories-first'
+alias la='/usr/bin/ls -alhF --color=always --group-directories-first'
+alias lm='/usr/bin/ls -alhF -t --color=always --group-directories-first'
+alias ll='exa -la --icons --group-directories-first'
+alias le='exa -l --icons --group-directories-first --sort name'
+alias lR='exa -laTR --icons --group-directories-first --sort name'
 alias docker='podman'
 alias ducks='du -cksh *'
 alias usage='find . -maxdepth 1 -type d -exec du -shx {} \; | sort -hr'
@@ -121,11 +127,7 @@ alias pkghist='rpm -qa --last | less'
 alias dt='date "+%Y%m%dT%H%M%S"'
 alias nbash='nvim ~/.bashrc'
 alias zps="ps aux | awk '$8 ~ /^[Zz]/'"
-alias gitstat='git status -uno'
-alias gitsb='git status -sb'
-alias diffside='diff --side-by-side --ignore-all-space'
-alias git-tree='git ls-tree --full-tree --name-only -r HEAD'
-alias glog='git log --pretty=oneline -n 20 --graph --abbrev-commit'
+alias diffside='diff --side-by-side --ignore-all-space --suppress-common-lines'
 alias gh='cd ~'
 alias gD='cd $HOME/Documentos'
 alias gd='cd $HOME/Descargas'
