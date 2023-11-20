@@ -15,13 +15,13 @@ font:
 # Window settings
 window:
     dimensions:
-      columns: 105
-      lines: 24
+      columns: 85
+      lines: 23
     padding:
         x: 12
         y: 12
     decorations: none
-    opacity: .90
+    opacity: .95
     startup_mode: Windowed
     position: 
         x: 0
