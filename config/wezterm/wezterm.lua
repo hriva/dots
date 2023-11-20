@@ -2,10 +2,11 @@
 local wezterm = require 'wezterm'
 local mux = wezterm.mux
 
-wezterm.on('gui-startup', function(cmd)
-  local tab, pane, window = mux.spawn_window(cmd or {})
-  window:gui_window():maximize()
-end)
+-- maximize window on statup
+-- wezterm.on('gui-startup', function(cmd)
+--   local tab, pane, window = mux.spawn_window(cmd or {})
+--   window:gui_window():maximize()
+-- end)
 
 local function font_with_fallback(name, params)
 	local names = { name, "Apple Color Emoji", "azuki_font" }
@@ -166,8 +167,8 @@ return {
 		top = 12,
 		bottom = 12,
 	},
-    initial_cols = 100,
-    --initial_rows = 24,
+    initial_cols = 90,
+    initial_rows = 22,
 
 	-- Tab Bar
 	enable_tab_bar = true,
