@@ -5,14 +5,17 @@ alacritty
 autoconf
 bash-doc
 bat
+blackbox-terminal
 btrbk
 bzip2-devel
 chkrootkit
 dconf-editor
+dnf-plugin-versionlock
 dnf-utils
 duf
 exa
 gnome-tweaks
+git-crypt
 git-gui
 clamav
 clamav-update
@@ -23,11 +26,13 @@ firewall-config
 fzf
 gedit
 git-delta
+git-lfs
 glib2-devel
+gnome-firmware
 gnome-shell-extension-appindicator
 gnome-shell-extension-caffeine
 gnome-shell-extension-just-perfection
-gnome-shell-extension-pop-shell
+gnome-shell-extension-forge
 gnome-shell-extension-user-theme
 gnome-tweaks
 gstreamer1-plugin-libav
@@ -38,6 +43,7 @@ libffi-devel
 libva
 libva-utils
 make
+ncdu
 neovim
 nvidia-vaapi-driver
 nvtop
@@ -50,6 +56,7 @@ ripgrep
 rkhunter
 sassc
 seahorse
+setroubleshoot-server
 trash-cli
 vdpauinfo
 w3m-img
@@ -57,3 +64,5 @@ wget
 xarchiver
 zlib-devel
 zoxide
+zsh
+zsh-autosuggestions
