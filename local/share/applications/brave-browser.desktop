@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=Brave VAAPI
+Name=Brave Vaapi
 # Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
 # From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
 GenericName=Web Browser
@@ -106,7 +106,7 @@ Comment[zh_CN]=访问互联网
 Comment[zh_HK]=連線到網際網路
 Comment[zh_TW]=連線到網際網路
 StartupWMClass=brave-browser
-Exec=env EGL_PLATFORM=x11 /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave --file-forwarding com.brave.Browser @@u %U @@ --use-gl=egl  --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecoder 
+Exec=env EGL_PLATFORM=x11 /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave --file-forwarding com.brave.Browser @@u %U @@ --enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoDecoder  --ignore-gpu-blocklist --enable-gpu-rasterization --enable-zero-copy --video-capture-use-gpu-memory-buffer --disable-features=UseChromeOSDirectVideoDecoder --ozone-platform-hint=x11
 Terminal=false
 Icon=com.brave.Browser
 Type=Application
@@ -167,7 +167,8 @@ Name[uk]=Нове вікно
 Name[vi]=Cửa sổ Mới
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=env EGL_PLATFORM=x11 /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave com.brave.Browser  --use-gl=egl  --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecoder
+Exec=env EGL_PLATFORM=x11 /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave com.brave.Browser --enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoDecoder  --ignore-gpu-blocklist --enable-gpu-rasterization --enable-zero-copy --video-capture-use-gpu-memory-buffer --disable-features=UseChromeOSDirectVideoDecoder --ozone-platform-hint=x11
+
 
 [Desktop Action new-private-window]
 Name=New Incognito Window
@@ -219,4 +220,4 @@ Name[uk]=Нове вікно в режимі анонімного перегля
 Name[vi]=Cửa sổ ẩn danh mới
 Name[zh_CN]=新建隐身窗口
 Name[zh_TW]=新增無痕式視窗
-Exec=env EGL_PLATFORM=x11 /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave com.brave.Browser  --use-gl=egl  --enable-features=VaapiVideoDecoder --disable-features=UseChromeOSDirectVideoDecoder --incognito
+Exec=env EGL_PLATFORM=x11 /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave com.brave.Browser --enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoDecoder  --ignore-gpu-blocklist --enable-gpu-rasterization --enable-zero-copy --video-capture-use-gpu-memory-buffer --disable-features=UseChromeOSDirectVideoDecoder --ozone-platform-hint=x11 --incognito
