@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=OneDrive
+GenericName=OneDrive
+Comment=OneDrive User Interface in Python
+Exec=OneDriveGUI.AppImage
+TryExec=OneDriveGUI.AppImage
+Icon=onedriver.svg
+Terminal=false
+Type=Application
+## States the categories in which this entry should be shown menu ##
+Categories=Utilities

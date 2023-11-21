@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Internxt Drive
+GenericName=Internxt
+Comment=Internxt Drive
+Exec=internxt-drive.AppImage
+TryExec=internxt-drive.AppImage
+Icon=Internxt.png
+Terminal=false
+Type=Application
+## States the categories in which this entry should be shown menu ##
+Categories=Utilities;Settngs;GTK;

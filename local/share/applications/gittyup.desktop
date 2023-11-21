@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Gittyup
+GenericName=Gittyup
+Comment=Graphical Git client designed to help you understand and manage your source code history
+Exec=gittyup.AppImage
+TryExec=gittyup.AppImage
+Icon=gittyup_logo.svg
+Terminal=false
+Type=Application
+## States the categories in which this entry should be shown menu ##
+Categories=Utilities
