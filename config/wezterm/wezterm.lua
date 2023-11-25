@@ -55,13 +55,13 @@ return {
 	-- Keybinds
 	disable_default_key_bindings = true,
 	 keys = {
-         --{
-             --key = "n",
-             --mods = "CTRL|SHIFT",
-             --action = wezterm.action.SpawnCommandInNewTab {
-             --args = {},
-             --},
-         --},
+         {
+             key = "n",
+             mods = "CTRL",
+             action = wezterm.action.SpawnCommandInNewWindow {
+             args = {},
+             },
+         },
 		{
 			key = [[/]],
 			mods = "CTRL",
@@ -141,11 +141,11 @@ return {
 			mods = "CTRL|SHIFT",
 			action = wezterm.action({ ActivateTabRelative = -1 }),
 		}, -- standard copy/paste bindings
-		{
-			key = "x",
-			mods = "CTRL",
-			action = "ActivateCopyMode",
-		},
+		-- {
+		-- 	key = "x",
+		-- 	mods = "CTRL",
+		-- 	action = "ActivateCopyMode",
+		-- },
 		{
 			key = "v",
 			mods = "CTRL|SHIFT",
