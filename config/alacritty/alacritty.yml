@@ -7,7 +7,7 @@ env:
 # Font settings
 font:
     normal:
-      family: JetBrainsMonoNL Nerd Font Mono
+      family: JetBrainsMonoNL Nerd Font Propo
     bold:
       style: SemiBold
     size: 16
