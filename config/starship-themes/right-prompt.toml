@@ -162,5 +162,5 @@ style = "bg:#3B4252"
 
 [character]
 format = '$symbol'
-success_symbol = '[ ](bold #33DA7A bg:#33658A)'
+success_symbol = '[󰄬 ](bold #33DA7A bg:#33658A)'
 error_symbol = '[✗ ](bold #F66151 bg:#33658A)'
