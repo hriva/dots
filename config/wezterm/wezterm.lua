@@ -13,7 +13,7 @@ local function font_with_fallback(name, params)
 	return wezterm.font_with_fallback(names, params)
 end
 
---local font_name = "FiraCode NFM"
+-- local font_name = "SF Mono"
 local colors = require('lua/green-on-black').colors()
 local window_frame = require('lua/green-on-black').window_frame()
 
@@ -28,7 +28,11 @@ return {
 	-- Font config
 	font = font_with_fallback(font_name),
 	font_rules = {
-		{
+		-- {
+		-- 	regular = true,
+		-- 	font = font_with_fallback(font_name, { regular = true }),
+		-- },
+    {
 			italic = true,
 			font = font_with_fallback(font_name, { italic = true }),
 		},
