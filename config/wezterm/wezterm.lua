@@ -26,23 +26,22 @@ return {
 	window_frame = window_frame, -- needed only if using fancy tab bar
 
 	-- Font config
-	font = font_with_fallback(font_name),
+	font = font_with_fallback(
+    font_name,
+    {weight="Regular", stretch="Normal", style="Normal", bold = false}),
+
 	font_rules = {
-		-- {
-		-- 	regular = true,
-		-- 	font = font_with_fallback(font_name, { regular = true }),
-		-- },
     {
 			italic = true,
 			font = font_with_fallback(font_name, { italic = true }),
 		},
 		{
 			italic = false,
-			font = font_with_fallback(font_name, { bold = true }),
+			font = font_with_fallback(font_name, { bold = false }),
 		},
 		{
-			intensity = "Half",
-			font = font_with_fallback(font_name, { bold = false }),
+			intensity = "Normal",
+			font = font_with_fallback(font_name, {weight='Regular', bold = false }),
 		},
 	},
 	warn_about_missing_glyphs = false,
