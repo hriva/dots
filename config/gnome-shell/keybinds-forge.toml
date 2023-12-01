@@ -1,7 +1,7 @@
 [/]
 con-split-horizontal=['<Super>z']
 con-split-layout-toggle=['<Super>g']
-con-split-vertical=['<Super>v']
+con-split-vertical=@as []
 con-stacked-layout-toggle=@as []
 con-tabbed-layout-toggle=['<Shift><Super>t']
 con-tabbed-showtab-decoration-toggle=['<Control><Alt>y']
