@@ -1,5 +1,4 @@
 [/]
-begin-move=['<Super>Return']
 close=['<Super>q']
 minimize=['<Super>comma']
 move-to-monitor-down=@as []
