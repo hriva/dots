@@ -6,4 +6,3 @@ gap-outer=uint32 1
 show-title=true
 snap-to-grid=true
 tile-by-default=true
-toggle-stacking-global=['<Super>s']
