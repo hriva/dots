@@ -121,12 +121,12 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Aliases
 alias cdranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias ls='/usr/bin/ls -lhF --color=always --group-directories-first'
+alias l='/usr/bin/ls -lhF --color=always --group-directories-first'
 alias la='/usr/bin/ls -alhF --color=always --group-directories-first'
 alias lm='/usr/bin/ls -alhF -t --color=always --group-directories-first'
-alias ll='exa -la --icons --group-directories-first'
-alias le='exa -l --icons --group-directories-first --sort name'
-alias lR='exa -laTR --icons --group-directories-first --sort name'
+alias le='eza -la --icons --group-directories-first --sort name'
+alias lz='eza -l --icons --group-directories-first --sort name'
+alias lR='eza -laTR --icons --group-directories-first --sort name'
 alias docker='podman'
 alias ducks='du -cksh *'
 alias usage='find . -maxdepth 1 -type d -exec du -shx {} \; | sort -hr'
@@ -213,31 +213,11 @@ alias governors='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_gove
 alias alsa-cards='cat /proc/asound/cards'
 # Intel/AMD HWP performance, balance_performance, default, balance_power, power
 alias epp-avaliable-policies='cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferences'
-alias epp-default-power='echo default | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
-alias epp-balance-power='echo balance_power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
-alias epp-prefer-power='echo power | sudo tee /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference'
 alias get-epp='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq' 
 
 # Conditional Aliases
 if whereis btrbk 2>&1 > /dev/null; then
 	alias baks='sudo btrbk list snapshots'
-fi
-
-# CPU Specific tweaks
-if grep -q intel /proc/cpuinfo; then
-    # Intel Performance Bias (EPB)
-    # EPB vales 0,4,6,8,15 for performance, balance-performance, normal default, balance-power, power
-    # https://wiki.archlinux.org/title/CPU_frequency_scaling#Intel_performance_and_energy_bias_hint
-    alias intel-epb-balance-power='echo 8 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
-    alias intel-epb-prefer-power='echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
-    alias intel-epb-prefer-balance='echo 6 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias'
-
-	get_intel_energy () {
-	 cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq
-	 cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | uniq
-	}
-#elif grep -q AMD /proc/cpuinfo; then
-#    true
 fi
 
 # Nix aliases for Determinate Systems install if nix found
