@@ -24,10 +24,9 @@ $scala\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
 [](fg:#06969A)\
-$fill[](fg:#33658A)\
-$character\
-[](bg:#33658A fg:#3B4252)$time\
-[](fg:#3B4252)
+$fill\
+$time\
+$battery
 \\$ """
 
 # Timeout for commands executed by starship (in milliseconds).
@@ -38,7 +37,7 @@ add_newline = false
 
 [fill]
 symbol = ' '
-disabled = false
+disabled = true
 
 # You can also replace your username with a neat symbol like  to save some space
 [username]
@@ -63,16 +62,18 @@ disabled = false
 [directory]
 style = "bg:#434C5E"
 format = "[ $path ]($style)"
-truncation_length = 1
+truncation_length = 2 
 truncation_symbol = "…/"
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
-"Documents" = " "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+"Documentos" = "󰈙 "
+"Descargas" = " "
+"Música" = " "
+"Imágenes" = " "
+".config" = " "
+"onedrive" = "󰅟 "
 # Keep in mind that the order matters. For example:
 # "Important Documents" = "  "
 # will not be replaced, because "Documents" was already substituted before.
@@ -145,7 +146,7 @@ style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
-symbol = "👾 "
+symbol = " "
 style = "bg:#86BBD8"
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
@@ -157,20 +158,15 @@ format = '[ $symbol ($version) ]($style)'
 [time]
 disabled = true
 time_format = "%R" # Hour:Minute Format
-style = "bg:#3B4252"
-format = '[$time  ]($style)'
+#style = "bg:#33658A"
+format = '[$time ]($style)'
 
 [battery]
-disabled = false
-discharging_symbol = ''
-unknown_symbol = ''
-format = '[$percentage]($style)'
+disabled = true
+#discharging_symbol = '󰂂'
+#unknown_symbol = ''
+format = '[$symbol$percentage]($style)'
 
 [[battery.display]]
 threshold = 78
-style = "bg:#3B4252"
-
-[character]
-format = '$symbol'
-success_symbol = '[󰄬 ](bold #33DA7A bg:#33658A)'
-error_symbol = '[✗ ](bold #F66151 bg:#33658A)'
+#style = "bg:#3B4252"
