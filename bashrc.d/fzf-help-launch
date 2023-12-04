@@ -1,0 +1,2 @@
+source /usr/share/fzf-help/fzf-help.bash
+bind -x '"\C-h": fzf-help-widget'
