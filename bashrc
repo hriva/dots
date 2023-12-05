@@ -135,7 +135,8 @@ alias gs='cd $HOME/DOTFILES'
 alias services='systemctl --type=service --state=running'
 alias flatpak-list='flatpak --columns=app,name,size list'
 alias elf='ps -elf'
-alias findme='nohup nautilus . 2>&1 > /dev/null &'
+alias findme='xdg-open .' # Use mime app
+alias kat='bat --plain'
 
 # Search running processes
 alias p="ps aux | grep "
@@ -215,10 +216,10 @@ fi
 
 # Nix aliases for Determinate Systems install if nix found
 if whereis nix 2>&1 > /dev/null; then
-    alias nix-upgrade="sudo -i sh -c 'nix upgrade-nix'"
+    alias nix-upgrade="sudo -i nix upgrade-nix"
     alias nix-update="nix profile upgrade '.*'"
     alias nix-search="nix search nixpkgs"
-    alias nix-list="nix profile list | grep 'Flake attribute' | awk '{print $3}'"
+    alias nix-list="nix profile list | grep 'Flake attribute' | cut -d ':' -f 2"
     alias nix-hist="nix profile history"
     alias nix-rollb="nix profile rollback"
 
