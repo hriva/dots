@@ -60,7 +60,7 @@ return {
 	 keys = {
          {
              key = "n",
-             mods = "CTRL",
+             mods = "CTRL|SHIFT",
              action = wezterm.action.SpawnCommandInNewWindow {
              args = {},
              },

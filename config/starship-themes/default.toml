@@ -30,7 +30,7 @@ $battery
 \\$ """
 
 # Timeout for commands executed by starship (in milliseconds).
-command_timeout = 1200
+command_timeout = 3000
 
 # Disable the blank line at the start of the prompt
 add_newline = false
