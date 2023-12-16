@@ -136,7 +136,7 @@ alias services='systemctl --type=service --state=running'
 alias flatpak-list='flatpak --columns=app,name,size list'
 alias elf='ps -elf'
 alias findme='xdg-open .' # Use mime app
-alias kat='bat --plain'
+alias kat='bat --plain --paging=always'
 
 # Search running processes
 alias p="ps aux | grep "
