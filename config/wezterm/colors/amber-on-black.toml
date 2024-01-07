@@ -1,0 +1,12 @@
+# amber-on-black
+[colors]
+#foreground = "#FF6306"
+foreground = "#b98000"
+background = "#030303"
+#cursor_bg = "#524f67"
+#cursor_border = "#524f67"
+#cursor_fg = "#e0def4"
+#selection_bg = "#2a283e"
+#selection_fg = "#e0def4"
+ansi = ['#171421','#C01C28','#26A269','#A2734C','#12488B','#A347BA','#2AA1B3','#D0CFCC']
+brights = ['#5E5C64','#F66151','#33DA7A','#E9AD0C','#2A7BDE','#C061CB','#33C7DE','#FFFFFF']

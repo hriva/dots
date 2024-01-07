@@ -122,7 +122,7 @@ alias lz='eza -l --icons --group-directories-first --sort name'
 alias lR='eza -laTR --icons --group-directories-first --sort name'
 alias docker='podman'
 alias ducks='du -cksh *'
-alias usage='find . -maxdepth 1 -type d -exec du -shx {} \; | sort -hr'
+# alias usage='find . -maxdepth 1 -type d -exec du -shx {} \; | sort -hr'
 alias pkghist='rpm -qa --last | less'
 alias dt='date "+%Y%m%dT%H%M%S"'
 alias nbash='nvim ~/.bashrc'
@@ -238,6 +238,11 @@ EC() {
 	echo -e '\e[1;33m'code $?'\e[m\n'
 }
 trap EC ERR
+
+# Get path usage
+usage() {
+  find ${1:-.} -maxdepth 1 -type d -exec du -shx {} \; | sort -hr
+}
 
 # Extracts any archive(s) (if unp isn't installed)
 extract () {
