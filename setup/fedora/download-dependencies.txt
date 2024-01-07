@@ -1,0 +1,5 @@
+"JetBrainsMono.tar.xz" https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+"OneDriveGUI.AppImage" https://github.com/bpozdena/OneDriveGUI/releases/latest/download/OneDriveGUI-*-x86_64.AppImage
+"ubuntu-fonts.zip" https://assets.ubuntu.com/v1/0cef8205-ubuntu-font-family-0.83.zip
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+

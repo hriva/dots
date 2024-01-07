@@ -1,0 +1,6 @@
+gnome-characters
+gnome-font-viewer
+gnome-shell-extension-launch-new-instance
+gnome-photos
+gnome-shell-extension-window-list
+braille-printer-app
