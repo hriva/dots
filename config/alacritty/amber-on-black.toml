@@ -1,9 +1,11 @@
-# Green on Black scheme
+
+# Amber on Black scheme
 colors: 
   # Default colors
   primary:
     background: '#030303'
-    foreground: '#33DA7A'
+    foreground: '#FF9400'
+      # foreground: '#b98000'
 
   # Normal colors
   normal:

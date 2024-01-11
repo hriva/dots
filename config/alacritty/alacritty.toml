@@ -1,0 +1,38 @@
+import = ["/home/alquimista/.config/alacritty/alacritty-keybinds.toml", "/home/alquimista/.config/alacritty/cyan-on-black.toml"]
+
+[cursor]
+blink_timeout = 0
+thickness = 0.1
+vi_mode_style = "Block"
+
+[cursor.style]
+blinking = "Always"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 16
+
+[font.bold]
+style = "SemiBold"
+
+[font.normal]
+family = "SFMono Nerd Font Mono Plus Octicons"
+
+[window]
+decorations = "none"
+opacity = 1.0
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 85
+lines = 23
+
+[window.padding]
+x = 12
+y = 12
+
+[window.position]
+x = 0
+y = 0

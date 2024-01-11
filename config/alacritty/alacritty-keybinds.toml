@@ -1,0 +1,36 @@
+[[keyboard.bindings]]
+action = "None"
+key = "N"
+mode = "Vi|~Search"
+
+[[keyboard.bindings]]
+action = "None"
+key = "N"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "None"
+key = "N"
+mode = "Search"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Control|Alt"
