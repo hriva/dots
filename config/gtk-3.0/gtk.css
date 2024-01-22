@@ -2,8 +2,8 @@
 
 button.titlebutton { /* GTK3 */
   color: transparent;
-  min-width: 18px;
-  min-height: 18px;
+  min-width: 8px;
+  min-height: 8px;
 }
 button.titlebutton:backdrop {
   opacity: 0.5;
