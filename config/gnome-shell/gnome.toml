@@ -1,0 +1,552 @@
+[Connections]
+first-run=false
+
+[Disks]
+image-dir-uri='file:///home/alquimista/Documentos'
+
+[TextEditor]
+custom-font='JetBrainsMonoNL Nerd Font 13'
+highlight-current-line=true
+restore-session=false
+show-line-numbers=true
+use-system-font=false
+
+[Totem]
+active-plugins=['vimeo', 'variable-rate', 'skipto', 'screenshot', 'screensaver', 'save-file', 'rotation', 'recent', 'movie-properties', 'open-directory', 'mpris', 'autoload-subtitles', 'apple-trailers']
+subtitle-encoding='UTF-8'
+
+[baobab/ui]
+active-chart='rings'
+is-maximized=false
+window-size=(1912, 1040)
+
+[calculator]
+accuracy=9
+angle-units='degrees'
+base=10
+button-mode='basic'
+number-format='automatic'
+show-thousands=false
+show-zeroes=false
+source-currency=''
+source-units='degree'
+target-currency=''
+target-units='radian'
+window-maximized=false
+window-size=(402, 514)
+word-size=64
+
+[cheese]
+burst-delay=1000
+
+[control-center]
+last-panel='wifi'
+window-state=(954, 1040, false)
+
+[desktop/a11y/magnifier]
+mag-factor=8.0
+
+[desktop/app-folders]
+folder-children=['Utilities', 'YaST', 'ee4f2c53-04fe-437c-8663-a1b3f742609c']
+
+[desktop/app-folders/folders/Utilities]
+apps=['org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Evince.desktop', 'org.gnome.eog.desktop', 'simple-scan.desktop', 'htop.desktop', 'org.gnome.Logs.desktop', 'org.gnome.Characters.desktop', 'org.gnome.font-viewer.desktop', 'org.freedesktop.GnomeAbrt.desktop', 'yelp.desktop', 'org.gnome.Cheese.desktop', 'chkrootkit.desktop', 'org.gnome.Extensions.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[desktop/app-folders/folders/ee4f2c53-04fe-437c-8663-a1b3f742609c]
+apps=['libreoffice-impress.desktop', 'libreoffice-calc.desktop', 'libreoffice-writer.desktop']
+name='Oficina'
+
+[desktop/background]
+color-shading-type='solid'
+picture-options='zoom'
+picture-uri='file:///home/alquimista/.local/share/backgrounds/2023-09-24-22-52-31-wallhaven-e76pew.png'
+picture-uri-dark='file:///home/alquimista/.local/share/backgrounds/2023-09-24-22-52-31-wallhaven-e76pew.png'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
+[desktop/input-sources]
+current=uint32 0
+mru-sources=[('xkb', 'us'), ('xkb', 'latam')]
+sources=[('xkb', 'us'), ('xkb', 'latam')]
+xkb-options=@as []
+
+[desktop/interface]
+clock-show-weekday=false
+color-scheme='prefer-dark'
+cursor-theme='Yaru'
+document-font-name='Liberation Sans 13'
+enable-animations=true
+enable-hot-corners=false
+font-antialiasing='grayscale'
+font-hinting='slight'
+font-name='Liberation Sans 13'
+gtk-theme='adw-gtk3-dark'
+icon-theme='MoreWaita'
+monospace-font-name='SFMono Nerd Font Mono Plus Octicons 12'
+show-battery-percentage=true
+text-scaling-factor=1.2
+toolkit-accessibility=false
+
+[desktop/notifications]
+application-children=['gnome-power-panel', 'org-gnome-nautilus', 'rog-control-center', 'org-gnome-texteditor', 'org-freedesktop-problems-applet', 'org-gnome-terminal', 'org-gnome-software', 'com-raggesilver-blackbox', 'gnome-network-panel', 'org-gnome-extensions-desktop', 'org-mozilla-thunderbird', 'gnome-printers-panel']
+
+[desktop/notifications/application/com-raggesilver-blackbox]
+application-id='com.raggesilver.BlackBox.desktop'
+
+[desktop/notifications/application/gnome-network-panel]
+application-id='gnome-network-panel.desktop'
+
+[desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[desktop/notifications/application/gnome-printers-panel]
+application-id='gnome-printers-panel.desktop'
+
+[desktop/notifications/application/org-freedesktop-problems-applet]
+application-id='org.freedesktop.problems.applet.desktop'
+
+[desktop/notifications/application/org-gnome-extensions-desktop]
+application-id='org.gnome.Extensions.desktop.desktop'
+
+[desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
+[desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[desktop/notifications/application/org-gnome-terminal]
+application-id='org.gnome.Terminal.desktop'
+
+[desktop/notifications/application/org-gnome-texteditor]
+application-id='org.gnome.TextEditor.desktop'
+
+[desktop/notifications/application/org-mozilla-thunderbird]
+application-id='org.mozilla.Thunderbird.desktop'
+
+[desktop/notifications/application/rog-control-center]
+application-id='rog-control-center.desktop'
+
+[desktop/peripherals/keyboard]
+numlock-state=true
+
+[desktop/peripherals/touchpad]
+speed=0.15190311418685112
+tap-to-click=true
+two-finger-scrolling-enabled=true
+
+[desktop/privacy]
+old-files-age=uint32 30
+recent-files-max-age=-1
+report-technical-problems=true
+
+[desktop/screensaver]
+color-shading-type='solid'
+lock-enabled=true
+picture-options='zoom'
+picture-uri='file:///home/alquimista/.local/share/backgrounds/2023-09-24-22-52-31-wallhaven-e76pew.png'
+primary-color='#000000000000'
+secondary-color='#000000000000'
+
+[desktop/session]
+idle-delay=uint32 0
+
+[desktop/sound]
+allow-volume-above-100-percent=true
+
+[desktop/wm/keybindings]
+close=['<Super>q']
+minimize=['<Super>comma']
+move-to-monitor-down=@as []
+move-to-monitor-right=@as []
+move-to-monitor-up=@as []
+move-to-workspace-left=['<Alt><Super>k']
+move-to-workspace-right=['<Alt><Super>j']
+switch-to-workspace-left=['<Alt><Super>h']
+switch-to-workspace-right=['<Alt><Super>l']
+
+[desktop/wm/preferences]
+button-layout='appmenu:minimize,maximize,close'
+titlebar-font='Liberation Sans 13'
+
+[eog/ui]
+sidebar=false
+
+[evince]
+document-directory=@ms 'file:///home/alquimista/Internxt'
+
+[evince/default]
+continuous=true
+dual-page=false
+dual-page-odd-left=false
+enable-spellchecking=true
+fullscreen=false
+inverted-colors=true
+show-sidebar=false
+sidebar-page='thumbnails'
+sidebar-size=60
+sizing-mode='free'
+window-ratio=(1.5445264019986042, 1.0855043873373575)
+zoom=0.36909860121084181
+
+[evolution-data-server]
+migrated=true
+
+[gedit/plugins]
+active-plugins=['git', 'codecomment', 'spell', 'sort', 'quickhighlight', 'modelines', 'filebrowser', 'docinfo']
+
+[gedit/plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/alquimista/DOTFILES/setup/fedora'
+
+[gedit/preferences/editor]
+editor-font='JetBrainsMono Nerd Font 13'
+scheme='oblivion'
+tabs-size=uint32 2
+use-default-font=false
+wrap-last-split-mode='word'
+
+[gedit/state/file-chooser]
+open-recent=true
+
+[gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(954, 469)
+state=87168
+
+[gnome-system-monitor]
+current-tab='processes'
+maximized=false
+network-total-in-bits=false
+show-dependencies=false
+show-whose-processes='all'
+window-state=(1912, 1040, 35, 32)
+
+[gnome-system-monitor/disktreenew]
+col-1-visible=true
+col-1-width=291
+col-2-visible=true
+col-2-width=73
+col-3-visible=true
+col-3-width=93
+col-5-visible=true
+col-5-width=116
+col-6-visible=true
+col-6-width=1239
+columns-order=[0, 1, 2, 3, 4, 5, 6]
+sort-col=0
+sort-order=0
+
+[gnome-system-monitor/proctree]
+columns-order=[0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+sort-col=8
+sort-order=0
+
+[login-screen]
+enable-fingerprint-authentication=true
+enable-password-authentication=true
+enable-smartcard-authentication=false
+
+[mutter]
+dynamic-workspaces=false
+edge-tiling=false
+
+[mutter/wayland/keybindings]
+restore-shortcuts=@as []
+
+[nautilus/icon-view]
+captions=['size', 'owner', 'none']
+
+[nautilus/list-view]
+default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'date_created', 'recency', 'detailed_type']
+default-visible-columns=['name', 'size', 'date_modified']
+default-zoom-level='small'
+
+[nautilus/preferences]
+default-folder-viewer='list-view'
+migrated-gtk-settings=true
+search-filter-time-type='last_modified'
+search-view='list-view'
+show-create-link=true
+show-delete-permanently=true
+
+[nautilus/window-state]
+initial-size=(1912, 1040)
+maximized=false
+
+[nm-applet/eap/0e06e6ec-687e-4604-b5a0-5fa40abcd8b4]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[nm-applet/eap/0f4f53e0-8081-49f8-ad37-448854f2bc0b]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[nm-applet/eap/a60fa55a-93b9-4372-9849-0a247ed85f51]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[nm-applet/eap/e4b1fee3-a394-4b0b-baae-6bab20269282]
+ignore-ca-cert=false
+ignore-phase2-ca-cert=false
+
+[portal/filechooser/com.belmoussaoui.Authenticator]
+last-folder-path='/home/alquimista/Descargas'
+
+[portal/filechooser/com.brave.Browser]
+last-folder-path='/home/alquimista/Onedrive/Documentos/Ehecatl/BigID/data_sources/bank-acc-mx'
+
+[portal/filechooser/com.visualstudio.code]
+last-folder-path='/home/alquimista/Code/.devel-venv/bin'
+
+[portal/filechooser/fr.romainvigier.MetadataCleaner]
+last-folder-path='/home/alquimista/Descargas'
+
+[portal/filechooser/md.obsidian.Obsidian]
+last-folder-path='/home/alquimista/Obsidian'
+
+[portal/filechooser/org.mozilla.Thunderbird]
+last-folder-path='/home/alquimista/Onedrive/Documentos/Ehecatl/BigID/regex/S8'
+
+[settings-daemon/plugins/color]
+night-light-enabled=true
+night-light-schedule-automatic=false
+night-light-schedule-from=0.0
+night-light-schedule-to=0.0
+night-light-temperature=uint32 4032
+
+[settings-daemon/plugins/media-keys]
+control-center=['<Super>F1']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
+help=@as []
+home=['<Super>f']
+logout=@as []
+screensaver=['<Super>Escape']
+www=['<Super>b']
+
+[settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Super>u'
+command='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=wezterm org.wezfurlong.wezterm start --cwd .'
+name='wezterm'
+
+[settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Super>i'
+command='/usr/bin/alacritty'
+name='alacritty'
+
+[settings-daemon/plugins/media-keys/custom-keybindings/custom2]
+binding='<Super>t'
+command='blackbox-terminal'
+name='blackbox'
+
+[shell]
+app-picker-layout=[{'org.gnome.Contacts.desktop': <{'position': <0>}>, 'org.gnome.Calendar.desktop': <{'position': <1>}>, 'org.gnome.Calculator.desktop': <{'position': <2>}>, 'com.belmoussaoui.Authenticator.desktop': <{'position': <3>}>, 'com.bitwarden.desktop.desktop': <{'position': <4>}>, 'ee4f2c53-04fe-437c-8663-a1b3f742609c': <{'position': <5>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <6>}>, 'org.gnome.Settings.desktop': <{'position': <7>}>, 'ca.desrt.dconf-editor.desktop': <{'position': <8>}>, 'io.github.mrvladus.List.desktop': <{'position': <9>}>, 'org.gnome.TextEditor.desktop': <{'position': <10>}>, 'com.github.tchx84.Flatseal.desktop': <{'position': <11>}>, 'nvidia-settings.desktop': <{'position': <12>}>, 'org.gnome.gedit.desktop': <{'position': <13>}>, 'md.obsidian.Obsidian.desktop': <{'position': <14>}>, 'git-gui.desktop': <{'position': <15>}>, 'Utilities': <{'position': <16>}>, 'rog-control-center.desktop': <{'position': <17>}>, 'brave-browser.desktop': <{'position': <18>}>, 'onedrive.desktop': <{'position': <19>}>, 'firewall-config.desktop': <{'position': <20>}>, 'org.cryptomator.Cryptomator.desktop': <{'position': <21>}>, 'dk.yumex.Yumex.desktop': <{'position': <22>}>, 'com.github.rafostar.Clapper.desktop': <{'position': <23>}>}, {'Internxt.desktop': <{'position': <0>}>, 'gnome-system-monitor.desktop': <{'position': <1>}>, 'mpv.desktop': <{'position': <2>}>, 'nvim.desktop': <{'position': <3>}>, 'nvtop.desktop': <{'position': <4>}>, 'io.podman_desktop.PodmanDesktop.desktop': <{'position': <5>}>, 'ranger.desktop': <{'position': <6>}>, 'org.gnome.clocks.desktop': <{'position': <7>}>, 'org.gnome.Rhythmbox3.desktop': <{'position': <8>}>, 'org.gnome.Terminal.desktop': <{'position': <9>}>, 'firefox.desktop': <{'position': <10>}>, 'org.gnome.Totem.desktop': <{'position': <11>}>, 'io.github.jeffshee.Hidamari.desktop': <{'position': <12>}>, 'xarchiver.desktop': <{'position': <13>}>, 'org.gnome.Firmware.desktop': <{'position': <14>}>, 'gittyup.desktop': <{'position': <15>}>, 'Alacritty.desktop': <{'position': <16>}>, 'brave-mieeeicebdcmkffkjflneedodiidgpfp-Default.desktop': <{'position': <17>}>, 'virt-manager.desktop': <{'position': <18>}>, 'remote-viewer.desktop': <{'position': <19>}>, 'fr.romainvigier.MetadataCleaner.desktop': <{'position': <20>}>}]
+command-history=['gnome-session-properties']
+disabled-extensions=['background-logo@fedorahosted.org', 'AlphabeticalAppGrid@stuarthayhurst', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'forge@jmmaranan.com']
+enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'caffeine@patapon.info', 'just-perfection-desktop@just-perfection', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'blur-my-shell@aunetx', 'dash-to-dock@micxgx.gmail.com', 'batterytime@typeof.pw', 'pop-shell@system76.com', 'rounded-window-corners@yilozt', 'Vitals@CoreCoding.com', 'Bluetooth-Battery-Meter@maniacx.github.com']
+favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Software.desktop', 'com.raggesilver.BlackBox.desktop', 'org.wezfurlong.wezterm.desktop', 'org.mozilla.Thunderbird.desktop']
+last-selected-power-profile='power-saver'
+welcome-dialog-last-shown-version='44.2'
+
+[shell/extensions/Bluetooth-Battery-Meter]
+enable-battery-level-icon=false
+enable-battery-level-text=true
+
+[shell/extensions/alphabetical-app-grid]
+sort-folder-contents=false
+
+[shell/extensions/caffeine]
+countdown-timer=0
+duration-timer=1
+indicator-position=1
+indicator-position-index=5
+indicator-position-max=2
+restore-state=true
+toggle-state=true
+user-enabled=true
+
+[shell/extensions/dash-to-dock]
+apply-custom-theme=true
+background-color='rgb(128,128,128)'
+background-opacity=0.80000000000000004
+custom-background-color=true
+custom-theme-shrink=true
+dash-max-icon-size=64
+disable-overview-on-startup=true
+dock-position='BOTTOM'
+height-fraction=0.90000000000000002
+hide-delay=0.050000000000000017
+hot-keys=false
+intellihide-mode='ALL_WINDOWS'
+middle-click-action='minimize'
+preferred-monitor=-2
+preferred-monitor-by-connector='eDP-1'
+pressure-threshold=50.0
+shift-click-action='launch'
+shift-middle-click-action='launch'
+show-apps-always-in-the-edge=true
+show-apps-at-top=true
+show-icons-emblems=false
+
+[shell/extensions/forge]
+css-last-update=uint32 37
+css-updated='1700853935151'
+float-always-on-top-enabled=false
+focus-border-toggle=false
+preview-hint-enabled=false
+showtab-decoration-enabled=true
+stacked-tiling-mode-enabled=false
+tiling-mode-enabled=false
+window-gap-hidden-on-single=false
+window-gap-size=uint32 1
+window-gap-size-increment=uint32 1
+
+[shell/extensions/forge/keybindings]
+con-split-horizontal=['<Super>z']
+con-split-layout-toggle=['<Super>g']
+con-split-vertical=@as []
+con-stacked-layout-toggle=@as []
+con-tabbed-layout-toggle=['<Super>s']
+con-tabbed-showtab-decoration-toggle=['<Control><Alt>y']
+focus-border-toggle=['<Super>x']
+prefs-tiling-toggle=['<Super>y']
+window-focus-down=['<Super>j']
+window-focus-left=['<Super>h']
+window-focus-right=['<Super>l']
+window-focus-up=['<Super>k']
+window-gap-size-decrease=['<Control><Super>minus']
+window-gap-size-increase=['<Control><Super>plus']
+window-move-down=['<Shift><Super>j']
+window-move-left=['<Shift><Super>h']
+window-move-right=['<Shift><Super>l']
+window-move-up=['<Shift><Super>k']
+window-resize-bottom-decrease=['<Alt><Super>i']
+window-resize-bottom-increase=['<Control><Super>u']
+window-resize-left-decrease=['<Alt><Super>o']
+window-resize-left-increase=['<Control><Super>y']
+window-resize-right-decrease=['<Alt><Super>y']
+window-resize-right-increase=['<Control><Super>o']
+window-resize-top-decrease=['<Alt><Super>u']
+window-resize-top-increase=['<Control><Super>i']
+window-snap-center=@as []
+window-snap-one-third-left=@as []
+window-snap-one-third-right=@as []
+window-snap-two-third-left=@as []
+window-snap-two-third-right=@as []
+window-swap-down=['<Control><Super>j']
+window-swap-last-active=['<Super>Return']
+window-swap-left=['<Control><Super>h']
+window-swap-right=['<Control><Super>l']
+window-swap-up=['<Control><Super>k']
+window-toggle-always-float=['<Shift><Super>c']
+window-toggle-float=['<Control><Super>c']
+workspace-active-tile-toggle=@as []
+
+[shell/extensions/just-perfection]
+accessibility-menu=false
+activities-button=true
+app-menu=false
+app-menu-icon=true
+background-menu=true
+controls-manager-spacing-size=22
+dash=true
+dash-icon-size=0
+double-super-to-appgrid=true
+keyboard-layout=true
+osd=true
+panel=true
+panel-button-padding-size=0
+panel-in-overview=false
+panel-indicator-padding-size=0
+panel-size=32
+ripple-box=false
+search=false
+show-apps-button=true
+startup-status=0
+theme=false
+weather=false
+window-demands-attention-focus=true
+window-picker-icon=false
+window-preview-caption=false
+window-preview-close-button=true
+workspace=true
+workspace-background-corner-size=15
+workspace-popup=false
+workspaces-in-app-grid=false
+world-clock=false
+
+[shell/extensions/pop-shell]
+active-hint=false
+active-hint-border-radius=uint32 1
+gap-inner=uint32 1
+gap-outer=uint32 1
+tile-by-default=true
+
+[shell/extensions/rounded-window-corners]
+black-list=['org.wezfurlong.wezterm']
+border-color=(0.0, 0.0, 0.0, 1.0)
+border-width=-1
+custom-rounded-corner-settings=@a{sv} {}
+enable-preferences-entry=true
+focused-shadow={'vertical_offset': 5, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 100}
+global-rounded-corner-settings={'padding': <{'left': <uint32 0>, 'right': <uint32 0>, 'top': <uint32 0>, 'bottom': <uint32 0>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}
+settings-version=uint32 5
+skip-libadwaita-app=true
+unfocused-shadow={'horizontal_offset': 0, 'vertical_offset': 2, 'blur_offset': 12, 'spread_radius': -1, 'opacity': 65}
+
+[shell/extensions/vitals]
+fixed-widths=false
+hot-sensors=['__network-rx_max__', '_system_uptime_', '_processor_usage_', '_processor_frequency_', '__temperature_avg__', '__fan_avg__']
+position-in-panel=0
+show-processor=true
+show-voltage=true
+update-time=3
+
+[shell/keybindings]
+focus-active-notification=@as []
+toggle-message-tray=['<Super>n']
+toggle-quick-settings=['<Control><Alt>Delete']
+
+[shell/world-clocks]
+locations=@av []
+
+[software]
+check-timestamp=int64 1704756668
+first-run=false
+flatpak-purge-timestamp=int64 1705812554
+install-timestamp=int64 1699888868
+packagekit-historical-updates-timestamp=uint64 1699888868
+update-notification-timestamp=int64 1703704097
+
+[system/location]
+enabled=false
+
+[terminal/legacy]
+always-check-default-terminal=false
+mnemonics-enabled=true
+
+[terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(48,49,49)'
+bold-is-bright=true
+cursor-blink-mode='on'
+default-size-columns=99
+default-size-rows=20
+font='JetBrainsMono Nerd Font Mono 13'
+foreground-color='rgb(208,207,204)'
+scrollbar-policy='never'
+use-system-font=false
+use-theme-colors=true
+visible-name='bash'
+
+[tweaks]
+show-extensions-notice=false
