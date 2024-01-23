@@ -13,7 +13,7 @@ local function font_with_fallback(name, params)
 	return wezterm.font_with_fallback(names, params)
 end
 
--- local font_name = "SF Mono"
+local font_name = "MonaspiceNe Nerd Font Mono"
 local colors = require('lua/green-on-black').colors()
 local window_frame = require('lua/green-on-black').window_frame()
 
@@ -41,11 +41,11 @@ return {
 		},
 		{
 			intensity = "Normal",
-			font = font_with_fallback(font_name, {weight='Regular', bold = false }),
+			font = font_with_fallback(font_name, {weight='Regular', bold = false, italic=false }),
 		},
 	},
 	warn_about_missing_glyphs = false,
-	font_size = 16,
+	font_size = 17,
 	line_height = 1.0,
 	dpi = 99.0,
 
