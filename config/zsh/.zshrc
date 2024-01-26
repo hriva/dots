@@ -51,8 +51,10 @@ fi
 
 if [ -f $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
   . $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 elif [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 fi
 
 # User specific environment

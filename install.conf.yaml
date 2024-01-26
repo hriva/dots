@@ -14,10 +14,12 @@
     ~/.zshenv: zshenv
     ~/.vimrc: vimrc
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
+    ~/.bashrc.d/QT-decorations: bashrc.d/QT-decorations
 
     # Config 
     ~/.config/git: config/git
     ~/.config/alacritty: config/alacritty
+    ~/.config/easyeffects : config/easyeffects
     ~/.config/htop/htoprc: config/htop/htoprc
     ~/.config/rog/rog-control-center.cfg: config/rog/rog-control-center.cfg
     ~/.config/ranger/rc.conf: config/ranger/rc.conf
