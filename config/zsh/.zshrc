@@ -14,7 +14,7 @@ setopt extendedglob notify
 setopt autocd
 bindkey -e
 # End of lines configured by zsh-newuser-install
-zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 4 )) )'
+zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
 zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 3
 zstyle ':autocomplete:history-search-backward:*' list-lines 8
 # If not running interactively, don't do anything
@@ -40,7 +40,7 @@ if [ -d ~/.bashrc.d ]; then
 fi
 
 
-#plugins
+# Plugins
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   # Declare the variable
@@ -49,10 +49,10 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   ZSH_HIGHLIGHT_STYLES[precommand]='fg=red'
 fi
 
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-elif [ -f $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
+if [ -f $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
   . $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+elif [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # User specific environment
@@ -311,5 +311,3 @@ PROMPT='%n %~ ${vcs_info_msg_0_}
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-
-
