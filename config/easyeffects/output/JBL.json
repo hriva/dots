@@ -1,0 +1,28 @@
+{
+    "output": {
+        "bass_enhancer#0": {
+            "amount": 0.0,
+            "blend": 0.0,
+            "bypass": false,
+            "floor": 20.0,
+            "floor-active": false,
+            "harmonics": 8.5,
+            "input-gain": 0.0,
+            "output-gain": 0.0,
+            "scope": 100.0
+        },
+        "blocklist": [],
+        "maximizer#0": {
+            "bypass": false,
+            "ceiling": 0.0,
+            "input-gain": 9.0,
+            "output-gain": 1.0,
+            "release": 25.0,
+            "threshold": 0.0
+        },
+        "plugins_order": [
+            "bass_enhancer#0",
+            "maximizer#0"
+        ]
+    }
+}
