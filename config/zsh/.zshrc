@@ -1,27 +1,41 @@
+# .zshrc 
+iatest=$(expr index "$-" i)
+
+# Source global definitions
+if [ -f /etc/zshr ]; then
+	. /etc/zshr
+elif [ -f /etc/zsh/zshrc ]; then
+	. /etc/zsh/zshrc
+fi
 
 # The following lines were added by compinstall
-
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' menu select
-zstyle :compinstall filename '/home/alquimista/.zshrc'
+zstyle '*:compinit' arguments -D -i -u 
 
-#autoload -Uz compinit
-#compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+autoload -Uz compinit
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' formats '%b '
+setopt PROMPT_SUBST   
 setopt extendedglob notify
 setopt autocd
 bindkey -e
 # End of lines configured by zsh-newuser-install
-
+zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 4 )) )'
+zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 3
+zstyle ':autocomplete:history-search-backward:*' list-lines 8
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
+
+# Checking cached .zcompdump file ceck for regeneration once a day.
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C ;
+fi;
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
@@ -32,13 +46,10 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' formats '%b '
-setopt PROMPT_SUBST
 
 #plugins
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   # Declare the variable
   typeset -A ZSH_HIGHLIGHT_STYLES
   ZSH_HIGHLIGHT_STYLES[path]='none'
@@ -46,13 +57,10 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 fi
 
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [ -f $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
+  . $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 fi
-
-if [ -f $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
-  source $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-fi
-
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
@@ -100,8 +108,9 @@ case "$TERM" in
 esac
 
 #----------------------------------------START-----------------------------------------------
-
-ZDOTDIR=$HOME/.config/zsh
+HISTFILE=${ZDOTDIR}/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 HISTCONTROL="ignoredups:erasedups:ignorespace"
 
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'} history -a; history -c; history -r"
@@ -290,10 +299,24 @@ precmd(){
     vcs_info
 }
 
+# RESET 'UP' 'DOWN' KEYBIND AFTER zsh-autocomplete
+() {
+   local -a prefix=( '\e'{\[,O} )
+   local -a up=( ${^prefix}A ) down=( ${^prefix}B )
+   local key=
+   for key in $up[@]; do
+      bindkey "$key" up-line-or-history
+   done
+   for key in $down[@]; do
+      bindkey "$key" down-line-or-history
+   done
+}
+
 # PROMT
 PROMPT='%n %~ ${vcs_info_msg_0_}
 %# '
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
 
