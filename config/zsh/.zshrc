@@ -13,7 +13,8 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt extendedglob notify
-bindkey -v
+setopt autocd
+bindkey -e
 # End of lines configured by zsh-newuser-install
 
 # If not running interactively, don't do anything
