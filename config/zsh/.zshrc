@@ -134,7 +134,6 @@ alias lz='eza -l --icons --group-directories-first --sort name'
 alias lR='eza -laTR --icons --group-directories-first --sort name'
 alias docker='podman'
 alias ducks='du -cksh *'
-alias usage='find . -maxdepth 1 -type d -exec du -shx {} \; | sort -hr'
 alias pkghist='rpm -qa --last | less'
 alias dt='date "+%Y%m%dT%H%M%S"'
 alias vzsh='/usr/bin/nvim $ZDOTDIR/.zshrc'
@@ -145,9 +144,9 @@ alias gD='cd $HOME/Documentos'
 alias gd='cd $HOME/Descargas'
 alias gs='cd $HOME/DOTFILES'
 alias services='systemctl --type=service --state=running'
-alias flatpak-list='flatpak --columns=app,name,size list'
 alias elf='ps -elf'
-alias findme='nohup nautilus . 2>&1 > /dev/null &'
+alias findme='xdg-open .' # Use mime app
+alias kat='bat --plain --paging=always'
 
 # Search running processes
 alias p="ps aux | grep "
@@ -158,7 +157,7 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Search files in the current folder
-alias f="find . | grep "
+alias f="find . -name"
 
 # Alias's for archives
 alias mktar='tar -cvf'
@@ -203,6 +202,7 @@ alias fbat="fzf --border=rounded --preview 'bat --color always {}'"
 alias fless="fzf --preview 'less {}'"
 alias fzfpath='tree -afR /home/$USER | fzf'
 alias fcd='cd $(find /home/$USER -type d | fzf)'
+alias fzo='z $(find /home/$USER -type d | fzf)'
 alias vim='nvim'
 alias pgrep='pgrep -li'
 
@@ -290,8 +290,9 @@ psg () {
     printf '\033[?7h' # prevent linewrap
 }
 
-precmd(){
-    vcs_info
+# Get path usage
+usage() {
+  find ${1:-.} -maxdepth 1 -type d -exec du -shx {} \; | sort -hr
 }
 
 # RESET 'UP' 'DOWN' KEYBIND AFTER zsh-autocomplete
@@ -305,6 +306,10 @@ precmd(){
    for key in $down[@]; do
       bindkey "$key" down-line-or-history
    done
+}
+
+precmd(){
+    vcs_info
 }
 
 # PROMT

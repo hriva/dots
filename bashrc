@@ -122,7 +122,6 @@ alias lz='eza -l --icons --group-directories-first --sort name'
 alias lR='eza -laTR --icons --group-directories-first --sort name'
 alias docker='podman'
 alias ducks='du -cksh *'
-# alias usage='find . -maxdepth 1 -type d -exec du -shx {} \; | sort -hr'
 alias pkghist='rpm -qa --last | less'
 alias dt='date "+%Y%m%dT%H%M%S"'
 alias nbash='nvim ~/.bashrc'
@@ -133,7 +132,6 @@ alias gD='cd $HOME/Documentos'
 alias gd='cd $HOME/Descargas'
 alias gs='cd $HOME/DOTFILES'
 alias services='systemctl --type=service --state=running'
-alias flatpak-list='flatpak --columns=app,name,size list'
 alias elf='ps -elf'
 alias findme='xdg-open .' # Use mime app
 alias kat='bat --plain --paging=always'
@@ -192,6 +190,7 @@ alias fbat="fzf --border=rounded --preview 'bat --color always {}'"
 alias fless="fzf --preview 'less {}'"
 alias fzfpath='tree -afR /home/$USER | fzf'
 alias fcd='cd $(find /home/$USER -type d | fzf)'
+alias fzo='z $(find /home/$USER -type d | fzf)'
 alias vim='nvim'
 alias pgrep='pgrep -li'
 
