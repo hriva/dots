@@ -156,9 +156,6 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Search files in the current folder
-alias f="find . -name"
-
 # Alias's for archives
 alias mktar='tar -cvf'
 alias mkbz2='tar -cvjf'
@@ -292,7 +289,13 @@ psg () {
 
 # Get path usage
 usage() {
-  find ${1:-.} -maxdepth 1 -type d -exec du -shx {} \; | sort -hr
+  find "${1:-.}" -maxdepth 1 -type d -exec du -shx {} \; | sort -hr
+}
+
+# Quick find files
+ff () {
+  find . -name """*"$1"*"""
+  # echo '"*'"$1"'*"'
 }
 
 # RESET 'UP' 'DOWN' KEYBIND AFTER zsh-autocomplete
