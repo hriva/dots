@@ -1,2 +1,2 @@
 export ZDOTDIR=$HOME/.config/zsh
-export HISTFILE=~/.zsh_history
+export HISTFILE=~/.bash_history

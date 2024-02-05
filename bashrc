@@ -283,13 +283,17 @@ ff () {
   # echo '"*'"$1"'*"'
 }
 
-
 # Get process without line wrap
 psg () {
     printf '\033[?7l' # prevent linewrap
     ps aux | grep "$1"
     printf '\033[?7h' # prevent linewrap
 }
+
+# Mimic zsh run-help keybind
+run-help() { help "$READLINE_LINE" 2>/dev/null || man "$READLINE_LINE" 2>/dev/null ; }
+bind -m vi-insert -x '"\eh": run-help'
+bind -m emacs -x     '"\eh": run-help'
 
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
