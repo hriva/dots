@@ -1,2 +1,4 @@
-source /usr/share/fzf-help/fzf-help.bash
-bind -x '"\C-h": fzf-help-widget'
+if [[ $0 == '/usr/bin/bash' ]]; then
+  source /usr/share/fzf-help/fzf-help.bash
+  bind -x '"\C-h": fzf-help-widget'
+fi
