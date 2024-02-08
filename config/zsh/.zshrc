@@ -294,7 +294,7 @@ usage() {
 
 # Quick find files
 ff () {
-  find . -name """*"$1"*"""
+  find "${2:-.}" -name """*"$1"*"""
   # echo '"*'"$1"'*"'
 }
 
