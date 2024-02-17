@@ -4,7 +4,7 @@ iatest=$(expr index "$-" i)
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' menu select
-zstyle '*:compinit' arguments -D -i -u 
+zstyle '*:compinit' arguments -i -u 
 
 autoload -Uz compinit
 autoload -Uz vcs_info
@@ -24,11 +24,11 @@ case $- in
 esac
 
 # Checking cached .zcompdump file ceck for regeneration once a day.
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
-else
-	compinit -C ;
-fi;
+# if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+# 	compinit -i -u;
+# else
+# 	compinit -C -i -u;
+# fi;
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
@@ -103,7 +103,6 @@ case "$TERM" in
 esac
 
 #----------------------------------------START-----------------------------------------------
-HISTFILE=${ZDOTDIR}/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 HISTCONTROL="ignoredups:erasedups:ignorespace"
