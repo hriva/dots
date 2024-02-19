@@ -4,31 +4,38 @@ iatest=$(expr index "$-" i)
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' menu select
-zstyle '*:compinit' arguments -i -u 
 
-autoload -Uz compinit
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST   
 setopt extendedglob notify
 setopt autocd
 bindkey -e
+
 # End of lines configured by zsh-newuser-install
+zstyle '*:compinit' arguments -i -u 
 zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
 zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 3
 zstyle ':autocomplete:history-search-backward:*' list-lines 8
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 
+if [ -f "$ZDOTDIR"/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
+  . "$ZDOTDIR"/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  bindkey '\t' menu-select "${terminfo[kcbt]}" menu-select
+else
 # Checking cached .zcompdump file ceck for regeneration once a day.
-# if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-# 	compinit -i -u;
-# else
-# 	compinit -C -i -u;
-# fi;
+  autoload -Uz compinit
+  if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	  compinit -i -u;
+  else
+	  compinit -C -i -u;
+  fi;
+fi
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
@@ -39,7 +46,6 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-
 # Plugins
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -49,12 +55,8 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   ZSH_HIGHLIGHT_STYLES[precommand]='fg=red'
 fi
 
-if [ -f $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
-  . $ZDOTDIR/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-  bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
-elif [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 fi
 
 # User specific environment
