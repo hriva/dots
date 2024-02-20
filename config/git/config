@@ -1,44 +1,53 @@
 [core]
-    longpaths = true
-    pager = delta
+	longpaths = true
+	pager = delta
+	
 [init]
 	defaultBranch = main
+	
 [commit]
 	gpgSign = false
+	
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-    required = true
+	required = true
+	
 [interactive]
-    diffFilter = delta --color-only
-
+	diffFilter = delta --color-only
+	
 [delta]
-    navigate = true    # use n and N to move between diff sections
-    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-    side-by-side = true
-    line-numbers = true
+	navigate = true    # use n and N to move between diff sections
+	light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+	side-by-side = true
+	line-numbers = true
+	
 [merge]
-    conflictstyle = diff3
-
+	conflictstyle = diff3
+	
 [diff]
-    colorMoved = default
+	colorMoved = default
+	
+[diff "word"]
+	textconv = docx2txt
+	
 [alias]
-    force-pull = !"git fetch --all; git reset --hard HEAD; git merge @{u}"
- 	stash-pull = !"git fetch --all; git stash; git merge @{u}; git stash pop"
-    l = log --pretty=oneline -n 20 --graph --abbrev-commit
-    lg = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-    a = add
-    c = commit --verbose -m
-    cm = commit -m
-    d = diff
-    # list branches sorted by last modified
-    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
-    s = status -sb
-    su = status -uno
-    R = ls-tree --full-tree --name-only -r HEAD
-    untrack = update-index --assume-unchanged
-    retrack = update-index --no-assume-unchanged
-
-    # list aliases
-    la = "!git config -l | grep alias | cut -c 7-"
+	force-pull = !"git fetch --all; git reset --hard HEAD; git merge @{u}"
+	stash-pull = !"git fetch --all; git stash; git merge @{u}; git stash pop"
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	lg = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	a = add
+	c = commit --verbose -m
+	cm = commit -m
+	d = diff
+	# list branches sorted by last modified
+	b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+	s = status -sb
+	su = status -uno
+	R = ls-tree --full-tree --name-only -r HEAD
+	untrack = update-index --assume-unchanged
+	retrack = update-index --no-assume-unchanged
+	
+	# list aliases
+	la = "!git config -l | grep alias | cut -c 7-"
