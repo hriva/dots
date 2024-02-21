@@ -1,3 +1,4 @@
+# zmodload zsh/zprof 
 # .zshrc 
 iatest=$(expr index "$-" i)
 
@@ -10,6 +11,11 @@ zstyle ':vcs_info:git:*' formats '%b '
 setopt PROMPT_SUBST   
 setopt extendedglob notify
 setopt autocd
+setopt inc_append_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups  # -h
+setopt hist_ignore_space  # -g
+setopt hist_ignore_all_dups
 bindkey -e
 
 # End of lines configured by zsh-newuser-install
@@ -108,8 +114,6 @@ esac
 HISTSIZE=10000
 SAVEHIST=10000
 HISTCONTROL="ignoredups:erasedups:ignorespace"
-
-PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'} history -a; history -c; history -r"
 
 # vars
 export EDITOR=/usr/bin/nvim
@@ -313,6 +317,7 @@ ff () {
 }
 
 precmd(){
+    fc -R
     vcs_info
 }
 
@@ -322,3 +327,4 @@ PROMPT='%n %~ ${vcs_info_msg_0_}
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+# zprof
