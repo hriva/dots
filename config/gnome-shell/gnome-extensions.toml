@@ -1,39 +1,24 @@
 #Spacebar icons     󰨞  󰈭  󰵅
 
+[Bluetooth-Battery-Meter]
+enable-battery-level-icon=false
+enable-battery-level-text=true
+
 [appindicator]
 custom-icons=@a(sss) []
 
 [blur-my-shell]
-color-and-noise=false
+hacks-level=0
 
 [blur-my-shell/applications]
-blur=false
-blur-on-overview=false
-
-[blur-my-shell/dash-to-dock]
-blur=false
-customize=false
-override-background=true
-
-[blur-my-shell/dash-to-panel]
-blur-original-panel=false
-
-[blur-my-shell/lockscreen]
-customize=false
+whitelist=['com.raggesilver.BlackBox', 'org.wezfurlong.wezterm']
 
 [blur-my-shell/panel]
-blur=true
-brightness=0.59999999999999998
-customize=false
-override-background=true
-sigma=30
-static-blur=true
-style-panel=2
-unblur-in-overview=true
+blur=false
 
 [caffeine]
 countdown-timer=0
-indicator-position-max=1
+indicator-position-max=4
 restore-state=true
 screen-blank='never'
 toggle-state=true
@@ -43,13 +28,16 @@ user-enabled=true
 apply-custom-theme=false
 autohide-in-fullscreen=false
 background-color='rgb(128,128,128)'
-background-opacity=0.64000000000000001
+background-opacity=0.80000000000000004
 custom-background-color=true
 custom-theme-shrink=true
 dash-max-icon-size=64
+disable-overview-on-startup=true
 dock-fixed=false
 dock-position='BOTTOM'
-height-fraction=0.78000000000000003
+extend-height=false
+height-fraction=0.90000000000000002
+hide-delay=0.050000000000000017
 hide-tooltip=false
 hot-keys=false
 intellihide-mode='ALL_WINDOWS'
@@ -65,45 +53,105 @@ shift-click-action='minimize'
 shift-middle-click-action='launch'
 shortcut=['<Super>n']
 shortcut-text='<Super>n'
-show-apps-at-top=false
+show-apps-at-top=true
 show-icons-emblems=false
 show-running=true
 show-show-apps-button=true
-show-windows-preview=false
+show-windows-preview=true
 transparency-mode='DEFAULT'
 workspace-agnostic-urgent-windows=true
 
+[forge]
+auto-split-enabled=true
+css-last-update=uint32 37
+css-updated='1700856346451'
+float-always-on-top-enabled=true
+focus-border-toggle=false
+preview-hint-enabled=true
+stacked-tiling-mode-enabled=false
+tiling-mode-enabled=true
+window-gap-hidden-on-single=false
+window-gap-size=uint32 2
+window-gap-size-increment=uint32 1
+
+[forge/keybindings]
+con-split-horizontal=['<Super>z']
+con-split-layout-toggle=['<Super>g']
+con-split-vertical=@as []
+con-stacked-layout-toggle=@as []
+con-tabbed-layout-toggle=['<Super>s']
+con-tabbed-showtab-decoration-toggle=['<Control><Alt>y']
+focus-border-toggle=['<Super>x']
+prefs-tiling-toggle=['<Super>y']
+window-focus-down=['<Super>j']
+window-focus-left=['<Super>h']
+window-focus-right=['<Super>l']
+window-focus-up=['<Super>k']
+window-gap-size-decrease=['<Control><Super>minus']
+window-gap-size-increase=['<Control><Super>plus']
+window-move-down=['<Shift><Super>j']
+window-move-left=['<Shift><Super>h']
+window-move-right=['<Shift><Super>l']
+window-move-up=['<Shift><Super>k']
+window-resize-bottom-decrease=['<Alt><Super>i']
+window-resize-bottom-increase=['<Control><Super>u']
+window-resize-left-decrease=['<Alt><Super>o']
+window-resize-left-increase=['<Control><Super>y']
+window-resize-right-decrease=['<Alt><Super>y']
+window-resize-right-increase=['<Control><Super>o']
+window-resize-top-decrease=['<Alt><Super>u']
+window-resize-top-increase=['<Control><Super>i']
+window-snap-center=@as []
+window-snap-one-third-left=@as []
+window-snap-one-third-right=@as []
+window-snap-two-third-left=@as []
+window-snap-two-third-right=@as []
+window-swap-down=['<Control><Super>j']
+window-swap-last-active=['<Super>Return']
+window-swap-left=['<Control><Super>h']
+window-swap-right=['<Control><Super>l']
+window-swap-up=['<Control><Super>k']
+window-toggle-always-float=['<Shift><Super>c']
+window-toggle-float=['<Control><Super>c']
+workspace-active-tile-toggle=@as []
+
 [just-perfection]
 accessibility-menu=false
-activities-button=false
+activities-button=true
 activities-button-icon-monochrome=false
 activities-button-label=false
 animation=1
 app-menu=false
 app-menu-icon=true
+background-menu=true
 clock-menu-position=0
 clock-menu-position-offset=0
 controls-manager-spacing-size=0
+dash=true
 dash-icon-size=64
 hot-corner=true
-notification-banner-position=1
+keyboard-layout=true
 panel=true
 panel-arrow=false
 panel-button-padding-size=0
 panel-corner-size=1
-panel-in-overview=true
+panel-in-overview=false
+panel-indicator-padding-size=0
 panel-size=29
 ripple-box=false
-search=true
 show-apps-button=true
 startup-status=0
 theme=false
 weather=false
 window-demands-attention-focus=true
-window-picker-icon=false
+window-picker-icon=true
+window-preview-caption=false
+window-preview-close-button=true
 workspace=true
+workspace-background-corner-size=0
 workspace-peek=false
 workspace-popup=false
+workspace-switcher-should-show=true
 workspaces-in-app-grid=false
 world-clock=false
 
@@ -112,40 +160,47 @@ active-hint=false
 active-hint-border-radius=uint32 1
 gap-inner=uint32 1
 gap-outer=uint32 1
-pop-workspace-down=@as []
-pop-workspace-up=@as []
-show-title=true
-tile-by-default=false
+log-level=uint32 2
+tile-by-default=true
 
 [rounded-window-corners]
 black-list=['org.wezfurlong.wezterm']
 border-color=(0.0, 0.0, 0.0, 1.0)
-border-width=0
-custom-rounded-corner-settings=@a{sv} {}
+border-width=-1
+custom-rounded-corner-settings={'Alacritty': <{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}>, 'obsidian': <{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}>, 'cool-retro-term.cool-retro-term': <{'padding': <{'left': <uint32 2>, 'right': <uint32 2>, 'top': <uint32 2>, 'bottom': <uint32 2>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}>}
 enable-preferences-entry=true
-focused-shadow={'vertical_offset': 10, 'horizontal_offset': 0, 'blur_offset': 33, 'spread_radius': 8, 'opacity': 100}
-global-rounded-corner-settings={'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <false>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}
+focused-shadow={'vertical_offset': 4, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 60}
+global-rounded-corner-settings={'padding': <{'left': <uint32 0>, 'right': <uint32 0>, 'top': <uint32 0>, 'bottom': <uint32 0>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}
 settings-version=uint32 5
-skip-libadwaita-app=false
+skip-libadwaita-app=true
 tweak-kitty-terminal=false
-unfocused-shadow={'horizontal_offset': 0, 'vertical_offset': 0, 'blur_offset': 25, 'spread_radius': -1, 'opacity': 89}
+unfocused-shadow={'horizontal_offset': 0, 'vertical_offset': 2, 'blur_offset': 12, 'spread_radius': -1, 'opacity': 65}
 
 [space-bar/appearance]
-active-workspace-font-size=14
+active-workspace-background-color='rgba(0,0,0,0)'
+active-workspace-border-radius=8
+active-workspace-border-width=0
+active-workspace-font-size=13
 active-workspace-font-size-active=true
-active-workspace-font-size-user=14
-active-workspace-font-weight='700'
+active-workspace-font-size-user=13
+active-workspace-font-weight='600'
 active-workspace-padding-h=8
 active-workspace-padding-v=0
-empty-workspace-font-size=14
-empty-workspace-font-weight='700'
+active-workspace-text-color='rgb(0,204,255)'
+empty-workspace-border-radius=8
+empty-workspace-border-width=0
+empty-workspace-font-size=13
+empty-workspace-font-weight='600'
 empty-workspace-padding-h=8
 empty-workspace-padding-v=0
-inactive-workspace-font-size=14
-inactive-workspace-font-weight='700'
+inactive-workspace-border-radius=8
+inactive-workspace-border-width=0
+inactive-workspace-font-size=13
+inactive-workspace-font-weight='600'
 inactive-workspace-padding-h=8
 inactive-workspace-padding-v=0
-workspace-margin=4
+inactive-workspace-text-color='rgb(139,165,155)'
+workspace-margin=3
 workspaces-bar-padding=0
 
 [space-bar/behavior]
@@ -155,11 +210,18 @@ smart-workspace-names=false
 toggle-overview=false
 
 [space-bar/shortcuts]
+activate-empty-key=@as []
 enable-activate-workspace-shortcuts=true
 enable-move-to-workspace-shortcuts=false
+open-menu=@as []
+
+[user-theme]
+name=''
 
 [vitals]
 fixed-widths=false
-hot-sensors=['__network-rx_max__', '_processor_frequency_', '_processor_usage_', '_system_uptime_', '__temperature_avg__', '__fan_avg__']
-position-in-panel=3
+hot-sensors=['__network-rx_max__', '_processor_frequency_', '_processor_usage_',  '__temperature_avg__', '__fan_avg__', '_system_uptime_']
+position-in-panel=0
+show-processor=true
+show-voltage=true
 update-time=3

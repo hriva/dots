@@ -47,7 +47,7 @@ return {
 	warn_about_missing_glyphs = false,
 	font_size = 17,
 	line_height = 1.0,
-	dpi = 99.0,
+	-- dpi = 192.0, -- For 4K HD in wayland
 
 	-- Cursor style
 	default_cursor_style = "BlinkingBlock",
