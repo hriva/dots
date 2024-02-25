@@ -10,11 +10,12 @@
 - link:
     # Home
     ~/.bashrc: bashrc
+    ~/.bashrc.d/aliases.sh: bashrc.d/aliases.sh
+    ~/.bashrc.d/vte.sh: bashrc.d/vte.sh
     ~/.bash_profile: bash_profile
     ~/.zshenv: zshenv
     ~/.vimrc: vimrc
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
-    ~/.bashrc.d/QT-decorations: bashrc.d/QT-decorations
 
     # Config 
     ~/.config/git: config/git
@@ -34,7 +35,7 @@
     ~/.config/.wgetrc : config/wgetrc
 
     # Local
-  ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
+    ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
