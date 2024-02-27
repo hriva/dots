@@ -1,11 +1,10 @@
---@type ChadrcConfig
+---@type ChadrcConfig
 local M = {
    ui = {
       theme = 'ayu_dark',
       statusline = {
         theme = "minimal", -- default/vscode/vscode_colored/minimal
       },
-    },
     nvdash = {
       load_on_startup = true,
 
@@ -30,5 +29,6 @@ local M = {
       { "  Mappings", "Spc c h", "NvCheatsheet" },
       },
     },
+  },
 }
 return M
