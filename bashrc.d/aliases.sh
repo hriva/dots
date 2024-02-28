@@ -30,6 +30,7 @@ alias curl="curl --proto '=https' --tlsv1.2 -Sf -L"
 alias fzf='fzf --border=rounded'
 alias vim='nvim'
 alias pgrep='pgrep -li'
+alias fd='fd -ui'
 
 # Aliases
 alias cdranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
@@ -157,7 +158,7 @@ ftext ()
 
 # Quick find files
 ff () {
-  find "${2:-.}" -name """*"$1"*"""
+  find "${2:-.}" -iname """*"$1"*""" 2> /dev/null
   # echo '"*'"$1"'*"'
 }
 
