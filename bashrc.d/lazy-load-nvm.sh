@@ -15,6 +15,11 @@
 # * https://github.com/creationix/nvm/issues/781#issuecomment-236350067
 #
 
+export PATH=~/.local/share/nvm/versions/node/v21.6.2/bin:$PATH
+if which node &>/dev/null; then
+  return
+fi
+
 NVM_DIR="$HOME/.local/share/nvm"
 
 # Skip adding binaries if there is no node version installed yet
