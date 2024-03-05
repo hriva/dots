@@ -4,11 +4,29 @@ local capabilities = config.capabilities
 
 local lspconfig = require("lspconfig")
 
+local servers = { "pyright" , "ruff_lsp"}
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+
 lspconfig.pyright.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
   filetypes = {"python"},
   cmd = { "pyright-langserver", "--stdio", "--pythonpath", "~/Code/.devel-env/bin/python"}
 })
--- "venv": "a-name-for-your-venv",  
--- "venvPath": "/opt/homebrew/Caskroom/miniconda/base/envs/"
+
+lspconfig.ruff_lsp.setup {
+  on_attach = function(client, _)
+    -- Disable hover in favor of Pyright
+    client.server_capabilities.hoverProvider = false
+  end,
+  init_options = {
+    settings = {
+      -- Any extra CLI arguments for `ruff` go here.
+      args = {"--ignore", "E501"},
+    }
+  }
+}
