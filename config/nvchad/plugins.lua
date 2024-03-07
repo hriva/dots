@@ -37,13 +37,19 @@ local plugins = {
 			require("custom.configs.conform")
 		end,
 	},
-	-- {
-	-- 	"nvimtools/none-ls.nvim",
-	-- 	-- ft = {"python", "sh"},
-	-- 	opts = function()
-	-- 		return require("custom.configs.null-ls")
-	-- 	end,
-	-- },
+	{
+		"charludo/projectmgr.nvim",
+		lazy = false, -- important!
+		config = function()
+			require("projectmgr").setup({
+				autogit = {
+					enabled = true,
+					command = "git pull --ff-only > .git/fastforward.log 2>&1",
+				},
+				session = { enabled = true, file = "Session.vim" },
+			})
+		end,
+	},
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = "mfussenegger/nvim-dap",

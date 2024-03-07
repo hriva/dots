@@ -36,6 +36,9 @@ M.mason = {
 		-- shell stuff
 		"shfmt",
 		"shellcheck",
+
+		-- docs
+		"marksman",
 	},
 }
 

@@ -1,6 +1,4 @@
--- local wezterm = require("wezterm")
-local wezterm = require 'wezterm'
-local mux = wezterm.mux
+local wezterm = require("wezterm")
 
 -- maximize window on statup
 -- wezterm.on('gui-startup', function(cmd)
@@ -9,44 +7,41 @@ local mux = wezterm.mux
 -- end)
 
 local function font_with_fallback(name, params)
-	local names = { name, "Apple Color Emoji", "azuki_font" }
+	local names = { name, "JetBrains Mono" }
 	return wezterm.font_with_fallback(names, params)
 end
 
-local font_name = "MonaspiceNe Nerd Font Mono"
-local colors = require('lua/green-on-black').colors()
-local window_frame = require('lua/green-on-black').window_frame()
+local font_name = "CommitMono Nerd Font"
+local font_params = { weight = "Regular", stretch = "UltraCondensed", style = "Normal", bold = false }
+local colors = require("lua/japanesque").colors()
+local window_frame = require("lua/japanesque").window_frame()
 
 return {
-	-- OpenGL for GPU acceleration, Software for CPU
-	front_end = "OpenGL",
-
-	color_scheme = 'green-on-black',
-	colors = colors,
-	window_frame = window_frame, -- needed only if using fancy tab bar
 
 	-- Font config
-	font = font_with_fallback(
-    font_name,
-    {weight="Regular", stretch="Normal", style="Normal", bold = false}),
+	font = font_with_fallback(font_name, font_params),
 
 	font_rules = {
-    {
+		{
 			italic = true,
-			font = font_with_fallback(font_name, { italic = true }),
+			font = font_with_fallback(font_name, { stretch = "UltraCondensed", italic = true }),
 		},
 		{
 			italic = false,
-			font = font_with_fallback(font_name, { bold = false }),
-		},
-		{
-			intensity = "Normal",
-			font = font_with_fallback(font_name, {weight='Regular', bold = false, italic=false }),
+			font = font_with_fallback(font_name, font_params),
 		},
 	},
+
+	-- OpenGL for GPU acceleration, Software for CPU
+	front_end = "OpenGL",
+
+	color_scheme = "Japanesque",
+	colors = colors,
+	window_frame = window_frame, -- needed only if using fancy tab bar
 	warn_about_missing_glyphs = false,
 	font_size = 17,
-	line_height = 1.0,
+	line_height = 1.01,
+	cell_width = 0.90,
 	-- dpi = 192.0, -- For 4K HD in wayland
 
 	-- Cursor style
@@ -57,14 +52,15 @@ return {
 
 	-- Keybinds
 	disable_default_key_bindings = true,
-	 keys = {
-         {
-             key = "n",
-             mods = "CTRL|SHIFT",
-             action = wezterm.action.SpawnCommandInNewWindow {
-             args = {},
-             },
-         },
+	keys = {
+		{
+			key = "n",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.SpawnCommandInNewWindow({
+				args = {},
+				domain = "CurrentPaneDomain",
+			}),
+		},
 		{
 			key = [[/]],
 			mods = "CTRL",
@@ -165,13 +161,13 @@ return {
 	bold_brightens_ansi_colors = true,
 	-- Padding
 	window_padding = {
-		left = 10,
-		right = 12,
-		top = 12,
-		bottom = 12,
+		left = 11,
+		right = 11,
+		top = 11,
+		bottom = 11,
 	},
-    initial_cols = 90,
-    initial_rows = 22,
+	initial_cols = 90,
+	initial_rows = 22,
 
 	-- Tab Bar
 	enable_tab_bar = true,
@@ -182,7 +178,7 @@ return {
 	-- General
 	automatically_reload_config = true,
 	inactive_pane_hsb = { saturation = 1.0, brightness = 1.0 },
-	window_background_opacity = .92,
-	window_close_confirmation = 'AlwaysPrompt',
+	window_background_opacity = 1.00,
+	window_close_confirmation = "AlwaysPrompt",
 	window_decorations = "RESIZE",
 }
