@@ -87,5 +87,16 @@ local plugins = {
 			require("core.utils").load_mappings("dap_python")
 		end,
 	},
+	{
+		"creativenull/efmls-configs-nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
+		enabled = true,
+	},
+	-- {
+	-- 	"nvimtools/none-ls.nvim",
+	-- 	config = function()
+	-- 		require("custom.configs.null-ls")
+	-- 	end,
+	-- },
 }
 return plugins

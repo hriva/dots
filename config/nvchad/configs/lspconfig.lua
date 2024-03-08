@@ -4,7 +4,7 @@ local capabilities = config.capabilities
 
 local lspconfig = require("lspconfig")
 
-local servers = { "pyright", "ruff_lsp", "marksman" }
+local servers = { "pyright", "ruff_lsp", "marksman", "efm" }
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -30,3 +30,8 @@ lspconfig.ruff_lsp.setup({
 		},
 	},
 })
+
+local efmls_config = require("custom.configs.efm")
+lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
+	efmls_config,
+}))

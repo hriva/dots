@@ -39,6 +39,9 @@ M.mason = {
 
 		-- docs
 		"marksman",
+
+		-- none-ls substitue
+		"efm",
 	},
 }
 
