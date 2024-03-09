@@ -1,4 +1,4 @@
-import = ["/home/alquimista/.config/alacritty/alacritty-keybinds.toml", "/home/alquimista/.config/alacritty/cyan-on-black.toml"]
+import = ["/home/alquimista/.config/alacritty/alacritty-keybinds.toml", "/home/alquimista/.config/alacritty/green-on-black.toml"]
 
 [cursor]
 blink_timeout = 0
@@ -12,17 +12,19 @@ blinking = "Always"
 TERM = "alacritty"
 
 [font]
-size = 16
+size = 17
+offset = { x = -1, y = 0 }
 
 [font.bold]
 style = "SemiBold"
 
 [font.normal]
-family = "SFMono Nerd Font Mono Plus Octicons"
+family = "CommitMono Nerd Font"
 
 [window]
 decorations = "none"
-opacity = 1.0
+opacity = 0.90
+blur = true
 startup_mode = "Windowed"
 
 [window.dimensions]
