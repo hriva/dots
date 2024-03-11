@@ -17,6 +17,10 @@ local colors = require("lua/japanesque").colors()
 local window_frame = require("lua/japanesque").window_frame()
 
 return {
+	set_environment_variables = {
+		VTE_VERSION = "6003", -- vte version for fedora default vte.sh
+	},
+	notification_handling = "NeverShow", -- disbble notification_handling
 
 	-- Font config
 	font = font_with_fallback(font_name, font_params),
