@@ -34,6 +34,8 @@ exclude = [
 inline-quotes = 'single'
 
 [tool.pyright]
+venvPath = "/home/alquimista/Code"
+venv = ".devel-env"
 typeCheckingMode = "standard"
 exclude = ["**/node_modules",
     "**/__pycache__",

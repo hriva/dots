@@ -28,9 +28,8 @@ M.mason = {
 
 		-- python
 		"black",
-		"debugpy",
 		"mypy",
-		"ruff-lsp",
+		"ruff",
 		"pyright",
 
 		-- shell stuff
@@ -55,11 +54,6 @@ M.nvimtree = {
 	},
 	renderer = {
 		highlight_git = true,
-		icons = {
-			show = {
-				git = true,
-			},
-		},
 	},
 }
 

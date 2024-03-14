@@ -1,9 +1,9 @@
 -- Register linters and formatters per language
 local shellcheck = require("efmls-configs.linters.shellcheck")
-local mypy = require("efmls-configs.linters.mypy")
+-- local mypy = require("efmls-configs.linters.mypy")
 local languages = {
 	sh = { shellcheck },
-	python = { mypy },
+	-- python = { mypy },
 }
 
 local efmls_config = {

@@ -6,6 +6,7 @@ local plugins = {
 	-- Override plugin definition options
 	{
 		"neovim/nvim-lspconfig",
+		priority = 200,
 		config = function()
 			require("plugins.configs.lspconfig")
 			require("custom.configs.lspconfig")
@@ -38,6 +39,20 @@ local plugins = {
 		end,
 	},
 	{
+		"creativenull/efmls-configs-nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
+		enabled = true,
+	},
+	{
+		"Vigemus/iron.nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
+		ft = "python",
+		-- enabled = false,
+		config = function()
+			require("custom.configs.iron")
+		end,
+	},
+	{
 		"charludo/projectmgr.nvim",
 		lazy = false, -- important!
 		config = function()
@@ -53,6 +68,7 @@ local plugins = {
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = "mfussenegger/nvim-dap",
+		enabled = false,
 		config = function()
 			local dap = require("dap")
 			local dapui = require("dapui")
@@ -70,6 +86,7 @@ local plugins = {
 	},
 	{
 		"mfussenegger/nvim-dap",
+		enabled = false,
 		config = function(_, opts)
 			require("core.utils").load_mappings("dap")
 		end,
@@ -77,26 +94,16 @@ local plugins = {
 	{
 		"mfussenegger/nvim-dap-python",
 		ft = "python",
+		enabled = false,
 		dependencies = {
 			"mfussenegger/nvim-dap",
 			"rcarriga/nvim-dap-ui",
 		},
 		config = function(_, opts)
-			local path = "~/Code/.devel-env/bin/python"
+			local path = "~/Code/.devel-env/bin/ipython"
 			require("dap-python").setup(path)
 			require("core.utils").load_mappings("dap_python")
 		end,
 	},
-	{
-		"creativenull/efmls-configs-nvim",
-		dependencies = { "neovim/nvim-lspconfig" },
-		enabled = true,
-	},
-	-- {
-	-- 	"nvimtools/none-ls.nvim",
-	-- 	config = function()
-	-- 		require("custom.configs.null-ls")
-	-- 	end,
-	-- },
 }
 return plugins

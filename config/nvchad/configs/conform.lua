@@ -7,7 +7,7 @@ local options = {
 
 		sh = { "shfmt" },
 
-		python = { "black" },
+		python = { "black", "ruff_format" },
 
 		-- r = { "styler", },
 	},
