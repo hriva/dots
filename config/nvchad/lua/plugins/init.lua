@@ -1,19 +1,21 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require("configs.overrides")
 
----@type NvPluginSpec[]
-local plugins = {
-
-	-- Override plugin definition options
+return {
 	{
-		"neovim/nvim-lspconfig",
-		priority = 200,
+		-- Override plugin definition options
+		"stevearc/conform.nvim",
+		event = "BufWritePre",
+		cmd = { "ConformInfo" },
 		config = function()
-			require("plugins.configs.lspconfig")
-			require("custom.configs.lspconfig")
+			require("configs.conform")
 		end,
 	},
 
 	-- override plugin configs
+	{
+		"nvim-tree/nvim-tree.lua",
+		opts = overrides.nvimtree,
+	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = overrides.treesitter,
@@ -22,20 +24,14 @@ local plugins = {
 		"williamboman/mason.nvim",
 		opts = overrides.mason,
 	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		opts = overrides.nvimtree,
-	},
 
 	-- Install a plugin
-
 	{
-		"stevearc/conform.nvim",
-		--  for users those who want auto-save conform + lazyloading!
-		event = "BufWritePre",
-		cmd = { "ConformInfo" },
+		"neovim/nvim-lspconfig",
+		priority = 200,
 		config = function()
-			require("custom.configs.conform")
+			require("nvchad.configs.lspconfig").defaults()
+			require("configs.lspconfig")
 		end,
 	},
 	{
@@ -49,7 +45,7 @@ local plugins = {
 		ft = "python",
 		-- enabled = false,
 		config = function()
-			require("custom.configs.iron")
+			require("configs.iron")
 		end,
 	},
 	{
@@ -106,4 +102,3 @@ local plugins = {
 		end,
 	},
 }
-return plugins

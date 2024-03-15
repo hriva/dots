@@ -11,10 +11,10 @@
     # Home
     ~/.bashrc: bashrc
     ~/.bashrc.d/aliases.sh: bashrc.d/aliases.sh
-    ~/.bashrc.d/vte.sh: bashrc.d/vte.sh
+    # ~/.bashrc.d/vte.sh: bashrc.d/vte.sh
     ~/.bash_profile: bash_profile
     ~/.zshenv: zshenv
-    ~/.vimrc: vimrc
+    # ~/.vimrc: vimrc
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
 
     # Config 
@@ -30,6 +30,7 @@
     ~/.config/starship.toml: config/starship-themes/default.toml
     ~/.config/wezterm: config/wezterm
     ~/.config/zsh : config/zsh
+    ~/.config/nvim : config/nvchad
     ~/.config/.curlrc : config/curlrc
     ~/.config/.wgetrc : config/wgetrc
 

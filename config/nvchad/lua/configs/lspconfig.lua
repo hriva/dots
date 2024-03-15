@@ -1,6 +1,7 @@
-local config = require("plugins.configs.lspconfig")
+local config = require("nvchad.configs.lspconfig")
 local on_attach = config.on_attach
 local capabilities = config.capabilities
+local on_init = config.on_init
 
 local lspconfig = require("lspconfig")
 
@@ -8,6 +9,7 @@ local servers = { "pyright", "marksman", "efm" }
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
+		on_init = on_init,
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
@@ -18,7 +20,7 @@ lspconfig.pyright.setup({
 	cmd = { "pyright-langserver", "--stdio", "--pythonpath", "~/Code/.devel-env/bin/python" },
 })
 
-local efmls_config = require("custom.configs.efm")
+local efmls_config = require("configs.efm")
 lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
 	efmls_config,
 }))
