@@ -35,8 +35,19 @@ return {
 		end,
 	},
 	{
+		"mfussenegger/nvim-lint",
+		enabled = false,
+		event = { "BufWritePost", "BufReadPost", "InsertLeave" },
+		config = function()
+			require("configs.lint")
+		end,
+	},
+	{
 		"creativenull/efmls-configs-nvim",
-		dependencies = { "neovim/nvim-lspconfig" },
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"williamboman/mason.nvim",
+		},
 		enabled = true,
 	},
 	{

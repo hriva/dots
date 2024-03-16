@@ -9,25 +9,25 @@ addopts = "--failed-first"
 
 [tool.ruff]
 extend-ignore = [
-    "E402"  # Disable imports not on top
-    ]
+  "E402", # Disable imports not on top
+]
 exclude = [
-    '.svn',
-    'data',
-    'CVS',
-    '.bzr',
-    '.hg',
-    '.git',
-    '__pycache__',
-    '.tox',
-    '.idea',
-    '.mypy_cache',
-    '.venv',
-    'node_modules',
-    '_state_machine.py',
-    'test_fstring.py',
-    'bad_coding2.py',
-    'badsyntax_*.py',
+  '.svn',
+  'data',
+  'CVS',
+  '.bzr',
+  '.hg',
+  '.git',
+  '__pycache__',
+  '.tox',
+  '.idea',
+  '.mypy_cache',
+  '.venv',
+  'node_modules',
+  '_state_machine.py',
+  'test_fstring.py',
+  'bad_coding2.py',
+  'badsyntax_*.py',
 ]
 
 [tool.ruff.flake8-quotes]
@@ -37,16 +37,17 @@ inline-quotes = 'single'
 venvPath = "/home/alquimista/Code"
 venv = ".devel-env"
 typeCheckingMode = "standard"
-exclude = ["**/node_modules",
-    "**/__pycache__",
-    "src/experimental",
-    "src/typestubs"
+exclude = [
+  "**/node_modules",
+  "**/__pycache__",
+  "src/experimental",
+  "src/typestubs",
 ]
 reportMissingImports = false
 
 [tool.mypy]
 exclude = [
-    '^file1\.py$',  # TOML literal string (single-quotes, no escaping necessary)
-    "^file2\\.py$",  # TOML basic string (double-quotes, backslash and other characters need escaping)
+  '^file1\.py$',  # TOML literal string (single-quotes, no escaping necessary)
+  "^file2\\.py$", # TOML basic string (double-quotes, backslash and other characters need escaping)
 ]
 ignore_missing_imports = true

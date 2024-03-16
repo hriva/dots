@@ -7,9 +7,13 @@ local options = {
 
 		sh = { "shfmt" },
 
+		toml = { "taplo" },
+
 		python = { "black", "ruff_format" },
 
 		-- r = { "styler", },
+		-- have other formatters configured.
+		["_"] = { "trim_whitespace" },
 	},
 
 	-- adding same formatter for multiple filetypes can look too much work for some

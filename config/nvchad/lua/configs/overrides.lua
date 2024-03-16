@@ -28,7 +28,6 @@ M.mason = {
 
 		-- python
 		"black",
-		"mypy",
 		"ruff",
 		"pyright",
 
@@ -38,6 +37,7 @@ M.mason = {
 
 		-- docs
 		"marksman",
+		"taplo",
 
 		-- none-ls substitue
 		"efm",

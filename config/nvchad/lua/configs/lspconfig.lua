@@ -3,9 +3,14 @@ local on_attach = config.on_attach
 local capabilities = config.capabilities
 local on_init = config.on_init
 
+require("mason").setup()
 local lspconfig = require("lspconfig")
 
-local servers = { "pyright", "marksman", "efm" }
+local servers = {
+	"pyright",
+	"marksman",
+	"efm",
+}
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -17,7 +22,15 @@ end
 
 lspconfig.pyright.setup({
 	filetypes = { "python" },
-	cmd = { "pyright-langserver", "--stdio", "--pythonpath", "~/Code/.devel-env/bin/python" },
+	cmd = { "pyright-langserver", "--stdio" },
+	settings = {
+		python = {
+			analysis = {
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+			},
+		},
+	},
 })
 
 local efmls_config = require("configs.efm")
