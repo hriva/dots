@@ -1,6 +1,11 @@
 require("nvchad.mappings")
 local map = vim.keymap.set
 
+-- Spelling
+map("n", "<leader>ss", ":setlocal spell spelllang=es<cr>", { desc = "Spelling es" })
+map("n", "<leader>se", ":setlocal spell spelllang=en_us<cr>", { desc = "Spelling en" })
+map("n", "<leader>sd", ":setlocal nospell<cr>", { desc = "Spelling Disable" })
+
 -- Conform
 local conform = require("conform")
 
