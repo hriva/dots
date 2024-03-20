@@ -1,9 +1,11 @@
 -- Register linters and formatters per language
-local shellcheck = require("efmls-configs.linters.shellcheck")
+-- local shellcheck = require("efmls-configs.linters.shellcheck")
+-- local vale = require("efmls-configs.linters.vale")
 -- local mypy = require("efmls-configs.linters.mypy")
 local languages = {
-	sh = { shellcheck },
+	-- sh = { shellcheck },
 	-- python = { mypy },
+	-- markdown = { vale },
 }
 
 local efmls_config = {
@@ -15,6 +17,10 @@ local efmls_config = {
 	init_options = {
 		documentFormatting = true,
 		documentRangeFormatting = true,
+		hover = true,
+		documentSymbol = true,
+		codeAction = true,
+		completion = true,
 	},
 }
 

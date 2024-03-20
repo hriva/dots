@@ -31,6 +31,8 @@
     ~/.config/wezterm: config/wezterm
     ~/.config/zsh : config/zsh
     ~/.config/nvim : config/nvchad
+    ~/.config/efm-langserver/config.yaml : config/efm-langserver/config.yaml
+    ~/.config/vale/.vale.ini : config/vale/.vale.ini
     ~/.config/.curlrc : config/curlrc
     ~/.config/.wgetrc : config/wgetrc
 

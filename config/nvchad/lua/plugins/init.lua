@@ -28,7 +28,6 @@ return {
 	-- Install a plugin
 	{
 		"neovim/nvim-lspconfig",
-		priority = 200,
 		config = function()
 			require("nvchad.configs.lspconfig").defaults()
 			require("configs.lspconfig")
@@ -36,8 +35,8 @@ return {
 	},
 	{
 		"mfussenegger/nvim-lint",
-		enabled = false,
-		event = { "BufWritePost", "BufReadPost", "InsertLeave" },
+		enabled = true,
+		event = { "BufWritePost", "BufReadPost", "InsertLeave", "VeryLazy" },
 		config = function()
 			require("configs.lint")
 		end,

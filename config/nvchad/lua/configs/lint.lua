@@ -8,8 +8,8 @@ local severities = {
 	note = vim.diagnostic.severity.HINT,
 }
 
-require("lint").linters.mypy_venv = {
-	cmd = os.getenv("VIRTUAL_ENV") .. "/bin/mypy",
+lint.linters.mypy_venv = {
+	cmd = "mypy",
 	stdin = false,
 	append_fname = true,
 	ignore_exitcode = false,
@@ -28,7 +28,9 @@ require("lint").linters.mypy_venv = {
 
 lint.linters_by_ft = {
 	sh = { "shellcheck" },
-	python = { "mypy_venv" },
+	-- python = { "mypy_venv" },
+	markdown = { "vale" },
+	zsh = { "zsh" },
 	-- Use the "*" filetype to run linters on all filetypes.
 	-- ['*'] = { 'global linter' },
 	-- Use the "_" filetype to run linters on filetypes that don't have other linters configured.
@@ -43,3 +45,21 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 		lint.try_lint()
 	end,
 })
+
+local lint_progress = function()
+	local linters = require("lint").get_running()
+	if #linters == 0 then
+		return "󰦕"
+	end
+	return "󱉶 " .. table.concat(linters, ", ")
+end
+
+local map = vim.keymap.set
+-- Spelling
+map("n", "<leader>cl", function()
+	local linters = require("lint").get_running()
+	if #linters == 0 then
+		return "󰦕"
+	end
+	return "󱉶 " .. table.concat(linters, ", ")
+end, { desc = "List Linters" })

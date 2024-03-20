@@ -18,6 +18,10 @@ M.treesitter = {
 		--   "python"
 		-- },
 	},
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
 }
 
 M.mason = {
@@ -29,7 +33,7 @@ M.mason = {
 		-- python
 		"black",
 		"ruff",
-		"pyright",
+		-- "pyright",
 
 		-- shell stuff
 		"shfmt",
@@ -38,6 +42,7 @@ M.mason = {
 		-- docs
 		"marksman",
 		"taplo",
+		"vale",
 
 		-- none-ls substitue
 		"efm",
@@ -54,6 +59,11 @@ M.nvimtree = {
 	},
 	renderer = {
 		highlight_git = true,
+		icons = {
+			show = {
+				git = false,
+			},
+		},
 	},
 }
 
