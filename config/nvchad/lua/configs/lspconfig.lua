@@ -7,10 +7,10 @@ require("mason").setup()
 local lspconfig = require("lspconfig")
 
 local servers = {
-	-- "pyright",
+	"pyright",
 	"marksman",
-	"efm",
-	"basedpyright",
+	-- "efm",
+	-- "basedpyright",
 }
 
 for _, lsp in ipairs(servers) do
@@ -21,22 +21,22 @@ for _, lsp in ipairs(servers) do
 	})
 end
 
-local efmls_config = require("configs.efm")
-lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
-	efmls_config,
-}))
+-- local efmls_config = require("configs.efm")
+-- lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
+-- 	efmls_config,
+-- }))
 
--- lspconfig.pyright.setup({
-lspconfig.basedpyright.setup({
+lspconfig.pyright.setup({
+	-- lspconfig.basedpyright.setup({
 	filetypes = { "python" },
-	-- 	cmd = { "pyright-langserver", "--stdio" },
-	cmd = { "basedpyright-langserver", "--stdio" },
+	cmd = { "pyright-langserver", "--stdio" },
+	-- cmd = { "basedpyright-langserver", "--stdio" },
 	settings = {
 		python = {
 			analysis = {
 				autoSearchPaths = true,
 				useLibraryCodeForTypes = true,
-				typeCheckingMode = "strict",
+				typeCheckingMode = "off",
 				diagnosticMode = "openFilesOnly",
 				indexing = true,
 			},

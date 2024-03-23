@@ -63,3 +63,5 @@ map("n", "<leader>cl", function()
 	end
 	return "󱉶 " .. table.concat(linters, ", ")
 end, { desc = "List Linters" })
+
+map("n", "<leader>cl", '<Cmd>lua require("lint").get_running()<CR>', { desc = "List Linters" })
