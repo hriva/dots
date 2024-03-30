@@ -18,6 +18,9 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+		build = ":TSUpdate",
 		opts = overrides.treesitter,
 	},
 	{
@@ -27,7 +30,11 @@ return {
 
 	-- Install a plugin
 	{
+		"LunarVim/bigfile.nvim",
+	},
+	{
 		"neovim/nvim-lspconfig",
+		event = "User FilePost",
 		config = function()
 			require("nvchad.configs.lspconfig").defaults()
 			require("configs.lspconfig")
@@ -88,6 +95,14 @@ return {
 			dap.listeners.before.event_exited["dapui_config"] = function()
 				dapui.close()
 			end
+		end,
+	},
+	{
+		"sindrets/diffview.nvim",
+		-- event = { "BufReadPost" },
+		cmd = { "DiffviewOpen" },
+		config = function()
+			require("configs.diffview")
 		end,
 	},
 	{

@@ -21,6 +21,8 @@ local nomap = vim.keymap.del
 
 nomap("n", "<leader>e")
 
+-- Diffview
+map("n", "<leader>Do", ":DiffviewOpen<cr>", { desc = "Diff Open" })
 -- Dap
 -- map("n", "<leader>db", function()
 -- 	require("dap-python").debug_selection()
