@@ -22,6 +22,7 @@ clamav-update
 clamd
 cmake
 cronie
+fd-find
 firewall-config
 fzf
 gedit
@@ -40,6 +41,7 @@ gstreamer1-plugin-libav
 gstreamer1-vaapi
 gstreamer1-vaapi
 htop
+jq
 libffi-devel
 libva
 libva-utils
@@ -50,6 +52,7 @@ nvidia-vaapi-driver
 nvtop
 onedrive
 openssl-devel
+pdfgrep
 powertop
 profile-sync-daemon
 ranger
