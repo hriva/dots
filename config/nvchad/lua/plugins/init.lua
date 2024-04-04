@@ -33,6 +33,22 @@ return {
 		"LunarVim/bigfile.nvim",
 	},
 	{
+		"rmagatti/auto-session",
+		priority = 2000,
+		config = function()
+			require("auto-session").setup({
+				log_level = "error",
+				auto_restore_enabled = true,
+			})
+		end,
+		enabled = false,
+	},
+	{
+		"stevearc/resession.nvim",
+		opts = {},
+		enabled = false,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		event = "User FilePost",
 		config = function()
@@ -68,6 +84,7 @@ return {
 	{
 		"charludo/projectmgr.nvim",
 		lazy = false, -- important!
+		enabled = false,
 		config = function()
 			require("projectmgr").setup({
 				autogit = {
@@ -75,6 +92,7 @@ return {
 					command = "git pull --ff-only > .git/fastforward.log 2>&1",
 				},
 				session = { enabled = true, file = "Session.vim" },
+				shada = { enabled = false, file = "main.shada" },
 			})
 		end,
 	},
