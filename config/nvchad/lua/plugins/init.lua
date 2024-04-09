@@ -10,7 +10,6 @@ return {
 			require("configs.conform")
 		end,
 	},
-
 	-- override plugin configs
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -27,26 +26,18 @@ return {
 		"williamboman/mason.nvim",
 		opts = overrides.mason,
 	},
-
 	-- Install a plugin
 	{
 		"LunarVim/bigfile.nvim",
 	},
 	{
-		"rmagatti/auto-session",
-		priority = 2000,
+		"max397574/better-escape.nvim",
+		event = { "InsertEnter" },
 		config = function()
-			require("auto-session").setup({
-				log_level = "error",
-				auto_restore_enabled = true,
+			require("better_escape").setup({
+				mapping = { "kk", "jj", "jk" },
 			})
 		end,
-		enabled = false,
-	},
-	{
-		"stevearc/resession.nvim",
-		opts = {},
-		enabled = false,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -58,7 +49,6 @@ return {
 	},
 	{
 		"mfussenegger/nvim-lint",
-		enabled = true,
 		event = { "BufWritePost", "BufReadPost", "InsertLeave", "VeryLazy" },
 		config = function()
 			require("configs.lint")
@@ -81,6 +71,7 @@ return {
 			require("configs.iron")
 		end,
 	},
+	-- disabled
 	{
 		"charludo/projectmgr.nvim",
 		lazy = false, -- important!
@@ -113,14 +104,6 @@ return {
 			dap.listeners.before.event_exited["dapui_config"] = function()
 				dapui.close()
 			end
-		end,
-	},
-	{
-		"sindrets/diffview.nvim",
-		-- event = { "BufReadPost" },
-		cmd = { "DiffviewOpen" },
-		config = function()
-			require("configs.diffview")
 		end,
 	},
 	{

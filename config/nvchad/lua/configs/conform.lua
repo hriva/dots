@@ -5,7 +5,7 @@ local options = {
 	formatters_by_ft = {
 		lua = { "stylua" },
 
-		sh = { "shfmt" },
+		sh = { "shfmt", "shellcheck" },
 
 		toml = { "taplo" },
 
