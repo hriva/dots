@@ -33,7 +33,7 @@ M.mason = {
 		-- python
 		"black",
 		"ruff",
-		-- "pyright",
+		"basedpyright",
 
 		-- shell stuff
 		"shfmt",

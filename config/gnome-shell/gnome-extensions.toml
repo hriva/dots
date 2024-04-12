@@ -11,14 +11,27 @@ custom-icons=@a(sss) []
 hacks-level=0
 
 [blur-my-shell/applications]
+blur=true
+opacity=235
+sigma=28
 whitelist=['com.raggesilver.BlackBox', 'org.wezfurlong.wezterm']
 
+[blur-my-shell/dash-to-dock]
+blur=true
+corner-radius=18
+customize=false
+override-background=true
+style-dash-to-dock=2
+
 [blur-my-shell/panel]
-blur=false
+blur=true
+force-light-text=false
+style-panel=0
+unblur-in-overview=true
 
 [caffeine]
 countdown-timer=0
-indicator-position-max=4
+indicator-position-max=1
 restore-state=true
 screen-blank='never'
 toggle-state=true
@@ -27,11 +40,11 @@ user-enabled=true
 [dash-to-dock]
 apply-custom-theme=false
 autohide-in-fullscreen=false
-background-color='rgb(128,128,128)'
+background-color='rgb(0,0,0)'
 background-opacity=0.80000000000000004
-custom-background-color=true
+custom-background-color=false
 custom-theme-shrink=true
-dash-max-icon-size=64
+dash-max-icon-size=56
 disable-overview-on-startup=true
 dock-fixed=false
 dock-position='BOTTOM'
@@ -128,9 +141,12 @@ clock-menu-position=0
 clock-menu-position-offset=0
 controls-manager-spacing-size=0
 dash=true
-dash-icon-size=64
+dash-icon-size=0
+double-super-to-appgrid=true
 hot-corner=true
 keyboard-layout=true
+notification-banner-position=1
+osd=true
 panel=true
 panel-arrow=false
 panel-button-padding-size=0
@@ -139,6 +155,7 @@ panel-in-overview=false
 panel-indicator-padding-size=0
 panel-size=29
 ripple-box=false
+search=false
 show-apps-button=true
 startup-status=0
 theme=false
@@ -167,7 +184,7 @@ tile-by-default=true
 black-list=['org.wezfurlong.wezterm']
 border-color=(0.0, 0.0, 0.0, 1.0)
 border-width=-1
-custom-rounded-corner-settings={'Alacritty': <{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}>, 'obsidian': <{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}>, 'cool-retro-term.cool-retro-term': <{'padding': <{'left': <uint32 2>, 'right': <uint32 2>, 'top': <uint32 2>, 'bottom': <uint32 2>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}>}
+custom-rounded-corner-settings={'obsidian': <{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}>, 'cool-retro-term.cool-retro-term': <{'padding': <{'left': <uint32 2>, 'right': <uint32 2>, 'top': <uint32 2>, 'bottom': <uint32 2>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}>, 'Alacritty': <{'padding': <{'left': <uint32 1>, 'right': <uint32 1>, 'top': <uint32 1>, 'bottom': <uint32 1>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}>}
 enable-preferences-entry=true
 focused-shadow={'vertical_offset': 4, 'horizontal_offset': 0, 'blur_offset': 28, 'spread_radius': 4, 'opacity': 60}
 global-rounded-corner-settings={'padding': <{'left': <uint32 0>, 'right': <uint32 0>, 'top': <uint32 0>, 'bottom': <uint32 0>}>, 'keep_rounded_corners': <{'maximized': <true>, 'fullscreen': <true>}>, 'border_radius': <uint32 12>, 'smoothing': <uint32 0>, 'enabled': <true>}
@@ -219,8 +236,11 @@ open-menu=@as []
 name=''
 
 [vitals]
+alphabetize=true
 fixed-widths=false
-hot-sensors=['__network-rx_max__', '_processor_frequency_', '_processor_usage_',  '__temperature_avg__', '__fan_avg__', '_system_uptime_']
+hide-icons=false
+hot-sensors=['__network-rx_max__', '_system_uptime_', '_processor_usage_', '_processor_frequency_', '__fan_avg__', '__temperature_avg__']
+menu-centered=false
 position-in-panel=0
 show-processor=true
 show-voltage=true

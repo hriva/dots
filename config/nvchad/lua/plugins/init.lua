@@ -29,6 +29,7 @@ return {
 	-- Install a plugin
 	{
 		"LunarVim/bigfile.nvim",
+		event = { "BufReadPost" },
 	},
 	{
 		"max397574/better-escape.nvim",
@@ -56,6 +57,7 @@ return {
 	},
 	{
 		"creativenull/efmls-configs-nvim",
+		event = "VeryLazy",
 		dependencies = {
 			"neovim/nvim-lspconfig",
 			"williamboman/mason.nvim",
