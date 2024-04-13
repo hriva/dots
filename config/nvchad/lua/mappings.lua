@@ -1,8 +1,10 @@
 require("nvchad.mappings")
 local map = vim.keymap.set
 
+map("n", "<C-s>", "<cmd>silent write<cr>", { desc = "File Save", noremap = true })
+
 -- Pasting
-map("n", "cv", '"0p', { desc = "Paste Clipboard", noremap = true })
+map("n", "cv", '"0p', { desc = "Paste LastYank", noremap = true })
 
 -- Spelling
 map("n", "<leader>ss", ":setlocal spell spelllang=es<cr>", { desc = "Spelling es", noremap = true })

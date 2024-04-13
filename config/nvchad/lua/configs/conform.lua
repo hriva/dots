@@ -11,6 +11,8 @@ local options = {
 
 		python = { "black", "ruff_format" },
 
+		json = { "jq" },
+
 		-- r = { "styler", },
 		-- have other formatters configured.
 		["_"] = { "trim_whitespace" },
