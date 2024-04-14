@@ -11,6 +11,7 @@ local servers = {
 	"marksman",
 	-- "efm",
 	"basedpyright",
+	"taplo",
 }
 
 for _, lsp in ipairs(servers) do
@@ -41,5 +42,15 @@ lspconfig.basedpyright.setup({
 				indexing = true,
 			},
 		},
+	},
+})
+
+lspconfig.taplo.setup({
+	cmd = {
+		vim.fn.stdpath("data") .. "/mason/bin/taplo",
+		"lsp",
+		"stdio",
+		"--config",
+		vim.fn.expand("~/.config/taplo/taplo.toml"),
 	},
 })

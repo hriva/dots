@@ -1,3 +1,9 @@
+local conform = require("conform")
+conform.formatters.taplo = {
+	env = {
+		TAPLO_CONFIG = "~/.config/taplo/taplo.toml",
+	},
+}
 --type conform.options
 local options = {
 	lsp_fallback = true,
@@ -31,4 +37,4 @@ local options = {
 	notify_on_error = true,
 }
 
-require("conform").setup(options)
+conform.setup(options)
