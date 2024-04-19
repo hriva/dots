@@ -7,7 +7,6 @@ require("mason").setup()
 local lspconfig = require("lspconfig")
 
 local servers = {
-	-- "pyright",
 	"marksman",
 	-- "efm",
 	"basedpyright",
@@ -26,14 +25,12 @@ end
 -- 	efmls_config,
 -- }))
 
--- lspconfig.pyright.setup({
 lspconfig.basedpyright.setup({
 	filetypes = { "python" },
-	-- cmd = { "pyright-langserver", "--stdio" },
-	cmd = { "basedpyright-langserver", "--stdio" },
 	settings = {
-		python = {
+		basedpyright = {
 			analysis = {
+				logLevel = "Information",
 				autoSearchPaths = true,
 				useLibraryCodeForTypes = true,
 				typeCheckingMode = "off",
