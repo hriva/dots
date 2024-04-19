@@ -1,5 +1,5 @@
-# zmodload zsh/zprof 
-# .zshrc 
+# zmodload zsh/zprof
+# .zshrc
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
@@ -20,7 +20,7 @@ zstyle ':completion:*' menu select
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' formats '%b '
-setopt PROMPT_SUBST   
+setopt PROMPT_SUBST
 setopt autocd
 setopt inc_append_history
 setopt hist_expire_dups_first
@@ -30,23 +30,24 @@ setopt hist_ignore_all_dups
 bindkey -e
 
 # End of lines configured by zsh-newuser-install
-zstyle '*:compinit' arguments -i -u 
+zstyle '*:compinit' arguments -i -u
 zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
 zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 3
 zstyle ':autocomplete:history-search-backward:*' list-lines 8
 
 # Plugins
-if [ -f "$ZDOTDIR"/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
-  . "$ZDOTDIR"/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+ZPLUGINS="$ZDOTDIR"/plugins
+if [ -f "$ZPLUGINS"/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
+  . "$ZPLUGINS"/zsh-autocomplete/zsh-autocomplete.plugin.zsh
   bindkey '\t' menu-select "${terminfo[kcbt]}" menu-select
   () {  # RESET 'UP' 'DOWN' KEYBIND AFTER zsh-autocomplete
      local -a prefix=( '\e'{\[,O} )
-     local -a up=( ${^prefix}A ) down=( ${^prefix}B )
+     local -a up=( "${^prefix}"A ) down=( "${^prefix}"B )
      local key=
-     for key in $up[@]; do
+     for key in "$up"[@]; do
         bindkey "$key" up-line-or-history
      done
-     for key in $down[@]; do
+     for key in "$down"[@]; do
         bindkey "$key" down-line-or-history
      done
   }
@@ -73,6 +74,8 @@ fi
 
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # User specific aliases and functions

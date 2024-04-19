@@ -1,3 +1,4 @@
+#shellcheck shell=bash
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -31,6 +32,7 @@ alias fzf='fzf --border=rounded'
 alias vim='nvim'
 alias pgrep='pgrep -li'
 alias fd='fd -ui'
+alias neo='neo --charset=devanagari -F'
 
 # Aliases
 alias cdranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
@@ -107,7 +109,7 @@ alias governors='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_gove
 alias alsa-cards='cat /proc/asound/cards'
 # Intel/AMD HWP performance, balance_performance, default, balance_power, power
 alias epp-avaliable-policies='cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferences'
-alias get-epp='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq' 
+alias get-epp='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq'
 
 # Conditional Aliases
 alias baks='sudo btrbk list snapshots'
@@ -116,26 +118,26 @@ alias baks='sudo btrbk list snapshots'
 
 # Get path usage
 usage() {
-  find "${1:-.}" -maxdepth 1 -type d -exec du -shx {} \; | sort -hr
+	find "${1:-.}" -maxdepth 1 -type d -exec du -shx {} \; | sort -hr
 }
 
 # Extracts any archive(s) (if unp isn't installed)
-extract () {
+extract() {
 	for archive in "$@"; do
-		if [ -f "$archive" ] ; then
+		if [ -f "$archive" ]; then
 			case $archive in
-				*.tar.bz2)   tar xvjf $archive    ;;
-				*.tar.gz)    tar xvzf $archive    ;;
-				*.bz2)       bunzip2 $archive     ;;
-				*.rar)       rar x $archive       ;;
-				*.gz)        gunzip $archive      ;;
-				*.tar)       tar xvf $archive     ;;
-				*.tbz2)      tar xvjf $archive    ;;
-				*.tgz)       tar xvzf $archive    ;;
-				*.zip)       unzip $archive       ;;
-				*.Z)         uncompress $archive  ;;
-				*.7z)        7z x $archive        ;;
-				*)           echo "don't know how to extract '$archive'..." ;;
+			*.tar.bz2) tar xvjf "$archive" ;;
+			*.tar.gz) tar xvzf "$archive" ;;
+			*.bz2) bunzip2 "$archive" ;;
+			*.rar) rar x "$archive" ;;
+			*.gz) gunzip "$archive" ;;
+			*.tar) tar xvf "$archive" ;;
+			*.tbz2) tar xvjf "$archive" ;;
+			*.tgz) tar xvzf "$archive" ;;
+			*.zip) unzip "$archive" ;;
+			*.Z) uncompress "$archive" ;;
+			*.7z) 7z x "$archive" ;;
+			*) echo "don't know how to extract '$archive'..." ;;
 			esac
 		else
 			echo "'$archive' is not a valid file!"
@@ -144,8 +146,7 @@ extract () {
 }
 
 # Searches for text in all files in the current folder
-ftext ()
-{
+fw() {
 	# -i case-insensitive
 	# -I ignore binary files
 	# -H causes filename to be printed
@@ -157,14 +158,14 @@ ftext ()
 }
 
 # Quick find files
-ff () {
-  find "${2:-.}" -iname """*"$1"*""" 2> /dev/null
-  # echo '"*'"$1"'*"'
+ff() {
+	find "${2:-.}" -iname """*""$1*""" 2>/dev/null
+	# echo '"*'"$1"'*"'
 }
 
 # Get process without line wrap
-psg () {
-    printf '\033[?7l' # prevent linewrap
-    ps aux | grep "$1"
-    printf '\033[?7h' # prevent linewrap
+psg() {
+	printf '\033[?7l' # prevent linewrap
+	ps aux | grep "$1"
+	printf '\033[?7h' # prevent linewrap
 }

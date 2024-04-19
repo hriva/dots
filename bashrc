@@ -7,9 +7,8 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
@@ -18,14 +17,17 @@ export PATH
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
 	for rc in ~/.bashrc.d/*; do
 		if [ -f "$rc" ]; then
+			# TIMEFORMAT="$rc: %E"
+			# time . "$rc"
+			# unset TIMEFORMAT
 			. "$rc"
 		fi
 	done
@@ -38,9 +40,9 @@ HISTIGNORE='cd:htop:rm *:svn revert*:source /home/*/devel-env/bin/activate:/home
 HISTSIZE=10000
 HISTFILESIZE=11000
 
-shopt -s histappend # Append to the history file upon exit
-shopt -s checkwinsize # Check the window size after each command 
-shopt -s autocd # Enable auto cd by typing a dir
+shopt -s histappend   # Append to the history file upon exit
+shopt -s checkwinsize # Check the window size after each command
+shopt -s autocd       # Enable auto cd by typing a dir
 
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
@@ -78,9 +80,9 @@ EC() {
 trap EC ERR
 
 # Mimic zsh run-help keybind
-run-help() { help "$READLINE_LINE" 2>/dev/null || man "$READLINE_LINE" 2>/dev/null ; }
+run-help() { help "$READLINE_LINE" 2>/dev/null || man "$READLINE_LINE" 2>/dev/null; }
 bind -m vi-insert -x '"\eh": run-help'
-bind -m emacs -x     '"\eh": run-help'
+bind -m emacs -x '"\eh": run-help'
 
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"

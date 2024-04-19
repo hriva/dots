@@ -1,3 +1,4 @@
+*plugins
 *.zsh_history
 *zsh-autocomplete
 *.zcompdump*
