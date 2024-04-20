@@ -1,6 +1,4 @@
 # .bashrc
-iatest=$(expr index "$-" i)
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -37,8 +35,8 @@ unset rc
 
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE='cd:htop:rm *:svn revert*:source /home/*/devel-env/bin/activate:/home/*/devel-env/bin/python:*brave-browser*'
-HISTSIZE=10000
-HISTFILESIZE=11000
+HISTSIZE=20000
+HISTFILESIZE=20000
 
 shopt -s histappend   # Append to the history file upon exit
 shopt -s checkwinsize # Check the window size after each command
@@ -49,10 +47,10 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; h
 
 # Ignore case on auto-completion
 # Note: bind used instead of sticking these in .inputrc
-if [[ $iatest -gt 0 ]]; then bind "set completion-ignore-case on"; fi
+bind "set completion-ignore-case on"
 
 # Show auto-completion list automatically, without double tab
-if [[ $iatest -gt 0 ]]; then bind "set show-all-if-ambiguous On"; fi
+bind "set show-all-if-ambiguous On"
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'

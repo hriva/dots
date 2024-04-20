@@ -64,18 +64,20 @@ else
   }
 fi
 
-if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  # Declare the variable
-  typeset -A ZSH_HIGHLIGHT_STYLES
-  ZSH_HIGHLIGHT_STYLES[path]='none'
-  ZSH_HIGHLIGHT_STYLES[precommand]='fg=red'
-fi
+if [[ -z $__DISABLE_ZPLUGINS ]]; then
+    if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+      . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+      # Declare the variable
+      typeset -A ZSH_HIGHLIGHT_STYLES
+      ZSH_HIGHLIGHT_STYLES[path]='none'
+      ZSH_HIGHLIGHT_STYLES[precommand]='fg=red'
+    fi
 
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-elif [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-  . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+      . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    elif [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+      . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    fi
 fi
 
 # User specific aliases and functions
@@ -89,8 +91,8 @@ fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=20000
+SAVEHIST=20000
 
 alias vzsh='/usr/bin/nvim "$ZDOTDIR"/.zshrc'
 
