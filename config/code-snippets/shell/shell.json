@@ -1,0 +1,44 @@
+{
+  "setopts": {
+    "prefix": "setopts",
+    "body": [
+      "set -o errexit",
+      "set -o nounset",
+      "set -o pipefail",
+      "if [[ \"${TRACE-0}\" == \"1\" ]]; then",
+      "    set -o xtrace",
+      "fi",
+      ""
+    ],
+    "description": "setopts"
+  },
+  "as_root": {
+    "prefix": "as_root",
+    "body": [
+      "if [ \"$UID\" -ne 0 ]; then",
+      "    echo \"This script must be run as root\"",
+      "fi"
+    ],
+    "description": "as_root"
+  },
+  "check_deps": {
+    "prefix": "binaries",
+    "body": [
+      "BINARIES=${1:\"curl git wget\"}",
+      "for BINARY in $BINARIES; do",
+      "    if [ ! \"$(which \"$BINARY\" 2>/dev/null)\" ];then",
+      "        echo \"Need to install $BINARY.\"",
+      "        exit 2",
+      "    fi",
+      "done"
+    ],
+    "description": "check_deps"
+  },
+  "bash shebang": {
+    "prefix": "shebang",
+    "body": [
+      "#!/usr/bin/env bash"
+    ],
+    "description": "bash shebang"
+  }
+}

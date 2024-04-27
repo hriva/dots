@@ -1,0 +1,38 @@
+{
+  "name": "pysnippets",
+  "displayName": "pysnippets",
+  "description": "Custom Python Snippets",
+  "version": "0.1.0",
+  "publisher": "hriva",
+  "engines": {
+    "vscode": "^1.12.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "keywords": [
+    "snippets",
+    "python"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hriva/pysnippets.git"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./python/python.json"
+      },
+      {
+        "language": [
+          "shellscript",
+          "shell",
+          "sh",
+          "zsh"
+        ],
+        "path": "./shell/shell.json"
+      }
+    ]
+  }
+}
