@@ -29,7 +29,7 @@ lint.linters.mypy_venv = {
 lint.linters_by_ft = {
 	sh = { "shellcheck" },
 	-- python = { "mypy_venv" },
-	markdown = { "vale" },
+	-- markdown = { "vale" },
 	zsh = { "zsh" },
 	-- Use the "*" filetype to run linters on all filetypes.
 	-- ['*'] = { 'global linter' },
@@ -39,7 +39,7 @@ lint.linters_by_ft = {
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "BufReadPost" }, {
 	group = lint_augroup,
 	callback = function()
 		lint.try_lint()

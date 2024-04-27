@@ -73,6 +73,14 @@ return {
 			require("configs.iron")
 		end,
 	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
 	-- disabled
 	{
 		"charludo/projectmgr.nvim",
