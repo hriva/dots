@@ -34,7 +34,7 @@ fi
 unset rc
 
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE='cd:htop:rm *:svn revert*:source /home/*/devel-env/bin/activate:/home/*/devel-env/bin/python:*brave-browser*'
+HISTIGNORE='cd:htop:vi:vim:z:z -:ls:git pull:git push:ranger:gs:git s:la:l:rm *:svn revert*:sudo dnf update'
 HISTSIZE=20000
 HISTFILESIZE=20000
 
