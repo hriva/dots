@@ -47,3 +47,9 @@ opt.smartindent = true
 opt.autoindent = true
 -- 	end,
 -- })
+
+autocmd("BufWinEnter", {
+	desc = "Clear the last used search pattern",
+	pattern = "*",
+	command = "let @/ = ''",
+})

@@ -19,6 +19,6 @@ Source: https://docs.rockylinux.org/books/nvchad/vale_nvchad/#__tabbed_1_2
 
 ```sh
 curl -o shellharden.tar.gz \
-https://github.com/anordal/shellharden/releases/download/latest/shellharden-x86_64-unknown-linux-gnu.tar.gz
+https://github.com/anordal/shellharden/releases/latest/download/shellharden-x86_64-unknown-linux-gnu.tar.gz
 tar -xzf shellharden.tar.gz -C ~/.local/bin/
 ```
