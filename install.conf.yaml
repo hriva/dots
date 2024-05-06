@@ -10,14 +10,14 @@
 - link:
     # Home
     ~/.bashrc: bashrc
-    ~/.bashrc.d/aliases.sh: bashrc.d/aliases.sh
-    # ~/.bashrc.d/vte.sh: bashrc.d/vte.sh
     ~/.bash_profile: bash_profile
+    ~/.bashrc.d/aliases.sh: bashrc.d/aliases.sh
+    ~/.bashrc.d/fzf-shell.sh : bashrc.d/fzf-shell.sh
     ~/.zshenv: zshenv
-    # ~/.vimrc: vimrc
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
+    ~/.local/bin/battery-time : local/bin/battery-time.sh
 
-    # Config 
+    # Config
     ~/.config/git: config/git
     ~/.config/alacritty: config/alacritty
     ~/.config/easyeffects : config/easyeffects
@@ -37,7 +37,7 @@
     ~/.config/.wgetrc : config/wgetrc
 
     # Local
-    ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
+    # ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

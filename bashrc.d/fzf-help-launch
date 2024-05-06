@@ -1,4 +1,4 @@
-if [[ $0 == '/bin/bash' && -e /usr/share/fzf-help/fzf-help.bash ]]; then
+if [[ ! -z "$BASH_VERSION" ]] && [[ -e /usr/share/fzf-help/fzf-help.bash ]]; then
   source /usr/share/fzf-help/fzf-help.bash
   bind -x '"\C-h": fzf-help-widget'
 fi
