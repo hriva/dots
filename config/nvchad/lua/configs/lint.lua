@@ -31,6 +31,9 @@ lint.linters_by_ft = {
 	-- python = { "mypy_venv" },
 	-- markdown = { "vale" },
 	zsh = { "zsh" },
+	json = { "biomejs" },
+	jsonc = { "biomejs" },
+
 	-- Use the "*" filetype to run linters on all filetypes.
 	-- ['*'] = { 'global linter' },
 	-- Use the "_" filetype to run linters on filetypes that don't have other linters configured.

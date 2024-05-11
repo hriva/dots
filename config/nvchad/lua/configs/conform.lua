@@ -13,6 +13,8 @@ local options = {
 
 		json = { "jq" },
 
+		jsonc = { "biome" },
+
 		-- r = { "styler", },
 		-- have other formatters configured.
 		["_"] = { "trim_whitespace" },
