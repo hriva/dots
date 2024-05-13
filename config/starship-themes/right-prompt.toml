@@ -27,6 +27,7 @@ $docker_context\
 $fill[](fg:#33658A)\
 $character$cmd_duration\
 [](bg:#33658A fg:#3B4252)$time\
+${custom.foo}\
 [](fg:#3B4252)
 \\$ """
 
@@ -157,7 +158,7 @@ format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = true
-time_format = "%R" # Hour:Minute Format
+time_format = "%R"            # Hour:Minute Format
 style = "bg:#3B4252"
 format = '[$time  ]($style)'
 
@@ -175,3 +176,12 @@ style = "bg:#3B4252"
 format = '$symbol'
 success_symbol = '[󰄬 ](bold #33DA7A bg:#33658A)'
 error_symbol = '[✗ ](bold #F66151 bg:#33658A)'
+
+[custom.foo]
+disabled = false
+format = '[( $output)]($style)'
+style = "bg:#3B4252"
+command = "battery-time"        # shows output of command
+# when = """ [[ $OSTYPE == "linux-gnu" ]] && echo 1 """
+when = true
+os = "linux"

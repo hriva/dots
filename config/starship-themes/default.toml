@@ -23,6 +23,7 @@ $rust\
 $scala\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
+${custom.foo}\ 
 [](fg:#06969A)\
 $fill\
 $time\
@@ -62,7 +63,7 @@ disabled = false
 [directory]
 style = "bg:#434C5E"
 format = "[ $path ]($style)"
-truncation_length = 2 
+truncation_length = 2
 truncation_symbol = "…/"
 
 # Here is how you can shorten some long paths by text replacement
@@ -170,3 +171,12 @@ format = '[$symbol$percentage]($style)'
 [[battery.display]]
 threshold = 78
 #style = "bg:#3B4252"
+
+[custom.foo]
+disabled = true
+format = '[( $output)]($style)'
+style = "bg:#06969A"
+command = "battery-time"        # shows output of command
+# when = """ [[ $OSTYPE == "linux-gnu" ]] && echo 1 """
+when = true
+os = "linux"
