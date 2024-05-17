@@ -1,4 +1,10 @@
 --type conform.options
+local conform = require("conform")
+
+conform.formatters.biome = {
+	args = { "format", "--stdin-file-path", "$FILENAME", "--json-formatter-indent-style=space" },
+}
+
 local options = {
 	lsp_fallback = true,
 
@@ -33,4 +39,4 @@ local options = {
 	notify_on_error = true,
 }
 
-require("conform").setup(options)
+conform.setup(options)

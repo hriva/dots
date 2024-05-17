@@ -16,6 +16,7 @@ autocmd("VimResized", {
 
 -- Auto hide status line
 opt.cmdheight = 0
+opt.diffopt:append({ "algorithm:patience" })
 
 autocmd("CmdlineEnter", {
 	group = augroup("cmdheight_1_on_cmdlineenter", { clear = true }),
