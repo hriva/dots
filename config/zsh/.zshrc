@@ -28,6 +28,8 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups  # -h
 setopt hist_ignore_space  # -g
 setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
 bindkey -e
 
 # End of lines configured by zsh-newuser-install
