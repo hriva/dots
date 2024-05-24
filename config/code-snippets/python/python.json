@@ -1,4 +1,11 @@
 {
+  "pybang": {
+    "prefix": "pybang",
+    "body": [
+      "#!/usr/bin/env python3"
+    ],
+    "description": "pybang"
+  },
   "GET Request": {
     "prefix": "GET",
     "body": [
@@ -9,15 +16,15 @@
     "description": "Python Request",
     "scope": "python"
   },
-  "Read .env file": {
+  "Read .conf file": {
     "prefix": "renv",
     "body": [
       "import configparser",
       "",
       "config = configparser.ConfigParser()",
-      "config.read(\".env\")"
+      "config.read(\".conf\")"
     ],
-    "description": "Read .env file",
+    "description": "Read .conf file",
     "scope": "python"
   },
   "Read in File as Pandas DataFrame": {
