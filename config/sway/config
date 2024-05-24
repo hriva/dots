@@ -3,6 +3,10 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
+    gsettings set org.gnome.desktop.interface icon-theme "MoreWaita"
+}
 
 #preaty workspace fonts using ttf-awsome-fonts
 set $ws1 "1"
@@ -16,13 +20,17 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-gaps inner 2px
-gaps outer 2px
+gaps inner 1
+gaps outer 1
+# smart_gaps off
+
 ### Variables
 default_border none
 bindsym XF86MonBrightnessDown exec brightnessctl set 5-
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -35,20 +43,29 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu rofi -show drun | wmenu | xargs swaymsg exec --
 # set $menu_command wofi | xargs swaymsg exec --
+set $menu2 rofi-app-launcher.sh d
 # bindsym $mod+r exec $menu_command
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg ~/.local/share/backgrounds/2023-09-11-10-55-36-Kohakunushi-1200.jpeg fill
+output * bg ~/.dotfiles/balcony.png fill
 #
 # Example configuration:
 #
-output eDP-1 {
-  mode 1920x1080@60.002Hz 
+
+output  eDP-1 {
+  mode 1920x1080@60.002Hz
+  position 1920,0
+}
+output  Virtual-1 {
+  mode 1920x1080@60.002Hz
   position 1920,0
 }
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Autostart
+exec_always autotiling
 
 ### Idle configuration
 #
@@ -89,6 +106,15 @@ output eDP-1 {
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    bindsym $mod+u exec $menu2
+    # # Ulauncher
+    # bindsym $mod+u exec ulauncher-toggle
+    # for_window [app_id="Ulauncher"] floating enable
+    #
+    # # albert
+    # bindsym $mod+i exec albert-wayland.sh
+    # for_window [app_id="Albert"] floating enable
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -158,7 +184,7 @@ output eDP-1 {
     bindsym $mod+Mod1+l workspace next
     bindsym $mod+Mod1+j move container to workspace next
     bindsym $mod+Mod1+k move container to workspace prev
-    
+
 
 
     # Note: workspaces can have any name you want, not just numbers.

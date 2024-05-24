@@ -1,0 +1,81 @@
+@import "mocha.css";
+
+/* --- GENERAL --- */
+* {
+  font-family: CommitMono Nerd Font;
+  font-size: 15px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+}
+
+#waybar {
+  background-color: black; /* Black background for the whole bar */
+  color: white; /* White text color */
+  padding: 0;
+  margin: 0;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+/* Simplify the modules to have consistent styling */
+#window, #clock, #tray, #network, #idle_inhibitor, #pulseaudio, #cpu, #memory, #temperature, #backlight, #battery, #custom-updates, #custom-dunst, #custom-lock, #custom-power {
+  background-color: transparent; /* Transparent background for all items */
+  padding: 0.5rem 0.75rem;
+  margin: 5px 0;
+  color: white; /* White text for all items */
+  border-radius: 0; /* Remove border-radius for a flat style */
+}
+
+/* --- LEFT MODULES --- */
+
+#workspaces {
+  background-color: transparent;
+  margin: 5px 0 5px 5px;
+  padding-left: 0.3rem;
+}
+
+#workspaces button {
+  color: white;
+  background-color: transparent;
+  padding: 0.25rem;
+  margin: 0.3rem 0;
+  transition: color 0.5s, background-color 0.5s;
+}
+
+#workspaces button:hover {
+  color: grey; /* Light grey color on hover to distinguish active item */
+  background-color: transparent;
+}
+
+/* --- CENTER MODULES --- */
+
+#clock {
+  color: white;
+}
+
+/* --- RIGHT MODULES --- */
+
+#network, #idle_inhibitor, #pulseaudio, #cpu, #memory, #temperature, #backlight, #battery, #custom-updates, #custom-dunst, #custom-lock, #custom-power {
+  color: white; /* Uniform white text color */
+}
+
+#battery.charging, #battery.warning:not(.charging), #custom-updates {
+  color: lightgreen; /* Use light green to highlight special states */
+}
+
+#idle_inhibitor.activated {
+  color: lightblue; /* Highlight activation */
+}
+
+#idle_inhibitor.deactivated {
+  color: grey; /* Dimmed look for deactivated state */
+}
+
+/* --- EXTRA STYLES --- */
+
+#tray {
+  margin-right: 0.75rem;
+}
+

@@ -1,0 +1,78 @@
+/* --- GENERAL --- */
+* {
+  font-family: Liberation Mono;
+  font-size: 19px;
+  font-weight:bold;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#waybar {
+  background-color: black; /* Black background for the whole bar */
+  color: white; /* White text color */
+  padding: 0;
+  margin: 0;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+/* Simplify the modules to have consistent styling */
+#window, #clock, #tray, #network, #idle_inhibitor, #pulseaudio, #cpu, #memory, #temperature, #backlight, #battery, #custom-updates, #custom-dunst, #custom-lock, #custom-power {
+  background-color: transparent; /* Transparent background for all items */
+  padding: 0.0rem 0.75rem;
+  margin: 0 1px; /* 1px margin between items */
+  color: white; /* White text for all items */
+  border-radius: 0; /* Remove border-radius for a flat style */
+}
+
+/* --- LEFT MODULES --- */
+
+#workspaces {
+  background-color: transparent;
+  margin: 0 1px; /* 1px margin between items */
+  padding-left: 0.3rem;
+}
+
+#workspaces button {
+  color: white;
+  background-color: transparent;
+  padding: 0.1rem;
+  margin: 0 0.3rem; /* 1px margin between letters */
+  transition: color 0.5s, background-color 0.5s;
+}
+
+#workspaces button:hover {
+  color: grey; /* Light grey color on hover to distinguish active item */
+  background-color: transparent;
+}
+
+/* --- CENTER MODULES --- */
+
+#clock {
+  color: white;
+}
+
+/* --- RIGHT MODULES --- */
+
+#network, #idle_inhibitor, #pulseaudio, #cpu, #memory, #temperature, #backlight, #battery, #custom-updates, #custom-dunst, #custom-lock, #custom-power {
+  color: white; /* Uniform white text color */
+}
+
+#battery.charging, #battery.warning:not(.charging), #custom-updates {
+  color: lightgreen; /* Use light green to highlight special states */
+}
+
+#idle_inhibitor.activated {
+  color: lightblue; /* Highlight activation */
+}
+
+#idle_inhibitor.deactivated {
+  color: grey; /* Dimmed look for deactivated state */
+}
+
+/* --- EXTRA STYLES --- */
+
+#tray {
+  margin-right: 0.75rem;
+}

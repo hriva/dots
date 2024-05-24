@@ -16,6 +16,7 @@
     ~/.zshenv: zshenv
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
     ~/.local/bin/battery-time : local/bin/battery-time.sh
+    ~/.local/bin/rofi-app-launcher : local/bin/rofi-app-launcher.sh
 
     # Config
     ~/.config/git: config/git
@@ -35,6 +36,10 @@
     ~/.config/vale/.vale.ini : config/vale/.vale.ini
     ~/.config/.curlrc : config/curlrc
     ~/.config/.wgetrc : config/wgetrc
+    ~/.config/sway : config/sway
+    ~/.config/wofi : config/wofi
+    ~/.config/waybar : config/waybar
+    ~/.config/rofi : config/rofi
 
     # Local
     # ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
