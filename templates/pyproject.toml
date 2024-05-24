@@ -34,7 +34,7 @@ exclude = [
 inline-quotes = 'single'
 
 [tool.pyright]
-venvPath = "/home/alquimista/Code"
+venvPath = "/home/user/Code"
 venv = ".devel-env"
 typeCheckingMode = "standard"
 exclude = [
@@ -46,6 +46,7 @@ exclude = [
 reportMissingImports = false
 
 [tool.mypy]
+mypy_path = "/home/user/Code/.devel-env/lib64/python3.12/site-packages"
 exclude = [
   '^file1\.py$',  # TOML literal string (single-quotes, no escaping necessary)
   "^file2\\.py$", # TOML basic string (double-quotes, backslash and other characters need escaping)
