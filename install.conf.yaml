@@ -15,8 +15,12 @@
     ~/.bashrc.d/fzf-shell.sh : bashrc.d/fzf-shell.sh
     ~/.zshenv: zshenv
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
+
+    # Binaries
     ~/.local/bin/battery-time : local/bin/battery-time.sh
     ~/.local/bin/rofi-app-launcher : local/bin/rofi-app-launcher.sh
+    ~/.local/bin/cpp : local/bin/cpp.sh
+    ~/.local/bin/usage : local/bin/usage.sh
 
     # Config
     ~/.config/git: config/git
