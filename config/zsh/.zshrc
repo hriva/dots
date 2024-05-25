@@ -25,11 +25,13 @@ setopt PROMPT_SUBST
 setopt autocd
 setopt inc_append_history
 setopt hist_expire_dups_first
+setopt HIST_REDUCE_BLANKS
 setopt hist_ignore_dups  # -h
 setopt hist_ignore_space  # -g
 setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_find_no_dups
+setopt SHARE_HISTORY
 bindkey -e
 
 # End of lines configured by zsh-newuser-install
@@ -37,6 +39,10 @@ zstyle '*:compinit' arguments -i -u
 zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
 zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 3
 zstyle ':autocomplete:history-search-backward:*' list-lines 8
+
+# completion using arrow keys (based on history)
+bindkey '^A' history-search-backward
+bindkey '^P' history-search-forward
 
 # Plugins
 ZPLUGINS="$ZDOTDIR"/plugins
