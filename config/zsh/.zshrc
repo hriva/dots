@@ -41,8 +41,8 @@ zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 3
 zstyle ':autocomplete:history-search-backward:*' list-lines 8
 
 # completion using arrow keys (based on history)
-bindkey '^A' history-search-backward
-bindkey '^P' history-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
 
 # Plugins
 ZPLUGINS="$ZDOTDIR"/plugins
