@@ -40,5 +40,16 @@
       "#!/usr/bin/env bash"
     ],
     "description": "bash shebang"
+  },
+  "Command exists": {
+    "prefix": "wcmd",
+    "body": [
+      "if ! which ${1:command} &>/dev/null; then",
+      "   echo \"${1:command} is not installed. Please install it first.\"",
+      "   exit 1",
+      "fi",
+      ""
+    ],
+    "description": "Command exists"
   }
 }
