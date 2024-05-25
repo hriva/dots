@@ -42,6 +42,9 @@ shopt -s histappend   # Append to the history file upon exit
 shopt -s checkwinsize # Check the window size after each command
 shopt -s autocd       # Enable auto cd by typing a dir
 
+bind -m emacs '"\C-p": history-search-backward'
+bind -m emacs '"\C-n": history-search-forward'
+
 # After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
