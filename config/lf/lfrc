@@ -1,0 +1,11 @@
+set previewer ~/.config/lf/scope-lf-wrapper.sh
+map i $LESSOPEN='| ~/.config/lf/scope-lf-wrapper.sh %s' less -R $f
+set info size
+set dircounts
+
+map p : paste; clear
+
+# Trashcli
+cmd trash %trash-put $fx
+map D trash
+set period 1

@@ -40,6 +40,8 @@
     ~/.config/wofi : config/wofi
     ~/.config/waybar : config/waybar
     ~/.config/rofi : config/rofi
+    ~/.config/lf : config/lf
+    ~/.config/taplo : config/taplo
 
     # Local
     # ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global

@@ -1,12 +1,14 @@
 com.belmoussaoui.Authenticator
 com.bitwarden.desktop
-com.github.Murmele.Gittyup
+com.github.qarmin.czkawka
 com.github.tchx84.Flatseal
 com.mattjakeman.ExtensionManager
-com.visualstudio.code
+com.raggesilver.BlackBox
 com.visualstudio.code.tool.podman
 io.podman_desktop.PodmanDesktop
+it.mijorus.gearlever
 md.obsidian.Obsidian
 org.cryptomator.Cryptomator
+org.gnome.Connections
 org.gtk.Gtk3theme.adw-gtk3-dark
 org.wezfurlong.wezterm
