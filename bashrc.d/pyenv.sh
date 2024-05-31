@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source-py-env() {
+pyenv() {
 	VENV_DIR="$HOME/Code"
 	case $1 in
 	main)
