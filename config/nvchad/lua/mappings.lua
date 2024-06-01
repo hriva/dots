@@ -11,6 +11,12 @@ map("n", "<leader>ss", ":setlocal spell spelllang=es<cr>", { desc = "Spelling es
 map("n", "<leader>se", ":setlocal spell spelllang=en_us<cr>", { desc = "Spelling en", noremap = true })
 map("n", "<leader>sd", ":setlocal nospell<cr>", { desc = "Spelling Disable", noremap = true })
 
+-- Multipane sizing
+map("n", "<A-k>", "<cmd>vertical resize +2<cr>", { desc = "Spelling Disable", noremap = true })
+map("n", "<A-j>", "<cmd>vertical resize -2<cr>", { desc = "Spelling Disable", noremap = true })
+map("n", "<A-K>", "<cmd>horizontal resize +2<cr>", { desc = "Spelling Disable", noremap = true })
+map("n", "<A-J>", "<cmd>horizontal resize -2<cr>", { desc = "Spelling Disable", noremap = true })
+
 -- Gitsigns
 map("n", "<leader>do", "<cmd>Gitsigns diffthis<cr>", { desc = "Diff Open" })
 map("n", "wq", "<cmd>wincmd p | q<cr>", { desc = "Window QuitPrevious" })
