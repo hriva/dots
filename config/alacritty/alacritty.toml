@@ -1,4 +1,7 @@
-import = ["/home/alquimista/.config/alacritty/alacritty-keybinds.toml", "/home/alquimista/.config/alacritty/green-on-black.toml"]
+import = [
+  "/home/alquimista/.config/alacritty/alacritty-keybinds.toml",
+  "/home/alquimista/.config/alacritty/green-on-black.toml",
+]
 
 [cursor]
 blink_timeout = 0
@@ -23,7 +26,7 @@ family = "CommitMono Nerd Font"
 
 [window]
 decorations = "none"
-opacity = 0.90
+opacity = 0.96
 blur = true
 startup_mode = "Windowed"
 
