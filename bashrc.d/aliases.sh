@@ -6,6 +6,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 export EDITOR=/usr/bin/nvim
 export WGETRC=$HOME/.config/.wgetrc
 export MOZ_ENABLE_WAYLAND=1
+export _ZO_RESOLVE_SYMLINKS=0
 
 # Color for manpages in less makes manpages a little easier to read
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -63,6 +64,8 @@ alias fzfpath='tree -afR /home/$USER | fzf'
 alias fcd='cd $(find /home/$USER -type d | fzf)'
 alias fzo='z $(find /home/$USER -type d | fzf)'
 alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
+alias osshfs='sudo sshfs -o allow_other,default_permissions'
+alias zim='__zoxide_zi && nvim'
 
 # Search running processes
 alias p="ps aux | grep "
@@ -154,7 +157,7 @@ fw() {
 	# -n causes line number to be printed
 	# optional: -F treat search term as a literal, not a regular expression
 	# optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
-	grep -iIHrn --color=always "$1" . | less -r
+	grep -iIHrn --color=always "$1" "${2:-.}" | less -r
 }
 
 # Quick find files
