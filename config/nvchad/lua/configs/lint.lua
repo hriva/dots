@@ -33,6 +33,7 @@ lint.linters_by_ft = {
 	zsh = { "zsh" },
 	json = { "biomejs" },
 	jsonc = { "biomejs" },
+	make = { "checkmake" },
 
 	-- Use the "*" filetype to run linters on all filetypes.
 	-- ['*'] = { 'global linter' },
