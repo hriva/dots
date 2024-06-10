@@ -61,8 +61,6 @@ alias kat='bat --plain --paging=always'
 alias fbat="fzf --border=rounded --preview 'bat --color always {}'"
 alias fless="fzf --preview 'less {}'"
 alias fzfpath='tree -afR /home/$USER | fzf'
-alias fcd='cd $(find /home/$USER -type d | fzf)'
-alias fzo='z $(find /home/$USER -type d | fzf)'
 alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
 alias osshfs='sudo sshfs -o allow_other,default_permissions'
 alias zim='__zoxide_zi && nvim'
@@ -164,6 +162,11 @@ fw() {
 ff() {
 	find "${2:-.}" -iname """*""$1*""" 2>/dev/null
 	# echo '"*'"$1"'*"'
+}
+
+fcd() {
+	local dir="${1:-.}"
+	cd "$(find "$dir" /home/"$USER" -type d | fzf)" || echo 1
 }
 
 # Get process without line wrap
