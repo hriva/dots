@@ -29,7 +29,7 @@ unzip doc2txt.zip
 curl -o "OneDriveGUI.AppImage" https://github.com/bpozdena/OneDriveGUI/releases/latest/download/OneDriveGUI-1.0.3_fix150-x86_64.AppImage
 
 # CommitMono nerd font
-curl -o "ComitMono.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/CommitMono.zip
+curl -o "ComitMono.zip" https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CommitMono.zip
 unzip ComitMono.zip -d CommitMono
 mv CommitMono ~/.local/share/fonts/
 
@@ -41,8 +41,12 @@ tar -xzf shellharden.tar.gz -C ~/.local/bin/
 # biome binary
 curl -o biome \
 	https://github.com/biomejs/biome/releases/latest/download/biome-linux-x64
-
 mv biome ~/.local/bin/
+
+curl https://github.com/TheZoraiz/ascii-image-converter/releases/latest/download/ascii-image-converter_Linux_amd64_64bit.tar.gz | tar -xz
+chmod u+x ascii-image-converter_Linux_amd64_64bit/ascii-image-converter
+mv ascii-image-converter_Linux_amd64_64bit/ascii-image-converter ~/.local/bin/
+/usr/bin/rm -r ascii-image-converter_Linux_amd64_64bit
 
 git clone https://github.com/somepaulo/MoreWaita.git
 ./MoreWaita/install.sh
