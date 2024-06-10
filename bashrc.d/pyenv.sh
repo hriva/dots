@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+alias pip-update="pip list | awk 'NR>2 {print $1}' | xargs pip install -U"
+
 pyenv() {
 	VENV_DIR="$HOME/Code"
 	case $1 in
