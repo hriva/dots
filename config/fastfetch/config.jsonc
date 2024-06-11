@@ -82,6 +82,11 @@
       "keyColor": "blue"
     },
     {
+      "type": "packages",
+      "key": "├─󰏔 ",
+      "keyColor": "blue"
+    },
+    {
       "type": "kernel",
       "key": "╰─ ",
       "format": "{1} {2}",
