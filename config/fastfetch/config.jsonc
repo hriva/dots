@@ -12,6 +12,51 @@
     "separator": " "
   },
   "modules": [
+    {
+      "type": "title",
+      "key": "╭─ ",
+      "format": "{1}@{2}",
+      "keyColor": "blue"
+    },
+    {
+      "type": "os",
+      "key": "├─ ", // Just get your distro's logo off nerdfonts.com
+      "keyColor": "blue"
+    },
+    {
+      "type": "packages",
+      "key": "├─󰏔 ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "kernel",
+      "key": "╰─ ",
+      "format": "{1} {2}",
+      "keyColor": "blue"
+    },
+    "break",
+
+    {
+      "type": "shell",
+      "key": "╭─ ",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "terminal",
+      "key": "├─ ",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "de",
+      "key": "├─ ",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "wm",
+      "key": "╰─ ",
+      "keyColor": "yellow"
+    },
+
     "break",
     {
       "type": "host",
@@ -46,51 +91,6 @@
       "keyColor": "green",
       "compactType": "original"
     },
-    "break",
-
-    {
-      "type": "shell",
-      "key": "╭─ ",
-      "keyColor": "yellow"
-    },
-    {
-      "type": "terminal",
-      "key": "├─ ",
-      "keyColor": "yellow"
-    },
-    {
-      "type": "de",
-      "key": "├─ ",
-      "keyColor": "yellow"
-    },
-    {
-      "type": "wm",
-      "key": "╰─ ",
-      "keyColor": "yellow"
-    },
-
-    "break",
-    {
-      "type": "title",
-      "key": "╭─ ",
-      "format": "{1}@{2}",
-      "keyColor": "blue"
-    },
-    {
-      "type": "os",
-      "key": "├─ ", // Just get your distro's logo off nerdfonts.com
-      "keyColor": "blue"
-    },
-    {
-      "type": "packages",
-      "key": "├─󰏔 ",
-      "keyColor": "blue"
-    },
-    {
-      "type": "kernel",
-      "key": "╰─ ",
-      "format": "{1} {2}",
-      "keyColor": "blue"
-    }
+    "break"
   ]
 }
