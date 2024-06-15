@@ -7,6 +7,14 @@
     {
       "class": "python3",
       "title": "OneDriveGUI"
+    },
+    {
+      "class": "internxt-drive",
+      "title": "Internxt Drive"
+    },
+    {
+      "class": "gjs",
+      "title": "gjs"
     }
   ],
   "skiptaskbarhidden": [],

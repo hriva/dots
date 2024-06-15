@@ -1,37 +1,38 @@
 [core]
 	longpaths = true
 	pager = delta
-	
+	autocrlf = input
+
 [init]
 	defaultBranch = main
-	
+
 [commit]
 	gpgSign = false
-	
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-	
+
 [interactive]
 	diffFilter = delta --color-only
-	
+
 [delta]
 	navigate = true    # use n and N to move between diff sections
 	light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 	side-by-side = true
 	line-numbers = true
-	
+
 [merge]
 	conflictstyle = diff3
-	
+
 [diff]
 	colorMoved = default
-	
+
 [diff "word"]
 	textconv = docx2txt
-	
+
 [alias]
 	force-pull = !"git fetch --all; git reset --hard HEAD; git merge @{u}"
 	stash-pull = !"git fetch --all; git stash; git merge @{u}; git stash pop"
@@ -46,8 +47,14 @@
 	s = status -sb
 	su = status -uno
 	R = ls-tree --full-tree --name-only -r HEAD
+    partial-clone = clone --filter=blob:none
+    shallow-clone = clone --depth=1
 	untrack = update-index --assume-unchanged
 	retrack = update-index --no-assume-unchanged
-	
+
 	# list aliases
 	la = "!git config -l | grep alias | cut -c 7-"
+
+[include]
+	path = main-user
+    path = enforcessh
