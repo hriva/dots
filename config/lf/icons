@@ -1,0 +1,117 @@
+# file types (with matching order)
+ln             # LINK
+or             # ORPHAN
+ow             # OTHER_WRITABLE
+di             # DIR
+ex             # EXEC
+fi             # FILE
+
+# file extensions (vim-devicons)
+*.styl          
+*.sass          
+*.scss          
+*.htm           
+*.html          
+*.css           
+*.less          
+*.md            
+*.markdown      
+*.rmd           
+*.json          
+*.rb            
+*.php           
+*.py            
+*.conf          
+*.ini           
+*.yml           
+*.yaml          
+*.bat           
+*.mk            
+*.cpp           
+*.c++           
+*.c             
+*.cs            󰌛
+*.h             
+*.hs            
+*.nix           
+*.lua           
+*.java          
+*.sh            
+*.bash          
+*.awk           
+*.ps1           
+*.diff          
+*.go            
+*.rss           
+*.ex            
+*.vim           
+*.tex           󰙩
+*.r             󰟔
+*.log           
+*.bib           
+*.part          
+*.gpg           
+*.iso           
+*.torrent       
+*.txt           ✍
+*.ms            ✍
+*.mom           ✍
+
+# file names (vim-devicons) (case-insensitive not supported in lf)
+*.gitconfig             
+*.gitignore             
+*.bashrc                
+*.vimrc                 
+*.bashprofile           
+*license                
+*makefile               
+*cmakelists.txt         
+
+# file names (case-sensitive adaptations)
+*LICENSE                
+*Makefile               
+*CMakeLists.txt         
+
+# file patterns (file name adaptations)
+*materialize.min.css    
+*vimrc                  
+
+# archives or compressed (extensions from dircolors defaults)
+*.tar   
+*.zip   
+*.gz    
+*.bz    
+*.deb   
+*.rpm   
+*.jar   
+*.rar   
+*.7z    
+*.rz    
+
+# image and video formats (extensions from dircolors defaults)
+*.jpg   
+*.jpeg  
+*.gif   
+*.bmp   
+*.tif   
+*.tiff  
+*.png   
+*.mov   
+*.mkv   
+*.webm  
+*.mp4   
+*.webp  
+*.xcf   
+
+# audio formats (extensions from dircolors defaults)
+*.aac   
+*.flac  󰽴
+*.m4a   
+*.mp3   
+*.ogg   
+*.wav   󰽴
+*.opus  
+
+# other formats
+*.pdf   
+*.epub  

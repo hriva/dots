@@ -1,8 +1,12 @@
+# Options
 set previewer ~/.config/lf/scope-lf-wrapper.sh
-map i $LESSOPEN='| ~/.config/lf/scope-lf-wrapper.sh %s' less -R $f
 set info size
 set dircounts
+set drawbox true
+set icons true
 
+# Mappings
+map i $LESSOPEN='| ~/.config/lf/scope-lf-wrapper.sh %s' less -R $f
 map p : paste; clear
 
 # Trashcli
