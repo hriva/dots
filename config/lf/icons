@@ -1,10 +1,10 @@
 # file types (with matching order)
-ln             # LINK
-or             # ORPHAN
-ow             # OTHER_WRITABLE
-di             # DIR
-ex             # EXEC
-fi             # FILE
+ln      󱅷       # LINK
+or      󱅷       # ORPHAN
+ow             # OTHER_WRITABLE
+di             # DIR
+ex             # EXEC
+fi      󰈔       # FILE
 
 # file extensions (vim-devicons)
 *.styl          
@@ -53,11 +53,12 @@ fi             # FILE
 *.gpg           
 *.iso           
 *.torrent       
-*.txt           ✍
-*.ms            ✍
-*.mom           ✍
+*.txt           󱞎
+*.ms            󱞎
+*.mom           󱞎
 
 # file names (vim-devicons) (case-insensitive not supported in lf)
+*.git                   
 *.gitconfig             
 *.gitignore             
 *.bashrc                
@@ -66,6 +67,7 @@ fi             # FILE
 *license                
 *makefile               
 *cmakelists.txt         
+*config                 
 
 # file names (case-sensitive adaptations)
 *LICENSE                
