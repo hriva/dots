@@ -43,10 +43,12 @@ lspconfig.basedpyright.setup({
 			analysis = {
 				logLevel = "Information",
 				autoSearchPaths = true,
-				useLibraryCodeForTypes = true,
+				useLibraryCodeForTypes = false,
+				stubPath = os.getenv("HOME") .. "/Code/.python-stubs",
 				typeCheckingMode = "off",
 				diagnosticMode = "openFilesOnly",
 				indexing = true,
+				diagnosticSeverityOverrides = { "error", "warning" },
 			},
 		},
 	},
