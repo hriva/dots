@@ -49,6 +49,7 @@
     ~/.config/lf : config/lf
     ~/.config/taplo : config/taplo
     ~/.config/Rprofile : config/Rprofile
+    ~/.config/zellij : config/zellij
 
     # Local
     # ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
