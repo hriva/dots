@@ -67,7 +67,7 @@ return {
 	{
 		"Vigemus/iron.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
-		ft = "python",
+		ft = { "python", "r", "rmd" },
 		-- enabled = false,
 		config = function()
 			require("configs.iron")

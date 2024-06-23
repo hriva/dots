@@ -10,6 +10,8 @@ iron.setup({
 				command = { "bash" },
 			},
 			python = require("iron.fts.python").ipython,
+			r = require("iron.fts.r").R,
+			rmd = require("iron.fts.r").R,
 		},
 		repl_open_cmd = require("iron.view").split("35%"),
 	},
