@@ -1,1 +1,10 @@
 export R_LIBS_USER=~/.local/lib/R_library
+export R_PROFILE_USER=~/.config/Rprofile
+export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig
+export R_LINTR_LINTER_FILE=~/.config/lintr
+
+# export RENV_ROOT=~/.local/share/renv
+# export PATH="$RENV_ROOT/bin:$PATH"
+# if command -v renv 1>/dev/null 2>&1; then
+# 	eval "$(renv init -)"
+# fi

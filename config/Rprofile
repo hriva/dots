@@ -1,0 +1,16 @@
+options(repos = c(CRAN = "https://cloud.r-project.org/"))
+options(width = 120)
+options(tabSize = 2)
+if (requireNamespace("lintr", quietly = TRUE)) {
+    options(
+        lintr.linters = lintr::linters_with_defaults(
+            line_length_linter = lintr::line_length_linter(120),
+            commented_code_linter = NULL,
+            object_usage_linter = NULL,
+            indentation_linter = NULL
+        )
+    )
+}
+options(languageserver.formatting_style = function(options) {
+    styler::tidyverse_style(scope = "indention", indent_by = options$tabSize)
+})

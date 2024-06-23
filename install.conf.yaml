@@ -13,6 +13,7 @@
     ~/.bash_profile: bash_profile
     ~/.bashrc.d/aliases.sh: bashrc.d/aliases.sh
     ~/.bashrc.d/fzf-shell.sh : bashrc.d/fzf-shell.sh
+    ~/.bashrc.d/R-lib : bashrc.d/R-lib
     ~/.zshenv: zshenv
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
 
@@ -21,6 +22,7 @@
     ~/.local/bin/rofi-app-launcher : local/bin/rofi-app-launcher.sh
     ~/.local/bin/cpp : local/bin/cpp.sh
     ~/.local/bin/usage : local/bin/usage.sh
+    ~/.local/bin/prettyr : local/bin/prettyr.sh
 
     # Config
     ~/.config/git: config/git
@@ -46,6 +48,7 @@
     ~/.config/rofi : config/rofi
     ~/.config/lf : config/lf
     ~/.config/taplo : config/taplo
+    ~/.config/Rprofile : config/Rprofile
 
     # Local
     # ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
