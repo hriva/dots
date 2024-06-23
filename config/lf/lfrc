@@ -1,6 +1,10 @@
 # Options
-set previewer ~/.config/lf/scope-lf-wrapper.sh
+# set previewer ~/.config/lf/preview-sandbox.sh
+set preview true
+set sixel true
+set cursorpreviewfmt ""
 set info size
+set period 1  # Polling for updates
 set dircounts
 set drawbox true
 set icons true
@@ -12,4 +16,3 @@ map p : paste; clear
 # Trashcli
 cmd trash %trash-put $fx
 map D trash
-set period 1
