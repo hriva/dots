@@ -1,6 +1,7 @@
 local config = require("nvchad.configs.lspconfig")
 local on_attach = config.on_attach
 local capabilities = config.capabilities
+capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 local on_init = config.on_init
 
 require("mason").setup()
@@ -9,6 +10,7 @@ local lspconfig = require("lspconfig")
 local servers = {
 	"marksman",
 	-- "efm",
+	"r_language_server",
 	"basedpyright",
 }
 
@@ -24,6 +26,15 @@ end
 -- lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
 -- 	efmls_config,
 -- }))
+
+lspconfig.r_language_server.setup({
+	settings = {
+		diagnostics = false,
+	},
+	-- flags = {
+	-- 	debounce_text_changes = 150,
+	-- },
+})
 
 lspconfig.basedpyright.setup({
 	filetypes = { "python" },
