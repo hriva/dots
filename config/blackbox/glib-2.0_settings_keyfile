@@ -1,0 +1,23 @@
+#.var/app/com.raggesilver.BlackBox/config/glib-2.0/settings/keyfile
+[com/raggesilver/BlackBox]
+window-height=1043
+window-width=1912
+floating-controls=true
+delay-before-showing-floating-controls=300
+font='Commit Mono NF 14'
+terminal-bell=false
+cursor-blink-mode=1
+terminal-padding=(0, 0, 0, 0)
+notify-process-completion=false
+theme-dark='Japanesque'
+show-headerbar=false
+scrollback-lines=10000
+pretty=false
+show-scrollbars=false
+theme-bold-is-bright=true
+terminal-cell-height=1.0
+was-maximized=false
+use-custom-command=true
+custom-shell-command='env __DISABLE_ZPLUGINS=1 /usr/bin/zsh'
+context-aware-header-bar=false
+use-sixel=true
