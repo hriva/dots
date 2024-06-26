@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-if [ "$BASH_VERSION" != "" ]; then
-	bind -m emacs -x '"\C-O": "zi"'
+if [[ -n "$BASH_VERSION" ]]; then
+	bind -m emacs -x '"\C-O": " __zoxide_zi\C-m"'
 
-elif [ "$ZSH_VERSION" != "" ]; then
+elif [[ -n "$ZSH_VERSION" ]]; then
 	open_dir_vs() {
 		__zoxide_zi
 		zle reset-prompt
