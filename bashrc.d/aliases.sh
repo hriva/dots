@@ -37,10 +37,10 @@ alias neo='neo --charset=devanagari -F'
 
 # Aliases
 alias cdranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias l='/usr/bin/ls -lhF --color=always --group-directories-first'
-alias la='/usr/bin/ls -alhF --color=always --group-directories-first'
-alias lm='/usr/bin/ls -alhF -t --color=always --group-directories-first'
-alias le='eza -la --icons --group-directories-first --sort name'
+alias l='/usr/bin/ls -lhFG --color=always --group-directories-first'
+alias la='/usr/bin/ls -alhFG --color=always --group-directories-first'
+alias lm='/usr/bin/ls -alhFG -t --color=always --group-directories-first'
+alias le='eza -la --git --icons --group-directories-first --sort name'
 alias lz='eza -l --icons --group-directories-first --sort name'
 alias lR='eza -laTR --icons --group-directories-first --sort name'
 alias docker='podman'
@@ -64,6 +64,7 @@ alias fzfpath='tree -afR /home/$USER | fzf'
 alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
 alias osshfs='sudo sshfs -o allow_other,default_permissions'
 alias zim='__zoxide_zi && nvim'
+alias baks='sudo btrbk list snapshots'
 
 # Search running processes
 alias p="ps aux | grep "
@@ -80,13 +81,8 @@ alias mkgz='tar -cvzf'
 alias untar='tar -xvf'
 alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
-
-# Alias's for safe and forced reboots
 alias safereboot='sudo shutdown -r now'
 # alias rebootforce='sudo shutdown -r -n now'
-
-# Count all files (recursively) in the current folder
-alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
 
 # alias chmod commands
 alias mx='chmod u+x'
@@ -98,22 +94,21 @@ alias 750='chmod -R 750'
 alias 755='chmod -R 755'
 alias 777='chmod -R 777'
 
+# Count all files (recursively) in the current folder
+alias countfiles="for t in files links directories; do echo \`find . -type \${t:0:1} | wc -l\` \$t; done 2> /dev/null"
+
 # Remove a directory and all files
 alias rmd='/bin/rm  --recursive --force --verbose '
 
 # GPU
 alias check-driver='lspci -nnk | grep -iA2 vga'
 alias fgovernor='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
-
 # CPU https://docs.kernel.org/admin-guide/pm/working-state.html
 alias governors='cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors'
 alias alsa-cards='cat /proc/asound/cards'
 # Intel/AMD HWP performance, balance_performance, default, balance_power, power
 alias epp-avaliable-policies='cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferences'
 alias get-epp='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq'
-
-# Conditional Aliases
-alias baks='sudo btrbk list snapshots'
 
 # Functions
 
@@ -174,4 +169,9 @@ psg() {
 	printf '\033[?7l' # prevent linewrap
 	ps aux | grep "$1"
 	printf '\033[?7h' # prevent linewrap
+}
+
+lfcd() {
+	# `command` is needed in case `lfcd` is aliased to `lf`
+	cd "$(command lf -print-last-dir "$@")" || exit
 }
