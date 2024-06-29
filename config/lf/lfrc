@@ -1,17 +1,48 @@
 # Options
-# set previewer ~/.config/lf/preview-sandbox.sh
+set previewer ~/.config/lf/sixel.sh
 set preview true
 set sixel true
 set cursorpreviewfmt ""
-set info size
-set period 1  # Polling for updates
+set info size:time
+set period 2  # Polling for updates
 set dircounts
 set drawbox true
 set icons true
 
+# CMDs
+cmd open &{{
+    case $(file --mime-type -Lb $f) in
+        text/*|application/json|*/xml) lf -remote "send $id \$$EDITOR \$fx";;
+        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+cmd follow_link %{{
+  lf -remote "send ${id} select '$(readlink $f)'"
+}}
+cmd open-with-gui &$@ $fx ## opens with a gui application outside lf client
+cmd open-with-cli $$@ $fx ## opens with a cli application inside lf client
+cmd edit-config ${{
+    $EDITOR ~/.config/lf/lfrc
+    lf -remote "send $id source ~/.config/lf/lfrc"
+}}
+cmd trash ${{
+    set -f
+    if gio trash 2>/dev/null; then
+        gio trash $fx
+    else
+        mkdir -p ~/.trash
+        mv -- $fx ~/.trash
+    fi
+}}
+
 # Mappings
+map C edit-config
 map i $LESSOPEN='| ~/.config/lf/scope-lf-wrapper.sh %s' less -R $f
 map p : paste; clear
+map gL follow_link
+map O push :open-with-gui<space> ## input application
+map o push :open-with-cli<space> ## input application
+map <delete> trash
 
 # Trashcli
 cmd trash %trash-put $fx
