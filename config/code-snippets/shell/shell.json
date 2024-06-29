@@ -2,9 +2,7 @@
   "setopts": {
     "prefix": "setopts",
     "body": [
-      "set -o errexit",
-      "set -o nounset",
-      "set -o pipefail",
+      "set -o errexit -o nounset -o pipefail -o errtrace",
       "if [[ \"${TRACE-0}\" == \"1\" ]]; then",
       "    set -o xtrace",
       "fi",
@@ -13,7 +11,7 @@
     "description": "setopts"
   },
   "as_root": {
-    "prefix": "as_root",
+    "prefix": "asroot",
     "body": [
       "if [ \"$UID\" -ne 0 ]; then",
       "    echo \"This script must be run as root\"",
@@ -34,7 +32,7 @@
     ],
     "description": "check_deps"
   },
-  "bash shebang": {
+  "Bash shebang": {
     "prefix": "shebang",
     "body": [
       "#!/usr/bin/env bash"
@@ -51,5 +49,78 @@
       ""
     ],
     "description": "Command exists"
+  },
+  "shellharden_array": {
+    "prefix": "harray",
+    "body": [
+      "declare -a ${1:array}",
+      "oIFS=$IFS",
+      "while IFS= read -r ${2:line}; do",
+      "   ${1:array}+=(\"$${2:line}\")",
+      "done <\"$${3:filename}\"",
+      "unset line",
+      "IFS=$oIFS"
+    ],
+    "description": "Create an array when using shellharden"
+  },
+  "file_exist": {
+    "prefix": "fe",
+    "body": [
+      "if [[ -f \"${1:file}\" ]]; then",
+      "  ${2:do}",
+      "fi"
+    ],
+    "description": "Check if path exist"
+  },
+  "dir_exist": {
+    "prefix": "de",
+    "body": [
+      "if [[ -f \"${1:dir}\" ]]; then",
+      "  ${2:do}",
+      "fi"
+    ],
+    "description": "Check if path exist"
+  },
+  "argument_number": {
+    "prefix": "argnum",
+    "body": [
+      "if [[ $# ${1:-ne} ${2:1} ]]; then",
+      "   echo \"Usage: $0 requires ${2:1} arguments but passed $#\"",
+      "   exit 1",
+      "fi"
+    ],
+    "description": "Test argument number"
+  },
+  "substitute_param": {
+    "prefix": "var",
+    "body": [
+      "\"\\${1:-.}\""
+    ],
+    "description": "Substitute parameter"
+  },
+  "env_var_exists_posix": {
+    "prefix": "pvarexists",
+    "body": [
+      "if [ \"$${1:var}\" != \"\" ]; then",
+      " ${2:echo 1}",
+      "fi"
+    ],
+    "description": "Check if an envioronment variable exists or is empty"
+  },
+  "env_var_exists": {
+    "prefix": "varex",
+    "body": [
+      "if [[ -n \"$${1:env_var}\" ]]; then",
+      "${2:do}",
+      "fi"
+    ],
+    "description": "Check if an envioronment variable exists or is empty"
+  },
+  "Array from cmd output": {
+    "prefix": "cmdarray",
+    "body": [
+      "mapfile -t ${1:array} < <(${2:cmd})"
+    ],
+    "description": "Array from cmd output"
   }
 }
