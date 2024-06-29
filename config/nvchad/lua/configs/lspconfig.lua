@@ -19,6 +19,9 @@ for _, lsp in ipairs(servers) do
 		on_init = on_init,
 		on_attach = on_attach,
 		capabilities = capabilities,
+		flags = {
+			allow_incremental_sync = true,
+		},
 	})
 end
 
@@ -29,11 +32,10 @@ end
 
 lspconfig.r_language_server.setup({
 	settings = {
-		diagnostics = false,
+		diagnostics = true,
+		lint_cache = true,
 	},
-	-- flags = {
-	-- 	debounce_text_changes = 150,
-	-- },
+	flags = { debounce_text_changes = 200 },
 })
 
 lspconfig.basedpyright.setup({
