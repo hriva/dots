@@ -1,0 +1,22 @@
+options(repos = c(CRAN = "https://cloud.r-project.org/"))
+options(width = 120L)
+options(tabSize = 4L)
+if (requireNamespace("lintr", quietly = TRUE)) {
+    options(
+        lintr.linters = lintr::linters_with_defaults(
+            line_length_linter = lintr::line_length_linter(120L),
+            commented_code_linter = NULL,
+            object_usage_linter = NULL,
+            indentation_linter = NULL,
+            equals_na_linter = NULL,
+            object_name_linter = lintr::object_name_linter(
+                styles = c("snake_case", "camelCase", "symbols")
+            )
+        )
+    )
+}
+options(languageserver.formatting_style = function(options) {
+    styler::tidyverse_style(
+        indent_by = options$tabSize
+    )
+})
