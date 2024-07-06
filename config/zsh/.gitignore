@@ -3,3 +3,4 @@
 *zsh-autocomplete
 *.zcompdump*
 *.BAK
+*.zwc
