@@ -65,10 +65,10 @@ else
   () {
     setopt extendedglob local_options
     autoload -Uz compinit
-    if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-      compinit -i -u;
+    if [[ -z ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
+      compinit -C -i; # -C dump file
     else
-      compinit -C -i -u;
+      compinit -i -u;
     fi;
   }
 fi
@@ -133,3 +133,4 @@ PROMPT='%n %~ ${vcs_info_msg_0_}
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+# zprof
