@@ -7,6 +7,8 @@ export EDITOR=/usr/bin/nvim
 export WGETRC=$HOME/.config/.wgetrc
 export MOZ_ENABLE_WAYLAND=1
 export _ZO_RESOLVE_SYMLINKS=0
+export BIOME_CONFIG_PATH=~/.config/biome/biome.json
+export RIPGREP_CONFIG_PATH=~/.config/ripgreprc
 
 # Color for manpages in less makes manpages a little easier to read
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -114,64 +116,64 @@ alias get-epp='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_pr
 
 # Get path usage
 usage() {
-	find "${1:-.}" -maxdepth 1 -type d -exec du -shx {} \; | sort -hr
+    find "${1:-.}" -maxdepth 1 -type d -exec du -shx {} \; | sort -hr
 }
 
 # Extracts any archive(s) (if unp isn't installed)
 extract() {
-	for archive in "$@"; do
-		if [ -f "$archive" ]; then
-			case $archive in
-			*.tar.bz2) tar xvjf "$archive" ;;
-			*.tar.gz) tar xvzf "$archive" ;;
-			*.bz2) bunzip2 "$archive" ;;
-			*.rar) rar x "$archive" ;;
-			*.gz) gunzip "$archive" ;;
-			*.tar) tar xvf "$archive" ;;
-			*.tbz2) tar xvjf "$archive" ;;
-			*.tgz) tar xvzf "$archive" ;;
-			*.zip) unzip "$archive" ;;
-			*.Z) uncompress "$archive" ;;
-			*.7z) 7z x "$archive" ;;
-			*) echo "don't know how to extract '$archive'..." ;;
-			esac
-		else
-			echo "'$archive' is not a valid file!"
-		fi
-	done
+    for archive in "$@"; do
+        if [ -f "$archive" ]; then
+            case $archive in
+            *.tar.bz2) tar xvjf "$archive" ;;
+            *.tar.gz) tar xvzf "$archive" ;;
+            *.bz2) bunzip2 "$archive" ;;
+            *.rar) rar x "$archive" ;;
+            *.gz) gunzip "$archive" ;;
+            *.tar) tar xvf "$archive" ;;
+            *.tbz2) tar xvjf "$archive" ;;
+            *.tgz) tar xvzf "$archive" ;;
+            *.zip) unzip "$archive" ;;
+            *.Z) uncompress "$archive" ;;
+            *.7z) 7z x "$archive" ;;
+            *) echo "don't know how to extract '$archive'..." ;;
+            esac
+        else
+            echo "'$archive' is not a valid file!"
+        fi
+    done
 }
 
 # Searches for text in all files in the current folder
 fw() {
-	# -i case-insensitive
-	# -I ignore binary files
-	# -H causes filename to be printed
-	# -r recursive search
-	# -n causes line number to be printed
-	# optional: -F treat search term as a literal, not a regular expression
-	# optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
-	grep -iIHrn --color=always "$1" "${2:-.}" | less -r
+    # -i case-insensitive
+    # -I ignore binary files
+    # -H causes filename to be printed
+    # -r recursive search
+    # -n causes line number to be printed
+    # optional: -F treat search term as a literal, not a regular expression
+    # optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
+    grep -iIHrn --color=always "$1" "${2:-.}" | less -r
 }
 
 # Quick find files
 ff() {
-	find "${2:-.}" -iname """*""$1*""" 2>/dev/null
-	# echo '"*'"$1"'*"'
+    find "${2:-.}" -iname """*""$1*""" 2>/dev/null
+    # echo '"*'"$1"'*"'
 }
 
 fcd() {
-	local dir="${1:-.}"
-	cd "$(find "$dir" /home/"$USER" -type d | fzf)" || echo 1
+    local dir="${1:-.}"
+    cd "$(find "$dir" /home/"$USER" -type d | fzf)" || echo 1
 }
 
 # Get process without line wrap
 psg() {
-	printf '\033[?7l' # prevent linewrap
-	ps aux | grep "$1"
-	printf '\033[?7h' # prevent linewrap
+    printf '\033[?7l' # prevent linewrap
+    ps aux | grep "$1"
+    printf '\033[?7h' # prevent linewrap
 }
 
 lfcd() {
-	# `command` is needed in case `lfcd` is aliased to `lf`
-	cd "$(command lf -print-last-dir "$@")" || exit
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    cd "$(command lf -print-last-dir "$@")" || exit
 }
