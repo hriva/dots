@@ -33,7 +33,7 @@ local options = {
 
 		toml = { "taplo" },
 
-		python = { "black", "ruff_format" },
+		python = { "ruff_format" },
 
 		json = { "jq" },
 

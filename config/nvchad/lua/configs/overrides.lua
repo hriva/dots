@@ -31,7 +31,6 @@ M.mason = {
 		"stylua",
 
 		-- python
-		"black",
 		"ruff",
 		"basedpyright",
 
