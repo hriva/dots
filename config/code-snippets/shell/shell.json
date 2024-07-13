@@ -35,7 +35,9 @@
   "Bash shebang": {
     "prefix": "shebang",
     "body": [
-      "#!/usr/bin/env bash"
+      "#!/usr/bin/env ${1:bash}",
+      "#",
+      "# ${2:Description of the script.}$0"
     ],
     "description": "bash shebang"
   },
