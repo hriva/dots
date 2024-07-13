@@ -12,8 +12,10 @@
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
     ~/.bashrc.d/aliases.sh: bashrc.d/aliases.sh
-    ~/.bashrc.d/fzf-shell.sh : bashrc.d/fzf-shell.sh
     ~/.bashrc.d/R-lib : bashrc.d/R-lib
+    ~/.bashrc.d/pyenv.sh : bashrc.d/pyenv.sh
+    ~/.bashrc.d/fzf-shell.sh : bashrc.d/fzf-shell.sh
+    ~/.bashrc.d/opendir.sh : bashrc.d/opendir.sh
     ~/.zshenv: zshenv
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
 
@@ -62,3 +64,5 @@
     - ~/.bashrc.d
     - ~/Code
     - ~/Packages
+    - ~/.local/bin
+    - ~/.local/share/man/man1
