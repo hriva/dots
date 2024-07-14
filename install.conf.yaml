@@ -27,31 +27,36 @@
     ~/.local/bin/prettyr : local/bin/prettyr.sh
 
     # Config
-    ~/.config/git: config/git
     ~/.config/alacritty: config/alacritty
+    ~/.config/biome : config/biome
+    ~/.config/code-snippets : config/code-snippets
     ~/.config/easyeffects : config/easyeffects
-    ~/.config/htop/htoprc: config/htop/htoprc
-    ~/.config/rog/rog-control-center.cfg: config/rog/rog-control-center.cfg
-    ~/.config/ranger/rc.conf: config/ranger/rc.conf
-    ~/.config/ranger/scope.sh: config/ranger/scope.sh
-    ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
-    ~/.config/kitty: config/kitty
-    ~/.config/starship.toml: config/starship-themes/default.toml
-    ~/.config/wezterm: config/wezterm
-    ~/.config/zsh : config/zsh
-    ~/.config/nvim : config/nvchad
     ~/.config/efm-langserver/config.yaml : config/efm-langserver/config.yaml
-    ~/.config/vale/.vale.ini : config/vale/.vale.ini
-    ~/.config/.curlrc : config/curlrc
-    ~/.config/.wgetrc : config/wgetrc
-    ~/.config/sway : config/sway
-    ~/.config/wofi : config/wofi
-    ~/.config/waybar : config/waybar
-    ~/.config/rofi : config/rofi
+    ~/.config/fastfetch : config/fastfetch
+    ~/.config/git: config/git
+    ~/.config/htop/htoprc: config/htop/htoprc
+    ~/.config/kitty: config/kitty
     ~/.config/lf : config/lf
+    ~/.config/nvim : config/nvchad
+    ~/.config/pop-shell: config/pop-shell
+    ~/.config/ranger/rc.conf: config/ranger/rc.conf
+    ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
+    ~/.config/ranger/scope.sh: config/ranger/scope.sh
+    ~/.config/rofi : config/rofi
+    ~/.config/rog/rog-control-center.cfg: config/rog/rog-control-center.cfg
+    ~/.config/sway : config/sway
     ~/.config/taplo : config/taplo
-    ~/.config/Rprofile : config/Rprofile
+    ~/.config/vale/.vale.ini : config/vale/.vale.ini
+    ~/.config/waybar : config/waybar
+    ~/.config/wezterm: config/wezterm
+    ~/.config/wofi : config/wofi
     ~/.config/zellij : config/zellij
+    ~/.config/zsh : config/zsh
+    ~/.config/.curlrc : config/curlrc
+    ~/.config/Rprofile : config/Rprofile
+    ~/.config/ripgreprc : config/ripgreprc
+    ~/.config/starship.toml: config/starship-themes/default.toml
+    ~/.config/.wgetrc : config/wgetrc
 
     # Local
     # ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
