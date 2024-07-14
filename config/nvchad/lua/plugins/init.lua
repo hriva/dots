@@ -35,9 +35,7 @@ return {
 		"max397574/better-escape.nvim",
 		event = { "InsertEnter" },
 		config = function()
-			require("better_escape").setup({
-				mapping = { "kk", "jj", "jk" },
-			})
+			require("better_escape").setup()
 		end,
 	},
 	{
@@ -47,6 +45,11 @@ return {
 			require("nvchad.configs.lspconfig").defaults()
 			require("configs.lspconfig")
 		end,
+	},
+	{
+		"hinell/lsp-timeout.nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
+		enabled = true,
 	},
 	{
 		"mfussenegger/nvim-lint",

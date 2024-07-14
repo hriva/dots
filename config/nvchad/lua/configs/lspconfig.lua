@@ -46,7 +46,7 @@ lspconfig.basedpyright.setup({
 				logLevel = "Information",
 				autoSearchPaths = true,
 				useLibraryCodeForTypes = false,
-				stubPath = os.getenv("HOME") .. "/Code/.python-stubs",
+				stubPath = os.getenv("HOME") .. "/Code/.python-stubs/typings",
 				typeCheckingMode = "off",
 				diagnosticMode = "openFilesOnly",
 				indexing = true,

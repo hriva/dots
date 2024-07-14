@@ -2,47 +2,58 @@ require("nvchad.mappings")
 local map = vim.keymap.set
 
 -- QOL
-map("n", "<C-s>", "<cmd>silent write<cr>", { desc = "File Save", noremap = true })
-map("v", "J", ":m '>+1<CR>gv-gv", { desc = "Move Selection Down" })
-map("v", "K", ":m '<-2<CR>gv-gv", { desc = "Move Selection Up" })
-map("n", "J", "mzJ`z", { desc = "Append In Place" })
-map("n", "<C-d>", "<C-d>zz", { desc = "Page Half Down Centered" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Page Half Up Centered" })
-map("n", "n", "nzzzv", { desc = "Next Search and Center" })
-map("n", "N", "Nzzzv", { desc = "Prev Search and Center" })
+map("n", "<C-s>", "<cmd>silent write<cr>", { desc = "file save", noremap = true })
+map("v", "J", ":m '>+1<CR>gv-gv", { desc = "move selection down" })
+map("v", "K", ":m '<-2<CR>gv-gv", { desc = "move selection up" })
+map("n", "J", "mzJ`z", { desc = "append in place" })
+map("n", "<C-d>", "<C-d>zz", { desc = "page half down centered" })
+map("n", "<C-u>", "<C-u>zz", { desc = "page half up centered" })
+map("n", "n", "nzzzv", { desc = "next search and center" })
+map("n", "N", "Nzzzv", { desc = "prev search and center" })
 map("n", "x", '"_x', { noremap = true, silent = true })
 map("v", "x", '"_x', { noremap = true, silent = true })
-map("n", "<leader>dt", ":windo diffthis<CR>", { desc = "Diff This" })
-map("n", "<C-Q>", ":q<CR>", { desc = "Quit", silent = true })
+map("n", "<leader>dt", ":windo diffthis<CR>", { desc = "diff this", silent = true })
+map("n", "<C-q>", "<cmd>q<cr>", { desc = "quit", silent = true })
+map("n", "<leader>mx", "<cmd>!chmod 770 %<cr>", { desc = "make user executable", silent = true })
+map("n", "<leader>mr", "<cmd>!chmod 660 %<cr>", { desc = "make read/write", silent = true })
 map("n", "Q", "<nop>")
 
 -- Pasting
-map("n", "cv", '"0p', { desc = "Paste Last Yank", noremap = true })
+map("n", "cv", '"0p', { desc = "paste last yank", noremap = true })
 
 -- Spelling
-map("n", "<leader>ss", ":setlocal spell spelllang=es<cr>", { desc = "Spelling es", noremap = true })
-map("n", "<leader>se", ":setlocal spell spelllang=en_us<cr>", { desc = "Spelling en", noremap = true })
-map("n", "<leader>sd", ":setlocal nospell<cr>", { desc = "Spelling Disable", noremap = true })
+map("n", "<leader>ss", ":setlocal spell spelllang=es<cr>", { desc = "spelling es", noremap = true })
+map("n", "<leader>se", ":setlocal spell spelllang=en_us<cr>", { desc = "spelling en", noremap = true })
+map("n", "<leader>sd", ":setlocal nospell<cr>", { desc = "spelling disable", noremap = true })
 
 -- Multipane sizing
-map("n", "<A-k>", "<cmd>vertical resize +2<cr>", { desc = "Resize Vertical +2", noremap = true })
-map("n", "<A-j>", "<cmd>vertical resize -2<cr>", { desc = "Resize Vertical -2", noremap = true })
-map("n", "<A-K>", "<cmd>horizontal resize +2<cr>", { desc = "Resize Horizontal +2", noremap = true })
-map("n", "<A-J>", "<cmd>horizontal resize -2<cr>", { desc = "Resize Horizontal -2", noremap = true })
+map("n", "<A-k>", "<cmd>vertical resize +2<cr>", { desc = "resize vertical +2", noremap = true })
+map("n", "<A-j>", "<cmd>vertical resize -2<cr>", { desc = "resize vertical -2", noremap = true })
+map("n", "<A-K>", "<cmd>horizontal resize +2<cr>", { desc = "resize horizontal +2", noremap = true })
+map("n", "<A-J>", "<cmd>horizontal resize -2<cr>", { desc = "resize horizontal -2", noremap = true })
+
+-- Nvchad
+map("n", "<A-o>", function()
+	require("nvchad.tabufline").next()
+end, { desc = "buffer goto next" })
+
+map("n", "<A-i>", function()
+	require("nvchad.tabufline").prev()
+end, { desc = "buffer goto prev" })
 
 -- Gitsigns
-map("n", "<leader>do", "<cmd>Gitsigns diffthis<cr>", { desc = "Diff Open" })
-map("n", "wq", "<cmd>wincmd p | q<cr>", { desc = "Window Quit Previous" })
+map("n", "<leader>do", "<cmd>Gitsigns diffthis<cr>", { desc = "diff open" })
+map("n", "<C-Q>", "<cmd>wincmd p | q<cr>", { desc = "window quit previous" })
 
 -- Keymaps
-map("n", "<leader>wm", "<cmd>Telescope keymaps<cr>", { desc = "Wich Keymap" })
+map("n", "<leader>wm", "<cmd>Telescope keymaps<cr>", { desc = "which keymap" })
 
 -- Conform Overrides
 local conform = require("conform")
 
 map("n", "<leader>fm", function()
 	conform.format({ async = true, lsp_fallback = true })
-end, { desc = "Format Files" })
+end, { desc = "format file" })
 
 -- Disable mappings
 local nomap = vim.keymap.del
@@ -54,6 +65,14 @@ nomap("n", "<leader>e")
 -- w word ahead
 -- e word ahead
 -- b word back
+
+-- cmp keymaps
+-- ["<C-p>"] = cmp.mapping.select_prev_item(),
+-- ["<C-n>"] = cmp.mapping.select_next_item(),
+-- ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+-- ["<C-f>"] = cmp.mapping.scroll_docs(4),
+-- ["<C-Space>"] = cmp.mapping.complete(),
+-- ["<C-e>"] = cmp.mapping.close(),
 
 -- ProjectMgr
 -- map("n", "<leader>fp", ":ProjectMgr<cr>", { desc = "Open Projects" })
