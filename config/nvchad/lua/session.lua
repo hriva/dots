@@ -19,6 +19,9 @@ end
 -- Save session
 function M.saveSession()
 	local sessionFilePath = M.sessionFile
+	if vim.fn.exists(":NvimTreeClose") == 2 then
+		vim.cmd("NvimTreeClose")
+	end
 	vim.cmd.mksession({ args = {
 		sessionFilePath,
 	}, bang = true })
