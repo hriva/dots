@@ -54,6 +54,9 @@
 
 	# list aliases
 	la = "!git config -l | grep alias | cut -c 7-"
+	wta = worktree add
+	wtls = worktree list
+	wtrm = worktree remove
 
 [include]
 	path = main-user
