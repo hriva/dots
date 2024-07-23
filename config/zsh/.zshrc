@@ -62,15 +62,15 @@ if [ -f "$ZPLUGINS"/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
   }
 else
 # Check cached .zcompdump for regeneration once a day.
-  () {
+  (
     setopt extendedglob local_options
     autoload -Uz compinit
-    if [[ -z ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
-      compinit -C -i; # -C dump file
+    if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
+      compinit;
     else
-      compinit -i -u;
+      compinit -C; # -C: use file,skip check
     fi;
-  }
+  )
 fi
 
 if [[ -z $__DISABLE_ZPLUGINS ]]; then
