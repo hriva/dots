@@ -3,18 +3,8 @@
 # Global Order: zshenv, zprofile, zshrc, zlogin
 #
 # Execute code in the background to not affect the current session
-(
-    # <https://github.com/zimfw/zimfw/blob/master/login_init.zsh>
-    setopt LOCAL_OPTIONS EXTENDED_GLOB
-    autoload -Uz compinit
-    if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
-      compinit; # dump
-    else
-      compinit -C; # -C: use file,skip check
-    fi;
-
+(    # <https://github.com/zimfw/zimfw/blob/master/login_init.zsh>
     autoload -U zrecompile
-
     # Compile zcompdump, if modified, to increase startup speed.
     zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
     if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then

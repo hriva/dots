@@ -35,7 +35,6 @@ setopt SHARE_HISTORY
 bindkey -e
 
 # End of lines configured by zsh-newuser-install
-zstyle '*:compinit' arguments -i -u
 zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
 zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 3
 zstyle ':autocomplete:history-search-backward:*' list-lines 8
@@ -44,48 +43,53 @@ zstyle ':autocomplete:history-search-backward:*' list-lines 8
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
+__call_compinit (){
+    setopt extendedglob local_options
+    autoload -Uz compinit
+    if [[ -n "${ZDOTDIR:-$HOME}"/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
+        compinit # dump
+        ZCOMPDUMP=1
+    else
+        compinit -C # -C: use file,skip check
+        ZCOMPCACHE=1
+    fi
+}
+
 # Plugins
 ZPLUGINS="$ZDOTDIR"/plugins
 if [ -f "$ZPLUGINS"/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
-  . "$ZPLUGINS"/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-  bindkey '\t' menu-select "${terminfo[kcbt]}" menu-select
-  () {  # RESET 'UP' 'DOWN' KEYBIND AFTER zsh-autocomplete
-     local -a prefix=( '\e'{\[,O} )
-     local -a up=( "${^prefix}"A ) down=( "${^prefix}"B )
-     local key=
-     for key in "$up"[@]; do
-        bindkey "$key" up-line-or-history
-     done
-     for key in "$down"[@]; do
-        bindkey "$key" down-line-or-history
-     done
-  }
+    zstyle '*:compinit' arguments -i -u
+    . "$ZPLUGINS"/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+    bindkey '\t' menu-select "${terminfo[kcbt]}" menu-select
+    () {  # RESET 'UP' 'DOWN' KEYBIND AFTER zsh-autocomplete
+        local -a prefix=( '\e'{\[,O} )
+        local -a up=( "${^prefix}"A ) down=( "${^prefix}"B )
+        local key=
+        for key in "$up"[@]; do
+            bindkey "$key" up-line-or-history
+        done
+        for key in "$down"[@]; do
+            bindkey "$key" down-line-or-history
+        done
+    }
 else
 # Check cached .zcompdump for regeneration once a day.
-  (
-    setopt extendedglob local_options
-    autoload -Uz compinit
-    if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
-      compinit;
-    else
-      compinit -C; # -C: use file,skip check
-    fi;
-  )
+    __call_compinit
 fi
 
 if [[ -z $__DISABLE_ZPLUGINS ]]; then
     if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-      . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-      # Declare the variable
-      typeset -A ZSH_HIGHLIGHT_STYLES
-      ZSH_HIGHLIGHT_STYLES[path]='none'
-      ZSH_HIGHLIGHT_STYLES[precommand]='fg=red'
+        . /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+        # Declare the variable
+        typeset -A ZSH_HIGHLIGHT_STYLES
+        ZSH_HIGHLIGHT_STYLES[path]='none'
+        ZSH_HIGHLIGHT_STYLES[precommand]='fg=red'
     fi
 
     if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-      . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     elif [ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-      . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+        . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     fi
 fi
 
@@ -123,7 +127,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 precmd(){
-    fc -R
+    # fc -R
     vcs_info
 }
 
