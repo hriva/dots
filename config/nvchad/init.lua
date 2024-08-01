@@ -12,6 +12,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require("configs.lazy")
+lazy_config.git = {
+	cooldown = 30, -- 30 seconds
+	timeout = 15,
+}
 
 -- load plugins
 require("lazy").setup({
