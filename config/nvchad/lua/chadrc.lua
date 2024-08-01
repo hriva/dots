@@ -1,7 +1,7 @@
 ---@type ChadrcConfig
 local M = {
+	base46 = { theme = "ayu_dark" },
 	ui = {
-		theme = "ayu_dark",
 		statusline = {
 			theme = "minimal", -- default/vscode/vscode_colored/minimal
 		},
