@@ -1,12 +1,12 @@
 # .bashrc
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
@@ -21,14 +21,14 @@ esac
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			# TIMEFORMAT="$rc: %E"
-			# time . "$rc"
-			# unset TIMEFORMAT
-			. "$rc"
-		fi
-	done
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            # TIMEFORMAT="$rc: %E"
+            # time . "$rc"
+            # unset TIMEFORMAT
+            . "$rc"
+        fi
+    done
 fi
 
 unset rc
@@ -37,6 +37,7 @@ HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE='cd:htop:vi:vim:z:z -:ls:git pull:git push:ranger:gs:git s:la:l:rm *:svn revert*:sudo dnf update'
 HISTSIZE=20000
 HISTFILESIZE=20000
+PROMPT_DIRTRIM=2
 
 shopt -s histappend   # Append to the history file upon exit
 shopt -s checkwinsize # Check the window size after each command
@@ -77,7 +78,7 @@ alias source-rc='source ~/.bashrc'
 
 # Trap non zero errors
 EC() {
-	echo -e '\e[1;33m'code $?'\e[m'
+    echo -e '\e[1;33m'code $?'\e[m'
 }
 trap EC ERR
 
