@@ -5,7 +5,7 @@ alias list_python_modules='python -c "import pkgutil; print(\"\\n\".join([mod.na
 alias create-stubs="list_python_modules | xargs -I{} pyright --createstub {}"
 
 pyenv() {
-    VENV_DIR="$HOME/Code"
+    VENV_DIR="$HOME"/Code
     case $1 in
     main)
         source "$VENV_DIR/.devel-env/bin/activate"
@@ -18,4 +18,14 @@ pyenv() {
         echo "Error: Python environment with name $1 not found"
         ;;
     esac
+}
+
+pyenv-make() {
+    VENV_DIR="$HOME"/Code
+    venv_name="$VENV_DIR"/"${1}"
+    python3 -m venv "$venv_name"
+    source "$venv_name"/bin/activate
+    pip install -U setuptools wheel pip
+    deactivate
+    echo "$venv_name created successfully"
 }
