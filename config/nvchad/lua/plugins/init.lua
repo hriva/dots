@@ -29,13 +29,20 @@ return {
 	-- Install a plugin
 	{
 		"LunarVim/bigfile.nvim",
-		event = { "BufReadPost" },
+		lazy = false,
+		event = { "FileReadPre", "BufReadPre" },
+		enabled = true,
+		opts = overrides.bigfile,
+		config = function(_, opts)
+			require("bigfile").setup(opts)
+		end,
 	},
 	{
 		"max397574/better-escape.nvim",
 		event = { "InsertEnter" },
-		config = function()
-			require("better_escape").setup()
+		opts = overrides.better_escape,
+		config = function(_, opts)
+			require("better_escape").setup(opts)
 		end,
 	},
 	{
