@@ -1,5 +1,5 @@
 format = """
-[\\[](green)$username\
+$username\
 $hostname\
 $directory\
 $git_branch\
@@ -7,8 +7,6 @@ $git_state\
 $git_status\
 $python\
 $cmd_duration\
-$fill\
-[\\]](green)\
 $line_break\
 $character"""
 
@@ -19,16 +17,18 @@ command_timeout = 3000
 add_newline = false
 
 [username]
-show_always = false
-style_user = "green"
-format = '[$user ]($style)'
+show_always = true
+style_user = "bold green"
+format = '[$user: ]($style)'
 
 [directory]
-style = "green"
+style = "bold green"
+truncation_length = 2
+truncation_symbol = "…/"
 home_symbol = "~"
 
 [character]
-success_symbol = "[\\$](green)"
+success_symbol = "[\\$](bold green)"
 error_symbol = "[\\$](red)"
 vimcmd_symbol = "[\\$](yellow)"
 
@@ -65,7 +65,7 @@ style = "bright-black"
 
 [fill]
 symbol = ' '
-disabled = false
+disabled = true
 
 [os]
 disabled = false
