@@ -44,10 +44,13 @@ bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
 __call_compinit (){
+    # setopt xtrace local_options
     setopt extendedglob local_options
     autoload -Uz compinit
-    if [[ -n "${ZDOTDIR:-$HOME}"/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
-        compinit # dump
+    autoload -U compaudit
+    if [[ -n "${ZDOTDIR}"/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
+        rm "${ZDOTDIR}"/.zcompdump(#qN.mh+24)
+        compinit -i # dump
         ZCOMPDUMP=1
     else
         compinit -C # -C: use file,skip check
@@ -100,6 +103,7 @@ if [ -d ~/.bashrc.d ]; then
 			. "$rc"
 		fi
 	done
+    unset rc
 fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
