@@ -25,7 +25,7 @@ ${custom.foo}\
 $fill\
 $time\
 $battery
-\\$ """
+$character"""
 
 # Timeout for commands executed by starship (in milliseconds).
 command_timeout = 3000
@@ -54,6 +54,11 @@ Fedora = "󰣛"
 Debian = "󰣚"
 Ubuntu = ""
 Windows = ""
+
+[character]
+success_symbol = "❯"
+error_symbol = "❯"
+vimcmd_symbol = "[❮](yellow)"
 
 [cmd_duration]
 min_time = 5
