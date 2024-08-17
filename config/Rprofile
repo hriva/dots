@@ -12,6 +12,13 @@ if (requireNamespace("lintr", quietly = TRUE)) {
         )
     )
 }
+utils::assignInNamespace(
+    "q",
+    function(save = "no", status = 0, runLast = TRUE) {
+        .Internal(quit(save, status, runLast))
+    },
+    "base"
+)
 options(languageserver.formatting_style = function(options) {
     styler::tidyverse_style(
         indent_by = options$tabSize
