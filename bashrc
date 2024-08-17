@@ -74,7 +74,8 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 alias vbash='nvim ~/.bashrc'
-alias source-rc='source ~/.bashrc'
+alias rc-reload='source ~/.bashrc'
+alias keybinds='bind -P | less'
 
 # Trap non zero errors
 EC() {
