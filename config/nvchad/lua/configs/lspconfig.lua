@@ -1,7 +1,7 @@
 local config = require("nvchad.configs.lspconfig")
 local on_attach = config.on_attach
 local capabilities = config.capabilities
-capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+-- capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 local on_init = config.on_init
 
 require("mason").setup()
@@ -45,12 +45,12 @@ lspconfig.basedpyright.setup({
 			analysis = {
 				logLevel = "Information",
 				autoSearchPaths = true,
-				useLibraryCodeForTypes = false,
-				stubPath = os.getenv("HOME") .. "/Code/.python-stubs/typings",
+				useLibraryCodeForTypes = true,
 				typeCheckingMode = "off",
 				diagnosticMode = "openFilesOnly",
 				indexing = true,
 				diagnosticSeverityOverrides = { "error", "warning" },
+				-- stubPath = os.getenv("HOME") .. "/Code/.python-stubs/typings",
 			},
 		},
 	},

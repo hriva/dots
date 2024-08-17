@@ -2,7 +2,14 @@
 local conform = require("conform")
 
 conform.formatters.biome = {
-	args = { "format", "--stdin-file-path", "$FILENAME", "--json-formatter-indent-style=space" },
+	args = {
+		"format",
+		"--config-path",
+		os.getenv("BIOME_CONFIG_PATH"),
+		"--stdin-file-path",
+		"$FILENAME",
+		"--json-formatter-indent-style=space",
+	},
 }
 conform.formatters.prettyr = {
 	inherit = false,
