@@ -10,6 +10,7 @@ btrbk
 bzip2-devel
 chkrootkit
 dconf-editor
+direnv
 dnf-plugin-versionlock
 dnf-utils
 duf
@@ -62,6 +63,7 @@ sassc
 seahorse
 setroubleshoot-server
 trash-cli
+unhide
 vdpauinfo
 w3m-img
 wget
@@ -69,4 +71,3 @@ xarchiver
 zlib-devel
 zoxide
 zsh
-zsh-autosuggestions
