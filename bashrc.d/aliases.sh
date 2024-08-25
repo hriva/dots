@@ -119,6 +119,20 @@ usage() {
     find "${1:-.}" -maxdepth 1 -type d -exec du -shx {} \; | sort -hr
 }
 
+# convert ascii file to UTF-8
+ascii-to-utf8() {
+    set -o errexit -o nounset -o pipefail -o errtrace
+    if [[ "${TRACE-0}" == "1" ]]; then
+        set -o xtrace
+    fi
+
+    if [[ $# -ne 2 ]]; then
+        echo "Usage: ascii_to_utf8 [SOURCE_FILE] [DEST_FILE]"
+    fi
+
+    iconv -f iso-8859-1 -t UTF-8//TRANSLIT "$1" -o "$2"
+}
+
 # Extracts any archive(s) (if unp isn't installed)
 extract() {
     for archive in "$@"; do
