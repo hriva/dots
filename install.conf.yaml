@@ -25,6 +25,8 @@
     ~/.local/bin/cpp : local/bin/cpp.sh
     ~/.local/bin/usage : local/bin/usage.sh
     ~/.local/bin/prettyr : local/bin/prettyr.sh
+    ~/.local/bin/shrink-pdf : local/bin/shrink-pdf.sh
+    ~/.local/bin/csv2json : local/bin/csv2json.py
 
     # Config
     ~/.config/alacritty: config/alacritty
