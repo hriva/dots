@@ -141,5 +141,6 @@ PROMPT='%n %~ ${vcs_info_msg_0_}
 %# '
 
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
 # zprof

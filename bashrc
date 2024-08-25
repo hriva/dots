@@ -89,4 +89,5 @@ bind -m vi-insert -x '"\eh": run-help'
 bind -m emacs -x '"\eh": run-help'
 
 eval "$(zoxide init bash)"
+eval "$(direnv hook bash)"
 eval "$(starship init bash)"

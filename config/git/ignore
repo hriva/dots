@@ -36,10 +36,12 @@ ehthumbs_vista.db
 $RECYCLE.BIN/
 *.lnk
 
-# Other 
+# Other
 *.bkp
 Session.vim
 .env
+.envrc
+*.env*
 .OLD
 
 # Byte-compiled / optimized / DLL files
