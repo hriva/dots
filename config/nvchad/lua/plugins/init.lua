@@ -109,43 +109,16 @@ return {
 		end,
 	},
 	{
-		"rcarriga/nvim-dap-ui",
-		dependencies = "mfussenegger/nvim-dap",
-		enabled = false,
-		config = function()
-			local dap = require("dap")
-			local dapui = require("dapui")
-			dapui.setup()
-			dap.listeners.after.event_initialized["dapui_config"] = function()
-				dapui.open()
-			end
-			dap.listeners.before.event_terminated["dapui_config"] = function()
-				dapui.close()
-			end
-			dap.listeners.before.event_exited["dapui_config"] = function()
-				dapui.close()
-			end
-		end,
-	},
-	{
 		"mfussenegger/nvim-dap",
-		enabled = false,
-		config = function(_, opts)
-			require("core.utils").load_mappings("dap")
-		end,
-	},
-	{
-		"mfussenegger/nvim-dap-python",
-		ft = "python",
-		enabled = false,
 		dependencies = {
-			"mfussenegger/nvim-dap",
-			"rcarriga/nvim-dap-ui",
+			{ "mfussenegger/nvim-dap-python" },
+			{ "nvim-telescope/telescope-dap.nvim" },
+			{ "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
 		},
+		enabled = true,
+		ft = { "python" },
 		config = function(_, opts)
-			local path = "~/Code/.devel-env/bin/ipython"
-			require("dap-python").setup(path)
-			require("core.utils").load_mappings("dap_python")
+			require("configs.dap")
 		end,
 	},
 }

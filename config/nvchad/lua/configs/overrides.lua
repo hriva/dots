@@ -34,6 +34,7 @@ M.mason = {
 		-- python
 		"ruff",
 		"basedpyright",
+		"debugpy",
 
 		-- shell stuff
 		"shfmt",
