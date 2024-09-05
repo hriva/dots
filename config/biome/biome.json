@@ -1,5 +1,8 @@
 {
   "formatter": {
     "formatWithErrors": true
+  },
+  "files": {
+    "maxSize": 31457280
   }
 }
