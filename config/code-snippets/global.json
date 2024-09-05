@@ -1,0 +1,9 @@
+{
+  "viset": {
+    "prefix": "viset",
+    "body": [
+      "${1:#} vi:${2:ts}=${3:2} "
+    ],
+    "description": "set vi modeline in file"
+  }
+}
