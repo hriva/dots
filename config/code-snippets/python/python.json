@@ -118,5 +118,30 @@
       "\t$0"
     ],
     "description": "Method structure (Python Language Basics)."
+  },
+  "log_func": {
+    "prefix": "logf",
+    "body": [
+      "from datetime import datetime",
+      "def log_action(",
+      "    log_action: str, verbose: bool = False, print_only: bool = False",
+      ") -> None:",
+      "    now = datetime.now()  # current date and time",
+      "    timestamp = now.strftime(\"%Y-%m-%d:%H%M\")",
+      "    log_action = log_action.replace(\"\\n\", \" \")",
+      "    if not print_only:",
+      "        with open(\".log\", \"a\") as log:",
+      "            log.write(f\"{timestamp}\\t{log_action}\\n\")",
+      "    if verbose or print_only:",
+      "        print(\"==> \" + log_action)"
+    ],
+    "description": "log_func"
+  },
+  "log_action": {
+    "prefix": "lg",
+    "body": [
+      "log_action(f\"${1:example}\")"
+    ],
+    "description": "log_action"
   }
 }
