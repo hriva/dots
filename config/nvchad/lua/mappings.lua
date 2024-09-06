@@ -16,6 +16,7 @@ map("n", "<leader>dt", ":windo diffthis<CR>", { desc = "diff this", silent = tru
 map("n", "<C-q>", "<cmd>q<cr>", { desc = "quit", silent = true })
 map("n", "<leader>mx", "<cmd>!chmod 770 %<cr>", { desc = "make user executable", silent = true })
 map("n", "<leader>mr", "<cmd>!chmod 660 %<cr>", { desc = "make read/write", silent = true })
+map("n", "<leader>q", "<cmd>bufdo bwipeout<cr>", { desc = "buffer quit all", silent = true })
 map("n", "Q", "<nop>")
 
 -- Pasting
@@ -27,17 +28,17 @@ map("n", "<leader>se", ":setlocal spell spelllang=en_us<cr>", { desc = "spelling
 map("n", "<leader>sd", ":setlocal nospell<cr>", { desc = "spelling disable", noremap = true })
 
 -- Multipane sizing
-map("n", "<A-k>", "<cmd>vertical resize +2<cr>", { desc = "resize vertical +2", noremap = true })
-map("n", "<A-j>", "<cmd>vertical resize -2<cr>", { desc = "resize vertical -2", noremap = true })
+map("n", "<A-o>", "<cmd>vertical resize +2<cr>", { desc = "resize vertical +2", noremap = true })
+map("n", "<A-i>", "<cmd>vertical resize -2<cr>", { desc = "resize vertical -2", noremap = true })
 map("n", "<A-K>", "<cmd>horizontal resize +2<cr>", { desc = "resize horizontal +2", noremap = true })
 map("n", "<A-J>", "<cmd>horizontal resize -2<cr>", { desc = "resize horizontal -2", noremap = true })
 
 -- Nvchad
-map("n", "<A-o>", function()
+map("n", "<A-j>", function()
 	require("nvchad.tabufline").next()
 end, { desc = "buffer goto next" })
 
-map("n", "<A-i>", function()
+map("n", "<A-k>", function()
 	require("nvchad.tabufline").prev()
 end, { desc = "buffer goto prev" })
 

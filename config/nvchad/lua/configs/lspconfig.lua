@@ -1,57 +1,64 @@
-local config = require("nvchad.configs.lspconfig")
-local on_attach = config.on_attach
-local capabilities = config.capabilities
+local nvlsp = require("nvchad.configs.lspconfig")
+nvlsp.defaults()
 -- capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
-local on_init = config.on_init
+-- vim.lsp.set_log_level("debug")
 
 require("mason").setup()
 local lspconfig = require("lspconfig")
 
-local servers = {
-	"marksman",
-	-- "efm",
-	"r_language_server",
-	"basedpyright",
-}
-
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		on_init = on_init,
-		on_attach = on_attach,
-		capabilities = capabilities,
-		flags = {
-			allow_incremental_sync = true,
-		},
-	})
-end
-
 -- local efmls_config = require("configs.efm")
--- lspconfig.efm.setup(vim.tbl_extend("force", efmls_config, {
--- 	efmls_config,
--- }))
+local servers = {
+	marksman = {}, -- markdown
 
-lspconfig.r_language_server.setup({
-	settings = {
-		diagnostics = true,
-		lint_cache = true,
+	-- efm=vim.tbl_extend("force", efmls_config, {
+	-- 	efmls_config,
+	-- }),
+
+	r_language_server = { -- R
+		settings = {
+			diagnostics = true,
+			lint_cache = true,
+		},
+		flags = { debounce_text_changes = 200 },
 	},
-	flags = { debounce_text_changes = 200 },
-})
 
-lspconfig.basedpyright.setup({
-	filetypes = { "python" },
-	settings = {
-		basedpyright = {
-			analysis = {
-				logLevel = "Information",
-				autoSearchPaths = true,
-				useLibraryCodeForTypes = true,
-				typeCheckingMode = "off",
-				diagnosticMode = "openFilesOnly",
-				indexing = true,
-				diagnosticSeverityOverrides = { "error", "warning" },
-				-- stubPath = os.getenv("HOME") .. "/Code/.python-stubs/typings",
+	basedpyright = { -- python
+		root_dir = function(fname)
+			local root_files = {
+				"pyproject.toml",
+				"setup.py",
+				"setup.cfg",
+				"requirements.txt",
+				"Pipfile",
+				"pyrightconfig.json",
+				".git",
+			}
+			local primary = lspconfig.util.root_pattern(unpack(root_files))(fname)
+			local fallback = vim.fn.getcwd()
+			return primary or fallback
+		end,
+		single_file_support = true,
+		settings = {
+			basedpyright = {
+				analysis = {
+					logLevel = "Information",
+					autoSearchPaths = true,
+					useLibraryCodeForTypes = true,
+					typeCheckingMode = "off",
+					diagnosticMode = "openFilesOnly",
+					indexing = true,
+					diagnosticSeverityOverrides = { "error", "warning" },
+					-- stubPath = os.getenv("HOME") .. "/Code/.python-stubs/typings",
+				},
 			},
 		},
 	},
-})
+}
+
+for name, opts in pairs(servers) do
+	opts.on_init = nvlsp.on_init
+	opts.on_attach = nvlsp.on_attach
+	opts.capabilities = nvlsp.capabilities
+
+	lspconfig[name].setup(opts)
+end
