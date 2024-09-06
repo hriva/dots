@@ -10,6 +10,16 @@ return {
 			require("configs.conform")
 		end,
 	},
+	{
+		"folke/which-key.nvim",
+		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+		keys = { "<space>", "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "V", "v", "g" },
+		cmd = "WhichKey",
+		config = function(_, opts)
+			dofile(vim.g.base46_cache .. "whichkey")
+			require("which-key").setup(opts)
+		end,
+	},
 	-- override plugin configs
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -49,7 +59,6 @@ return {
 		"neovim/nvim-lspconfig",
 		event = "User FilePost",
 		config = function()
-			require("nvchad.configs.lspconfig").defaults()
 			require("configs.lspconfig")
 		end,
 	},
