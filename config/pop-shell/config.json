@@ -13,10 +13,13 @@
       "title": "Internxt Drive"
     },
     {
-      "class": "gjs",
-      "title": "gjs"
+      "class": "gjs"
+    },
+    {
+      "class": "io.github.seadve.Kooha"
     }
   ],
   "skiptaskbarhidden": [],
   "log_on_focus": false
 }
+
