@@ -8,10 +8,19 @@ pyenv() {
     VENV_DIR="$HOME"/Code
     case $1 in
     main)
-        source "$VENV_DIR/.devel-env/bin/activate"
+        source "$VENV_DIR"/.devel-env/bin/activate
         ;;
     main311)
-        source "$VENV_DIR/.devel-env-311/bin/activate"
+        source "$VENV_DIR"/.devel-env-311/bin/activate
+        ;;
+    tmp)
+        if [ -d "$VENV_DIR"/tmp ]; then
+            source "$VENV_DIR"/tmp/bin/activate
+        else
+            pyenv-make tmp
+            source "$VENV_DIR"/tmp/bin/activate
+            echo "tmp created..."
+        fi
         ;;
     # Add more cases for additional environments
     *)
@@ -28,4 +37,15 @@ pyenv-make() {
     pip install -U setuptools wheel pip
     deactivate
     echo "$venv_name created successfully"
+}
+
+pyenv-clear() {
+    VENV_DIR="$HOME"/Code
+    venv_name="$VENV_DIR"/tmp
+    if [ -d "$venv_name" ]; then
+        rm -rf "$venv_name"
+        echo "The 'tmp' environment has been deleted."
+    else
+        echo "The 'tmp' environment does not exist."
+    fi
 }
