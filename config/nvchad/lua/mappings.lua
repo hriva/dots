@@ -33,7 +33,16 @@ map("n", "<A-i>", "<cmd>vertical resize -2<cr>", { desc = "resize vertical -2", 
 map("n", "<A-K>", "<cmd>horizontal resize +2<cr>", { desc = "resize horizontal +2", noremap = true })
 map("n", "<A-J>", "<cmd>horizontal resize -2<cr>", { desc = "resize horizontal -2", noremap = true })
 
--- Nvchad
+-- tabs/window navigation
+map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "tab new", noremap = true })
+map("n", "<leader>tc", "<cmd>tabclose<cr>", { desc = "tab close", noremap = true })
+map("n", "<leader><tab>", "<cmd>tab tabNext<cr>", { desc = "tab next", noremap = true })
+
+-- buffer navigation
+-- map("n", "<A-j>", "<cmd>bnext<cr>", { desc = "buffer goto next" })
+-- map("n", "<A-k>", "<cmd>bprevious<cr>", { desc = "buffer goto prev" })
+
+-- Nvchad tabufline navigation
 map("n", "<A-j>", function()
 	require("nvchad.tabufline").next()
 end, { desc = "buffer goto next" })
