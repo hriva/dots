@@ -35,6 +35,11 @@ return {
 			font = font_with_fallback(font_name, font_params),
 		},
 	},
+	harfbuzz_features = { "cv05", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum" },
+	font_size = 16,
+	warn_about_missing_glyphs = false,
+	line_height = 1.01,
+	cell_width = 0.90,
 
 	-- OpenGL for GPU acceleration, Software for CPU
 	front_end = "OpenGL",
@@ -42,10 +47,6 @@ return {
 	color_scheme = "Japanesque",
 	colors = colors,
 	window_frame = window_frame, -- needed only if using fancy tab bar
-	warn_about_missing_glyphs = false,
-	font_size = 17,
-	line_height = 1.01,
-	cell_width = 0.90,
 	-- dpi = 192.0, -- For 4K HD in wayland
 
 	-- Cursor style
@@ -79,11 +80,11 @@ return {
 				SplitVertical = { domain = "CurrentPaneDomain" },
 			}),
 		},
-		{
-			key = "q",
-			mods = "CTRL|SHIFT",
-			action = wezterm.action({ CloseCurrentPane = { confirm = false } }),
-		},
+		-- {
+		-- 	key = "q",
+		-- 	mods = "CTRL|SHIFT",
+		-- 	action = wezterm.action({ CloseCurrentPane = { confirm = false } }),
+		-- },
 		{
 			key = "h",
 			mods = "CTRL|SHIFT",
