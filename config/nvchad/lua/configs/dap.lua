@@ -102,5 +102,6 @@ keymap("n", "<Leader>df", '<cmd>lua require"telescope".extensions.dap.frames{}<C
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texhl = "TodoFgFIX" })
 vim.fn.sign_define("DapBreakpointCondition", { text = "", texhl = "TodoFgFIX" })
+require("configs.dap-bps")
 
 -- credits:https://github.com/milanglacier/nvim
