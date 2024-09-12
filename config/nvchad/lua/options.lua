@@ -5,18 +5,14 @@ local augroup = vim.api.nvim_create_augroup
 
 -- vscode format i.e json files
 vim.g.vscode_snippets_path = vim.fn.expand("~/.config/code-snippets")
--- autocmd("FileType", {
--- 	pattern = "python", -- filetype for which to run the autocmd
--- 	callback = function()
+opt.autoread = true -- sync buffers automatically
+opt.swapfile = false -- disable swapfile and showing the error
 opt.expandtab = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.softtabstop = 4
 opt.smartindent = true
 opt.autoindent = true
--- 	end,
--- })
--- Auto hide status line
 opt.cmdheight = 0
 opt.diffopt:append({ "algorithm:patience" })
 
