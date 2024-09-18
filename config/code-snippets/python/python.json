@@ -143,5 +143,13 @@
       "log_action(f\"${1:example}\")"
     ],
     "description": "log_action"
+  },
+  "here": {
+    "prefix": "here",
+    "body": [
+      "import pathlib",
+      "CWDIR = pathlib.Path(__file__).parent.resolve()"
+    ],
+    "description": "here"
   }
 }
