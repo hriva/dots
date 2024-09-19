@@ -1,0 +1,7 @@
+{
+  "telemetry.telemetryLevel": "off",
+  "window.menuBarVisibility": "toggle",
+  "security.workspace.trust.untrustedFiles": "open",
+  "window.newWindowDimensions": "inherit",
+  "window.restoreWindows": "all",
+}
