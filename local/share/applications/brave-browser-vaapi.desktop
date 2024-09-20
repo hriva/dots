@@ -106,7 +106,7 @@ Comment[zh_CN]=访问互联网
 Comment[zh_HK]=連線到網際網路
 Comment[zh_TW]=連線到網際網路
 StartupWMClass=brave-browser
-Exec=/usr/bin/brave-browser-stable %U --ignore-gpu-blocklist --enable-gpu-rasterization  --enable-features=VaapiVideoDecoder,UseChromeOSDirectVideoDecoder --use-gl=angle --use-angle=gl --video-capture-use-gpu-memory-buffer --enable-features=VaapiVideoDecodeLinuxGL --enable-zero-copy --enable-native-gpu-memory-buffers --enable-hardware-overlays
+Exec=/usr/bin/brave-browser-stable %U --enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoDecoder,VaapiVideoEncoder,UseChromeOSDirectVideoDecoder --enable-gpu-rasterization --enable-hardware-overlays --enable-native-gpu-memory-buffers --enable-zero-copy --use-gl=angle --video-capture-use-gpu-memory-buffer --canvas-oop-rasterization --enable-accelerated-2d-canvas --use-angle=gl
 Terminal=false
 Icon=brave-browser
 Type=Application
@@ -167,7 +167,7 @@ Name[uk]=Нове вікно
 Name[vi]=Cửa sổ Mới
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=/usr/bin/brave-browser-stable %U --ignore-gpu-blocklist --enable-gpu-rasterization  --enable-features=VaapiVideoDecoder,UseChromeOSDirectVideoDecoder --use-gl=angle --use-angle=gl --video-capture-use-gpu-memory-buffer --enable-features=VaapiVideoDecodeLinuxGL --enable-zero-copy --enable-native-gpu-memory-buffers --enable-hardware-overlays
+Exec=/usr/bin/brave-browser-stable %U --enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoDecoder,VaapiVideoEncoder,UseChromeOSDirectVideoDecoder --enable-gpu-rasterization --enable-hardware-overlays --enable-native-gpu-memory-buffers --enable-zero-copy --use-gl=angle --video-capture-use-gpu-memory-buffer --canvas-oop-rasterization --enable-accelerated-2d-canvas --use-angle=gl
 
 [Desktop Action new-private-window]
 Name=New Incognito Window
@@ -219,4 +219,4 @@ Name[uk]=Нове вікно в режимі анонімного перегля
 Name[vi]=Cửa sổ ẩn danh mới
 Name[zh_CN]=新建隐身窗口
 Name[zh_TW]=新增無痕式視窗
-Exec=/usr/bin/brave-browser-stable %U --ignore-gpu-blocklist --enable-gpu-rasterization  --enable-features=VaapiVideoDecoder,UseChromeOSDirectVideoDecoder --use-gl=angle --use-angle=gl --video-capture-use-gpu-memory-buffer --enable-features=VaapiVideoDecodeLinuxGL --incognito --enable-zero-copy --enable-native-gpu-memory-buffers --enable-hardware-overlays
+Exec=/usr/bin/brave-browser-stable %U --enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoDecoder,VaapiVideoEncoder,UseChromeOSDirectVideoDecoder --enable-gpu-rasterization --enable-hardware-overlays --enable-native-gpu-memory-buffers --enable-zero-copy --use-gl=angle --video-capture-use-gpu-memory-buffer --canvas-oop-rasterization --enable-accelerated-2d-canvas --use-angle=gl --incognito
