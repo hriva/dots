@@ -1,9 +1,17 @@
 ---@type ChadrcConfig
 local M = {
-	base46 = { theme = "ayu_dark" },
+	base46 = {
+		theme = "ayu_dark",
+		hl_override = {
+			DiffAdd = { bg = { "green", -50 }, fg = "NONE" },
+			DiffDelete = { bg = { "red", -50 }, fg = "NONE" },
+			DiffChange = { bg = { "yellow", -47 }, fg = "NONE" },
+			DiffText = { bg = { "orange", -45 }, fg = "NONE" },
+		},
+	},
 	ui = {
 		statusline = {
-			theme = "minimal", -- default/vscode/vscode_colored/minimal
+			theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
 		},
 		nvdash = {
 			load_on_startup = true,
@@ -27,6 +35,12 @@ local M = {
 				{ "  Themes", "Spc t h", "Telescope themes" },
 				{ "  Mappings", "Spc c h", "NvCheatsheet" },
 			},
+		},
+	},
+	mason = {
+		pkgs = {
+			-- python
+			"debugpy",
 		},
 	},
 }
