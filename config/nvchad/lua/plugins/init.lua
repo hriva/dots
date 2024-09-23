@@ -34,7 +34,6 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
-		opts = overrides.mason,
 	},
 	-- Install a plugin
 	{
