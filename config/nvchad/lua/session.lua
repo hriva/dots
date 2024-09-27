@@ -28,17 +28,21 @@ function M.saveSession()
 	vim.print("created session file")
 end
 
--- Auto load session when launching Neovim
+-- Auto load session when launching Neovim (with no arguments)
 function M.autoLoadSession()
-	if sessionFileExists() then
-		loadSession()
+	if vim.fn.argc() == 0 then -- Check if there are no arguments
+		if sessionFileExists() then
+			loadSession()
+		end
 	end
 end
 
--- Auto save session upon exit if session file was present
+-- Auto save session upon exit if session file was present and no arguments were provided
 function M.autoSaveSession()
-	if sessionFileExists() then
-		vim.cmd('autocmd VimLeavePre * lua require("session").saveSession()')
+	if vim.fn.argc() == 0 then -- Check if there are no arguments
+		if sessionFileExists() then
+			vim.cmd('autocmd VimLeavePre * lua require("session").saveSession()')
+		end
 	end
 end
 
