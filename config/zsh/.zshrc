@@ -49,7 +49,7 @@ __call_compinit (){
     autoload -Uz compinit
     autoload -U compaudit
     if [[ -n "${ZDOTDIR}"/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
-        rm "${ZDOTDIR}"/.zcompdump(#qN.mh+24)
+        rm "${ZDOTDIR}"/.zcompdump(#qN.mh+24) > /dev/null
         compinit -i # dump
         ZCOMPDUMP=1
     else
@@ -140,7 +140,15 @@ precmd(){
 PROMPT='%n %~ ${vcs_info_msg_0_}
 %# '
 
+# Source compiled rc files
+if [ -d "${ZDOTDIR}"/compile ]; then
+	for rc in "${ZDOTDIR}"/compile/*.zsh; do
+		if [ -f "$rc" ]; then
+			source "$rc"
+		fi
+	done
+    unset rc
+fi
+
 eval "$(starship init zsh)"
-eval "$(direnv hook zsh)"
-eval "$(zoxide init zsh)"
 # zprof

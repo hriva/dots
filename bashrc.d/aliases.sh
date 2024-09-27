@@ -177,7 +177,7 @@ ff() {
 
 fcd() {
     local dir="${1:-.}"
-    cd "$(find "$dir" /home/"$USER" -type d | fzf)" || echo 1
+    cd "$(find "$dir" -maxdepth 1 -type d | fzf --reverse --height=12 --border=sharp)" || echo 1
 }
 
 # Get process without line wrap

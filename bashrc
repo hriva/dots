@@ -88,6 +88,7 @@ run-help() { help "$READLINE_LINE" 2>/dev/null || man "$READLINE_LINE" 2>/dev/nu
 bind -m vi-insert -x '"\eh": run-help'
 bind -m emacs -x '"\eh": run-help'
 
+eval "$(fzf --bash)"
 eval "$(zoxide init bash)"
 eval "$(direnv hook bash)"
 eval "$(starship init bash)"
