@@ -11,12 +11,12 @@
         zrecompile -pq "$zcompdump"
     fi
     # zcompile .zshrc
-    zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshrc
-    zrecompile -pq ${ZDOTDIR:-${HOME}}/.zprofile
-    zrecompile -pq ${ZDOTDIR:-${HOME}}/.zshenv
+    zrecompile -pq "${ZDOTDIR:-${HOME}}"/.zshrc
+    zrecompile -pq "${ZDOTDIR:-${HOME}}"/.zprofile
+    zrecompile -pq "${ZDOTDIR:-${HOME}}"/.zshenv
     # recompile all zsh or sh
-    # for f in ~/.bashrc.d
-    # do
-    #     zrecompile -pq $f
-    # done
+    for f in "${ZDOTDIR:-${HOME}}"/compile/*
+    do
+        zrecompile -pq "$f"
+    done
 ) &!

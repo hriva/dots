@@ -9,6 +9,7 @@ export MOZ_ENABLE_WAYLAND=1
 export _ZO_RESOLVE_SYMLINKS=0
 export BIOME_CONFIG_PATH=~/.config/biome/biome.json
 export RIPGREP_CONFIG_PATH=~/.config/ripgreprc
+export FZF_DEFAULT_OPTS="--height=12 --border=sharp"
 
 # Color for manpages in less makes manpages a little easier to read
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -177,7 +178,7 @@ ff() {
 
 fcd() {
     local dir="${1:-.}"
-    cd "$(find "$dir" -maxdepth 1 -type d | fzf --reverse --height=12 --border=sharp)" || echo 1
+    cd "$(find "$dir" -maxdepth 1 -type d | fzf --reverse)" || echo 1
 }
 
 # Get process without line wrap
