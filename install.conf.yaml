@@ -36,7 +36,7 @@
     ~/.config/efm-langserver/config.yaml : config/efm-langserver/config.yaml
     ~/.config/fastfetch : config/fastfetch
     ~/.config/git: config/git
-    ~/.config/htop/htoprc: config/htop/htoprc
+    ~/.config/htop: config/htop
     ~/.config/kitty: config/kitty
     ~/.config/lf : config/lf
     ~/.config/nvim : config/nvchad
