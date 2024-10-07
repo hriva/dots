@@ -1,8 +1,12 @@
+local Event = require("lazy.core.handler.event")
+Event.mappings.LazyFile = { id = "LazyFile", event = { "BufReadPost", "BufNewFile", "BufWritePre" } }
+Event.mappings["User LazyFile"] = Event.mappings.LazyFile
+
 local overrides = require("configs.overrides")
 
 return {
 	{
-		-- Override plugin definition options
+		-- nvchad plugin override
 		"stevearc/conform.nvim",
 		event = "BufWritePre",
 		cmd = { "ConformInfo" },
@@ -20,7 +24,6 @@ return {
 			require("which-key").setup(opts)
 		end,
 	},
-	-- override plugin configs
 	{
 		"nvim-tree/nvim-tree.lua",
 		opts = overrides.nvimtree,
@@ -31,6 +34,13 @@ return {
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
 		opts = overrides.treesitter,
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		event = "User FilePost",
+		opts = function()
+			return require("configs.gitsigns")
+		end,
 	},
 	{
 		"williamboman/mason.nvim",
@@ -89,6 +99,13 @@ return {
 		-- enabled = false,
 		config = function()
 			require("configs.iron")
+		end,
+	},
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		event = { "BufReadPost", "BufNewFile" },
+		config = function(_, opts)
+			require("configs.rainbow")
 		end,
 	},
 	{

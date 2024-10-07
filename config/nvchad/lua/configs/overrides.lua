@@ -15,14 +15,15 @@ M.treesitter = {
 	},
 	indent = {
 		enable = true,
-		-- disable = {
-		--   "python"
-		-- },
+		disable = {
+			"python",
+		},
 	},
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
 	},
+	vim.treesitter.language.register("markdown", { "quarto", "rmd" }),
 }
 
 M.mason = {

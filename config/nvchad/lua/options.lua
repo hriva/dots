@@ -15,7 +15,7 @@ opt.smartindent = true
 opt.autoindent = true
 opt.cmdheight = 0
 opt.diffopt:append({ "algorithm:patience" })
-opt.diffopt:append({ "vertical" })
+opt.diffopt:prepend({ "vertical" })
 
 -- Auto resize panes when resizing nvim window
 autocmd("VimResized", {
