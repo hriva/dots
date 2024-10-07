@@ -1,7 +1,14 @@
+-- vim.lsp.set_log_level("debug")
 local nvlsp = require("nvchad.configs.lspconfig")
 nvlsp.defaults()
--- capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
--- vim.lsp.set_log_level("debug")
+
+-- disable didChangeWatchedFiles
+local ok, wf = pcall(require, "vim.lsp._watchfiles")
+if ok then
+	wf._watchfunc = function()
+		return function() end
+	end
+end
 
 require("mason").setup()
 local lspconfig = require("lspconfig")
@@ -40,15 +47,17 @@ local servers = {
 		single_file_support = true,
 		settings = {
 			basedpyright = {
+				reportMissingSuperCall = false,
+				disableOrganizeImports = true,
 				analysis = {
-					logLevel = "Information",
-					autoSearchPaths = true,
+					autoImportCompletions = false,
+					autoSearchPaths = false,
 					useLibraryCodeForTypes = true,
 					typeCheckingMode = "off",
+					stubPath = vim.env.HOME .. "/Code/.python-stubs/python-type-stubs/stubs",
+					logLevel = "Information",
 					diagnosticMode = "openFilesOnly",
-					indexing = true,
 					diagnosticSeverityOverrides = { "error", "warning" },
-					-- stubPath = os.getenv("HOME") .. "/Code/.python-stubs/typings",
 				},
 			},
 		},
