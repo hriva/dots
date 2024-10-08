@@ -29,6 +29,16 @@ local servers = {
 		flags = { debounce_text_changes = 200 },
 	},
 
+	jedi_language_server = {
+		completion = {
+			resolveEagerly = true,
+		},
+		diagnostics = { enable = false },
+		jediSettings = {
+			caseInsensitiveCompletion = false,
+		},
+	},
+
 	basedpyright = { -- python
 		root_dir = function(fname)
 			local root_files = {
@@ -64,10 +74,19 @@ local servers = {
 	},
 }
 
-for name, opts in pairs(servers) do
-	opts.on_init = nvlsp.on_init
-	opts.on_attach = nvlsp.on_attach
-	opts.capabilities = nvlsp.capabilities
+local disabled_lsp = { "jedi_language_server" }
 
-	lspconfig[name].setup(opts)
+local disabled_lookup = {}
+for _, name in ipairs(disabled_lsp) do
+	disabled_lookup[name] = true
+end
+
+for name, opts in pairs(servers) do
+	if not disabled_lookup[name] then
+		opts.on_init = nvlsp.on_init
+		opts.on_attach = nvlsp.on_attach
+		opts.capabilities = nvlsp.capabilities
+
+		lspconfig[name].setup(opts)
+	end
 end
