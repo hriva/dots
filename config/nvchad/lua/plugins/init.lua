@@ -33,6 +33,11 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
+		init = function(plugin)
+			-- PERF: add to rtp and query predicates early
+			require("lazy.core.loader").add_to_rtp(plugin)
+			require("nvim-treesitter.query_predicates")
+		end,
 		opts = overrides.treesitter,
 	},
 	{

@@ -12,6 +12,8 @@ M.treesitter = {
 		"toml",
 		"markdown",
 		"markdown_inline",
+		"luadoc",
+		"printf",
 	},
 	indent = {
 		enable = true,
@@ -21,33 +23,64 @@ M.treesitter = {
 	},
 	highlight = {
 		enable = true,
+		use_languagetree = true,
 		additional_vim_regex_highlighting = false,
 	},
-	vim.treesitter.language.register("markdown", { "quarto", "rmd" }),
-}
-
-M.mason = {
-	ensure_installed = {
-		-- lua stuff
-		"lua-language-server",
-		"stylua",
-
-		-- python
-		"ruff",
-		"basedpyright",
-		"debugpy",
-
-		-- shell stuff
-		"shfmt",
-		"shellcheck",
-
-		-- docs
-		"marksman",
-		"taplo",
-		"vale",
-
-		-- none-ls substitue
-		"efm",
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "gnn",
+			node_incremental = "grn",
+			scope_incremental = "grc",
+			node_decremental = "grm",
+		},
+	},
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true,
+			keymaps = {
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+				["aa"] = "@parameter.outer",
+				["ia"] = "@parameter.inner",
+			},
+		},
+		move = {
+			enable = true,
+			set_jumps = true,
+			goto_next_start = {
+				["]f"] = "@function.outer",
+				["]c"] = "@class.outer",
+				["]a"] = "@parameter.inner",
+			},
+			goto_next_end = {
+				["]F"] = "@function.outer",
+				["]C"] = "@class.outer",
+				["]A"] = "@parameter.inner",
+			},
+			goto_previous_start = {
+				["[f"] = "@function.outer",
+				["[c"] = "@class.outer",
+				["[a"] = "@parameter.inner",
+			},
+			goto_previous_end = {
+				["[F"] = "@function.outer",
+				["[C"] = "@class.outer",
+				["[A"] = "@parameter.inner",
+			},
+		},
+		swap = {
+			enable = true,
+			swap_next = {
+				["<leader>a"] = "@parameter.inner",
+			},
+			swap_previous = {
+				["<leader>A"] = "@parameter.inner",
+			},
+		},
 	},
 }
 
