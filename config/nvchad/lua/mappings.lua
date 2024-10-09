@@ -15,7 +15,7 @@ map("v", "x", '"_x', { noremap = true, silent = true, desc = "cut witouth clipbo
 map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 map("n", ",", '"0p', { desc = "paste last yank", noremap = true })
-map("n", "<Esc>", "<Esc>:noh<CR>", opts) -- remove highligh after escaping search
+map("n", "<Esc>", "<Esc>:noh<CR>") -- remove highligh after escaping search
 map("n", "<leader>dt", ":windo diffthis<CR>", { desc = "diff this", silent = true })
 map("n", "<C-q>", "<cmd>q<cr>", { desc = "quit", silent = true })
 map("n", "<leader>mx", "<cmd>!chmod 770 %<cr>", { desc = "make user executable", silent = true })
@@ -32,8 +32,8 @@ map("n", "<leader>se", ":setlocal spell spelllang=en_us<cr>", { desc = "spelling
 map("n", "<leader>sd", ":setlocal nospell<cr>", { desc = "spelling disable", noremap = true })
 
 -- Multipane sizing
-map("n", "<A-o>", "<cmd>vertical resize +2<cr>", { desc = "resize vertical +2", noremap = true })
-map("n", "<A-i>", "<cmd>vertical resize -2<cr>", { desc = "resize vertical -2", noremap = true })
+map("n", "<A-i>", "<cmd>vertical resize +2<cr>", { desc = "resize vertical +2", noremap = true })
+map("n", "<A-o>", "<cmd>vertical resize -2<cr>", { desc = "resize vertical -2", noremap = true })
 map("n", "<A-K>", "<cmd>horizontal resize +2<cr>", { desc = "resize horizontal +2", noremap = true })
 map("n", "<A-J>", "<cmd>horizontal resize -2<cr>", { desc = "resize horizontal -2", noremap = true })
 
@@ -41,7 +41,7 @@ map("n", "<A-J>", "<cmd>horizontal resize -2<cr>", { desc = "resize horizontal -
 map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "tab new", noremap = true })
 map("n", "<leader>tc", "<cmd>tabclose<cr>", { desc = "tab close", noremap = true })
 map("n", "<leader><tab>", "<cmd>tab tabNext<cr>", { desc = "tab next", noremap = true })
-
+map("n", "<C-Q>", "<cmd>wincmd p | q<cr>", { desc = "window quit previous" })
 -- buffer navigation
 -- map("n", "<A-j>", "<cmd>bnext<cr>", { desc = "buffer goto next" })
 -- map("n", "<A-k>", "<cmd>bprevious<cr>", { desc = "buffer goto prev" })
@@ -54,10 +54,6 @@ end, { desc = "buffer goto next" })
 map("n", "<A-k>", function()
 	require("nvchad.tabufline").prev()
 end, { desc = "buffer goto prev" })
-
--- Gitsigns
-map("n", "<leader>do", "<cmd>Gitsigns diffthis<cr>", { desc = "diff open" })
-map("n", "<C-Q>", "<cmd>wincmd p | q<cr>", { desc = "window quit previous" })
 
 -- Keymaps
 map("n", "<leader>wm", "<cmd>Telescope keymaps<cr>", { desc = "which keymap" })
