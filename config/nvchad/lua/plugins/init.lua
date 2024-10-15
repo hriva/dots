@@ -63,7 +63,7 @@ return {
 	},
 	{
 		"max397574/better-escape.nvim",
-		event = { "InsertEnter" },
+		event = { "LazyFile" },
 		opts = overrides.better_escape,
 		config = function(_, opts)
 			require("better_escape").setup(opts)

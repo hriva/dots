@@ -4,7 +4,7 @@ local M = {
 		theme = "ayu_dark",
 		hl_override = {
 			DiffAdd = { bg = { "green", -50 }, fg = "NONE" },
-			DiffDelete = { bg = { "red", -50 }, fg = "NONE" },
+			DiffDelete = { bg = { "red", -55 }, fg = "NONE" },
 			DiffChange = { bg = { "yellow", -47 }, fg = "NONE" },
 			DiffText = { bg = { "orange", -45 }, fg = "NONE" },
 		},
@@ -55,7 +55,6 @@ local M = {
 	},
 	mason = {
 		pkgs = {
-			-- python
 			"debugpy",
 		},
 	},
