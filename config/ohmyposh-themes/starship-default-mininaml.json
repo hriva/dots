@@ -1,0 +1,147 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "auto_upgrade": true,
+  "palette": {
+    "os": "#323742",
+    "git": "#414868",
+    "modules": "#565f89",
+    "cyan": "#86BBD8",
+    "wight": "#FFFFFF",
+    "text": "#494D64"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "background": "p:os",
+          "foreground": "p:wight",
+          "powerline_symbol": "",
+          "leading_diamond": "",
+          "style": "diamond",
+          "template": "{{.Icon}} "
+        },
+        {
+          "type": "path",
+          "background": "p:os",
+          "foreground": "p:wight",
+          "style": "powerline",
+          "properties": {
+            "folder_icon": "…/",
+            "home_icon": "~",
+            "style": "agnoster_short",
+            "max_depth": 2,
+            "hide_root_location": true
+          },
+          "template": " {{ .Path }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:os",
+          "background": "p:git",
+          "template": ""
+        },
+        {
+          "type": "git",
+          "background": "p:git",
+          "foreground": "yellow",
+          "style": "plain",
+          "properties": {
+            "branch_icon": " ",
+            "cherry_pick_icon": " ",
+            "commit_icon": " ",
+            "merge_icon": " ",
+            "rebase_icon": " ",
+            "revert_icon": " ",
+            "fetch_status": false,
+            "display_hash": true,
+            "display_tag": true,
+            "tag_icon": " ",
+            "only_detached": true
+          },
+          "template": " {{ .HEAD }}"
+        },
+        {
+          "type": "git",
+          "background": "p:git",
+          "foreground": "#8AADF4",
+          "style": "powerline",
+          "properties": {
+            "display_stash_count": true,
+            "status_colors_enabled": true,
+            "fetch_status": true,
+            "display_status": true,
+            "display_status_detail": true,
+            "display_upstream_icon": false,
+            "status_formats": {
+              "Added": " +%d",
+              "Unmerged": "",
+              "Modified": " !%d",
+              "Untracked": " ?%d",
+              "Deleted": " -%d"
+            }
+          },
+          "templates": [
+            "{{ if .StashCount}} ${{ end }}",
+            "{{ if .Staging.Changed }} +{{ add .Staging.Added .Staging.Modified .Staging.Untracked .Staging.Deleted .Staging.Unmerged }}{{ end }}",
+            " {{ .Working.String }}",
+            "{{ if gt .Ahead 0 }} ↑{{.Ahead}}{{end}}",
+            "{{ if gt .Behind 0 }} ↓{{.Behind}}{{ end }}"
+          ],
+          "template_logic": "join"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "template": "",
+          "foreground": "p:git",
+          "background": "p:modules"
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "p:wight",
+          "background": "p:modules",
+          "fetch_virtual_env": true,
+          "template": "  ({{ .Venv }})"
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "p:wight",
+          "background": "p:module",
+          "template": "  {{ .Full }} "
+        },
+        {
+          "type": "text",
+          "style": "",
+          "template": "",
+          "foreground": "p:modules"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "foreground": "p:wight",
+          "style": "plain",
+          "template": "❯"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "p:wight",
+    "template": "❯ "
+  },
+  "final_space": true,
+  "version": 2
+}
