@@ -1,12 +1,12 @@
 format = """
-[](#3B4252)\
+[](#323742)\
 $os\
 $directory\
-[](bg:#4C566A fg:#3B4252)\
+[](bg:#414868 fg:#323742)\
 $git_branch\
 $git_commit\
 $git_status\
-[](fg:#4C566A bg:#06969A)\
+[](fg:#414868 bg:#33658A)\
 $python\
 $c\
 $elixir\
@@ -21,11 +21,17 @@ $rust\
 $scala\
 $docker_context\
 ${custom.foo}\ 
-[](fg:#06969A)\
+[](fg:#33658A)\
 $fill\
 $time\
 $battery
 $character"""
+
+#323742 #main 
+#414868 #git
+#565f89 #modules
+#33658A #mods
+#86BBD8 #cyan
 
 # Timeout for commands executed by starship (in milliseconds).
 command_timeout = 3000
@@ -40,14 +46,14 @@ disabled = true
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
-style_user = "bg:#3B4252"
-style_root = "bg:#3B4252"
+style_user = "bg:#323742"
+style_root = "bg:#323742"
 format = '[$user]($style)'
 
 [os]
 disabled = false
 format = "[$symbol ]($style)"
-style = "bg:#3B4252"
+style = "bg:#323742"
 
 [os.symbols]
 Fedora = "󰣛"
@@ -69,12 +75,12 @@ format = '[ $duration](bg:#33658A)'
 ssh_only = true
 ssh_symbol = '🌐'
 format = "[@$hostname]($style)"
-style = "bg:#3B4252"
+style = "bg:#323742"
 trim_at = ".companyname.com"
 disabled = false
 
 [directory]
-style = "bg:#3B4252"
+style = "bg:#323742"
 format = "[ $path]($style)"
 truncation_length = 2
 truncation_symbol = "…/"
@@ -97,26 +103,26 @@ home_symbol = "~"
 
 [docker_context]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ $symbol $context ]($style) $path'
 
 [elixir]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#4C566A fg:yellow"
+style = "bg:#414868 fg:yellow"
 format = '[ $branch]($style)'
 
 [git_status]
-style = "bg:#4C566A fg:#86BBD8"
+style = "bg:#414868 fg:#86BBD8"
 renamed = '» '
 modified = '!${count}'
 staged = ' +${count}'
@@ -125,49 +131,49 @@ format = '[ $all_status$ahead_behind]($style)'
 
 [git_commit]
 format = '[\($hash$tag\) ]($style)'
-style = "bg:#4C566A fg:cyan"
+style = "bg:#414868 fg:cyan"
 only_detached = true
 tag_disabled = false
 disabled = false
 
 [golang]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ ${symbol}${pyenv_prefix}(\($virtualenv\))]($style)'
 
 [scala]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#33658A"
 format = '[ $symbol ($version) ]($style)'
 
 [time]
@@ -184,12 +190,12 @@ format = '[$symbol$percentage]($style)'
 
 [[battery.display]]
 threshold = 78
-#style = "bg:#3B4252"
+#style = "bg:#323742"
 
 [custom.foo]
 disabled = true
 format = '[( $output)]($style)'
-style = "bg:#06969A"
+style = "bg:#33658A"
 command = "battery-time"        # shows output of command
 # when = """ [[ $OSTYPE == "linux-gnu" ]] && echo 1 """
 when = true

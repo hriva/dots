@@ -140,6 +140,27 @@ precmd(){
 PROMPT='%n %~ ${vcs_info_msg_0_}
 %# '
 
+transient_prompt ()
+{
+    if [[ $ZSH_TRANSIENT_PROMPT -eq 1 ]]; then
+        LONG_PROMPT=$PROMPT
+        set-long-prompt() { PROMPT=$LONG_PROMPT }
+        precmd_functions+=(set-long-prompt)
+
+        set-short-prompt() {
+          if [[ $PROMPT != '%# ' ]]; then
+              PROMPT='%# '
+            zle .reset-prompt
+          fi
+        }
+
+        zle-line-finish() { set-short-prompt }
+        zle -N zle-line-finish
+
+        trap 'set-short-prompt; return 130' INT
+    fi
+}
+
 # Source compiled rc files
 if [ -d "${ZDOTDIR}"/compile ]; then
 	for rc in "${ZDOTDIR}"/compile/*.zsh; do
@@ -151,4 +172,5 @@ if [ -d "${ZDOTDIR}"/compile ]; then
 fi
 
 eval "$(starship init zsh)"
+transient_prompt
 # zprof
