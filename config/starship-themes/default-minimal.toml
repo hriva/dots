@@ -2,11 +2,11 @@ format = """
 [](#323742)\
 $os\
 $directory\
-[](bg:#414868 fg:#323742)\
+[](bg:#414868 fg:#323742)\
 $git_branch\
 $git_commit\
 $git_status\
-[](fg:#414868 bg:#33658A)\
+[](fg:#414868 bg:#33658A)\
 $python\
 $c\
 $elixir\
@@ -81,7 +81,7 @@ disabled = false
 
 [directory]
 style = "bg:#323742"
-format = "[ $path]($style)"
+format = "[ $path ]($style)"
 truncation_length = 2
 truncation_symbol = "…/"
 home_symbol = "~"
@@ -127,7 +127,7 @@ renamed = '» '
 modified = '!${count}'
 staged = ' +${count}'
 untracked = ' ?${count}'
-format = '[ $all_status$ahead_behind]($style)'
+format = '[ $all_status$ahead_behind ]($style)'
 
 [git_commit]
 format = '[\($hash$tag\) ]($style)'
@@ -169,7 +169,7 @@ format = '[ $symbol ($version) ]($style)'
 [python]
 symbol = " "
 style = "bg:#33658A"
-format = '[ ${symbol}${pyenv_prefix}(\($virtualenv\))]($style)'
+format = '[ ${symbol}${pyenv_prefix}(\($virtualenv\)) ]($style)'
 
 [scala]
 symbol = " "
@@ -180,7 +180,7 @@ format = '[ $symbol ($version) ]($style)'
 disabled = true
 time_format = "%R" # Hour:Minute Format
 #style = "bg:#33658A"
-format = '[$time ]($style)'
+format = '[ $time ]($style)'
 
 [battery]
 disabled = true
