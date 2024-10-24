@@ -1,8 +1,9 @@
 return {
 	"yetone/avante.nvim",
-	enabled = false,
+	enabled = true,
+	cmd = { "AvanteToggle", "AvanteChat", "AvanteAsk" }, -- only load when needed
 	event = "VeryLazy",
-	lazy = false,
+	lazy = true,
 	version = false, -- set this if you want to always pull the latest change
 	opts = {
 		-- add any opts here

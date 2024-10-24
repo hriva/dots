@@ -5,8 +5,8 @@ require("avante").setup({
 		---@type AvanteProvider
 		ollama = {
 			["local"] = true,
-			endpoint = os.getenv("OLLAMA_REMOTE") .. "/v1",
-			model = "qwen2.5-coder:latest",
+			endpoint = os.getenv("OLLAMA_REMOTE") .. "/v1" or "127.0.0.1:11434/v1",
+			model = os.getenv("AVANTE_MODEL") or "qwen2.5-coder:1.5b",
 			parse_curl_args = function(opts, code_opts)
 				return {
 					url = opts.endpoint .. "/chat/completions",
@@ -17,7 +17,7 @@ require("avante").setup({
 					body = {
 						model = opts.model,
 						messages = require("avante.providers").copilot.parse_message(code_opts), -- you can make your own message, but this is very advanced
-						max_tokens = 2048,
+						max_tokens = 8192,
 						stream = true,
 					},
 				}
@@ -67,19 +67,34 @@ require("avante").setup({
 			insert = "<C-s>",
 		},
 		sidebar = {
+			apply_all = "<M-A>",
+			apply_cursor = "<M-a>",
 			switch_windows = "<Tab>",
 			reverse_switch_windows = "<S-Tab>",
 		},
 	},
-	hints = { enabled = true },
+	hints = { enabled = false },
 	windows = {
 		---@type "right" | "left" | "top" | "bottom"
 		position = "right", -- the position of the sidebar
 		wrap = true, -- similar to vim.o.wrap
 		width = 30, -- default % based on available width
 		sidebar_header = {
+			enabled = true, -- true, false to enable/disable the header
 			align = "center", -- left, center, right for title
 			rounded = true,
+		},
+		input = {
+			prefix = "> ",
+		},
+		edit = {
+			border = "rounded",
+			start_insert = true, -- Start insert mode when opening the edit window
+		},
+		ask = {
+			floating = false, -- Open the 'AvanteAsk' prompt in a floating window
+			start_insert = true, -- Start insert mode when opening the ask window, only effective if floating = true.
+			border = "rounded",
 		},
 	},
 	highlights = {
