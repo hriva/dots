@@ -1,5 +1,0 @@
-alias gitstat='git status -uno'
-alias gitsb='git status -sb'
-alias git-tree='git ls-tree --full-tree --name-only -r HEAD'
-alias glog='git log --pretty=oneline -n 20 --graph --abbrev-commit'
-alias gits='git status -s'
