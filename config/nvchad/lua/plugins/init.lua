@@ -97,6 +97,7 @@ return {
 		},
 		enabled = true,
 	},
+	{ "microsoft/python-type-stubs" },
 	{
 		"Vigemus/iron.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },

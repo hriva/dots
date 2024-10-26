@@ -39,7 +39,7 @@ local servers = {
 		},
 	},
 
-	basedpyright = { -- python
+	pyright = { -- python
 		root_dir = function(fname)
 			local root_files = {
 				"pyproject.toml",
@@ -56,7 +56,7 @@ local servers = {
 		end,
 		single_file_support = true,
 		settings = {
-			basedpyright = {
+			python = {
 				reportMissingSuperCall = false,
 				disableOrganizeImports = true,
 				analysis = {
@@ -64,7 +64,7 @@ local servers = {
 					autoSearchPaths = false,
 					useLibraryCodeForTypes = true,
 					typeCheckingMode = "off",
-					stubPath = vim.env.HOME .. "/Code/.python-stubs/python-type-stubs/stubs",
+					stubPath = vim.fn.stdpath("data") .. "/lazy/python-type-stubs/stubs",
 					logLevel = "Information",
 					diagnosticMode = "openFilesOnly",
 					diagnosticSeverityOverrides = { "error", "warning" },
