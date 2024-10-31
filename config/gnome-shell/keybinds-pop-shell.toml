@@ -4,6 +4,4 @@ active-hint-border-radius=uint32 1
 gap-inner=uint32 1
 gap-outer=uint32 1
 log-level=uint32 2
-show-title=true
-snap-to-grid=true
 tile-by-default=true
