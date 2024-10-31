@@ -89,6 +89,13 @@ return {
 		end,
 	},
 	{
+		"hedyhli/outline.nvim",
+		keys = { { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle Outline" } },
+		config = function()
+			require("outline").setup({})
+		end,
+	},
+	{
 		"creativenull/efmls-configs-nvim",
 		event = "VeryLazy",
 		dependencies = {
