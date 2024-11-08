@@ -192,3 +192,7 @@ lfcd() {
     # `command` is needed in case `lfcd` is aliased to `lf`
     cd "$(command lf -print-last-dir "$@")" || exit
 }
+
+brzip() {
+    /usr/bin/tar -cvf "$1" --use-compress-program="brotli -Z" "$2"
+}
