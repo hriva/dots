@@ -1,7 +1,3 @@
-import = [
-  "/home/alquimista/.config/alacritty/alacritty-keybinds.toml",
-  "/home/alquimista/.config/alacritty/green-on-black.toml",
-]
 
 [cursor]
 blink_timeout = 0
@@ -41,3 +37,9 @@ y = 12
 [window.position]
 x = 0
 y = 0
+
+[general]
+import = [
+  "/home/alquimista/.config/alacritty/alacritty-keybinds.toml",
+  "/home/alquimista/.config/alacritty/green-on-black.toml",
+]
