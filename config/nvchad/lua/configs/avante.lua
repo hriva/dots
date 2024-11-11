@@ -5,7 +5,7 @@ require("avante").setup({
 		---@type AvanteProvider
 		ollama = {
 			["local"] = true,
-			endpoint = os.getenv("OLLAMA_REMOTE") .. "/v1" or "127.0.0.1:11434/v1",
+			endpoint = os.getenv("OLLAMA_REMOTE") or "127.0.0.1:11434/v1",
 			model = os.getenv("AVANTE_MODEL") or "qwen2.5-coder:1.5b",
 			parse_curl_args = function(opts, code_opts)
 				return {
