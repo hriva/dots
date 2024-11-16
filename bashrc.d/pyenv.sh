@@ -10,8 +10,8 @@ pyenv() {
     main)
         source "$VENV_DIR"/.devel-env/bin/activate
         ;;
-    main311)
-        source "$VENV_DIR"/.devel-env-311/bin/activate
+    main-ls)
+        source "$VENV_DIR"/.devel-env-ls/bin/activate
         ;;
     tmp)
         if [ -d "$VENV_DIR"/tmp ]; then
@@ -40,10 +40,10 @@ pyenv-make() {
 }
 
 pyenv-clear() {
-    VENV_DIR="$HOME"/Code
+    VENV_DIR="$HOME"/Code/.python_virt_environments
     venv_name="$VENV_DIR"/tmp
     if [ -d "$venv_name" ]; then
-        rm -rf "$venv_name"
+        /usr/bin/rm -r "$venv_name"
         echo "The 'tmp' environment has been deleted."
     else
         echo "The 'tmp' environment does not exist."
