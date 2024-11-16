@@ -131,14 +131,18 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-precmd(){
-    # fc -R
-    vcs_info
+
+custom_prompt ()
+{
+    precmd(){
+        # fc -R
+        vcs_info
+    }
+    # PROMT
+    __PMT_NL=$'\n'
+    PROMPT='%n %~ ${vcs_info_msg_0_}${__PMT_NL}%# '
 }
 
-# PROMT
-PROMPT='%n %~ ${vcs_info_msg_0_}
-%# '
 
 transient_prompt ()
 {
