@@ -1,0 +1,68 @@
+theme = "ayu_dark"
+
+[editor]
+line-number = "absolute"
+mouse = true
+popup-border = "all"
+bufferline = "multiple"
+
+[editor.statusline]
+left = [
+  "mode",
+  "file-name",
+  "file-type",
+  "file-modification-indicator",
+  "version-control",
+]
+center = []
+right = ["diagnostics", "spinner", "file-encoding", "position"]
+separator = "│"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+character = "⸽"
+
+[keys.insert]
+j = { k = "normal_mode" }
+C-space = "completion"
+
+[keys.normal]
+C-q = ":q"
+A-s = ":w"
+C-s = "commit_undo_checkpoint"
+g = { a = "code_action" }
+V = "extend_to_line_bounds"
+"," = "paste_clipboard_after"
+y = "yank_to_clipboard"
+K = "hover"
+C-r = "redo"
+A-k = ":buffer-previous"
+A-j = ":buffer-next"
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+C-l = "jump_view_right"
+G = "goto_last_line"
+C-p = "paste_after"
+p = "paste_clipboard_after"
+
+[keys.select]
+y = "yank_to_clipboard"
+
+
+[keys.normal.space]
+f = "file_picker_in_current_directory"
+F = "file_picker"
+m = ":format"
+x = ":buffer-close"
