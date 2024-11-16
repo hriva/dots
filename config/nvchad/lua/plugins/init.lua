@@ -102,7 +102,7 @@ return {
 			"neovim/nvim-lspconfig",
 			"williamboman/mason.nvim",
 		},
-		enabled = true,
+		enabled = false,
 	},
 	{ "microsoft/python-type-stubs" },
 	{
