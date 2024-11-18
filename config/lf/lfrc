@@ -4,11 +4,16 @@ set preview true
 set sixel true
 set cursorpreviewfmt ""
 set info size:time
-set period 2  # Polling for updates
+set watch true  # Polling for updates
 set dircounts
 set drawbox true
+set roundbox true
+set showbinds true
 set icons true
 set hidden true
+set info ctime
+set sortby ctime
+set reverse true
 
 # CMDs
 cmd open &{{
@@ -44,6 +49,8 @@ map gL follow_link
 map O push :open-with-gui<space> ## input application
 map o push :open-with-cli<space> ## input application
 map <delete> trash
+map ` !true # show  result of previous commands
+map a :push %mkdir<space>
 
 # Trashcli
 cmd trash %trash-put $fx
