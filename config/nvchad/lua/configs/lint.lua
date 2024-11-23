@@ -16,6 +16,8 @@ lint.linters_by_ft = {
 	json = { "biomejs" },
 	jsonc = { "biomejs" },
 	make = { "checkmake" },
+	xml = { "yq" },
+	yaml = { "yq" },
 
 	-- Use the "*" filetype to run linters on all filetypes.
 	-- ['*'] = { 'global linter' },

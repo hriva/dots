@@ -46,6 +46,7 @@ local options = {
 
 		jsonc = { "biome" },
 		xml = { "xmllint" },
+		yaml = { "yq" },
 
 		-- r = { "prettyr" },
 		-- rmd = { "prettyr" },
