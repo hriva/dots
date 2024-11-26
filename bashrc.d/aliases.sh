@@ -9,7 +9,9 @@ export MOZ_ENABLE_WAYLAND=1
 export _ZO_RESOLVE_SYMLINKS=0
 export BIOME_CONFIG_PATH=~/.config/biome/biome.json
 export RIPGREP_CONFIG_PATH=~/.config/ripgreprc
-export FZF_DEFAULT_OPTS="--height=12 --border=sharp"
+FZF_LAYOUT=" --border=rounded"
+export FZF_DEFAULT_OPTS="--keep-right --height=40% --info=inline --bind=ctrl-z:ignore,btab:up,tab:down"$FZF_LAYOUT
+export _ZO_FZF_OPTS="--keep-right --height=40% --info=inline --bind=ctrl-z:ignore,btab:up,tab:down --exact --no-sort --cycle --tabstop=1 --exit-0 --layout=reverse"$FZF_LAYOUT
 
 # Color for manpages in less makes manpages a little easier to read
 export LESS_TERMCAP_mb=$'\E[01;31m'
