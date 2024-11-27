@@ -1,59 +1,51 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
-exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3-dark"
-    gsettings set org.gnome.desktop.interface icon-theme "MoreWaita"
+
+gaps inner 1
+gaps outer 1
+smart_gaps off
+titlebar_border_thickness 0
+titlebar_padding 0
+default_border pixel 0
+default_floating_border pixel 0
+font pango:"Liberation Sans" Regular 13
+
+exec_always autotiling
+
+# Map caps to super
+input type:keyboard {
+  xkb_options caps:super
 }
+
+### Variables
 
 #preaty workspace fonts using ttf-awsome-fonts
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
 
-gaps inner 1
-gaps outer 1
-# smart_gaps off
-
-### Variables
-default_border none
-bindsym XF86MonBrightnessDown exec brightnessctl set 5-
-
-# Logo key. Use Mod1 for Alt.
+# Super key. Use Mod1 for Alt.
 set $mod Mod4
-
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-set $term alacritty
+set $term /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=blackbox com.raggesilver.BlackBox
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show drun | wmenu | xargs swaymsg exec --
-# set $menu_command wofi | xargs swaymsg exec --
-set $menu2 rofi-app-launcher.sh d
-# bindsym $mod+r exec $menu_command
+# Recommends: rofi-wayland
+set $rofi_cmd rofi \
+        -terminal '$term'
+# Shows a combined list of the applications with desktop files and
+# executables from PATH.
+# TODO: add window with the next release of rofi-wayland
+set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
+# Brightnessctl
+# bindsym XF86MonBrightnessDown exec brightnessctl set 5-
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-output * bg ~/.dotfiles/balcony.png fill
-#
-# Example configuration:
-#
-
 output  eDP-1 {
   mode 1920x1080@60.002Hz
   position 1920,0
@@ -62,10 +54,8 @@ output  Virtual-1 {
   mode 1920x1080@60.002Hz
   position 1920,0
 }
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Autostart
-exec_always autotiling
+# Requires: desktop-backgrounds-compat, swaybg
+output * bg ~/.local/share/backgrounds/2023-09-11-10-55-36-Kohakunushi-1200.jpeg fill
 
 ### Idle configuration
 #
@@ -81,9 +71,6 @@ exec_always autotiling
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
-# Example configuration:
-#
   input "1267:12521:ELAN1205:00_04F3:30E9_Touchpad" {
       dwt enabled
       tap enabled
@@ -105,16 +92,7 @@ exec_always autotiling
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
-
-    bindsym $mod+u exec $menu2
-    # # Ulauncher
-    # bindsym $mod+u exec ulauncher-toggle
-    # for_window [app_id="Ulauncher"] floating enable
-    #
-    # # albert
-    # bindsym $mod+i exec albert-wayland.sh
-    # for_window [app_id="Albert"] floating enable
+    bindsym $mod+r exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -177,43 +155,41 @@ exec_always autotiling
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
+    # Note: workspaces can have any name you want, not just numbers.
 
     bindgesture swipe:right workspace prev
     bindgesture swipe:left workspace next
     bindsym $mod+Mod1+h workspace prev
     bindsym $mod+Mod1+l workspace next
+    # bindsym $mod+Mod1+h exec ~/.config/sway/libexec/swayworkspace.sh navigate previous
+    # bindsym $mod+Mod1+l exec ~/.config/sway/libexec/swayworkspace.sh navigate next
     bindsym $mod+Mod1+j move container to workspace next
     bindsym $mod+Mod1+k move container to workspace prev
 
-
-
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
 #
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+z splith
+    bindsym $mod+b splith
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    #bindsym $mod+s layout stacking
-    bindsym $mod+s layout tabbed
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym $mod+Shift+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+y floating toggle
+    bindsym $mod+y floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
+    # Move focus to the parent container bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
@@ -251,25 +227,25 @@ mode "resize" {
 }
 bindsym $mod+Return mode "resize"
 
+# Include configs from 3 locations:
+#  - /usr/share/sway/config.d
+#  - /etc/sway/config.d
+#  - $XDG_CONFIG_HOME/sway/config.d ($HOME/.config/sway/config.d)
 #
-# Status Bar:
+# If multiple directories contain the files with the same name, the later
+# directory takes precedence; `$XDG_CONFIG_HOME/sway/config.d/20-swayidle.conf`
+# will always be loaded instead of `/usr/share/sway/config.d/20-swayidle.conf`
+# or `/etc/sway/config.d/20-swayidle.conf`
 #
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-  swaybar_command waybar
-}
-# bar {
-#     position top
+# This mechanism permits overriding our default configuration per-system
+# (/etc) or per-user ($XDG_CONFIG_HOME) basis. Just create the file you
+# want to modify/override in the higher-level directory.
 #
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+# For example, to disable the default bar from Fedora configs, you'll need to
+#     $ echo -n > "$HOME/.config/sway/config.d/90-bar.conf"
 #
-#     colors {
-#         statusline #ffffff
-#         background #030303
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
-
-include @sysconfdir@/sway/config.d/*
+# Note the quoting, the $() and the arguments quoting. All the parts are equally
+# important to make the magic work. And if you want to learn the secret behind
+# the trick, it's all in the `wordexp(3)`.
+#
+include '$(${XDG_CONFIG_HOME:-$HOME/.config}/sway/libexec/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'

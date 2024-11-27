@@ -18,14 +18,14 @@
      "all-outputs": true,
      "warp-on-scroll": false,
      "format": "{icon}",
-        "persistent_workspaces": {
-            "*": ["eDP-1","Virtual-1"],
-         "1":["eDP-1","Virtual-1"],
-         "2":["eDP-1","Virtual-1"],
-         "3":["eDP-1","Virtual-1"],
-         "4":["eDP-1","Virtual-1"],
-         "5":["eDP-1","Virtual-1"]
-        },
+     "persistent_workspaces": {
+      //"*": ["eDP-1","Virtual-1"],
+      "1":["eDP-1","Virtual-1"],
+      "2":["eDP-1","Virtual-1"],
+      "3":["eDP-1","Virtual-1"],
+      "4":["eDP-1","Virtual-1"],
+      "5":["eDP-1","Virtual-1"]
+     },
      "format-icons": {
          "1": "",
          "2": "",
@@ -81,7 +81,7 @@
                               "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
                               "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
                               }
-                    },
+                    }
     },
 
 
@@ -90,12 +90,12 @@
   "custom/lock", "custom/power"],
 
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "tooltip-format-wifi": "{ifname}: {ipaddr}/{cidr}\n{essid} on {frequency}GHz",
+        "format-wifi": " ",
+        "tooltip-format-wifi": "{essid}\n({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}\n{essid} on {frequency}GHz",
         "format-ethernet": "󰈀",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP) 󰈀",
-        "format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "Disconnected !",
         "on-click": "nm-connection-editor"
     },
 
@@ -132,11 +132,11 @@
         "on-click": "alacritty -e htop"
     },
 
-    "memory": {
-        "interval": 10,
-        "format": "{}% ",
-        "on-click": "alacritty -e htop"
-    },
+    //"memory": {
+    //    "interval": 10,
+    //    "format": "{}% ",
+    //    "on-click": "alacritty -e htop"
+    //},
 
     "temperature": {
         "interval": 30,
@@ -157,21 +157,11 @@
             "warning": 20,
             "critical": 10
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% 󰂄",
+        "format": "{icon} {capacity}%",
+        "format-charging": "{capacity}% 󱐋",
         "format-plugged": "{capacity}% ",
-        "format-icons": ["󱃍", "󱃍", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"],
+        "format-icons": [" ", " ", " ", " "," "],
         "tooltip-format": "{capacity}%\n{timeTo}\n{power} W"
-    },
-
-    "custom/updates": {
-        "interval": 3600, // every hour
-        "exec": "~/.config/waybar/scripts/get_updates.sh",
-        "return-type": "json",
-        "exec-if": "exit 0",
-        "exec-on-event": false,
-        "on-click": "kitty sh -c ~/.config/waybar/scripts/update.sh",
-        "signal": 8
     },
 
     "custom/dunst": {
@@ -183,8 +173,8 @@
     // ---
 
     "tray": {
-        "icon-size": 15,
-        "spacing": 10
+        "icon-size": 17,
+        "spacing": 8
     },
 
     // ---
