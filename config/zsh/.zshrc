@@ -26,6 +26,7 @@ setopt autocd
 setopt inc_append_history
 setopt hist_expire_dups_first
 setopt HIST_REDUCE_BLANKS
+setopt HIST_FCNTL_LOCK
 setopt hist_ignore_dups  # -h
 setopt hist_ignore_space  # -g
 setopt hist_ignore_all_dups
