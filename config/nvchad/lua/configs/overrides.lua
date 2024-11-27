@@ -103,7 +103,7 @@ M.nvimtree = {
 }
 
 M.better_escape = {
-	timeout = vim.o.timeoutlen,
+	timeout = 150,
 	default_mappings = false,
 	mappings = {
 		i = {
