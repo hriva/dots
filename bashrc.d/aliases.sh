@@ -70,6 +70,7 @@ alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
 alias osshfs='sudo sshfs -o allow_other,default_permissions'
 alias zim='__zoxide_zi && nvim'
 alias baks='sudo btrbk list snapshots'
+alias quadlet-drun='/usr/libexec/podman/quadlet -dryrun'
 
 # Search running processes
 alias p="ps aux | grep "
