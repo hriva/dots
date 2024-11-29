@@ -10,15 +10,44 @@
     "modules-left": [
         "sway/mode",
         "sway/workspaces",
-        "sway/scratchpad"
+        "sway/scratchpad",
+        "upower",
+        "memory",
+        "temperature",
+        "cpu"
     ],
 
+    "cpu": {
+        "interval": 3,
+        "format": "{avg_frequency}GHz {usage}% ",
+        "on-click": "alacritty -e htop"
+    },
+
+    "memory": {
+        "interval": 10,
+        "format": "{}% ",
+        "on-click": "alacritty -e htop"
+    },
+
+    "temperature": {
+        "interval": 30,
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C ",
+        "on-click": "alacritty -e htop"
+    },
+
+    "upower" : {
+        "interval": 10,
+        "format": "{time}"
+    },
+
  "sway/workspaces": {
+     "active-only":false,
      "disable-scroll": false,
      "all-outputs": true,
      "warp-on-scroll": false,
      "format": "{icon}",
-     "persistent_workspaces": {
+     "persistent-workspaces": {
       //"*": ["eDP-1","Virtual-1"],
       "1":["eDP-1","Virtual-1"],
       "2":["eDP-1","Virtual-1"],
@@ -27,14 +56,14 @@
       "5":["eDP-1","Virtual-1"]
      },
      "format-icons": {
-         "1": "",
-         "2": "",
-         "3": "",
-         "4": "",
-         "5": "",
+         "1": "",
+         "2": "",
+         "3": "",
+         "4": "",
+         "5": "",
          "urgent": "",
-         "focused": "",
-         "default": ""
+         "focused": "",
+         "default": ""
      }
  },
 
@@ -50,13 +79,13 @@
         "sort-by-name": false,
         "format": "{id}",
         "show-special": true,
-        "persistent_workspaces": {
+        "persistent-workspaces": {
             "*": ["eDP-1","Virtual-1"],
          "":["eDP-1","Virtual-1"],
          "":["eDP-1","Virtual-1"],
          "":["eDP-1","Virtual-1"],
-         "":["eDP-1","Virtual-1"],
-         "":["eDP-1","Virtual-1"]
+         "":["eDP-1","Virtual-1"],
+         //"":["eDP-1","Virtual-1"]
         }
      },
 
@@ -66,7 +95,7 @@
 
     "clock": {
         "interval": 1,
-        "format": " {:%H:%M %d %b}",
+        "format": "{%d %b :%H:%M}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
                     "mode"          : "year",
@@ -86,12 +115,21 @@
 
 
     // --- RIGHT MODULES ---
-    "modules-right": ["tray", "cpu", "memory", "temperature", "backlight", "idle_inhibitor",  "pulseaudio", "network","battery", "custom/updates", "custom/dunst",        "power-profiles-daemon",
-  "custom/lock", "custom/power"],
+    "modules-right": [
+        "idle_inhibitor", 
+        "tray", 
+        "backlight", 
+        "wireplumber", 
+        "network",
+        "battery", 
+        "power-profiles-daemon", 
+        "custom/lock", 
+        "custom/power"
+    ],
 
     "network": {
-        "format-wifi": " ",
-        "tooltip-format-wifi": "{essid}\n({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}\n{essid} on {frequency}GHz",
+        "format-wifi": "󰤨",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}\n{essid} on {frequency}GHz",
         "format-ethernet": "󰈀",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP) 󰈀",
@@ -107,7 +145,7 @@
         }
     },
 
-    "pulseaudio": { // TODO: replace with wireplumber
+    "wireplumber": {
         "format":                 "{volume}% {icon} {format_source}",
         "format-bluetooth":       "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
@@ -124,25 +162,6 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
-
-    "cpu": {
-        "interval": 3,
-        "format": "{usage}% ",
-        "on-click": "alacritty -e htop"
-    },
-
-    //"memory": {
-    //    "interval": 10,
-    //    "format": "{}% ",
-    //    "on-click": "alacritty -e htop"
-    //},
-
-    "temperature": {
-        "interval": 30,
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C ",
-        "on-click": "alacritty -e htop"
     },
 
     "backlight": {
@@ -173,8 +192,8 @@
     // ---
 
     "tray": {
-        "icon-size": 17,
-        "spacing": 8
+        "icon-size": 18,
+        "spacing": 12
     },
 
     // ---
