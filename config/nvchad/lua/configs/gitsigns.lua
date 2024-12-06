@@ -23,5 +23,8 @@ return {
 			gs.nav_hunk("prev")
 		end, { desc = "go to previous hunk", noremap = true, silent = true })
 		map("n", "<leader>do", gs.diffthis, { desc = "diff open" })
+		map("n", "<leader>dO", function()
+			gs.diffthis("~")
+		end, { desc = "diff last change" })
 	end,
 }
