@@ -46,6 +46,7 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 # Brightnessctl
 # bindsym XF86MonBrightnessDown exec brightnessctl set 5-
 ### Output configuration
+output  eDP-1 allow_tearing yes
 output  eDP-1 {
   mode 1920x1080@60.002Hz
   position 1920,0

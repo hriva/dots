@@ -116,16 +116,28 @@
 
     // --- RIGHT MODULES ---
     "modules-right": [
-        "idle_inhibitor", 
-        "tray", 
-        "backlight", 
-        "wireplumber", 
+        "idle_inhibitor",
+        "tray",
+        "backlight",
+        "wireplumber",
         "network",
-        "battery", 
-        "power-profiles-daemon", 
-        "custom/lock", 
+        "power-profiles-daemon",
+        "battery",
+        "custom/lock",
         "custom/power"
     ],
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "󰡵",
+        "power-saver": ""
+      }
+    }
 
     "network": {
         "format-wifi": "󰤨",
