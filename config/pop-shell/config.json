@@ -17,9 +17,12 @@
     },
     {
       "class": "io.github.seadve.Kooha"
+    },
+    {
+      "class": "yelp",
+      "title": "Ayuda"
     }
   ],
   "skiptaskbarhidden": [],
   "log_on_focus": false
 }
-
