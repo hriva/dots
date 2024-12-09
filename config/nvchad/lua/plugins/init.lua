@@ -50,7 +50,9 @@ return {
 	{
 		"williamboman/mason.nvim",
 	},
-	-- Install a plugin
+	-- end
+
+	-- text editing
 	{
 		"LunarVim/bigfile.nvim",
 		lazy = false,
@@ -70,12 +72,33 @@ return {
 		end,
 	},
 	{
+		"HiPhish/rainbow-delimiters.nvim",
+		event = { "BufReadPost", "BufNewFile" },
+		config = function(_, opts)
+			require("configs.rainbow")
+		end,
+	},
+	{
+		"kylechui/nvim-surround",
+		event = "VeryLazy",
+		-- opts = require("configs.sourround"),
+		config = function(_, opts)
+			require("nvim-surround").setup({
+				-- opts,
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	},
+
+	-- coding
+	{
 		"neovim/nvim-lspconfig",
 		event = "User FilePost",
 		config = function()
 			require("configs.lspconfig")
 		end,
 	},
+	{ "microsoft/python-type-stubs" },
 	{
 		"hinell/lsp-timeout.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
@@ -104,7 +127,6 @@ return {
 		},
 		enabled = false,
 	},
-	{ "microsoft/python-type-stubs" },
 	{
 		"Vigemus/iron.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
@@ -115,16 +137,22 @@ return {
 		end,
 	},
 	{
-		"HiPhish/rainbow-delimiters.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+		"mfussenegger/nvim-dap",
+		dependencies = {
+			{ "mfussenegger/nvim-dap-python" },
+			{ "nvim-telescope/telescope-dap.nvim" },
+			{ "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
+		},
+		enabled = true,
+		ft = { "python" },
 		config = function(_, opts)
-			require("configs.rainbow")
+			require("configs.dap")
 		end,
 	},
+
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
 		build = function()
 			vim.fn["mkdp#util#install"]()
 		end,
@@ -144,19 +172,6 @@ return {
 				session = { enabled = true, file = "Session.vim" },
 				shada = { enabled = false, file = "main.shada" },
 			})
-		end,
-	},
-	{
-		"mfussenegger/nvim-dap",
-		dependencies = {
-			{ "mfussenegger/nvim-dap-python" },
-			{ "nvim-telescope/telescope-dap.nvim" },
-			{ "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
-		},
-		enabled = true,
-		ft = { "python" },
-		config = function(_, opts)
-			require("configs.dap")
 		end,
 	},
 }
