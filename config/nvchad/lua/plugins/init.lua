@@ -70,6 +70,22 @@ return {
 		event = "VeryLazy",
 		-- opts = require("configs.sourround"),
 	},
+	{
+		"saghen/blink.cmp",
+		enabled = false,
+		version = "*",
+		event = "InsertEnter",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"L3MON4D3/LuaSnip",
+			-- {
+			-- 	"hrsh7th/nvim-cmp",
+			-- 	enabled = false,
+			-- },
+		},
+		opts = require("configs.blink"),
+		opts_extend = { "sources.default" },
+	},
 
 	-- coding
 	{

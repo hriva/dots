@@ -86,6 +86,7 @@ for name, opts in pairs(servers) do
 		opts.on_init = nvlsp.on_init
 		opts.on_attach = nvlsp.on_attach
 		opts.capabilities = nvlsp.capabilities
+		-- opts.capabilities = require("blink.cmp").get_lsp_capabilities(nvlsp.capabilities)
 
 		lspconfig[name].setup(opts)
 	end
