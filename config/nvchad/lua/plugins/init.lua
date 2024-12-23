@@ -47,9 +47,6 @@ return {
 			return require("configs.gitsigns")
 		end,
 	},
-	{
-		"williamboman/mason.nvim",
-	},
 	-- end
 
 	-- text editing
@@ -57,37 +54,21 @@ return {
 		"LunarVim/bigfile.nvim",
 		lazy = false,
 		event = { "FileReadPre", "BufReadPre" },
-		enabled = true,
 		opts = overrides.bigfile,
-		config = function(_, opts)
-			require("bigfile").setup(opts)
-		end,
 	},
 	{
 		"max397574/better-escape.nvim",
 		event = { "LazyFile" },
 		opts = overrides.better_escape,
-		config = function(_, opts)
-			require("better_escape").setup(opts)
-		end,
 	},
 	{
 		"HiPhish/rainbow-delimiters.nvim",
 		event = { "BufReadPost", "BufNewFile" },
-		config = function(_, opts)
-			require("configs.rainbow")
-		end,
 	},
 	{
 		"kylechui/nvim-surround",
 		event = "VeryLazy",
 		-- opts = require("configs.sourround"),
-		config = function(_, opts)
-			require("nvim-surround").setup({
-				-- opts,
-				-- Configuration here, or leave empty to use defaults
-			})
-		end,
 	},
 
 	-- coding
