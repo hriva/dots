@@ -10,7 +10,7 @@ require("configs.dap-bps") -- load dab breakpoins handling
 -- whereas dap.configuration.python points to the environment in which the code should run
 local debugpy_mason_path = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
 require("dap-python").setup(debugpy_mason_path) -- arg is the adapter path
-keymap("n", "<leader>db", function()
+vim.keymap.set("v", "<leader>db", function()
 	require("dap-python").debug_selection()
 end, { desc = "dap selection" })
 
@@ -97,7 +97,7 @@ keymap("n", "<Leader>dc", '<cmd>lua require"telescope".extensions.dap.commands{}
 keymap("n", "<Leader>dC", '<cmd>lua require"telescope".extensions.dap.configurations{}<CR>', opts("dap configs"))
 keymap(
 	"n",
-	"<Leader>dl",
+	"<Leader>df",
 	'<cmd>lua require"telescope".extensions.dap.list_breakpoints{}<CR>',
 	opts("dap list breakpoints")
 )
