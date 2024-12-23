@@ -3,12 +3,16 @@ local keymap = vim.api.nvim_set_keymap
 -- Dap
 local dap = require("dap")
 local dapui = require("dapui")
+require("configs.dap-bps") -- load dab breakpoins handling
 
 -- Python
 -- The adapter python points to the python install with debugpy
 -- whereas dap.configuration.python points to the environment in which the code should run
 local debugpy_mason_path = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
 require("dap-python").setup(debugpy_mason_path) -- arg is the adapter path
+keymap("n", "<leader>db", function()
+	require("dap-python").debug_selection()
+end, { desc = "dap selection" })
 
 -- Go
 -- require("dap-go").setup({})
@@ -93,7 +97,7 @@ keymap("n", "<Leader>dc", '<cmd>lua require"telescope".extensions.dap.commands{}
 keymap("n", "<Leader>dC", '<cmd>lua require"telescope".extensions.dap.configurations{}<CR>', opts("dap configs"))
 keymap(
 	"n",
-	"<Leader>db",
+	"<Leader>dl",
 	'<cmd>lua require"telescope".extensions.dap.list_breakpoints{}<CR>',
 	opts("dap list breakpoints")
 )
@@ -102,6 +106,5 @@ keymap("n", "<Leader>df", '<cmd>lua require"telescope".extensions.dap.frames{}<C
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texhl = "TodoFgFIX" })
 vim.fn.sign_define("DapBreakpointCondition", { text = "", texhl = "TodoFgFIX" })
-require("configs.dap-bps")
 
 -- credits:https://github.com/milanglacier/nvim

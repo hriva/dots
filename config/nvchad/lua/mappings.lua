@@ -14,7 +14,6 @@ map("n", "x", '"_x', { noremap = true, silent = true, desc = "cut witouth clipbo
 map("v", "x", '"_x', { noremap = true, silent = true, desc = "cut witouth clipboard" })
 map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
-map("n", ",", '"0p', { desc = "paste last yank", noremap = true })
 map("n", "<Esc>", "<Esc>:noh<CR>") -- remove highligh after escaping search
 map("n", "<leader>dt", ":windo diffthis<CR>", { desc = "diff this", silent = true })
 map("n", "<C-q>", "<cmd>q<cr>", { desc = "quit", silent = true })
@@ -24,7 +23,8 @@ map("n", "<leader>q", "<cmd>bufdo bwipeout<cr>", { desc = "buffer quit all", sil
 map("n", "Q", "<nop>")
 
 -- Pasting
-map("n", "cv", '"0p', { desc = "paste last yank", noremap = true })
+map("n", ",", '"0p', { desc = "paste last yank", noremap = true })
+map("v", ",", '"0p', { desc = "paste last yank", noremap = true })
 
 -- Spelling
 map("n", "<leader>ss", ":setlocal spell spelllang=es<cr>", { desc = "spelling es", noremap = true })
@@ -70,28 +70,5 @@ local nomap = vim.keymap.del
 
 nomap("n", "<leader>e")
 
--- IN NORMAL MODE
--- <S-p> paste before Cursor
--- w word ahead
--- e word ahead
--- b word back
-
--- cmp keymaps
--- ["<C-p>"] = cmp.mapping.select_prev_item(),
--- ["<C-n>"] = cmp.mapping.select_next_item(),
--- ["<C-d>"] = cmp.mapping.scroll_docs(-4),
--- ["<C-f>"] = cmp.mapping.scroll_docs(4),
--- ["<C-Space>"] = cmp.mapping.complete(),
--- ["<C-e>"] = cmp.mapping.close(),
-
 -- ProjectMgr
 -- map("n", "<leader>fp", ":ProjectMgr<cr>", { desc = "Open Projects" })
-
--- Dap
--- map("n", "<leader>db", function()
--- 	require("dap-python").debug_selection()
--- end, { desc = "DapToggleBreakpoint" })
---
--- map("n", "<leader>dpr", function()
--- 	require("dap-python").debug_selection()
--- end, { desc = "DapDebugSelection" })

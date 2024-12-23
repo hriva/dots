@@ -11,7 +11,6 @@ opt.expandtab = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 opt.softtabstop = 4
-opt.smartindent = true
 opt.autoindent = true
 opt.cmdheight = 0
 opt.diffopt:append({ "algorithm:patience" })
