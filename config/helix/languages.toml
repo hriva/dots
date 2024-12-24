@@ -1,0 +1,64 @@
+# Language support configuration.
+# See the languages documentation: https://docs.helix-editor.com/master/languages.html
+
+use-grammars = { except = ["hare", "wren", "gemini"] }
+
+[language-server.pyright]
+command = 'pyright-langserver'
+args = ["--stdio"]
+
+[language-server.pyright.config]
+reportMissingSuperCall = false
+disableOrganizeImports = true
+
+[language-server.pyright.config.analysis]
+autoImportCompletions = false
+autoSearchPaths = false
+useLibraryCodeForTypes = true
+typeCheckingMode = "off"
+stubPath = ".local/share/nvim/lazy/python-type-stubs/stubs"
+logLevel = "Information"
+diagnosticMode = "openFilesOnly"
+
+
+[[language]]
+name = "python"
+scope = "source.python"
+file-types = [
+  "py",
+  "pyi",
+  "py3",
+  "pyw",
+  "ptl",
+  "rpy",
+  "cpy",
+  "ipy",
+  "pyt",
+  { glob = ".python_history" },
+  { glob = ".pythonstartup" },
+  { glob = ".pythonrc" },
+  { glob = "SConstruct" },
+  { glob = "SConscript" },
+]
+shebangs = ["python"]
+roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json"]
+comment-token = "#"
+formatter = { command = "ruff", args = [
+  "format",
+  "--force-exclude",
+  "--stdin-filename",
+  "${INPUT}",
+  "-",
+] }
+auto-format = true
+language-servers = ["pyright"]
+# TODO: pyls needs utf-8 offsets
+indent = { tab-width = 4, unit = "    " }
+
+[[grammar]]
+name = "python"
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+auto-format = true
