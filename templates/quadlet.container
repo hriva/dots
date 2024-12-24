@@ -1,0 +1,66 @@
+# container.kube Template (Quadlet)
+################################################################################
+# Unit Section
+# Systemd unit configuration
+################################################################################
+[Unit]
+Description=My Application Container    # Service description
+After=network-online.target            # Start after network is available
+Wants=network-online.target            # Request network service
+
+################################################################################
+# Container Section
+# Container runtime configuration
+################################################################################
+[Container]
+# Base container configuration
+Image=docker.io/myapp:latest          # Container image to use
+ContainerName=myapp                   # Name for the container
+PodmanArgs=--rm                       # Additional podman arguments
+
+# Resource limits
+CPUQuota=100%                        # CPU usage limit
+MemoryMax=1G                         # Memory usage limit
+
+# Network configuration
+Network=bridge                       # Network type
+PublishPort=3000:3000               # Port mapping (host:container)
+
+# Environment configuration
+Environment=NODE_ENV=production      # Individual environment variables
+Environment=DB_HOST=db
+EnvironmentFile=/etc/myapp/env      # File containing environment variables
+
+# Volume configuration
+# Format: Volume=host_path:container_path[:options]
+Volume=/etc/myapp:/etc/myapp:ro     # Read-only configuration files
+Volume=/var/log/myapp:/var/log/myapp # Log files
+Volume=data:/data                    # Named volume
+
+# Security configuration
+DropCapability=ALL                   # Drop all capabilities by default
+AddCapability=NET_BIND_SERVICE       # Add specific capabilities as needed
+NoNewPrivileges=true                # Prevent privilege escalation
+ReadOnly=true                       # Read-only root filesystem
+
+# Health check configuration
+HealthCmd=curl -f http://localhost:3000/health || exit 1  # Health check command
+HealthInterval=30s                   # Time between checks
+HealthTimeout=3s                     # Timeout for each check
+HealthRetries=3                      # Number of retries
+
+################################################################################
+# Service Section
+# Systemd service configuration
+################################################################################
+[Service]
+Restart=always                       # Restart policy
+TimeoutStartSec=300                 # Startup timeout
+TimeoutStopSec=30                   # Shutdown timeout
+
+################################################################################
+# Install Section
+# Systemd installation configuration
+################################################################################
+[Install]
+WantedBy=multi-user.target          # Start on system boot

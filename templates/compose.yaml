@@ -1,0 +1,87 @@
+# docker-compose.yml Template
+version: "3.8" # Specify Docker Compose version - use latest stable version
+services:
+  ################################################################################
+  # Application Service
+  # Main application container configuration
+  ################################################################################
+  app:
+    build:
+      context: . # Build context (directory containing Dockerfile)
+      dockerfile: Dockerfile # Name of the Dockerfile to use
+      args: # Build arguments passed to Dockerfile
+        BUILD_VERSION: ${BUILD_VERSION:-latest} # Use env var or default to 'latest'
+      no_cache: true # Force rebuild without using cache
+    image: myapp:${TAG:-latest} # Image name and tag
+    container_name: myapp # Container name for easier reference
+    restart: unless-stopped # Restart policy (always, on-failure, unless-stopped)
+    ports: # Port mapping (host:container)
+      - 3000:3000 # Format: "host_port:container_port"
+    environment: # Environment variables
+      - NODE_ENV=production # Runtime environment
+      - DB_HOST=db # Database host (service name)
+      - DB_USER=${DB_USER} # Use .env file variables
+      - DB_PASSWORD=${DB_PASSWORD}
+    volumes: # Volume mounts
+      - ./app:/app # Bind mount for development
+      - ./logs:/var/log/app # Log file mount
+      - data:/data # Named volume for persistence
+    depends_on: # Service dependencies
+      db: # Wait for database to be healthy
+        condition: service_healthy
+    networks: # Network configuration
+      - backend # Connect to backend network
+    deploy: # Deployment configuration
+      resources: # Resource limits
+        limits:
+          cpus: "1" # CPU limit
+          memory: 1G # Memory limit
+    healthcheck: # Container health checking
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://localhost:3000/health
+      interval: 30s # Time between checks
+      timeout: 3s # Timeout for each check
+      retries: 3 # Number of retries before unhealthy
+  ################################################################################
+  # Database Service
+  # PostgreSQL database configuration
+  ################################################################################
+  db:
+    image: postgres:15-alpine # Use Alpine-based image for smaller size
+    container_name: db
+    restart: unless-stopped
+    environment: # Database configuration
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=myapp
+    volumes: # Data persistence
+      - db_data:/var/lib/postgresql/data # Database files
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # Initialization script
+    ports: # Database port mapping
+      - 5432:5432
+    networks: # Network configuration
+      - backend
+    healthcheck: # Database health checking
+      test:
+        - CMD-SHELL
+        - pg_isready -U ${DB_USER}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+################################################################################
+# Volumes Configuration
+# Define named volumes for data persistence
+################################################################################
+volumes:
+  data: # Application data volume
+  db_data: # Database data volume
+################################################################################
+# Networks Configuration
+# Define custom networks for service isolation
+################################################################################
+networks:
+  backend: # Backend network for service communication
+    driver: bridge # Network driver (bridge, overlay, host, etc.)
