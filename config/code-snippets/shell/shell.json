@@ -8,7 +8,7 @@
       "fi",
       ""
     ],
-    "description": "setopts"
+    "description": "Set sh script options"
   },
   "as_root": {
     "prefix": "asroot",
@@ -17,7 +17,7 @@
       "    echo \"This script must be run as root\"",
       "fi"
     ],
-    "description": "as_root"
+    "description": "Check if running as root"
   },
   "check_deps": {
     "prefix": "binaries",
@@ -30,7 +30,7 @@
       "    fi",
       "done"
     ],
-    "description": "check_deps"
+    "description": "Check if dependencies are installed"
   },
   "Bash shebang": {
     "prefix": "shebang",
@@ -124,5 +124,18 @@
       "mapfile -t ${1:array} < <(${2:cmd})"
     ],
     "description": "Array from cmd output"
+  },
+  "Lock file": {
+    "prefix": "lock",
+    "body": [
+      "#!usr/bin/env bash",
+      "until (umask 222; echo > ${1:lockfile}) 2>/dev/null  # check and lock",
+      "do  # keep trying if failed",
+      " sleep ${2:3} # wait 3 seconds to try again ",
+      "done",
+      "# >>> do critical work safely here <<<",
+      "rm -f ${1:lockfile}  # unlock the lock"
+    ],
+    "description": "Lock file for multiprocessing"
   }
 }

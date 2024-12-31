@@ -1,12 +1,5 @@
 {
-  "pybang": {
-    "prefix": "pybang",
-    "body": [
-      "#!/usr/bin/env python3"
-    ],
-    "description": "pybang"
-  },
-  "GET Request": {
+  "GET request": {
     "prefix": "GET",
     "body": [
       "url = ${1:url}",
@@ -16,18 +9,29 @@
     "description": "Python Request",
     "scope": "python"
   },
+  "POST request": {
+    "prefix": "POST",
+    "body": [
+      "url = ${1:url}",
+      "json  = {}",
+      "r = request.post(url, json = json)",
+      "soup = BeautifulSoup(r.text)"
+    ],
+    "description": "Python Post Request",
+    "scope": "python"
+  },
   "Read .conf file": {
-    "prefix": "renv",
+    "prefix": "rconf",
     "body": [
       "import configparser",
       "",
       "config = configparser.ConfigParser()",
       "config.read(\".conf\")"
     ],
-    "description": "Read .conf file",
+    "description": "Read a toml .conf file",
     "scope": "python"
   },
-  "Read in File as Pandas DataFrame": {
+  "Pandas read csv": {
     "prefix": "pdr",
     "body": [
       "${1:df} = pd.read_${2:csv}('${3:file_name}.${2:csv}')",
@@ -35,7 +39,29 @@
     ],
     "description": "Read in a flat file as pandas dataframe."
   },
-  "Read in from Clipboard as Pandas DataFrame": {
+  "Get chars from string": {
+    "prefix": "rec",
+    "body": [
+      "import re",
+      "list(map(int, re.findall(r'${1:\\d+}', \"${2:S4mpl3}\")))"
+    ],
+    "description": "Get chars from string"
+  },
+  "Flatten nested list": {
+    "prefix": "lf",
+    "body": [
+      "sum(${1:nested_list}, [])"
+    ],
+    "description": "Flatten nested list"
+  },
+  "Merge dictionaries": {
+    "prefix": "dm",
+    "body": [
+      "{**${1:dict1}, **${2:dict2}}"
+    ],
+    "description": "Merge dictionaries"
+  },
+  "Pandas read Clipboard": {
     "prefix": "pdrc",
     "body": [
       "${1:df} = pd.read_clipboard()",
@@ -50,101 +76,83 @@
     ],
     "description": "Visualize pandas dataframe using pandas-profiling."
   },
-  "Save Pandas DataFrame to File": {
+  "Pandas DataFrame to File": {
     "prefix": "dfsave",
     "body": [
       "${1:df}.to_${2:csv}('${3:file_name}.${2:csv}', index=${3|False, True|})$0"
     ],
     "description": "Save dataframe to a flat file."
   },
-  "Save Pandas DataFrame to Compressed File": {
+  "Pandas DataFrame to compressed file": {
     "prefix": "dfsavezip",
     "body": [
       "${1:df}.to_csv('${2:file_name}.csv.zip', index=${3|False, True|}, compression='zip')$0"
     ],
     "description": "Compress and save dataframe to a zipped flat file (.csv.zip)."
   },
-  "Modify Pandas DataFrame Column Name": {
+  "Pandas rename column": {
     "prefix": "dfmc",
     "body": [
       "${1:df}['${2:column}'] = ${1:df}['${2:column}']$0"
     ],
     "description": "Modify a pandas column name."
   },
-  "if __name__ == \"__main__\"": {
-    "prefix": "ifmain",
+  "Pandas fill nas": {
+    "prefix": "pdfill",
     "body": [
-      "if __name__ == \"__main__\":",
-      "\t$0"
+      "# Fill empty values",
+      "df.fillna({col: df[col].median() for col in df.select_dtypes(include='number').columns} |",
+      " {col: df[col].mode()[0] for col in df.select_dtypes(include='object').columns}, inplace=True)",
+      ""
     ],
-    "description": "if __name__ == \"__main__\" structurre (Python Language Basics)."
+    "description": "Pandas fill nas"
   },
-  "If Statement": {
-    "prefix": "if",
+  "Pandas highly corr": {
+    "prefix": "pdcor",
     "body": [
-      "if ${1:condition}:",
-      "\t${2:pass}$0"
+      "# Get highly correlated values",
+      "df = df.loc[:, df.corr().abs().max() < ${1:0.80}]"
     ],
-    "description": "If statement structure (Python Language Basics)."
+    "description": "Pandas get highly correlated values"
   },
-  "For Loop": {
-    "prefix": "for",
+  "Pandas conditional apply": {
+    "prefix": "pdai",
     "body": [
-      "for ${1:value} in ${2:iterable}:",
-      "\t${3:pass}$0"
+      "df['${1:new_col}'] = df.apply(",
+      " lambda x: ${2:x['A'] * 2} if ${3:x['C'] > 0} else ${4:0}, ",
+      " axis=1,",
+      " )"
     ],
-    "description": "For loop structure (Python Language Basics)."
+    "description": "Pandas conditional apply"
   },
-  "While Loop": {
-    "prefix": "while",
-    "body": [
-      "while ${1:condition}:",
-      "\t${2:pass}$0"
-    ],
-    "description": "While loop structure (Python Language Basics)."
-  },
-  "New Function": {
+  "Function w/typehints": {
     "prefix": "def",
     "body": [
-      "def ${1:function_name}(${2:args}):",
+      "def ${1:function_name}(${2:arg}:${3:str}=${4:\"foo\"})->${5:None}:",
       "\t$0"
     ],
     "description": "Function structure (Python Language Basics)."
   },
-  "New Method": {
-    "prefix": "defs",
-    "body": [
-      "def ${1:method_name}(self, ${2:args}):",
-      "\t$0"
-    ],
-    "description": "Method structure (Python Language Basics)."
-  },
-  "log_func": {
-    "prefix": "logf",
-    "body": [
-      "from datetime import datetime",
-      "def log_action(",
-      "    log_action: str, verbose: bool = False, print_only: bool = False",
-      ") -> None:",
-      "    now = datetime.now()  # current date and time",
-      "    timestamp = now.strftime(\"%Y-%m-%d:%H%M\")",
-      "    log_action = log_action.replace(\"\\n\", \" \")",
-      "    if not print_only:",
-      "        with open(\".log\", \"a\") as log:",
-      "            log.write(f\"{timestamp}\\t{log_action}\\n\")",
-      "    if verbose or print_only:",
-      "        print(\"==> \" + log_action)"
-    ],
-    "description": "log_func"
-  },
-  "log_action": {
+  "Logger setup": {
     "prefix": "lg",
     "body": [
-      "log_action(f\"${1:example}\")"
+      "import logging",
+      "logging.basicConfig(",
+      "    format=\"%(asctime)s\\t%(levelname)s: %(message)s\",",
+      "    level=logging.INFO,",
+      "    datefmt=\"%Y-%m-%d:%H%M\"",
+      ")"
     ],
-    "description": "log_action"
+    "description": "Logger setup"
   },
-  "here": {
+  "Log info": {
+    "prefix": "lgi",
+    "body": [
+      "logging.info(f\"${1:comment}\")"
+    ],
+    "description": "Log info"
+  },
+  "Python from file location": {
     "prefix": "here",
     "body": [
       "import pathlib",
