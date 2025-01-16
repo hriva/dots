@@ -6,46 +6,58 @@ alias create-stubs="list_python_modules | xargs -I{} pyright --createstub {}"
 
 pyenv() {
     VENV_DIR="$HOME"/Code/.python_virt_environments
-    case $1 in
-    main)
-        source "$VENV_DIR"/.devel-env/bin/activate
-        ;;
-    main-ls)
-        source "$VENV_DIR"/.devel-env-ls/bin/activate
-        ;;
-    tmp)
-        if [ -d "$VENV_DIR"/tmp ]; then
-            source "$VENV_DIR"/tmp/bin/activate
-        else
-            pyenv-make tmp
-            source "$VENV_DIR"/tmp/bin/activate
-            echo "tmp created..."
-        fi
-        ;;
-    # Add more cases for additional environments
-    *)
-        echo "Error: Python environment with name $1 not found"
-        ;;
-    esac
+    # venvs="$(/usr/bin/ls -a "$VENV_DIR")"
+    # if grep -qF "$1" <<<"$venvs"; then
+    if [ -d "$VENV_DIR"/"$1" ]; then
+        source "$VENV_DIR"/"$1"/bin/activate
+        return 0
+    fi
+
+    echo "Venv $1 not found, avaliable venvs are:"
+    /usr/bin/ls -a "$VENV_DIR"
+    return 1
 }
 
 pyenv-make() {
     VENV_DIR="$HOME"/Code/.python_virt_environments
-    venv_name="$VENV_DIR"/"${1}"
-    python3 -m venv "$venv_name"
-    source "$venv_name"/bin/activate
-    pip install -U setuptools wheel pip ipython debugpy
-    deactivate
-    echo "$venv_name created successfully"
+    venv_name="$VENV_DIR"/"$1"
+    if [ -d "$venv_name" ]; then
+        python3 -m venv "$venv_name"
+        source "$venv_name"/bin/activate
+        pip install -U setuptools wheel pip ipython debugpy
+        deactivate
+        echo "$venv_name created successfully"
+    else
+        echo "The $1 environment already exist."
+    fi
 }
 
-pyenv-clear() {
+pyenv-make-ls() {
     VENV_DIR="$HOME"/Code/.python_virt_environments
-    venv_name="$VENV_DIR"/tmp
+    venv_name="$VENV_DIR"/"$1"
+    if [ -d "$venv_name" ]; then
+        python3.11 -m venv "$venv_name"
+        source "$venv_name"/bin/activate
+        pip install -U setuptools wheel pip ipython debugpy
+        deactivate
+        echo "$venv_name created successfully"
+    else
+        echo "The $1 environment already exist."
+    fi
+}
+
+pyenv-rm() {
+    VENV_DIR="$HOME"/Code/.python_virt_environments
+    venv_name="$VENV_DIR"/"$1"
     if [ -d "$venv_name" ]; then
         /usr/bin/rm -r "$venv_name"
-        echo "The 'tmp' environment has been deleted."
+        echo "The $1 environment has been deleted."
     else
-        echo "The 'tmp' environment does not exist."
+        echo "The $1 environment does not exist."
     fi
+}
+
+pyenv-ls() {
+    VENV_DIR="$HOME"/Code/.python_virt_environments
+    /usr/bin/ls -a "$VENV_DIR"
 }
