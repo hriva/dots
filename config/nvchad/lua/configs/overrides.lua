@@ -100,6 +100,23 @@ M.nvimtree = {
 			},
 		},
 	},
+	filters = {
+		enable = false,
+	},
+	filesystem_watchers = {
+		enable = true,
+		debounce_delay = 50,
+		ignore_dirs = {
+			"/.ccls-cache",
+			"/build",
+			"/node_modules",
+			"/target",
+			"/__pycache__",
+			"/develop-eggs",
+			"/dist",
+			"/eggs",
+		},
+	},
 }
 
 M.better_escape = {
