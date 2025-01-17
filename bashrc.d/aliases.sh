@@ -72,6 +72,7 @@ alias zim='__zoxide_zi && nvim'
 alias baks='sudo btrbk list snapshots'
 alias quadlet-drun='/usr/libexec/podman/quadlet -dryrun'
 alias rpm-gpg-keys='rpm -q --qf "%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n" gpg-pubkey | sort -k 2'
+alias yesterday='date -d "yesterday 13:00" "+%Y-%m-%d"'
 
 # Search running processes
 alias p="ps aux | grep "
