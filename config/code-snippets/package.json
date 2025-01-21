@@ -43,6 +43,10 @@
           "zsh"
         ],
         "path": "./shell/shell.json"
+      },
+      {
+        "language": "xml",
+        "path": "./xml.json"
       }
     ]
   }

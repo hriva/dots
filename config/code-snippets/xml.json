@@ -1,0 +1,23 @@
+{
+  "mime": {
+    "prefix": "mim",
+    "body": [
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+    ],
+    "description": "mime"
+  },
+  "xml_tag": {
+    "prefix": "tag",
+    "body": [
+      "<${1:property}>${2:text}</${1:property}>"
+    ],
+    "description": "xml_tag"
+  },
+  "cdata": {
+    "prefix": "cd",
+    "body": [
+      "<${1:DATA}><![CDATA[${2:}]]></${1:DATA}>"
+    ],
+    "description": "cdata"
+  }
+}
