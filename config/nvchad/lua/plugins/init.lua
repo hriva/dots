@@ -66,10 +66,22 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 	},
 	{
-		"kylechui/nvim-surround",
-		event = "VeryLazy",
-		-- opts = require("configs.sourround"),
+		"echasnovski/mini.ai",
+		version = false,
+		event = { "BufReadPost", "BufNewFile" },
+		config = function(_, opts)
+			require("mini.ai").setup()
+		end,
 	},
+	{
+		"echasnovski/mini.surround",
+		event = { "BufReadPost", "BufNewFile" },
+		version = false,
+		config = function(_, opts)
+			require("mini.surround").setup()
+		end,
+	},
+	-- word
 	{
 		"saghen/blink.cmp",
 		enabled = false,
