@@ -1,0 +1,48 @@
+# see https://github.com/sigoden/aichat/blob/main/config.example.yaml
+
+model: ollama:deepseek-r1:7b
+# ollama defaults
+temperature: 0.4
+top_p: 0.9
+# 
+function_calling: true # Enables or disables function calling (Globally).
+use_tools: null
+save_session: null
+clients:
+  - type: openai-compatible
+    name: ollama
+    api_key: null
+    models:
+      - name: llama3.1:latest
+        max_input_tokens: 128000
+        supports_function_calling: true
+      - name: qwen2.5-coder:latest
+        max_input_tokens: 1048576
+        supports_function_calling: true
+      - name: qwen2.5-coder:1.5b
+        max_input_tokens: 8192
+        supports_function_calling: true
+      - name: qwen2.5-coder:3b
+        max_input_tokens: 8192
+      - name: deepseek-r1:7b
+        max_input_tokens: 131072
+        supports_function_calling: true
+    patch:
+      chat_completions:
+        deepseek-r1.*:
+          body:
+            options:
+              top_k: 60,
+              top_p: 0.9,
+              temperature: 0.6
+  - type: gemini
+    models:
+      - name: gemini-1.5-flash-latest
+        max_input_tokens: 1048576
+        max_output_tokens: 8192
+        input_price: 0.35
+        output_price: 0.53
+        supports_vision: true
+  - type: claude
+    api_key: null
+editor: vi

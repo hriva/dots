@@ -3,75 +3,72 @@
       create: true
       relink: true
       force: true
-
-
-- clean: ['~']
-
+- clean:
+    - "~"
 - link:
     # Home
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
     ~/.bashrc.d/aliases.sh: bashrc.d/aliases.sh
-    ~/.bashrc.d/R-lib : bashrc.d/R-lib
-    ~/.bashrc.d/QT-wayland : bashrc.d/QT-wayland
-    ~/.bashrc.d/pyenv.sh : bashrc.d/pyenv.sh
-    ~/.bashrc.d/fzf-shell.sh : bashrc.d/fzf-shell.sh
-    ~/.bashrc.d/opendir.sh : bashrc.d/opendir.sh
-    ~/.bashrc.d/cpu-epp : bashrc.d/cpu-epp
-    ~/.bashrc.d/lazy-fnm.sh : bashrc.d/lazy-fnm.sh
+    ~/.bashrc.d/R-lib: bashrc.d/R-lib
+    ~/.bashrc.d/QT-wayland: bashrc.d/QT-wayland
+    ~/.bashrc.d/pyenv.sh: bashrc.d/pyenv.sh
+    ~/.bashrc.d/fzf-shell.sh: bashrc.d/fzf-shell.sh
+    ~/.bashrc.d/opendir.sh: bashrc.d/opendir.sh
+    ~/.bashrc.d/cpu-epp: bashrc.d/cpu-epp
+    ~/.bashrc.d/lazy-fnm.sh: bashrc.d/lazy-fnm.sh
     ~/.zshenv: zshenv
     ~/.gnupg/gpg.conf: config/gnupg/gpg.conf
-
     # Binaries
-    ~/.local/bin/battery-time : local/bin/battery-time.sh
-    ~/.local/bin/rofi-app-launcher : local/bin/rofi-app-launcher.sh
-    ~/.local/bin/cpp : local/bin/cpp.sh
-    ~/.local/bin/usage : local/bin/usage.sh
-    ~/.local/bin/prettyr : local/bin/prettyr.sh
-    ~/.local/bin/shrink-pdf : local/bin/shrink-pdf.sh
-    ~/.local/bin/csv2json : local/bin/csv2json.py
-
+    ~/.local/bin/battery-time: local/bin/battery-time.sh
+    ~/.local/bin/rofi-app-launcher: local/bin/rofi-app-launcher.sh
+    ~/.local/bin/cpp: local/bin/cpp.sh
+    ~/.local/bin/usage: local/bin/usage.sh
+    ~/.local/bin/prettyr: local/bin/prettyr.sh
+    ~/.local/bin/shrink-pdf: local/bin/shrink-pdf.sh
+    ~/.local/bin/csv2json: local/bin/csv2json.py
     # Config
     ~/.config/alacritty: config/alacritty
-    ~/.config/biome : config/biome
-    ~/.config/code-snippets : config/code-snippets
-    ~/.config/easyeffects : config/easyeffects
-    ~/.config/efm-langserver/config.yaml : config/efm-langserver/config.yaml
-    ~/.config/fastfetch : config/fastfetch
+    ~/.config/aichat/config.yaml: config/aichat/config.yaml
+    ~/.config/biome: config/biome
+    ~/.config/code-snippets: config/code-snippets
+    ~/.config/easyeffects: config/easyeffects
+    ~/.config/efm-langserver/config.yaml: config/efm-langserver/config.yaml
+    ~/.config/fastfetch: config/fastfetch
     ~/.config/git: config/git
     ~/.config/htop: config/htop
     ~/.config/kitty: config/kitty
-    ~/.config/lf : config/lf
-    ~/.config/nvim : config/nvchad
+    ~/.config/lf: config/lf
+    ~/.config/nvim: config/nvchad
     ~/.config/pop-shell: config/pop-shell
     ~/.config/ranger/rc.conf: config/ranger/rc.conf
     ~/.config/ranger/rifle.conf: config/ranger/rifle.conf
     ~/.config/ranger/scope.sh: config/ranger/scope.sh
-    ~/.config/rofi : config/rofi
+    ~/.config/rofi: config/rofi
     ~/.config/rog/rog-control-center.cfg: config/rog/rog-control-center.cfg
-    ~/.config/sway : config/sway
-    ~/.config/taplo : config/taplo
-    ~/.config/vale/.vale.ini : config/vale/.vale.ini
-    ~/.config/waybar : config/waybar
+    ~/.config/sway: config/sway
+    ~/.config/taplo: config/taplo
+    ~/.config/vale/.vale.ini: config/vale/.vale.ini
+    ~/.config/waybar: config/waybar
     ~/.config/wezterm: config/wezterm
-    ~/.config/wofi : config/wofi
-    ~/.config/zellij : config/zellij
-    ~/.config/zsh : config/zsh
-    ~/.config/.curlrc : config/curlrc
-    ~/.config/Rprofile : config/Rprofile
-    ~/.config/ripgreprc : config/ripgreprc
+    ~/.config/wofi: config/wofi
+    ~/.config/zellij: config/zellij
+    ~/.config/zsh: config/zsh
+    ~/.config/.curlrc: config/curlrc
+    ~/.config/Rprofile: config/Rprofile
+    ~/.config/ripgreprc: config/ripgreprc
     ~/.config/starship.toml: config/starship-themes/default.toml
-    ~/.config/.wgetrc : config/wgetrc
-
+    ~/.config/.wgetrc: config/wgetrc
     # Local
+    ~/.local/share/sway: local/share/sway
+    ~/.local/share/applications/brave-browser-vaapi.desktop: local/share/applications/brave-browser-vaapi-amd.desktop
     # ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
-
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - '[[ -d ~/.local/share/gnome-boxes ]] || (btrfs subvolume create ~/.local/share/gnome-boxes && chattr +C ~/.local/share/gnome-boxes)'
-  - '[[ -d ~/.local/share/containers ]] || (btrfs subvolume create ~/.local/share/containers && chattr +C ~/.local/share/containers)'
-  - '[[ -d ~/.local/share/no-cow-vol ]] || (btrfs subvolume create ~/.local/share/no-cow-vol && chattr +C ~/.local/share/no-cow-vol)'
-
+    - - git submodule update --init --recursive
+      - Installing submodules
+    - '[[ -d ~/.local/share/gnome-boxes ]] || (btrfs subvolume create ~/.local/share/gnome-boxes && chattr +C ~/.local/share/gnome-boxes)'
+    - '[[ -d ~/.local/share/containers ]] || (btrfs subvolume create ~/.local/share/containers && chattr +C ~/.local/share/containers)'
+    - '[[ -d ~/.local/share/no-cow-vol ]] || (btrfs subvolume create ~/.local/share/no-cow-vol && chattr +C ~/.local/share/no-cow-vol)'
 # If not already present, create home directories
 - create:
     - ~/.bashrc.d
