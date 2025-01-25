@@ -4,3 +4,4 @@
 *.zcompdump*
 *.BAK
 *.zwc
+*compile/
