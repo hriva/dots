@@ -175,6 +175,11 @@ fw() {
     grep -iIHrn --color=always "$1" "${2:-.}" | less -r
 }
 
+ffw() {
+    grep -iIrl "$1" "${2:-.}" |
+        fzf --layout=default --height=100% --preview='bat --style=numbers --color=always --line-range :1000 {}'
+}
+
 # Quick find files
 ff() {
     find "${2:-.}" -iname """*""$1*""" 2>/dev/null
