@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
 FNM_PATH="$HOME"/.local/share/fnm
-if [[ -d "$FNM_PATH" ]]; then
-    export PATH=$FNM_PATH/aliases/default/bin:$PATH
-fi
-
-if ! which fnm &>/dev/null; then
+if [[ -d "$FNM_PATH" ]] && which fnm &>/dev/null; then
+    export PATH=$FNM_PATH/aliases/latest/bin:$PATH
+else
     return
 fi
 
