@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+#shellcheck shell=bash
 # vi:ft=sh
 #
 # Dump shell eval hooks for zsh. Then compiles them for faster startup
