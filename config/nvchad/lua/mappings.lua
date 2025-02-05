@@ -21,6 +21,8 @@ map("n", "<leader>mx", "<cmd>!chmod 770 %<cr>", { desc = "make user executable",
 map("n", "<leader>mr", "<cmd>!chmod 660 %<cr>", { desc = "make read/write", silent = true })
 map("n", "<leader>q", "<cmd>bufdo bwipeout<cr>", { desc = "buffer quit all", silent = true })
 map("n", "Q", "<nop>")
+vim.keymap.set("n", "<leader>h", "<nop>") -- disable horizontal term
+vim.keymap.set("n", "<leader>e", "<nop>") -- disable nvimtree focus
 
 -- Pasting
 map("n", ",", '"0p', { desc = "paste last yank", noremap = true })
@@ -66,9 +68,7 @@ map("n", "<leader>fm", function()
 end, { desc = "format file" })
 
 -- Disable mappings
-local nomap = vim.keymap.del
-
-nomap("n", "<leader>e")
+-- local nomap = vim.keymap.del
 
 -- ProjectMgr
 -- map("n", "<leader>fp", ":ProjectMgr<cr>", { desc = "Open Projects" })
