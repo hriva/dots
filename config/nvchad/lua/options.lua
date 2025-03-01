@@ -15,6 +15,11 @@ opt.autoindent = true
 opt.cmdheight = 0
 opt.diffopt:append({ "algorithm:patience" })
 opt.diffopt:prepend({ "vertical" })
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldlevel = 99
+opt.foldnestmax = 9
+opt.foldcolumn = "0"
 
 -- Auto resize panes when resizing nvim window
 autocmd("VimResized", {
