@@ -152,12 +152,31 @@
     ],
     "description": "Log info"
   },
-  "Python from file location": {
+  "Script dir pathlib": {
     "prefix": "here",
     "body": [
       "import pathlib",
-      "CWDIR = pathlib.Path(__file__).parent.resolve()"
+      "script_dir = pathlib.Path(__file__).parent.resolve()"
     ],
     "description": "here"
+  },
+  "Script dir os": {
+    "prefix": "here-os",
+    "body": [
+      "import os",
+      "script_dir = os.path.dirname(os.path.abspath(__file__))"
+    ],
+    "description": "Script path"
+  },
+  "Hash string": {
+    "prefix": "md5",
+    "body": [
+      "from hashlib import md5",
+      "",
+      "def hash_string(input_string:str)->str:",
+      "    return md5(input_string.encode()).hexdigest()",
+      ""
+    ],
+    "description": "hash_string"
   }
 }
