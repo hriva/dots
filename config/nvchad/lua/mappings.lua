@@ -58,13 +58,6 @@ end, { desc = "buffer goto prev" })
 -- Keymaps
 map("n", "<leader>wm", "<cmd>Telescope keymaps<cr>", { desc = "which keymap" })
 
--- Conform Overrides
-local conform = require("conform")
-
-map("n", "<leader>fm", function()
-	conform.format({ async = true, lsp_fallback = true })
-end, { desc = "format file" })
-
 -- Disable mappings
 local nomap = vim.keymap.del
 nomap("n", "<leader>h") -- disable horizontal term

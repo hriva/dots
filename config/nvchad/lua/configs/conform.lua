@@ -19,10 +19,14 @@ conform.formatters.prettyr = {
 }
 
 local options = {
-	lsp_fallback = true,
 	log_level = vim.log.levels.ERROR, -- Use `:ConformInfo` to see the location of the log file.
 	notify_on_error = true,
-	async = true,
+	lsp_format = "fallback",
+
+	default_format_opts = {
+		lsp_format = "fallback",
+		async = true,
+	},
 
 	format_on_save = {
 		timeout_ms = 500, -- While enabling async in lspfallback
@@ -35,24 +39,21 @@ local options = {
 
 	formatters_by_ft = {
 		lua = { "stylua" },
-
 		sh = { "shfmt", "shellharden" },
-
 		toml = { "taplo" },
-
 		python = { "ruff_format" },
-
 		json = { "jq" },
-
 		jsonc = { "biome" },
 		xml = { "xmllint" },
 		yaml = { "yq" },
-
+		markdown = { "trim_newlines" },
 		-- r = { "prettyr" },
 		-- rmd = { "prettyr" },
 
-		-- have other formatters configured.
+		-- Fallback formatter.
 		["_"] = { "trim_whitespace" },
+		-- Use the "*" filetype to run formatters on all filetypes.
+		["*"] = { "trim_newlines" },
 	},
 }
 
