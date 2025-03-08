@@ -21,6 +21,9 @@
     {
       "class": "yelp",
       "title": "Ayuda"
+    },
+    {
+      "class": "internxt"
     }
   ],
   "skiptaskbarhidden": [],
