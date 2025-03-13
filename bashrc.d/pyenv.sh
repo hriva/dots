@@ -21,7 +21,7 @@ pyenv() {
 pyenv-make() {
     VENV_DIR="$HOME"/Code/.python_virt_environments
     venv_name="$VENV_DIR"/"$1"
-    if [ -d "$venv_name" ]; then
+    if [[ ! -d "$venv_name" ]]; then
         python3 -m venv "$venv_name"
         source "$venv_name"/bin/activate
         pip install -U setuptools wheel pip ipython debugpy
@@ -35,7 +35,7 @@ pyenv-make() {
 pyenv-make-ls() {
     VENV_DIR="$HOME"/Code/.python_virt_environments
     venv_name="$VENV_DIR"/"$1"
-    if [ -d "$venv_name" ]; then
+    if [[ ! -d "$venv_name" ]]; then
         python3.11 -m venv "$venv_name"
         source "$venv_name"/bin/activate
         pip install -U setuptools wheel pip ipython debugpy
@@ -49,7 +49,7 @@ pyenv-make-ls() {
 pyenv-rm() {
     VENV_DIR="$HOME"/Code/.python_virt_environments
     venv_name="$VENV_DIR"/"$1"
-    if [ -d "$venv_name" ]; then
+    if [[ -d "$venv_name" ]]; then
         /usr/bin/rm -r "$venv_name"
         echo "The $1 environment has been deleted."
     else
