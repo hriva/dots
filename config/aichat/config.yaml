@@ -1,35 +1,47 @@
 # see https://github.com/sigoden/aichat/blob/main/config.example.yaml
 
-model: ollama:deepseek-r1:7b
+model: ollama:phi4-mini:latest
 # ollama defaults
-temperature: 0.0
+temperature: 0.4
 top_p: 0.9
-# 
 function_calling: true # Enables or disables function calling (Globally).
 use_tools: null
 save_session: true
 compress_threshold: 8192
+rag_embedding_model: ollama:nomic-embed-text
+rag_top_k: 5
+rag_chunk_overlap: 150
 clients:
   - type: openai-compatible
     name: ollama
     api_base: null
     api_key: null
     models:
-      - name: llama3.1:latest
-        max_input_tokens: 128000
+      - name: phi4-mini:latest
+        max_input_tokens: 131072
         supports_function_calling: true
       - name: qwen2.5-coder:latest
         max_input_tokens: 1048576
         supports_function_calling: true
-      - name: qwen2.5-coder:3b
-        max_input_tokens: 8192
       - name: deepseek-r1:7b
         max_input_tokens: 131072
         supports_function_calling: true
-      - name: llama3.2-vision:latest
+        supports_reasoning: true
+      - name: gemma3:latest
         max_input_tokens: 131072
         supports_function_calling: true
         supports_vision: true
+      - name: granite3.2-vision:latest
+        max_input_tokens: 131072
+        supports_function_calling: true
+        supports_vision: true
+      - name: nomic-embed-text
+        type: embedding
+        default_chunk_size: 768
+        max_tokens_per_chunk: 8192
+        max_batch_size: 100
+        # The following are optional
+        max_input_tokens: 8192
     patch:
       chat_completions:
         deepseek-r1.*:
@@ -66,3 +78,8 @@ clients:
         supports_vision: true
   - type: claude
 editor: vi
+document_loaders:
+  # You can add custom loaders using the following syntax:
+  #   <file-extension>: <command-to-load-the-file>
+  # Note: Use `$1` for input file and `$2` for output file. If `$2` is omitted, use stdout as output.
+  pdf: pdftotext $1 - # Load .pdf file, see https://poppler.freedesktop.org to set up pdftotext
