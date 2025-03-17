@@ -13,7 +13,7 @@ opt.tabstop = 4
 opt.softtabstop = 4
 opt.autoindent = true
 opt.cmdheight = 0
-opt.diffopt:append({ "algorithm:patience" })
+opt.diffopt:append({ "algorithm:histogram" })
 opt.diffopt:prepend({ "vertical" })
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"

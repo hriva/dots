@@ -15,7 +15,7 @@ local M = {
 		},
 	},
 
-	lsp = { signature = true },
+	lsp = { signature = false },
 	nvdash = {
 		load_on_startup = true,
 		header = {
