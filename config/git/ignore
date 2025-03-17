@@ -43,6 +43,7 @@ Session.vim
 .envrc
 *.env*
 .OLD
+.cursorignore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
