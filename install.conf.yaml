@@ -56,6 +56,7 @@
     ~/.config/zsh: config/zsh
     ~/.config/.curlrc: config/curlrc
     ~/.config/Rprofile: config/Rprofile
+    ~/.config/Renviron: config/Renviron
     ~/.config/ripgreprc: config/ripgreprc
     ~/.config/starship.toml: config/starship-themes/default.toml
     ~/.config/.wgetrc: config/wgetrc
