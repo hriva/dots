@@ -4,7 +4,7 @@ options(tabSize = 4L)
 if (requireNamespace("lintr", quietly = TRUE)) {
     options(
         lintr.linters = lintr::linters_with_defaults(
-            line_length_linter = lintr::line_length_linter(120L),
+            line_length_linter = lintr::line_length_linter(80L),
             commented_code_linter = NULL,
             object_usage_linter = NULL,
             indentation_linter = NULL,
@@ -20,7 +20,9 @@ utils::assignInNamespace(
     "base"
 )
 options(languageserver.formatting_style = function(options) {
-    styler::tidyverse_style(
+    style <- styler::tidyverse_style(
         indent_by = options$tabSize
     )
+    # style$token$force_assignment_op <- NULL  # allow '='
+    style
 })
