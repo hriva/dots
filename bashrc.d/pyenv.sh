@@ -24,7 +24,7 @@ pyenv-make() {
     if [[ ! -d "$venv_name" ]]; then
         python3 -m venv "$venv_name"
         source "$venv_name"/bin/activate
-        pip install -U setuptools wheel pip ipython debugpy
+        pip install -U setuptools wheel pip
         deactivate
         echo "$venv_name created successfully"
     else
@@ -38,7 +38,7 @@ pyenv-make-ls() {
     if [[ ! -d "$venv_name" ]]; then
         python3.11 -m venv "$venv_name"
         source "$venv_name"/bin/activate
-        pip install -U setuptools wheel pip ipython debugpy
+        pip install -U setuptools wheel pip
         deactivate
         echo "$venv_name created successfully"
     else
