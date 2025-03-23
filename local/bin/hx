@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# vi:ft=sh
+#
+# helix path wrapper
+
+if [[ ! -f /usr/bin/hx ]]; then
+    echo "Hex is not installed on system"
+    exit 2
+fi
+
+hx() {
+    # User specific environment
+    if ! [[ "$PATH" =~ $HOME/.local/share/nvim/mason/bin ]]; then
+        PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+    fi
+    /usr/bin/hx "$@"
+}
+
+hx "$@"
