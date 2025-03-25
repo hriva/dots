@@ -35,6 +35,7 @@
     ~/.config/easyeffects: config/easyeffects
     ~/.config/efm-langserver/config.yaml: config/efm-langserver/config.yaml
     ~/.config/fastfetch: config/fastfetch
+    ~/.config/ghostty: config/ghostty
     ~/.config/git: config/git
     ~/.config/htop: config/htop
     ~/.config/kitty: config/kitty
