@@ -11,17 +11,24 @@ conform.formatters.biome = {
 		"--json-formatter-indent-style=space",
 	},
 }
-conform.formatters.prettyr = {
-	inherit = false,
+
+conform.formatters.tergo = {
+	meta = {
+		url = "https://github.com/kpagacz/tergo",
+		description = "Tergo R formatter",
+	},
+	command = "/usr/bin/R",
+	-- Any args to style_file must be passed after `commandArgs(TRUE)`
+	args = { "-e", "tergo::style_file(commandArgs(TRUE))", "--args", "$FILENAME" },
+	-- "--no-init-file" before "e" to ignore .Rprofile, for example
+	-- to avoid long renv startup time
+	prepend_args = { "-s", "--no-init-file" },
 	stdin = false,
-	command = "prettyr",
-	args = { "$FILENAME" },
 }
 
 local options = {
 	log_level = vim.log.levels.ERROR, -- Use `:ConformInfo` to see the location of the log file.
 	notify_on_error = true,
-	lsp_format = "fallback",
 
 	default_format_opts = {
 		lsp_format = "fallback",
@@ -30,11 +37,10 @@ local options = {
 
 	format_on_save = {
 		timeout_ms = 500, -- While enabling async in lspfallback
-		lsp_format = "fallback",
 	},
+
 	format_after_save = {
 		timeout_ms = 10000, -- While enabling async in lspfallback
-		lsp_format = "fallback",
 	},
 
 	formatters_by_ft = {
@@ -47,11 +53,11 @@ local options = {
 		xml = { "xmllint" },
 		yaml = { "yq" },
 		markdown = { "trim_newlines" },
-		-- r = { "prettyr" },
-		-- rmd = { "prettyr" },
+		-- r = { "air" },
+		-- rmd = { "air" },
 
-		-- Fallback formatter.
-		["_"] = { "trim_whitespace" },
+		-- Fallback formatter. Overrides Lsp fallback
+		["_"] = { "trim_whitespace", lsp_format = "last" },
 		-- Use the "*" filetype to run formatters on all filetypes.
 		["*"] = { "trim_newlines" },
 	},
