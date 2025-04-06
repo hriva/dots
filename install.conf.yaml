@@ -70,7 +70,8 @@
       - Installing submodules
     - '[[ -d ~/.local/share/gnome-boxes ]] || (btrfs subvolume create ~/.local/share/gnome-boxes && chattr +C ~/.local/share/gnome-boxes)'
     - '[[ -d ~/.local/share/containers ]] || (btrfs subvolume create ~/.local/share/containers && chattr +C ~/.local/share/containers)'
-    - '[[ -d ~/.local/share/no-cow-vol ]] || (btrfs subvolume create ~/.local/share/no-cow-vol && chattr +C ~/.local/share/no-cow-vol)'
+    - '[[ -d ~/.local/nocow ]] || (btrfs subvolume create ~/.local/nocow && chattr +C ~/.local/nocow)'
+    - '[[ -d ~/OneDrive ]] || (btrfs subvolume create ~/OneDrive && chattr +C ~/OneDrive)'
 # If not already present, create home directories
 - create:
     - ~/.bashrc.d
