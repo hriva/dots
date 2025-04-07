@@ -1,4 +1,5 @@
-export R_LIBS_USER=~/.local/lib/R_library
+export R_LIBS_USER=~/.local/lib/R/library
+export R_LIBS_SITE=/usr/local/lib/R/site-library:/usr/local/lib/R/library:/usr/lib64/R/library:/usr/share/R/library
 export R_PROFILE_USER=~/.config/Rprofile
 export R_ENVIRON_USER=~/.config/Renviron
 export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/local/lib/pkgconfig
