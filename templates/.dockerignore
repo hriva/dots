@@ -8,12 +8,13 @@ htmlcov/
 .venv
 
 # data
+docs/
+data/
 *.csv
 *.tsv
-data/
 
 # dirs
-.OLD/
+*.OLD/
 .ignore/
 
 # wd-files
