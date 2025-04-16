@@ -1,6 +1,6 @@
 [/]
 control-center=['<Super>F1']
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
 help=@as []
 home=['<Super>f']
 logout=@as []
@@ -8,16 +8,20 @@ screensaver=['<Super>Escape']
 www=['<Super>b']
 
 [custom-keybindings/custom0]
-binding='<Super>u'
+binding=''
 command='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=wezterm org.wezfurlong.wezterm start --cwd .'
 name='wezterm'
 
 [custom-keybindings/custom1]
+binding='<Super>t'
+command='gtk-launch ghostty.desktop'
+name='ghostty'
+
+[custom-keybindings/custom2]
+command='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=blackbox com.raggesilver.BlackBox'
+name='blackbox'
+
+[custom-keybindings/custom3]
 binding='<Super>i'
 command='/usr/bin/alacritty'
 name='alacritty'
-
-[custom-keybindings/custom2]
-binding='<Super>t'
-command='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=blackbox com.raggesilver.BlackBox'
-name='blackbox'

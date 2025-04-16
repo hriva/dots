@@ -1,7 +1,7 @@
 [/]
-active-hint=false
 active-hint-border-radius=uint32 1
 gap-inner=uint32 1
 gap-outer=uint32 1
 log-level=uint32 2
 tile-by-default=true
+toggle-tiling=@as []
