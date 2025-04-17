@@ -68,10 +68,10 @@
 - shell:
     - - git submodule update --init --recursive
       - Installing submodules
-    - '[[ -d ~/.local/share/gnome-boxes ]] || (btrfs subvolume create ~/.local/share/gnome-boxes && chattr +C ~/.local/share/gnome-boxes)'
-    - '[[ -d ~/.local/share/containers ]] || (btrfs subvolume create ~/.local/share/containers && chattr +C ~/.local/share/containers)'
-    - '[[ -d ~/.local/nocow ]] || (btrfs subvolume create ~/.local/nocow && chattr +C ~/.local/nocow)'
-    - '[[ -d ~/OneDrive ]] || (btrfs subvolume create ~/OneDrive && chattr +C ~/OneDrive)'
+    - '[[ -d ~/.local/share/gnome-boxes ]] || (mkdir ~/.local/share/gnome-boxes && chattr +C ~/.local/share/gnome-boxes)'
+    - '[[ -d ~/.local/share/containers ]] || (mkdir ~/.local/share/containers && chattr +C ~/.local/share/containers)'
+    - '[[ -d ~/.local/nocow ]] || (mkdir ~/.local/nocow && chattr +C ~/.local/nocow)'
+    - '[[ -d ~/OneDrive ]] || (mkdir ~/OneDrive && chattr +C ~/OneDrive)'
 # If not already present, create home directories
 - create:
     - ~/.bashrc.d
