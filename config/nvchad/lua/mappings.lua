@@ -16,11 +16,9 @@ map("v", "<", "<gv", { noremap = true, silent = true })
 map("v", ">", ">gv", { noremap = true, silent = true })
 map("n", "<Esc>", "<Esc>:noh<CR>") -- remove highligh after escaping search
 map("n", "<leader>dt", ":windo diffthis<CR>", { desc = "diff this", silent = true })
-map("n", "<C-q>", "<cmd>q<cr>", { desc = "quit", silent = true })
 map("n", "<leader>mx", "<cmd>!chmod 770 %<cr>", { desc = "make user executable", silent = true })
 map("n", "<leader>mr", "<cmd>!chmod 660 %<cr>", { desc = "make read/write", silent = true })
 map("n", "<leader>q", "<cmd>bufdo bwipeout<cr>", { desc = "buffer quit all", silent = true })
-map("n", "Q", "<nop>")
 
 -- Pasting
 map("n", ",", '"0p', { desc = "paste last yank", noremap = true })
