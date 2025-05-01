@@ -14,6 +14,9 @@ M.treesitter = {
 		"markdown_inline",
 		"luadoc",
 		"printf",
+		"html",
+		"xml",
+		"css",
 	},
 	indent = {
 		enable = true,
