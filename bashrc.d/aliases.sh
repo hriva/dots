@@ -3,7 +3,7 @@
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # vars
-export EDITOR=/usr/bin/nvim
+export EDITOR="$HOME"/.local/bin/neovide
 export WGETRC=$HOME/.config/.wgetrc
 export MOZ_ENABLE_WAYLAND=1
 export _ZO_RESOLVE_SYMLINKS=0

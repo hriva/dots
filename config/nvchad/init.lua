@@ -43,3 +43,13 @@ end)
 local session = require("session")
 session.autoLoadSession()
 session.autoSaveSession()
+
+if vim.g.neovide then
+	local neovide = require("configs.neovide")
+
+	vim.api.nvim_create_autocmd("VimEnter", {
+		callback = function()
+			neovide.set_cwd_from_first_arg()
+		end,
+	})
+end
