@@ -79,7 +79,7 @@ Dockerfile        text
 *.inc             text
 *.ini             text
 *.js              text
-*.json            text
+# *.json            text
 *.jsx             text
 *.less            text
 *.ls              text
@@ -130,4 +130,4 @@ NEWS              text
 readme            text
 *README*          text
 TODO              text
-*.*ignore         text
+# *.*ignore         text
