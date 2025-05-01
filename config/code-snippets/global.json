@@ -5,5 +5,26 @@
       "${1:#} vi:${2:ts}=${3:2} "
     ],
     "description": "set vi modeline in file"
+  },
+  "PROMPT": {
+    "prefix": "prompt",
+    "body": [
+      "<role>",
+      "You are a ${1:example}",
+      "</role>",
+      "<context>",
+      "${2:example}",
+      "</context>",
+      "<contrains>",
+      "${3:example}",
+      "</constrains>",
+      "<format>",
+      "${4:example}",
+      "</format>",
+      "<task>",
+      "Your task is to ${5:example}",
+      "</task>"
+    ],
+    "description": "PROMPT"
   }
 }
