@@ -2,14 +2,6 @@
 local nvlsp = require("nvchad.configs.lspconfig")
 nvlsp.defaults()
 
--- disable didChangeWatchedFiles
-local ok, wf = pcall(require, "vim.lsp._watchfiles")
-if ok then
-	wf._watchfunc = function()
-		return function() end
-	end
-end
-
 require("mason").setup()
 local lspconfig = require("lspconfig")
 
@@ -21,12 +13,14 @@ local servers = {
 	-- 	efmls_config,
 	-- }),
 
-	r_language_server = { -- R
-		settings = {
-			diagnostics = true,
-			lint_cache = true,
+	r_language_server = {
+		r = {
+			lsp = {
+				server_capabilities = {
+					completionProvider = true,
+				},
+			},
 		},
-		flags = { debounce_text_changes = 200 },
 	},
 
 	jedi_language_server = {
@@ -39,7 +33,7 @@ local servers = {
 		},
 	},
 
-	pyright = { -- python
+	basedpyright = { -- python
 		root_dir = function(fname)
 			local root_files = {
 				"pyproject.toml",
@@ -56,7 +50,7 @@ local servers = {
 		end,
 		single_file_support = true,
 		settings = {
-			python = {
+			basedpyright = {
 				reportMissingSuperCall = false,
 				disableOrganizeImports = true,
 				analysis = {
