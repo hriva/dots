@@ -1,5 +1,11 @@
 theme = Japanesque
-font-family = "Commit Mono NF"
+#font-family = "Commit Mono NF"
+
+# secondary font
+font-family = "GeistMono Nerd Font"
+# adjust-cell-height = 0%
+adjust-cell-height = -10%
+
 font-size=14
 font-feature = calt, liga, dlig
 window-padding-x=6
