@@ -25,3 +25,4 @@ options(languageserver.formatting_style = function(options) {
     # style$token$force_assignment_op <- NULL  # allow '='
     style
 })
+options(shiny.autoreload = TRUE)
