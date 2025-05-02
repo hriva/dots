@@ -1,11 +1,12 @@
 # see https://github.com/sigoden/aichat/blob/main/config.example.yaml
 
-model: ollama:phi4-mini:latest
+model: ollama:gemma3:4b-it-qat
 # ollama defaults
-temperature: 0.4
+temperature: 0.6
 top_p: 0.9
 function_calling: true # Enables or disables function calling (Globally).
 use_tools: null
+save: true
 save_session: true
 compress_threshold: 8192
 rag_embedding_model: ollama:nomic-embed-text
@@ -23,14 +24,23 @@ clients:
       - name: qwen2.5-coder:latest
         max_input_tokens: 1048576
         supports_function_calling: true
-      - name: deepseek-r1:7b
+      - name: cogito:8b
         max_input_tokens: 131072
         supports_function_calling: true
         supports_reasoning: true
-      - name: gemma3:latest
+        # system_prompt_prefix: Enable deep thinking subroutine.
+      - name: gemma3:4b-it-qat
         max_input_tokens: 131072
         supports_function_calling: true
         supports_vision: true
+      - name: qwen3:latest
+        max_input_tokens: 131072
+        supports_function_calling: true
+        supports_reasoning: true
+      - name: qwen3:4b
+        max_input_tokens: 32768
+        supports_function_calling: true
+        supports_reasoning: true
       - name: granite3.2-vision:latest
         max_input_tokens: 131072
         supports_function_calling: true
@@ -51,31 +61,6 @@ clients:
               top_p: 0.9,
               temperature: 0.6
   - type: gemini
-    models:
-      - name: gemini-2.0-flash-thinking-exp-01-21
-        max_input_tokens: 1048576
-        max_output_tokens: 8192
-        input_price: 0.35
-        output_price: 0.53
-        supports_vision: true
-      - name: gemini-2.0-flash
-        max_input_tokens: 1048576
-        max_output_tokens: 8192
-        input_price: 0.35
-        output_price: 0.53
-        supports_vision: true
-      - name: gemini-1.5-flash-latest
-        max_input_tokens: 1048576
-        max_output_tokens: 8192
-        input_price: 0.35
-        output_price: 0.53
-        supports_vision: true
-      - name: gemini-1.5-flash-8b-latest
-        max_input_tokens: 1048576
-        max_output_tokens: 8192
-        input_price: 0.35
-        output_price: 0.53
-        supports_vision: true
   - type: claude
 editor: vi
 document_loaders:
