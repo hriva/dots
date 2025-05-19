@@ -5,6 +5,7 @@ local augroup = vim.api.nvim_create_augroup
 
 -- vscode format i.e json files
 vim.g.vscode_snippets_path = vim.fn.expand("~/.config/code-snippets")
+opt.guicursor = "n:block-iCursor-blinkwait300-blinkon200-blinkoff150,v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20"
 opt.autoread = true -- sync buffers automatically
 opt.swapfile = false -- disable swapfile and showing the error
 opt.expandtab = true
