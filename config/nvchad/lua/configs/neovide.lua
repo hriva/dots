@@ -1,4 +1,6 @@
-vim.o.guifont = "Commit Mono NF:h16" -- text below applies for VimScript
+-- vim.o.guifont = "Commit Mono NF:h16" -- text below applies for VimScript
+vim.o.guifont = "GeistMono Nerd Font:h16"
+vim.o.linespace = -3
 vim.g.neovide_confirm_quit = true
 vim.g.neovide_detach_on_quit = "prompt"
 
@@ -27,15 +29,7 @@ function M.set_cwd_from_first_arg()
 	local first_arg = args[1]
 	local path = vim.fn.fnamemodify(first_arg, ":p:h")
 
-	-- Fallback to current working directory if somehow invalid
-	if vim.fn.isdirectory(path) == 0 then
-		vim.notify("[set_cwd] Invalid directory: " .. path, vim.log.levels.WARN)
-		return
-	end
-
 	vim.fn.chdir(path)
-	vim.notify("[set_cwd] Changed working directory to: " .. path, vim.log.levels.INFO)
-
 	-- Run a custom post-init function
 	M.start_app()
 end
@@ -44,8 +38,6 @@ function M.start_app()
 	-- Example: automatically start insert mode or Telescope
 	-- vim.cmd("startinsert")
 	-- require('telescope.builtin').find_files()
-
-	vim.notify("[set_cwd] Post-init function called", vim.log.levels.DEBUG)
 end
 
 return M
