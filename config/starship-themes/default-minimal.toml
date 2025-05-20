@@ -81,10 +81,11 @@ disabled = false
 
 [directory]
 style = "bg:#323742"
-format = "[ $path ]($style)"
+format = "[$path ]($style)"
 truncation_length = 2
 truncation_symbol = "…/"
-home_symbol = "~"
+home_symbol = ""
+fish_style_pwd_dir_length = 1
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
