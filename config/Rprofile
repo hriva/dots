@@ -1,7 +1,9 @@
-options(repos = c(
-    CRAN = "https://cloud.r-project.org/",
-    kpagacz = "https://kpagacz.r-universe.dev"
-))
+options(
+    repos = c(
+        CRAN = "https://cloud.r-project.org/",
+        kpagacz = "https://kpagacz.r-universe.dev"
+    )
+)
 options(width = 120L)
 options(tabSize = 4L)
 if (requireNamespace("lintr", quietly = TRUE)) {
@@ -11,7 +13,11 @@ if (requireNamespace("lintr", quietly = TRUE)) {
             commented_code_linter = NULL,
             object_usage_linter = NULL,
             indentation_linter = NULL,
-            equals_na_linter = NULL
+            equals_na_linter = NULL,
+            object_name_linter = lintr::object_name_linter(
+                styles = c("snake_case", "camelCase", "symbols"),
+                regexes = character()
+            )
         )
     )
 }
