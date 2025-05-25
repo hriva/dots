@@ -1,12 +1,13 @@
 ---@type ChadrcConfig
 local M = {
 	base46 = {
-		theme = "ayu_dark",
+		theme = "github_light",
+		theme_toggle = { "ayu_dark", "github_light" },
 		hl_override = {
-			DiffAdd = { bg = { "green", -50 }, fg = "NONE" },
-			DiffDelete = { bg = { "red", -55 }, fg = "NONE" },
-			DiffChange = { bg = { "yellow", -47 }, fg = "NONE" },
-			DiffText = { bg = { "orange", -45 }, fg = "NONE" },
+			DiffAdd = { bg = "#4c6b0f", fg = "#fafaff" }, -- green
+			DiffDelete = { bg = "#661d00", fg = "#fafaff" }, -- red
+			DiffChange = { bg = "#665000", fg = "#fafaff" }, -- yellow
+			DiffText = { bg = "#a75106", fg = "#fafaff" }, -- orange
 		},
 	},
 	ui = {

@@ -53,6 +53,10 @@ map("n", "<A-k>", function()
 	require("nvchad.tabufline").prev()
 end, { desc = "buffer goto prev" })
 
+map("n", "<leader>ts", function()
+	require("base46").toggle_theme()
+end, { desc = "theme switch" })
+
 -- Keymaps
 map("n", "<leader>wm", "<cmd>Telescope keymaps<cr>", { desc = "which keymap" })
 
