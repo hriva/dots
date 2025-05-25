@@ -1,4 +1,4 @@
-theme = Japanesque
+theme = light:GitLab-Light,dark:Japanesque
 #font-family = "Commit Mono NF"
 
 # secondary font
