@@ -1,0 +1,218 @@
+format = """
+[](fg:color_bg1)\
+$os\
+$directory\
+[](bg:color_bg3 fg:color_bg1)\
+$git_branch\
+$git_commit\
+$git_status\
+[](fg:color_bg3 bg:color_blue)\
+$python\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$scala\
+$docker_context\
+${custom.foo}\ 
+[](fg:color_blue)\
+$fill\
+$time\
+$battery
+$character"""
+
+# fg:color_bg1 #main 
+# color_bg3 #git
+#565f89 #modules
+# color_blue #mods
+#86BBD8 #cyan
+
+# Timeout for commands executed by starship (in milliseconds).
+command_timeout = 3000
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+# color_fg0 = '#fbf1c7'
+color_fg0 = '#fafaff'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[fill]
+symbol = ' '
+disabled = true
+
+# You can also replace your username with a neat symbol like  to save some space
+[username]
+show_always = true
+style_user = "bg:color_bg1"
+style_root = "bg:color_bg1"
+format = '[$user](fg:color_fg0 bg:color_bg1)($style)'
+
+[os]
+disabled = false
+format = "[$symbol ](fg:color_fg0 bg:color_bg1)($style)"
+style = "bg:color_bg1"
+
+[os.symbols]
+Fedora = "󰣛"
+Debian = "󰣚"
+Ubuntu = ""
+Windows = ""
+
+[character]
+success_symbol = "❯"
+error_symbol = "❯"
+vimcmd_symbol = "[❮](yellow)"
+
+[cmd_duration]
+min_time = 5
+show_milliseconds = true
+format = '[ $duration](bg:color_blue)'
+
+[hostname]
+ssh_only = true
+ssh_symbol = '🌐'
+format = "[@$hostname](fg:color_fg0 bg:color_bg1)($style)"
+style = "bg:color_bg1"
+trim_at = ".companyname.com"
+disabled = false
+
+[directory]
+style = "bg:color_bg1"
+format = "[$path ](fg:color_fg0 bg:color_bg1)($style)"
+truncation_length = 2
+truncation_symbol = "…/"
+home_symbol = ""
+fish_style_pwd_dir_length = 1
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+# "Documents" = "󰈙 "
+# "Downloads" = " "
+# "Music" = " "
+# "Pictures" = " "
+# ".config" = " "
+# "onedrive" = "󰅟 "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+[git_branch]
+symbol = ""
+style = "bg:color_bg3"
+format = '[ $branch](fg:#83a598 bg:color_bg3)($style)'
+
+[git_status]
+style = "bg:color_bg3"
+renamed = '» '
+modified = '!${count}'
+staged = ' +${count}'
+untracked = ' ?${count}'
+format = '[ $all_status$ahead_behind ](fg:#83a598 bg:color_bg3)($style)'
+
+[git_commit]
+format = '[\($hash$tag\) ](fg:#83a598 bg:color_bg3)($style)'
+style = "bg:color_bg3"
+only_detached = true
+tag_disabled = false
+disabled = false
+
+[docker_context]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol $context ](bg:color_blue fg:color_fg0)($style) $path'
+
+[elixir]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[elm]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[golang]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[java]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[julia]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[nim]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[rust]
+symbol = ""
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[python]
+symbol = " "
+style = "bg:color_blue"
+format = '[ ${symbol}${pyenv_prefix}(\($virtualenv\)) ](bg:color_blue fg:color_fg0)($style)'
+
+[scala]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[time]
+disabled = true
+time_format = "%R" # Hour:Minute Format
+#style = "bg:color_blue"
+format = '[ $time ]($style)'
+
+[battery]
+disabled = true
+#discharging_symbol = '󰂂'
+#unknown_symbol = ''
+format = '[$symbol$percentage]($style)'
+
+[[battery.display]]
+threshold = 78
+#style = "bg:color_bg1"
+
+[custom.foo]
+disabled = true
+format = '[( $output)]($style)'
+style = "bg:color_blue"
+command = "battery-time"        # shows output of command
+# when = """ [[ $OSTYPE == "linux-gnu" ]] && echo 1 """
+when = true
+os = "linux"
