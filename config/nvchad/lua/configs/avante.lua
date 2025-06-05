@@ -2,11 +2,15 @@
 vim.opt.laststatus = 3
 require("avante_lib").load()
 require("avante").setup({
+
 	provider = "ollama",
-	ollama = {
-		endpoint = os.getenv("OLLAMA_REMOTE"), -- /v1 at the end.
-		model = os.getenv("AVANTE_MODEL"),
+	providers = {
+		ollama = {
+			endpoint = os.getenv("OLLAMA_REMOTE"), -- /v1 at the end.
+			model = os.getenv("AVANTE_MODEL"),
+		},
 	},
+
 	auto_suggestions_provider = "ollama", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
 	behaviour = {
 		enable_cursor_planning_mode = true, -- enable cursor planning mode!
