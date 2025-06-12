@@ -14,6 +14,7 @@ if (requireNamespace("lintr", quietly = TRUE)) {
             object_usage_linter = NULL,
             indentation_linter = NULL,
             equals_na_linter = NULL,
+            return_linter = NULL,
             object_name_linter = lintr::object_name_linter(
                 styles = c("snake_case", "camelCase", "symbols"),
                 regexes = character()
@@ -32,3 +33,5 @@ options(languageserver.formatting_style = function(options) {
     style
 })
 options(shiny.autoreload = TRUE)
+options(renv.config.user.library = FALSE)
+options(renv.config.auto.snapshot = FALSE)
