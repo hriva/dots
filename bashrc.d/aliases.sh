@@ -208,3 +208,9 @@ lfcd() {
 brzip() {
     /usr/bin/tar -cvf "$1" --use-compress-program="brotli -Z" "$2"
 }
+
+emf() {
+    local file
+    file=$(fzf --prompt="Edit: " --height=50% --border)
+    [[ -n $file ]] && "$EDITOR" "$file"
+}
