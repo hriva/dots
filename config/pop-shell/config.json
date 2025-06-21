@@ -24,6 +24,9 @@
     },
     {
       "class": "internxt"
+    },
+    {
+      "class": "org.gnome.Boxes"
     }
   ],
   "skiptaskbarhidden": [],
