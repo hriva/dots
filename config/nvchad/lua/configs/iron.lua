@@ -7,11 +7,11 @@ local opts = {
 	config = {
 		scratch_repl = true, -- Whether a repl should be discarded or not
 		repl_definition = {
-			python = iron_ft.python.python,
+			python = iron_ft.python.ipython,
 			r = iron_ft.r.R,
 			rmd = iron_ft.r.R,
 		},
-		repl_open_cmd = require("iron.view").split("35%"),
+		repl_open_cmd = require("iron.view").split.vertical.botright(0.35),
 	},
 	should_map_plug = true,
 	keymaps = {
