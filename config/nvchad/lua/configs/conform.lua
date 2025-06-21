@@ -53,8 +53,8 @@ local options = {
 		xml = { "xmllint" },
 		yaml = { "yq" },
 		markdown = { "trim_newlines" },
-		r = { "air" },
-		rmd = { "air" },
+		-- r = { "air" },
+		-- rmd = { "air" },
 
 		-- Fallback formatter. Overrides Lsp fallback
 		["_"] = { "trim_whitespace", lsp_format = "last" },
