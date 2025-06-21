@@ -47,6 +47,10 @@
       {
         "language": "xml",
         "path": "./xml.json"
+      },
+      {
+        "language": "r",
+        "path": "./R/R.json"
       }
     ]
   }

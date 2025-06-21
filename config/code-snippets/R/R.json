@@ -1,0 +1,24 @@
+{
+  "ryoxigen_skeleton": {
+    "prefix": "rox",
+    "body": [
+      "#' ${1:Title}",
+      "#'",
+      "#' @param ${2:db_path A db connection}",
+      "#'",
+      "#' @returns",
+      "#' @${3:exports A data.table summary}",
+      "#'",
+      "#' @examples"
+    ],
+    "description": "ryoxigen_skeleton"
+  },
+  "ryoxigen_param": {
+    "prefix": "rpm",
+    "body": [
+      "#' @param ${1:db_path description}",
+      ""
+    ],
+    "description": "ryoxigen_param"
+  }
+}
