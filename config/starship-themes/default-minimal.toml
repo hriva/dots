@@ -1,12 +1,12 @@
 format = """
-[](#323742)\
+[](fg:color_bg1)\
 $os\
 $directory\
-[](bg:#414868 fg:#323742)\
+[](fg:color_bg1 bg:color_bg2)\
 $git_branch\
 $git_commit\
 $git_status\
-[](fg:#414868 bg:#33658A)\
+[](fg:color_bg2 bg:#33658A)\
 $python\
 $c\
 $elixir\
@@ -21,7 +21,7 @@ $rust\
 $scala\
 $docker_context\
 ${custom.foo}\ 
-[](fg:#33658A)\
+[](fg:color_blue)\
 $fill\
 $time\
 $battery
@@ -39,6 +39,21 @@ command_timeout = 3000
 # Disable the blank line at the start of the prompt
 add_newline = false
 
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+# color_fg0 = '#fbf1c7'
+color_fg0 = '#fafaff'
+color_bg1 = '#323742'
+color_bg2 = '#414868'
+color_blue = '#33658A'
+color_cyan = '#86BBD8'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
 [fill]
 symbol = ' '
 disabled = true
@@ -46,14 +61,14 @@ disabled = true
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
-style_user = "bg:#323742"
-style_root = "bg:#323742"
-format = '[$user]($style)'
+style_user = "bg:color_bg1"
+style_root = "bg:color_bg1"
+format = '[$user](fg:color_fg0 bg:color_bg1)($style)'
 
 [os]
 disabled = false
-format = "[$symbol ]($style)"
-style = "bg:#323742"
+format = "[$symbol ](fg:color_fg0 bg:color_bg1)($style)"
+style = "bg:color_bg1"
 
 [os.symbols]
 Fedora = "󰣛"
@@ -64,24 +79,24 @@ Windows = ""
 [character]
 success_symbol = "❯"
 error_symbol = "❯"
-vimcmd_symbol = "[❮](yellow)"
+vimcmd_symbol = "[❮](color_yellow)"
 
 [cmd_duration]
 min_time = 5
 show_milliseconds = true
-format = '[ $duration](bg:#33658A)'
+format = '[ $duration](bg:color_blue)'
 
 [hostname]
 ssh_only = true
 ssh_symbol = '🌐'
-format = "[@$hostname]($style)"
-style = "bg:#323742"
+format = "[@$hostname](fg:color_fg0 bg:color_bg1)($style)"
+style = "bg:color_bg1"
 trim_at = ".companyname.com"
 disabled = false
 
 [directory]
-style = "bg:#323742"
-format = "[$path ]($style)"
+style = "bg:color_bg1"
+format = "[$path ](fg:color_fg0 bg:color_bg1)($style)"
 truncation_length = 2
 truncation_symbol = "…/"
 home_symbol = ""
@@ -102,28 +117,13 @@ fish_style_pwd_dir_length = 1
 # So either put "Important Documents" before "Documents" or use the substituted version:
 # "Important  " = "  "
 
-[docker_context]
-symbol = " "
-style = "bg:#33658A"
-format = '[ $symbol $context ]($style) $path'
-
-[elixir]
-symbol = " "
-style = "bg:#33658A"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#33658A"
-format = '[ $symbol ($version) ]($style)'
-
 [git_branch]
 symbol = ""
-style = "bg:#414868 fg:yellow"
+style = "bg:color_bg2 fg:color_yellow"
 format = '[ $branch]($style)'
 
 [git_status]
-style = "bg:#414868 fg:#86BBD8"
+style = "bg:color_bg2 fg:color_cyan"
 renamed = '» '
 modified = '!${count}'
 staged = ' +${count}'
@@ -132,49 +132,64 @@ format = '[ $all_status$ahead_behind ]($style)'
 
 [git_commit]
 format = '[\($hash$tag\) ]($style)'
-style = "bg:#414868 fg:cyan"
+style = "bg:color_bg2 fg:color_cyan"
 only_detached = true
 tag_disabled = false
 disabled = false
 
+[docker_context]
+symbol = " "
+style = "bg:color_blue fg:color_fg0"
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = " "
+style = "bg:color_blue fg:color_fg0"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:color_blue fg:color_fg0"
+format = '[ $symbol ($version) ]($style)'
+
 [golang]
 symbol = " "
-style = "bg:#33658A"
+style = "bg:color_blue fg:color_fg0"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
-style = "bg:#33658A"
+style = "bg:color_blue fg:color_fg0"
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "bg:#33658A"
+style = "bg:color_blue fg:color_fg0"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:#33658A"
+style = "bg:color_blue fg:color_fg0"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = " "
-style = "bg:#33658A"
+style = "bg:color_blue fg:color_fg0"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#33658A"
+style = "bg:color_blue fg:color_fg0"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = " "
-style = "bg:#33658A"
+style = "bg:color_blue fg:color_fg0"
 format = '[ ${symbol}${pyenv_prefix}(\($virtualenv\)) ]($style)'
 
 [scala]
 symbol = " "
-style = "bg:#33658A"
+style = "bg:color_blue fg:color_fg0"
 format = '[ $symbol ($version) ]($style)'
 
 [time]
@@ -196,8 +211,8 @@ threshold = 78
 [custom.foo]
 disabled = true
 format = '[( $output)]($style)'
-style = "bg:#33658A"
-command = "battery-time"        # shows output of command
+style = "bg:color_blue fg:color_fg0"
+command = "battery-time"             # shows output of command
 # when = """ [[ $OSTYPE == "linux-gnu" ]] && echo 1 """
 when = true
 os = "linux"
