@@ -61,7 +61,7 @@ alias gs='cd $HOME/DOTFILES'
 alias services='systemctl --type=service --state=running'
 alias px='ps auxf'
 alias elf='ps -elf'
-alias findme='xdg-open .' # Use mime app
+alias findme='nohup nautilus . &> /dev/null &' # Use mime app
 alias kat='bat --plain --paging=always'
 alias fbat="fzf --border=rounded --preview 'bat --color always {}'"
 alias fless="fzf --preview 'less {}'"
