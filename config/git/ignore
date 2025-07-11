@@ -43,9 +43,18 @@ Session.vim
 .envrc
 *.env*
 .OLD
-.cursorignore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Workspace scratchpads
+*.ignore/
+data/
+*.vscode/
+.context/
+
+# AI editors
+.cursorignore
+.codeiumignore
