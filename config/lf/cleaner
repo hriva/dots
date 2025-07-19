@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# vi:ft=sh
+if [[ $TERM != xterm-ghostty ]]; then
+    return
+fi
+
+exec kitten icat --clear --stdin no --transfer-mode memory </dev/null >/dev/tty

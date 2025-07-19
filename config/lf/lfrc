@@ -1,5 +1,6 @@
 # Options
 set previewer ~/.config/lf/sixel.sh
+set cleaner ~/.config/lf/cleaner
 set preview true
 set sixel true
 set cursorpreviewfmt ""
