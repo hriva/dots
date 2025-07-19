@@ -18,6 +18,7 @@ eza
 gnome-tweaks
 git-crypt
 git-gui
+celluloid
 clamav
 clamav-update
 clamd
@@ -38,11 +39,13 @@ gnome-shell-extension-forge
 gnome-shell-extension-pop-shell
 gnome-shell-extension-user-theme
 gnome-tweaks
+go-task
 gstreamer1-plugin-libav
 gstreamer1-vaapi
 gstreamer1-vaapi
 htop
 jq
+kitty-kitten
 libffi-devel
 libva
 libva-utils
@@ -54,8 +57,11 @@ nvtop
 onedrive
 openssl-devel
 pdfgrep
+pkgconfig
 powertop
 profile-sync-daemon
+python3.11
+python3.11-devel
 ranger
 ripgrep
 rkhunter
@@ -63,6 +69,8 @@ sassc
 seahorse
 setroubleshoot-server
 trash-cli
+unixODBC
+unixODBC-devel
 unhide
 vdpauinfo
 w3m-img
