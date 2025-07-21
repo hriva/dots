@@ -11,13 +11,12 @@ font-feature = calt, liga, dlig
 window-padding-x=6
 window-padding-y=6
 # window-decoration = server
-gtk-gsk-renderer=default
 gtk-titlebar = false
 adw-toolbar-style = flat
-gtk-adwaita = true
 gtk-tabs-location = hidden
 resize-overlay = never
 
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = true
+# async-backend = epoll
