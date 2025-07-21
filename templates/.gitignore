@@ -130,6 +130,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+*.bkp
 
 # Spyder project settings
 .spyderproject
@@ -158,6 +159,7 @@ dmypy.json
 ##---------------------------------------------------
 
 # Windows thumbnail cache files
+Thumbs.db:encryptable
 Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
@@ -233,4 +235,13 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Local Scratchpads
+Session.vim
+data/
 .ignore/
+*.vscode/
+*.windsurf/
+*.cursor/
+.context/
+.cursorignore
+.codeiumignore
