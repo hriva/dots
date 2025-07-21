@@ -59,6 +59,7 @@ end, { desc = "theme switch" })
 
 -- Keymaps
 map("n", "<leader>wm", "<cmd>Telescope keymaps<cr>", { desc = "which keymap" })
+map("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 
 -- Disable mappings
 local nomap = vim.keymap.del
