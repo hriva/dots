@@ -23,7 +23,7 @@ draw() {
     kitten icat --stdin no --transfer-mode memory --place "${PV_WIDTH}x${PV_HEIGHT}@${X}x${Y}" "$1" </dev/null >/dev/tty
 }
 
-if [[ $TERM != xterm-ghostty ]]; then
+if [[ $TERM_PROGRAM != ghostty ]]; then
     USE_SIXEL=true
 
     draw() {

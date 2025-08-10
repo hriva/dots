@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # vi:ft=sh
-if [[ $TERM != xterm-ghostty ]]; then
+if [[ $TERM_PROGRAM != xterm-ghostty ]]; then
     return
 fi
 
