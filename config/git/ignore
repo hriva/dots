@@ -245,3 +245,4 @@ data/
 .context/
 .cursorignore
 .codeiumignore
+*.ignore.*
