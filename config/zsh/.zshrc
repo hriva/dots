@@ -18,6 +18,10 @@ esac
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select
+# Set completion options before loading
+# zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m' # completion types
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' formats '%b '
@@ -49,14 +53,16 @@ __call_compinit (){
     setopt extendedglob local_options
     autoload -Uz compinit
     autoload -U compaudit
-    if [[ -n "${ZDOTDIR}"/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
-        rm "${ZDOTDIR}"/.zcompdump(#qN.mh+24) > /dev/null
-        compinit -i # dump
-        ZCOMPDUMP=1
-    else
-        compinit -C # -C: use file,skip check
-        ZCOMPCACHE=1
-    fi
+
+    # move check logic to .zlogin
+    # if [[ -n "${ZDOTDIR}"/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
+    #     rm "${ZDOTDIR}"/.zcompdump(#qN.mh+24) > /dev/null
+    #     compinit -i # dump
+    #     ZCOMPDUMP=1
+    # fi
+
+    compinit -C # -C: use file,skip check
+    ZCOMPCACHE=1
 }
 
 # Plugins
@@ -167,8 +173,8 @@ transient_prompt ()
 }
 
 # Source compiled rc files
-if [ -d "${ZDOTDIR}"/compile ]; then
-	for rc in "${ZDOTDIR}"/compile/*.zsh; do
+if [ -d "$ZDOTDIR"/compile ]; then
+	for rc in "$ZDOTDIR"/compile/*.zsh; do
 		if [ -f "$rc" ]; then
 			source "$rc"
 		fi
