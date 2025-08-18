@@ -49,20 +49,26 @@ bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward
 
 __call_compinit (){
-    # setopt xtrace local_options
     setopt extendedglob local_options
     autoload -Uz compinit
-    autoload -U compaudit
 
-    # move check logic to .zlogin
-    # if [[ -n "${ZDOTDIR}"/.zcompdump(#qN.mh+24) ]]; then #if zcomp age > 24hrs
-    #     rm "${ZDOTDIR}"/.zcompdump(#qN.mh+24) > /dev/null
-    #     compinit -i # dump
-    #     ZCOMPDUMP=1
-    # fi
+    local zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
 
-    compinit -C # -C: use file,skip check
-    ZCOMPCACHE=1
+    # Check if dump file needs regeneration
+    if [[ -n "$zcompdump"(#qN.mh+24) ]]; then
+        # Remove old dump files
+        /usr/bin/rm -f "$zcompdump" "$zcompdump".zwc 2>/dev/null
+        # Generate new dump with full environment
+        compinit -i  # -i: ignore insecure directories
+        # Immediately compile the new dump
+        autoload -U zrecompile
+        zrecompile -pq "$zcompdump"
+        ZCOMPDUMP=1
+    else
+        # Use existing dump
+        compinit -C # -C: use file,skip check
+        ZCOMPCACHE=1
+    fi
 }
 
 # Plugins
@@ -83,7 +89,7 @@ if [ -f "$ZPLUGINS"/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
         done
     }
 else
-# Check cached .zcompdump for regeneration once a day.
+    # Call compinit AFTER all plugins and paths are set
     __call_compinit
 fi
 
