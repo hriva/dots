@@ -1,0 +1,206 @@
+{
+  "workbench.colorTheme": "Tokyo Night Light",
+  "editor.fontSize": 16,
+  "git.autofetch": true,
+  "editor.minimap.enabled": false,
+  "editor.cursorSurroundingLines": 8,
+  "workbench.editor.tabSizing": "shrink",
+  "window.density.editorTabHeight": "compact",
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "editor.glyphMargin": false,
+  "editor.lineDecorationsWidth": 0,
+
+  // typo
+  "editor.fontFamily": "'GeistMono NFM'",
+  "editor.lineHeight": 16,
+  "editor.suggestFontSize": 16,
+  "editor.suggestLineHeight": 30,
+  "terminal.integrated.lineHeight": 1.0,
+  "editor.wordWrap": "on",
+  "terminal.integrated.fontSize": 16,
+  "editor.cursorStyle": "block",
+  "editor.padding.top": 5,
+  "editor.stickyScroll.enabled": true,
+  "editor.cursorBlinking": "smooth",
+  "terminal.integrated.cursorBlinking": true,
+  "editor.tabSize": 4,
+  "editor.inlineSuggest.enabled": true,
+  // main
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.tabSizingFixedMinWidth": 38,
+  "editor.copyWithSyntaxHighlighting": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.emptySelectionClipboard": false,
+  "workbench.editor.enablePreview": false,
+  // "files.trimTrailingWhitespace": true,
+  "diffEditor.renderSideBySide": true,
+  "editor.snippetSuggestions": "top",
+  "editor.detectIndentation": true,
+  // "workbench.editor.showTabs": "none",
+  "editor.guides.indentation": true,
+  "editor.linkedEditing": true,
+  "editor.accessibilitySupport": "off",
+  "chat.editor.wordWrap": "on",
+  "notebook.output.wordWrap": true,
+  "diffEditor.wordWrap": "on",
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "workbench.tree.enableStickyScroll": false,
+  // containers
+  "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
+  // python
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "diffEditor.ignoreTrimWhitespace": true
+  },
+  "autoDocstring.docstringFormat": "sphinx",
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.fixAll": ["source.unusedImports"],
+  "files.autoSave": "afterDelay",
+  "notebook.output.scrolling": true,
+  "jupyter.themeMatplotlibPlots": true,
+  "jupyter.widgetScriptSources": ["unpkg.com", "jsdelivr.com"],
+  "files.exclude": {
+    "**./.env": true,
+    "**/.csv": true,
+    "**/.parquet": true,
+    "**/.pkl": true,
+    "**/.xls": true,
+    "**/__pycache__": true,
+    "**/.cache": true,
+    "**/.coverage": true,
+    "**/.coverage.*": true,
+    "**/.hypothesis": true,
+    "**/.mypy_cache": true,
+    "**/.nox": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/.tox": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true
+  },
+  "editor.renderControlCharacters": false,
+  // VScode VIM
+  "vim.enableNeovim": true,
+  "vim.leader": "<space>",
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+    "<C-s>": false,
+    "<C-b>": false,
+    "<C-p>": false
+  },
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["<C-h>"],
+      "commands": ["workbench.action.navigateLeft"]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": ["workbench.action.navigateDown"]
+    },
+    {
+      "before": ["<C-k>"],
+      "commands": ["workbench.action.navigateUp"]
+    },
+    {
+      "before": ["<C-l>"],
+      "commands": ["workbench.action.navigateRight"]
+    },
+    {
+      "before": ["<A-j>"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<A-k>"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<leader>", "x"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["references-view.findReferences"]
+    },
+    {
+      "before": ["g", "D"],
+      "commands": ["editor.action.revealDefinitionAside"]
+    },
+    {
+      "before": ["[", "c"],
+      "commands": ["workbench.action.editor.previousChange"]
+    },
+    {
+      "before": ["]", "c"],
+      "commands": ["workbench.action.editor.nextChange"]
+    },
+    {
+      "before": ["u"],
+      "commands": ["undo"]
+    },
+    {
+      "before": ["<C-r>"],
+      "commands": ["redo"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // paste w/o register override
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"]
+    }
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [],
+  "python.venvFolders": ["~/Code/.python_virt_environments"],
+  "[shellscript]": {
+    "editor.defaultFormatter": "mkhl.shfmt"
+  },
+  "shfmt.executablePath": "/home/alquimista/.local/share/nvim/mason/bin/shfmt",
+  "emmet.extensionsPath": ["~/.config/code-snippets"],
+  "workbench.activityBar.location": "top",
+  "githubPullRequests.pullBranch": "never",
+  "window.zoomLevel": 1,
+  "workbench.panel.defaultLocation": "right",
+  "bashIde.shfmt.path": "/home/alquimista/.local/share/nvim/mason/bin/shfmt",
+  "git.openRepositoryInParentFolders": "always"
+}

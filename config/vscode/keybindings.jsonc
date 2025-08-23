@@ -1,0 +1,94 @@
+[
+  // {
+  //   "key": "ctrl+shift+a",
+  //   "command": "windsurf.prioritized.chat.open",
+  //   "when": "!terminalFocus"
+  // },
+  // {
+  //   "key": "ctrl+l",
+  //   "command": "-windsurf.prioritized.chat.open",
+  //   "when": "!terminalFocus"
+  // },
+  {
+    "key": "alt+b",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+  {
+    "key": "alt+j",
+    "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.previousEditor"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "auxiliaryBarFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "!editorTextFocus && !textCompareEditorActive"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "notebook.formatCell",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "-notebook.formatCell",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "-editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  }
+  // {
+  //   "key": "alt+right",
+  //   "command": "windsurf.prioritized.cascadeFocusNextHunk",
+  //   "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  // },
+  // {
+  //   "key": "alt+j",
+  //   "command": "-windsurf.prioritized.cascadeFocusNextHunk",
+  //   "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  // },
+  // {
+  //   "key": "alt+left",
+  //   "command": "windsurf.prioritized.cascadeFocusPreviousHunk",
+  //   "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  // },
+  // {
+  //   "key": "alt+k",
+  //   "command": "-windsurf.prioritized.cascadeFocusPreviousHunk",
+  //   "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  // }
+]
