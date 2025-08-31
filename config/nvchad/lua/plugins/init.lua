@@ -8,6 +8,7 @@ return {
 	{
 		-- nvchad plugin override
 		"stevearc/conform.nvim",
+		-- enabled = false,
 		event = "BufWritePre",
 		cmd = { "ConformInfo" },
 		config = function()
@@ -16,7 +17,7 @@ return {
 	},
 	{
 		"folke/which-key.nvim",
-		event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+		lazy = false,
 		keys = { "<space>", "<leader>", "<c-r>", "<c-w>", '"', "'", "`", "c", "V", "v", "g" },
 		cmd = "WhichKey",
 		config = function(_, opts)
@@ -47,6 +48,12 @@ return {
 			return require("configs.gitsigns")
 		end,
 	},
+
+	-- {
+	-- 	"neovim/nvim-lspconfig",
+	-- 	enabled = false,
+	-- },
+
 	-- end
 
 	-- text editing
@@ -66,7 +73,7 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 	},
 	{
-		"echasnovski/mini.ai",
+		"nvim-mini/mini.ai",
 		version = false,
 		event = { "BufReadPost", "BufNewFile" },
 		config = function(_, opts)
@@ -74,7 +81,7 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.surround",
+		"nvim-mini/mini.surround",
 		event = { "BufReadPost", "BufNewFile" },
 		version = false,
 		config = function(_, opts)
