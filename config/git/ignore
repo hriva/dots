@@ -246,3 +246,11 @@ data/
 .cursorignore
 .codeiumignore
 *.ignore.*
+example-codebases
+
+# linux symlinks (no '/' for dirs)
+.ignore
+*.vscode
+*.windsurf
+*.cursor
+.context
