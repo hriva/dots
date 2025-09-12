@@ -12,6 +12,8 @@ export RIPGREP_CONFIG_PATH=~/.config/ripgreprc
 FZF_LAYOUT=" --border=rounded"
 export FZF_DEFAULT_OPTS="--keep-right --height=40% --info=inline --bind=ctrl-z:ignore,btab:up,tab:down"$FZF_LAYOUT
 export _ZO_FZF_OPTS="--keep-right --height=40% --info=inline --bind=ctrl-z:ignore,btab:up,tab:down --exact --no-sort --cycle --tabstop=1 --exit-0 --layout=reverse"$FZF_LAYOUT
+# export DOCKER_CONFIG=${DOCKER_CONFIG:-"$HOME"/.local/share/docker}
+# TODO: source from ~/.config/environment.d/global.conf
 
 # Color for manpages in less makes manpages a little easier to read
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -48,7 +50,6 @@ alias lm='/usr/bin/ls -alhFG -t --color=always --group-directories-first'
 alias le='eza -la --git --icons --group-directories-first --sort name'
 alias lz='eza -l --icons --group-directories-first --sort name'
 alias lR='eza -laTR --icons --group-directories-first --sort name'
-alias docker='podman'
 alias ducks='du -cksh *'
 alias pkghist='rpm -qa --last | less'
 alias dt='date "+%Y%m%dT%H%M%S"'
@@ -211,6 +212,13 @@ brzip() {
 
 emf() {
     local file
-    file=$(fzf --prompt="Edit: " --height=50% --border)
+    file=$(fzf --prompt="Edit: ")
     [[ -n $file ]] && "$EDITOR" "$file"
+}
+
+# Interactive directory change
+cdd() {
+    local dir
+    dir=$(fd -t d | fzf --prompt="Directory: ")
+    [[ -n $dir ]] && cd "$dir"
 }
