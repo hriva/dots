@@ -121,6 +121,7 @@ fish_style_pwd_dir_length = 1
 symbol = ""
 style = "bg:color_bg3"
 format = '[ $branch](fg:#83a598 bg:color_bg3)($style)'
+truncation_length = 12
 
 [git_status]
 style = "bg:color_bg3"
