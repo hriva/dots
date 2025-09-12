@@ -254,3 +254,8 @@ example-codebases
 *.windsurf
 *.cursor
 .context
+package-lock.json
+
+# test
+.integration_tests
+test_hidden
