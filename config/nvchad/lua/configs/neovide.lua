@@ -5,17 +5,17 @@ vim.g.neovide_confirm_quit = true
 vim.g.neovide_detach_on_quit = "prompt"
 
 -- add binaries installed by mason.nvim to path
--- local is_windows = vim.fn.has("win32") ~= 0
--- local sep = is_windows and "\\" or "/"
--- local delim = is_windows and ";" or ":"
+local is_windows = vim.fn.has("win32") ~= 0
+local sep = is_windows and "\\" or "/"
+local delim = is_windows and ";" or ":"
 --
--- if not is_windows then
--- 	vim.env.PATH = table.concat({ vim.fn.expand("~"), ".local", "bin" }, sep) .. delim .. vim.env.PATH
--- 	vim.env.PATH = table.concat({ vim.fn.expand("~"), ".local", "share", "fnm", "aliases", "latest", "bin" }, sep)
--- 		.. delim
--- 		.. vim.env.PATH
--- 	vim.env.BIOME_CONFIG_PATH = table.concat({ vim.fn.expand("~"), ".config", "biome", "biome.json" }, sep)
--- end
+if not is_windows then
+	vim.env.PATH = table.concat({ vim.fn.expand("~"), ".local", "bin" }, sep) .. delim .. vim.env.PATH
+	-- vim.env.PATH = table.concat({ vim.fn.expand("~"), ".local", "share", "fnm", "aliases", "latest", "bin" }, sep)
+	-- .. delim
+	-- .. vim.env.PATH
+	-- vim.env.BIOME_CONFIG_PATH = table.concat({ vim.fn.expand("~"), ".config", "biome", "biome.json" }, sep)
+end
 
 -- lua/set_cwd_from_arg.lua
 local M = {}
