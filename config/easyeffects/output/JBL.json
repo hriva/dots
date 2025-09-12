@@ -733,7 +733,6 @@
         },
         "maximizer#0": {
             "bypass": true,
-            "ceiling": 0.0,
             "input-gain": 9.0,
             "output-gain": 1.0,
             "release": 25.0,
