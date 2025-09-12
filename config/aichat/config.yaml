@@ -1,6 +1,6 @@
 # see https://github.com/sigoden/aichat/blob/main/config.example.yaml
 
-model: ollama:gemma3:4b-it-qat
+model: ollama:hf.co/unsloth/Qwen3-8B-GGUF:Q4_K_M
 # ollama defaults
 temperature: 0.6
 top_p: 0.9
@@ -15,7 +15,7 @@ rag_chunk_overlap: 150
 clients:
   - type: openai-compatible
     name: ollama
-    api_base: null
+    api_base: http://localhost:11434/v1
     api_key: null
     models:
       - name: phi4-mini:latest
