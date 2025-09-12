@@ -1,14 +1,4 @@
 [
-  // {
-  //   "key": "ctrl+shift+a",
-  //   "command": "windsurf.prioritized.chat.open",
-  //   "when": "!terminalFocus"
-  // },
-  // {
-  //   "key": "ctrl+l",
-  //   "command": "-windsurf.prioritized.chat.open",
-  //   "when": "!terminalFocus"
-  // },
   {
     "key": "alt+b",
     "command": "workbench.action.toggleActivityBarVisibility"
@@ -70,25 +60,140 @@
     "key": "ctrl+shift+i",
     "command": "-editor.action.formatDocument",
     "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-notebook.centerActiveCell",
+    "when": "notebookEditorFocused"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-expandLineSelection",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+alt+h",
+    "command": "editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "-editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "h",
+    "command": "editor.action.scrollLeftHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "j",
+    "command": "editor.action.scrollDownHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "k",
+    "command": "editor.action.scrollUpHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "l",
+    "command": "editor.action.scrollRightHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "f",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  // Windsurf
+  {
+    "key": "ctrl+l",
+    "command": "-workbench.action.chat.newChat",
+    "when": "chatIsEnabled && inChat && !config.chat.unifiedChatView && chatLocation != 'editing-session'"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-workbench.action.chat.newEditSession",
+    "when": "chatEditingParticipantRegistered && chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-windsurf.prioritized.chat.open",
+    "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-windsurf.sendTerminalToChat",
+    "when": "terminalFocus && !windsurf.deepwikiPanel.focused"
+  },
+  {
+    "key": "ctrl+shift+a",
+    "command": "windsurf.prioritized.chat.open",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-windsurf.prioritized.chat.open",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "alt+right",
+    "command": "windsurf.prioritized.cascadeFocusNextHunk",
+    "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  },
+  {
+    "key": "alt+j",
+    "command": "-windsurf.prioritized.cascadeFocusNextHunk",
+    "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  },
+  {
+    "key": "alt+left",
+    "command": "windsurf.prioritized.cascadeFocusPreviousHunk",
+    "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  },
+  {
+    "key": "alt+k",
+    "command": "-windsurf.prioritized.cascadeFocusPreviousHunk",
+    "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  },
+  {
+    "key": "ctrl+shift+q",
+    "command": "workbench.view.deepwiki"
   }
-  // {
-  //   "key": "alt+right",
-  //   "command": "windsurf.prioritized.cascadeFocusNextHunk",
-  //   "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
-  // },
-  // {
-  //   "key": "alt+j",
-  //   "command": "-windsurf.prioritized.cascadeFocusNextHunk",
-  //   "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
-  // },
-  // {
-  //   "key": "alt+left",
-  //   "command": "windsurf.prioritized.cascadeFocusPreviousHunk",
-  //   "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
-  // },
-  // {
-  //   "key": "alt+k",
-  //   "command": "-windsurf.prioritized.cascadeFocusPreviousHunk",
-  //   "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
-  // }
 ]

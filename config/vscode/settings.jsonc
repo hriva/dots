@@ -7,8 +7,6 @@
   "workbench.editor.tabSizing": "shrink",
   "window.density.editorTabHeight": "compact",
   "workbench.editor.editorActionsLocation": "titleBar",
-  "editor.glyphMargin": false,
-  "editor.lineDecorationsWidth": 0,
 
   // typo
   "editor.fontFamily": "'GeistMono NFM'",
@@ -145,16 +143,60 @@
       "commands": ["workbench.action.closeActiveEditor"]
     },
     {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "f", "o"],
+      "commands": ["workbench.action.quickOpenWithModes"]
+    },
+    {
       "before": ["K"],
-      "commands": ["editor.action.showHover"]
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    {
+      "before": ["g", "D"],
+      "commands": ["editor.action.revealDefinitionAside"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    {
+      "before": ["g", "p", "d"],
+      "commands": ["editor.action.peekDefinition"]
+    },
+    {
+      "before": ["g", "h"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["g", "p", "i"],
+      "commands": ["editor.action.peekImplementation"]
+    },
+    {
+      "before": ["g", "q"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["g", "t"],
+      "commands": ["editor.action.goToTypeDefinition"]
+    },
+    {
+      "before": ["g", "p", "t"],
+      "commands": ["editor.action.peekTypeDefinition"]
     },
     {
       "before": ["g", "r"],
       "commands": ["references-view.findReferences"]
     },
     {
-      "before": ["g", "D"],
-      "commands": ["editor.action.revealDefinitionAside"]
+      "before": ["g", "R"],
+      "commands": ["editor.action.referenceSearch.trigger"]
     },
     {
       "before": ["[", "c"],
@@ -165,6 +207,14 @@
       "commands": ["workbench.action.editor.nextChange"]
     },
     {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.nextInFiles"]
+    },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prevInFiles"]
+    },
+    {
       "before": ["u"],
       "commands": ["undo"]
     },
@@ -172,6 +222,11 @@
       "before": ["<C-r>"],
       "commands": ["redo"]
     }
+    // Windsurf exclusive
+    // {
+    //   "before": ["<leader>", "k"],
+    //   "commands": ["deepwiki.openSymbol"]
+    // }
   ],
   "vim.visualModeKeyBindings": [
     {
@@ -202,5 +257,19 @@
   "window.zoomLevel": 1,
   "workbench.panel.defaultLocation": "right",
   "bashIde.shfmt.path": "/home/alquimista/.local/share/nvim/mason/bin/shfmt",
-  "git.openRepositoryInParentFolders": "always"
+  "git.openRepositoryInParentFolders": "always",
+  "git.fetchOnPull": true,
+  // "terminal.integrated.profiles.linux": {
+  //     "bash vc": {
+  //         "path": "/usr/bin/bash",
+  //         "args": ["--init-file", "/usr/share/windsurf/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh"],
+  //         "env": {
+  //             "HISTFILE": ".ignore.bash_history"
+  //         }
+  //     }
+  // },
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.env.linux": {
+    "HISTFILE": ".ignore.sh_history"
+  }
 }
