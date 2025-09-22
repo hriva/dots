@@ -2,11 +2,13 @@
 # .zshrc
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
+case ":$PATH:" in
+*":$HOME/.local/bin:"*) : ;; # already present
+*) PATH="$HOME/.local/bin:$HOME/bin:$PATH" ;;
+esac
 export PATH
+
+fpath=(/usr/share/zsh/vendor-completions "${fpath[@]}")
 
 # If not running interactively, don't do anything
 case $- in
