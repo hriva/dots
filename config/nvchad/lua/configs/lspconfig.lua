@@ -34,20 +34,20 @@ local servers = {
 	},
 
 	basedpyright = { -- python
-		root_dir = function(fname)
-			local root_files = {
-				"pyproject.toml",
-				"setup.py",
-				"setup.cfg",
-				"requirements.txt",
-				"Pipfile",
-				"pyrightconfig.json",
-				".git",
-			}
-			local primary = lspconfig.util.root_pattern(unpack(root_files))(fname)
-			local fallback = vim.fn.getcwd()
-			return primary or fallback
-		end,
+		-- root_dir = function(fname)
+		-- 	local root_files = {
+		-- 		"pyproject.toml",
+		-- 		"setup.py",
+		-- 		"setup.cfg",
+		-- 		"requirements.txt",
+		-- 		"Pipfile",
+		-- 		"pyrightconfig.json",
+		-- 		".git",
+		-- 	}
+		-- 	local primary = lspconfig.util.root_pattern(unpack(root_files))(fname)
+		-- 	local fallback = vim.fn.getcwd()
+		-- 	return primary or fallback
+		-- end,
 		single_file_support = true,
 		settings = {
 			basedpyright = {
@@ -75,13 +75,18 @@ for _, name in ipairs(disabled_lsp) do
 	disabled_lookup[name] = true
 end
 
+local enable_servers = {}
+
 for name, opts in pairs(servers) do
 	if not disabled_lookup[name] then
-		opts.on_init = nvlsp.on_init
-		opts.on_attach = nvlsp.on_attach
-		opts.capabilities = nvlsp.capabilities
+		-- opts.on_init = nvlsp.on_init
+		-- opts.on_attach = nvlsp.on_attach
+		-- opts.capabilities = nvlsp.capabilities
 		-- opts.capabilities = require("blink.cmp").get_lsp_capabilities(nvlsp.capabilities)
 
-		lspconfig[name].setup(opts)
+		vim.lsp.config[name] = opts
+		table.insert(enable_servers, name)
 	end
 end
+
+vim.lsp.enable(enable_servers)
