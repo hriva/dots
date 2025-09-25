@@ -207,7 +207,11 @@ lfcd() {
 }
 
 brzip() {
-    /usr/bin/tar -cvf "$1" --use-compress-program="brotli -Z" "$2"
+    /usr/bin/tar -cvf "$1" --use-compress-program="brotli -Z" "$@"
+}
+
+tar-zstd() {
+    tar -cf "$1" -I 'zstd -19' "$@"
 }
 
 emf() {
@@ -221,4 +225,34 @@ cdd() {
     local dir
     dir=$(fd -t d | fzf --prompt="Directory: ")
     [[ -n $dir ]] && cd "$dir"
+}
+
+# Credit to
+#https://github.com/basecamp/omarchy/blob/2df8c5f7e0a2aafb8c9aacb322408d2ed7682ea5/default/bash/functions
+transcode-video-1080p() {
+    ffmpeg -i "$1" -vf scale=1920:1080 -c:v libx264 -preset fast -crf 23 -c:a copy "${1%.*}"-1080p.mp4
+}
+
+# Transcode a video to a good-balance 4K that's great for sharing online
+transcode-video-4K() {
+    ffmpeg -i "$1" -c:v libx265 -preset slow -crf 24 -c:a aac -b:a 192k "${1%.*}"-optimized.mp4
+}
+
+# Transcode any image to JPG image that's great for shrinking wallpapers
+img2jpg() {
+    magick "$1" -quality 95 -strip "${1%.*}".jpg
+}
+
+# Transcode any image to JPG image that's great for sharing online without being too big
+img2jpg-small() {
+    magick "$1" -resize 1080x\> -quality 95 -strip "${1%.*}".jpg
+}
+
+# Transcode any image to compressed-but-lossless PNG
+img2png() {
+    magick "$1" -strip -define png:compression-filter=5 \
+        -define png:compression-level=9 \
+        -define png:compression-strategy=1 \
+        -define png:exclude-chunk=all \
+        "${1%.*}.png"
 }
