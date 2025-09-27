@@ -119,6 +119,7 @@ alias alsa-cards='cat /proc/asound/cards'
 # Intel/AMD HWP performance, balance_performance, default, balance_power, power
 alias epp-avaliable-policies='cat /sys/devices/system/cpu/cpufreq/policy0/energy_performance_available_preferences'
 alias get-epp='cat /sys/devices/system/cpu/cpufreq/policy*/energy_performance_preference | uniq'
+# intel only: default performance balance_performance balance_power power
 alias get-intel-epb='cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | uniq'
 
 # Functions
