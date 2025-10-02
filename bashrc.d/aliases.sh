@@ -62,7 +62,7 @@ alias gs='cd $HOME/DOTFILES'
 alias services='systemctl --type=service --state=running'
 alias px='ps auxf'
 alias elf='ps -elf'
-alias findme='nohup nautilus . &> /dev/null &' # Use mime app
+alias findme='xdg-open .' # Use mime app
 alias kat='bat --plain --paging=always'
 alias fbat="fzf --border=rounded --preview 'bat --color always {}'"
 alias fless="fzf --preview 'less {}'"
@@ -167,6 +167,24 @@ extract() {
     done
 }
 
+rg-precmd() {
+    case "$1" in
+    *.pdf)
+        exec pdftotext "$1" -
+        ;;
+    *)
+        case $(file "$1") in
+        *Zstandard*)
+            exec pzstd -cdq
+            ;;
+        *)
+            exec cat
+            ;;
+        esac
+        ;;
+    esac
+}
+
 # Searches for text in all files in the current folder
 fw() {
     # -i case-insensitive
@@ -176,7 +194,11 @@ fw() {
     # -n causes line number to be printed
     # optional: -F treat search term as a literal, not a regular expression
     # optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
-    grep -iIHrn --color=always "$1" "${2:-.}" | less -r
+    if which rg &>/dev/null; then
+        rg -iHn --color=always -- "$1" "${2:-.}" | less -r
+    else
+        grep -iIHrn --color=always "$1" "${2:-.}" | less -r
+    fi
 }
 
 ffw() {
@@ -212,7 +234,7 @@ brzip() {
 }
 
 tar-zstd() {
-    tar -cf "$1" -I 'zstd -19' "$@"
+    tar -cf "$1" -I 'zstd --ultra -22' "$@"
 }
 
 emf() {
