@@ -8,7 +8,11 @@ case ":$PATH:" in
 esac
 export PATH
 
-fpath=(/usr/share/zsh/vendor-completions "${fpath[@]}")
+typeset -gaU fpath=(
+    "$HOME/.local/share/zsh-completion"
+    /usr/share/zsh/vendor-completions
+    "${fpath[@]}"
+)
 
 # If not running interactively, don't do anything
 case $- in
