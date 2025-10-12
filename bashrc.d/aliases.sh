@@ -250,6 +250,16 @@ cdd() {
     [[ -n $dir ]] && cd "$dir"
 }
 
+fed() {
+    if [[ $# -ne 1 ]]; then
+        echo "Usage:  requires 1 arguments but passed $#"
+        return 1
+    fi
+    local file
+    file=$(fd "$1" | fzf --preview 'bat --color always {}' --prompt="Edit: ")
+    [[ -n $file ]] && "$EDITOR" "$file"
+}
+
 # Credit to
 #https://github.com/basecamp/omarchy/blob/2df8c5f7e0a2aafb8c9aacb322408d2ed7682ea5/default/bash/functions
 transcode-video-1080p() {
