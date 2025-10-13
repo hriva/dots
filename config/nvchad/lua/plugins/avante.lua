@@ -5,11 +5,8 @@ return {
 	event = "VeryLazy",
 	lazy = true,
 	version = false, -- set this if you want to always pull the latest change
-	opts = {
-		-- add any opts here
-	},
-	config = function()
-		require("configs.avante")
+	opts = function()
+		return require("configs.avante")
 	end,
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 	build = "make",
