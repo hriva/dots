@@ -154,7 +154,15 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
-			{ "mfussenegger/nvim-dap-python" },
+			{
+				"mfussenegger/nvim-dap-python",
+				build = {
+					type = "builtin",
+					copy_directories = {
+						"doc",
+					},
+				},
+			},
 			{ "nvim-telescope/telescope-dap.nvim" },
 			{ "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } },
 		},
