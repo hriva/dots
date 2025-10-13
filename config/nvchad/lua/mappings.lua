@@ -60,6 +60,9 @@ end, { desc = "theme switch" })
 -- Keymaps
 map("n", "<leader>wm", "<cmd>Telescope keymaps<cr>", { desc = "which keymap" })
 map("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+if vim.fn.exists(":DBUIToggle") == 2 then
+	map("n", "<leader>v", "<cmd>DBUIToggle<CR>", { desc = "dadbod toggle ui" })
+end
 
 -- Disable mappings
 local nomap = vim.keymap.del

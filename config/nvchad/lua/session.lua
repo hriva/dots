@@ -22,6 +22,9 @@ function M.saveSession()
 	if vim.fn.exists(":NvimTreeClose") == 2 then
 		vim.cmd("NvimTreeClose")
 	end
+	if vim.fn.exists(":DBUIClose") == 2 then
+		vim.cmd("NvimTreeClose")
+	end
 	vim.cmd.mksession({ args = {
 		sessionFilePath,
 	}, bang = true })
