@@ -1,5 +1,12 @@
 {
+  // VSCode
   "workbench.colorTheme": "Tokyo Night Light",
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.enableRetryAfterFilteredResponse": true,
+  "github.copilot.chat.newWorkspace.useContext7": true,
+  "chat.disableAIFeatures": true,
+  "chat.commandCenter.enabled": false,
+  // General
   "editor.fontSize": 16,
   "git.autofetch": true,
   "editor.minimap.enabled": false,
@@ -7,6 +14,7 @@
   "workbench.editor.tabSizing": "shrink",
   "window.density.editorTabHeight": "compact",
   "workbench.editor.editorActionsLocation": "titleBar",
+  "workbench.activityBar.location": "top",
 
   // typo
   "editor.fontFamily": "'GeistMono NFM'",
@@ -51,7 +59,7 @@
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
-    "diffEditor.ignoreTrimWhitespace": true
+    "diffEditor.ignoreTrimWhitespace": false
   },
   "autoDocstring.docstringFormat": "sphinx",
   "python.terminal.activateEnvInCurrentTerminal": true,
@@ -96,8 +104,8 @@
     "<C-a>": false,
     "<C-f>": false,
     "<C-s>": false,
-    "<C-b>": false,
-    "<C-p>": false
+    "<C-b>": false
+    // "<C-p>": false
   },
   // To improve performance
   "extensions.experimental.affinity": {
@@ -151,6 +159,15 @@
       "commands": ["workbench.action.quickOpenWithModes"]
     },
     {
+      "before": ["<leader>", "f", "r"],
+      "commands": ["workbench.action.openRecent"]
+    },
+    {
+      "before": ["<leader>", "d", "t"],
+      "commands": ["workbench.files.action.compareFileWith"]
+    },
+    // LSP
+    {
       "before": ["K"],
       "commands": ["editor.action.showDefinitionPreviewHover"]
     },
@@ -198,6 +215,7 @@
       "before": ["g", "R"],
       "commands": ["editor.action.referenceSearch.trigger"]
     },
+    // Git
     {
       "before": ["[", "c"],
       "commands": ["workbench.action.editor.previousChange"]
@@ -215,18 +233,46 @@
       "commands": ["editor.action.marker.prevInFiles"]
     },
     {
+      "before": ["<leader>", "g", "d"],
+      "commands": ["git.openChange"]
+    },
+    {
+      "before": ["<leader>", "g", "r"],
+      "commands": ["git.revertSelectedRanges"]
+    },
+    {
+      "before": ["<leader>", "g", "s"],
+      "commands": ["git.stageSelectedRanges"]
+    },
+    {
+      "before": ["<leader>", "g", "u"],
+      "commands": ["git.unstageSelectedRanges"]
+    },
+    {
       "before": ["u"],
       "commands": ["undo"]
     },
     {
       "before": ["<C-r>"],
       "commands": ["redo"]
-    }
+    },
+    {
+      "before": ["<C-]>"],
+      "commands": ["workbench.action.decreaseViewSize"]
+    },
+    {
+      "before": ["<C-[>"],
+      "commands": ["workbench.action.increaseViewSize"]
+    },
+    {
+      "before": ["<leader>", "/"],
+      "commands": ["editor.action.commentLine"]
+    },
     // Windsurf exclusive
-    // {
-    //   "before": ["<leader>", "k"],
-    //   "commands": ["deepwiki.openSymbol"]
-    // }
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["deepwiki.openSymbol"]
+    }
   ],
   "vim.visualModeKeyBindings": [
     {
@@ -236,6 +282,10 @@
     {
       "before": ["<"],
       "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["<leader>", "/"],
+      "commands": ["editor.action.commentLine"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -251,25 +301,28 @@
     "editor.defaultFormatter": "mkhl.shfmt"
   },
   "shfmt.executablePath": "/home/alquimista/.local/share/nvim/mason/bin/shfmt",
-  "emmet.extensionsPath": ["~/.config/code-snippets"],
-  "workbench.activityBar.location": "top",
+  "emmet.extensionsPath": ["/home/alquimista/.config/code-snippets"],
   "githubPullRequests.pullBranch": "never",
   "window.zoomLevel": 1,
   "workbench.panel.defaultLocation": "right",
   "bashIde.shfmt.path": "/home/alquimista/.local/share/nvim/mason/bin/shfmt",
   "git.openRepositoryInParentFolders": "always",
   "git.fetchOnPull": true,
-  // "terminal.integrated.profiles.linux": {
-  //     "bash vc": {
-  //         "path": "/usr/bin/bash",
-  //         "args": ["--init-file", "/usr/share/windsurf/resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-bash.sh"],
-  //         "env": {
-  //             "HISTFILE": ".ignore.bash_history"
-  //         }
-  //     }
-  // },
+  "explorer.confirmDelete": false,
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.env.linux": {
-    "HISTFILE": ".ignore.sh_history"
-  }
+    "HISTFILE": "/home/alquimista/.vscode_history"
+  },
+  "rest-client.previewColumn": "current",
+  "python.defaultInterpreterPath": "/home/alquimista/Code/.python_virt_environments/.devel-env/bin/python",
+  "[plaintext]": {
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "editor.wordBasedSuggestions": "off",
+    "editor.suggestOnTriggerCharacters": false
+  },
+  "makefile.configureOnOpen": true
 }

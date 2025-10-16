@@ -22,16 +22,6 @@
     "when": "sideBarFocus"
   },
   {
-    "key": "ctrl+n",
-    "command": "explorer.newFile",
-    "when": "filesExplorerFocus"
-  },
-  {
-    "key": "ctrl+shift+n",
-    "command": "explorer.newFolder",
-    "when": "filesExplorerFocus"
-  },
-  {
     "key": "ctrl+h",
     "command": "workbench.action.navigateLeft",
     "when": "auxiliaryBarFocus"
@@ -102,6 +92,11 @@
     "when": "editorHoverFocused"
   },
   {
+    "key": "z",
+    "command": "workbench.files.action.collapseExplorerFolders",
+    "when": "!editorTextFocus && !textCompareEditorActive && filesExplorerFocus && foldersViewVisible && !inputFocus"
+  },
+  {
     "key": "a",
     "command": "explorer.newFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
@@ -114,6 +109,11 @@
   {
     "key": "r",
     "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
@@ -140,60 +140,60 @@
     "key": "ctrl+k",
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
-  },
-  // Windsurf
-  {
-    "key": "ctrl+l",
-    "command": "-workbench.action.chat.newChat",
-    "when": "chatIsEnabled && inChat && !config.chat.unifiedChatView && chatLocation != 'editing-session'"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "-workbench.action.chat.newEditSession",
-    "when": "chatEditingParticipantRegistered && chatIsEnabled && inChat"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "-windsurf.prioritized.chat.open",
-    "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "-windsurf.sendTerminalToChat",
-    "when": "terminalFocus && !windsurf.deepwikiPanel.focused"
-  },
-  {
-    "key": "ctrl+shift+a",
-    "command": "windsurf.prioritized.chat.open",
-    "when": "!terminalFocus"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "-windsurf.prioritized.chat.open",
-    "when": "!terminalFocus"
-  },
-  {
-    "key": "alt+right",
-    "command": "windsurf.prioritized.cascadeFocusNextHunk",
-    "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
-  },
-  {
-    "key": "alt+j",
-    "command": "-windsurf.prioritized.cascadeFocusNextHunk",
-    "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
-  },
-  {
-    "key": "alt+left",
-    "command": "windsurf.prioritized.cascadeFocusPreviousHunk",
-    "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
-  },
-  {
-    "key": "alt+k",
-    "command": "-windsurf.prioritized.cascadeFocusPreviousHunk",
-    "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
-  },
-  {
-    "key": "ctrl+shift+q",
-    "command": "workbench.view.deepwiki"
   }
+  // Windsurf
+  // {
+  //     "key": "ctrl+l",
+  //     "command": "-workbench.action.chat.newChat",
+  //     "when": "chatIsEnabled && inChat && !config.chat.unifiedChatView && chatLocation != 'editing-session'"
+  // },
+  // {
+  //     "key": "ctrl+l",
+  //     "command": "-workbench.action.chat.newEditSession",
+  //     "when": "chatEditingParticipantRegistered && chatIsEnabled && inChat"
+  // },
+  // {
+  //     "key": "ctrl+l",
+  //     "command": "-windsurf.prioritized.chat.open",
+  //     "when": "!terminalFocus && !windsurf.deepwikiPanel.focused"
+  // },
+  // {
+  //     "key": "ctrl+l",
+  //     "command": "-windsurf.sendTerminalToChat",
+  //     "when": "terminalFocus && !windsurf.deepwikiPanel.focused"
+  // },
+  // {
+  //     "key": "ctrl+shift+a",
+  //     "command": "windsurf.prioritized.chat.open",
+  //     "when": "!terminalFocus"
+  // },
+  // {
+  //     "key": "ctrl+l",
+  //     "command": "-windsurf.prioritized.chat.open",
+  //     "when": "!terminalFocus"
+  // },
+  // {
+  //     "key": "alt+right",
+  //     "command": "windsurf.prioritized.cascadeFocusNextHunk",
+  //     "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  // },
+  // {
+  //     "key": "alt+j",
+  //     "command": "-windsurf.prioritized.cascadeFocusNextHunk",
+  //     "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  // },
+  // {
+  //     "key": "alt+left",
+  //     "command": "windsurf.prioritized.cascadeFocusPreviousHunk",
+  //     "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  // },
+  // {
+  //     "key": "alt+k",
+  //     "command": "-windsurf.prioritized.cascadeFocusPreviousHunk",
+  //     "when": "editorTextFocus && windsurf.canAcceptOrRejectAllCascadeEditsInFile"
+  // },
+  // {
+  //     "key": "ctrl+shift+q",
+  //     "command": "workbench.view.deepwiki"
+  // }
 ]
