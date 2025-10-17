@@ -43,6 +43,12 @@
 
 [merge]
 	conflictstyle = diff3
+    tool = nvimdiff
+
+[mergetool "nvimdiff"]
+    cmd = nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"
+    prompt = false
+    keepBackup = false
 
 [diff]
 	colorMoved = default
@@ -55,7 +61,7 @@
     enabled = true
 
 [alias]
-	force-pull = !"git fetch --all; git reset --hard HEAD; git merge @{u}"
+	force-pull = !"git fetch --all; git reset --hard @{u}"
 	stash-pull = !"git fetch --all; git stash; git merge @{u}; git stash pop"
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 	lg = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
