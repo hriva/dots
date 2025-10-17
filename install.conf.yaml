@@ -64,6 +64,7 @@
     # Local
     ~/.local/share/sway: local/share/sway
     ~/.local/share/applications/brave-browser-vaapi.desktop: local/share/applications/brave-browser-vaapi-amd.desktop
+    ~/.local/share/docker: local/share/docker
     # ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
 - shell:
     - - git submodule update --init --recursive
