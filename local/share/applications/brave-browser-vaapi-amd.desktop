@@ -106,7 +106,7 @@ Comment[zh_CN]=访问互联网
 Comment[zh_HK]=連線到網際網路
 Comment[zh_TW]=連線到網際網路
 StartupWMClass=brave-browser
-Exec=/usr/bin/brave-browser-stable --enable-features=AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder,VaapiIgnoreDriverChecks --enable-zero-copy --disk-cache-dir=/tmp/BraveSoftware/Brave-Browser %U
+Exec=/usr/bin/brave-bin %U
 StartupNotify=true
 Terminal=false
 Icon=brave-browser
@@ -168,7 +168,7 @@ Name[uk]=Нове вікно
 Name[vi]=Cửa sổ Mới
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=/usr/bin/brave-browser-stable --enable-features=AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder,VaapiIgnoreDriverChecks --enable-zero-copy --disk-cache-dir=/tmp/BraveSoftware/Brave-Browser %U
+Exec=/usr/bin/brave-bin %U
 
 [Desktop Action new-private-window]
 Name=New Incognito Window
@@ -220,4 +220,4 @@ Name[uk]=Нове вікно в режимі анонімного перегля
 Name[vi]=Cửa sổ ẩn danh mới
 Name[zh_CN]=新建隐身窗口
 Name[zh_TW]=新增無痕式視窗
-Exec=/usr/bin/brave-browser-stable --enable-features=AcceleratedVideoDecodeLinuxGL,AcceleratedVideoDecodeLinuxZeroCopyGL,AcceleratedVideoEncoder,VaapiIgnoreDriverChecks --enable-zero-copy --disk-cache-dir=/tmp/BraveSoftware/Brave-Browser %U --incognito
+Exec=/usr/bin/brave-bin --incognito %U

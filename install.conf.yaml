@@ -61,9 +61,10 @@
     ~/.config/ripgreprc: config/ripgreprc
     ~/.config/starship.toml: config/starship-themes/default.toml
     ~/.config/.wgetrc: config/wgetrc
+    ~/.config/brave-flags.conf: config/brave-flags.conf
     # Local
     ~/.local/share/sway: local/share/sway
-    ~/.local/share/applications/brave-browser-vaapi.desktop: local/share/applications/brave-browser-vaapi-amd.desktop
+    ~/.local/share/applications/brave-browser-vaapi.desktop: local/share/applications/brave-browser.desktop
     ~/.local/share/docker: local/share/docker
     # ~/.local/share/flatpak/overrides/global: local/share/flatpak.overrides/global
 - shell:

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# vi:ft=sh
+
+# Brave Browser flags wrapper.
+# Credits: https://aur.archlinux.org/cgit/aur.git/tree/brave-bin.sh?h=brave-bin
+
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"${HOME}/.config"}"
+
+CONF_FILE="${XDG_CONFIG_HOME}/brave-flags.conf"
+
+if
+    test -f "$CONF_FILE"
+then
+    mapfile -t CONF_LIST <"$CONF_FILE"
+fi
+
+for CONF_LINE in "${CONF_LIST[@]}"; do
+    if ! [[
+        "$CONF_LINE" =~ ^[[:space:]]*(#|$) ]]; then
+        FLAG_LIST+=("$CONF_LINE")
+    fi
+done
+
+exec /usr/bin/brave-browser-stable "${FLAG_LIST[@]}" "${@}"
