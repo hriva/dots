@@ -12,6 +12,7 @@ export RIPGREP_CONFIG_PATH=~/.config/ripgreprc
 export FZF_LAYOUT="--border=rounded"
 export FZF_DEFAULT_OPTS="--keep-right --info=inline --bind=ctrl-z:ignore,btab:up,tab:down $FZF_LAYOUT"
 export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --height=40% --exact --no-sort --cycle --tabstop=1 --exit-0 --layout=reverse"
+export SHELLCHECK_OPTS="-e SC2034"
 
 # export DOCKER_CONFIG=${DOCKER_CONFIG:-"$HOME"/.local/share/docker}
 # TODO: source from ~/.config/environment.d/global.conf
@@ -195,7 +196,7 @@ fw() {
     # -n causes line number to be printed
     # optional: -F treat search term as a literal, not a regular expression
     # optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
-    if which rg &>/dev/null; then
+    if whereis rg &>/dev/null; then
         rg -iHn --color=always -- "$1" "${2:-.}" | less -r
     else
         grep -iIHrn --color=always "$1" "${2:-.}" | less -r
