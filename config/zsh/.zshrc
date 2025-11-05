@@ -22,12 +22,14 @@ esac
 
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion::expand:*:*:*' keep-prefix true
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu select
 # Set completion options before loading
 # zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m' # completion types
 zstyle ':completion:*' use-cache yes
 zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+bindkey "${terminfo[ht]}" complete-word
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' formats '%b '
