@@ -62,6 +62,7 @@
     ~/.config/starship.toml: config/starship-themes/default.toml
     ~/.config/.wgetrc: config/wgetrc
     ~/.config/brave-flags.conf: config/brave-flags.conf
+    ~/.config/environment.d: config/environment.d
     # Local
     ~/.local/share/sway: local/share/sway
     ~/.local/share/applications/brave-browser-vaapi.desktop: local/share/applications/brave-browser.desktop
@@ -74,7 +75,7 @@
     - '[[ -d ~/.local/share/containers ]] || (mkdir ~/.local/share/containers && chattr +C ~/.local/share/containers)'
     - '[[ -d ~/.local/nocow ]] || (mkdir ~/.local/nocow && chattr +C ~/.local/nocow)'
     - '[[ -d ~/OneDrive ]] || (mkdir ~/OneDrive && chattr +C ~/OneDrive)'
-    # - 'mv .cache cache.OLD && mkdir ~/.cache && chattr +C ~/.cache && cp --reflink=never -a cache.OLD/* .cache/ && rm -r cache.OLD'
+    - mv .cache cache.OLD && mkdir ~/.cache && chattr +C ~/.cache && cp --reflink=never -a cache.OLD/* .cache/ && rm -r cache.OLD
 # If not already present, create home directories
 - create:
     - ~/.bashrc.d
