@@ -12,3 +12,5 @@ org.cryptomator.Cryptomator
 org.gnome.Connections
 org.gtk.Gtk3theme.adw-gtk3-dark
 org.wezfurlong.wezterm
+org.dbgate.DbGate
+io.github.seadve.Kooha
