@@ -13,7 +13,6 @@ direnv
 dnf-plugin-versionlock
 dnf-utils
 duf
-eza
 gnome-tweaks
 git-crypt
 git-gui
@@ -32,10 +31,6 @@ git-lfs
 glib2-devel
 gnome-firmware
 gnome-shell-extension-appindicator
-gnome-shell-extension-caffeine
-gnome-shell-extension-just-perfection
-gnome-shell-extension-forge
-gnome-shell-extension-pop-shell
 gnome-shell-extension-user-theme
 gnome-tweaks
 go-task
@@ -50,7 +45,6 @@ libva
 libva-utils
 make
 ncdu
-neovim
 nvidia-vaapi-driver
 nvtop
 onedrive
