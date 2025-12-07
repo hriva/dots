@@ -8,7 +8,7 @@ io.podman_desktop.PodmanDesktop
 it.mijorus.gearlever
 md.obsidian.Obsidian
 org.cryptomator.Cryptomator
-org.gnome.Connections
+org.gtk.Gtk3theme.adw-gtk3
 org.gtk.Gtk3theme.adw-gtk3-dark
 org.dbgate.DbGate
 io.github.seadve.Kooha
