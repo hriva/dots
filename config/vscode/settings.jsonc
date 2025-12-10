@@ -166,6 +166,14 @@
       "before": ["<leader>", "d", "t"],
       "commands": ["workbench.files.action.compareFileWith"]
     },
+    {
+      "before": ["<leader>", "f", "R"],
+      "commands": ["workbench.action.replaceInFiles"]
+    },
+    {
+      "before": ["<leader>", "f", "w"],
+      "commands": ["workbench.action.findInFiles"]
+    },
     // LSP
     {
       "before": ["K"],
@@ -208,12 +216,20 @@
       "commands": ["editor.action.peekTypeDefinition"]
     },
     {
+      "before": ["<leader>", "f", "s"],
+      "commands": ["workbench.action.showAllSymbols"]
+    },
+    {
       "before": ["g", "r"],
       "commands": ["references-view.findReferences"]
     },
     {
       "before": ["g", "R"],
       "commands": ["editor.action.referenceSearch.trigger"]
+    },
+    {
+      "before": ["<leader>", "s", "d"],
+      "commands": ["workbench.actions.view.toggleProblems"]
     },
     // Git
     {
@@ -286,6 +302,18 @@
     {
       "before": ["<leader>", "/"],
       "commands": ["editor.action.commentLine"]
+    },
+    {
+      "before": ["<leader>", "g", "r"],
+      "commands": ["git.revertSelectedRanges"]
+    },
+    {
+      "before": ["<leader>", "g", "s"],
+      "commands": ["git.stageSelectedRanges"]
+    },
+    {
+      "before": ["<leader>", "g", "u"],
+      "commands": ["git.unstageSelectedRanges"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -309,7 +337,7 @@
   "git.openRepositoryInParentFolders": "always",
   "git.fetchOnPull": true,
   "explorer.confirmDelete": false,
-  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.env.linux": {
     "HISTFILE": "/home/alquimista/.vscode_history"
   },
@@ -324,5 +352,6 @@
     "editor.wordBasedSuggestions": "off",
     "editor.suggestOnTriggerCharacters": false
   },
-  "makefile.configureOnOpen": true
+  "makefile.configureOnOpen": true,
+  "testing.resultsView.layout": "treeLeft"
 }
