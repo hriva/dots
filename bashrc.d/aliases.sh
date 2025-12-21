@@ -7,8 +7,8 @@ export EDITOR=neovide
 export WGETRC=$HOME/.config/.wgetrc
 export MOZ_ENABLE_WAYLAND=1
 export _ZO_RESOLVE_SYMLINKS=0
-export BIOME_CONFIG_PATH=~/.config/biome/biome.json
-export RIPGREP_CONFIG_PATH=~/.config/ripgreprc
+export BIOME_CONFIG_PATH=$HOME/.config/biome/biome.json
+export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 export FZF_LAYOUT="--border=rounded"
 export FZF_DEFAULT_OPTS="--keep-right --info=inline --bind=ctrl-z:ignore,btab:up,tab:down $FZF_LAYOUT"
 export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --height=40% --exact --no-sort --cycle --tabstop=1 --exit-0 --layout=reverse"
@@ -77,6 +77,9 @@ alias quadlet-drun='/usr/libexec/podman/quadlet -dryrun'
 alias rpm-gpg-keys='rpm -q --qf "%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n" gpg-pubkey | sort -k 2'
 alias yesterday='date -d "yesterday 13:00" "+%Y-%m-%d"'
 alias ls-uniq='find . -maxdepth 1 -type f -exec md5sum {} + | sort | uniq -w 33'
+alias firewall-zones='sudo firewall-cmd --get-active-zones'
+alias firewall-drop-zone='sudo firewall-cmd --set-default-zone=drop'
+alias whatsmyip='curl https://www.cloudflare.com/cdn-cgi/trace/'
 
 # Search running processes
 alias p="ps aux | grep "
@@ -129,6 +132,11 @@ alias get-intel-epb='cat /sys/devices/system/cpu/cpu*/power/energy_perf_bias | u
 # Get path usage
 usage() {
     find "${1:-.}" -maxdepth 1 -type d -exec du -shx {} \; | sort -hr
+}
+
+firewall-chzone() {
+    sudo firewall-cmd --zone="$1" --change-interface="$2"
+
 }
 
 # convert ascii file to UTF-8
@@ -196,7 +204,7 @@ fw() {
     # -n causes line number to be printed
     # optional: -F treat search term as a literal, not a regular expression
     # optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
-    if whereis rg &>/dev/null; then
+    if which rg &>/dev/null; then
         rg -iHn --color=always -- "$1" "${2:-.}" | less -r
     else
         grep -iIHrn --color=always "$1" "${2:-.}" | less -r
