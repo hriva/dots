@@ -1,0 +1,21 @@
+approval_policy = "never"
+# Default settings
+model = "gpt-5"
+model_reasoning_effort = "high"
+
+# [mcp_servers.sequentialthinking]
+# startup_timeout_sec = 20
+# command = "podman"
+# args = [
+#   "run",
+#   "--rm",
+#   "-i",
+#   "-e",
+#   "DISABLE_THOUGHT_LOGGING=true",
+#   "mcp/sequentialthinking",
+# ]
+#
+# [mcp_servers.context7]
+# startup_timeout_sec = 20
+# command = "podman"
+# args = ["run", "--rm", "-i", "context7-mcp"]
