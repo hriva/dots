@@ -74,6 +74,7 @@
     - '[[ -d ~/.local/share/gnome-boxes ]] || (mkdir ~/.local/share/gnome-boxes && chattr +C ~/.local/share/gnome-boxes)'
     - '[[ -d ~/.local/share/containers ]] || (mkdir ~/.local/share/containers && chattr +C ~/.local/share/containers)'
     - '[[ -d ~/.local/nocow ]] || (mkdir ~/.local/nocow && chattr +C ~/.local/nocow)'
+    - '[[ -d ~/.local/share/libvirt ]] || (mkdir ~/.local/share/libvirt && chattr +C ~/.local/share/libvirt)'
     - '[[ -d ~/OneDrive ]] || (mkdir ~/OneDrive && chattr +C ~/OneDrive)'
     - mv .cache cache.OLD && mkdir ~/.cache && chattr +C ~/.cache && cp --reflink=never -a cache.OLD/* .cache/ && rm -r cache.OLD
 # If not already present, create home directories
