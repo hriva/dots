@@ -46,6 +46,11 @@ setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt SHARE_HISTORY
 bindkey -e
+bindkey ' ' magic-space
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line # edit line in $EDITOR
+bindkey '^X^U' redo # undo
 
 # End of lines configured by zsh-newuser-install
 zstyle -e ':autocomplete:list-choices:*' list-lines 'reply=( $(( LINES / 3 )) )'
