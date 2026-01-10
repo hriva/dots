@@ -45,6 +45,7 @@ libffi-devel
 libva
 libva-utils
 make
+nautilus-python
 ncdu
 nvidia-vaapi-driver
 nvtop
@@ -73,3 +74,13 @@ xarchiver
 zlib-devel
 zoxide
 zsh
+virt-install
+virt-manager
+virt-viewer
+kf5-filesystem
+libburn
+libisoburn
+libisofs
+python3-libvirt
+virt-manager-common
+xorriso
