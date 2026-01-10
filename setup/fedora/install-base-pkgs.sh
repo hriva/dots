@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+#
+# Official respository required package list
+
+PKG_LIST=(
+    https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-43.noarch.rpm
+    https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-43.noarch.rpm
+    adw-gtk3-theme
+    alacritty
+    autoconf
+    bash-doc
+    bat
+    btrbk
+    bzip2-devel
+    chkrootkit
+    dconf-editor
+    direnv
+    dnf-plugin-versionlock
+    dnf-utils
+    duf
+    gnome-tweaks
+    git-crypt
+    git-gui
+    celluloid
+    # clamav
+    # clamav-update
+    # clamd
+    cmake
+    cronie
+    easyeffects
+    fd-find
+    firewall-config
+    fzf
+    gedit
+    git-delta
+    git-lfs
+    glib2-devel
+    gnome-firmware
+    gnome-shell-extension-appindicator
+    gnome-shell-extension-user-theme
+    gnome-tweaks
+    go-task
+    gstreamer1-plugin-libav
+    gstreamer1-vaapi
+    gstreamer1-vaapi
+    htop
+    jq
+    kitty-kitten
+    libffi-devel
+    libva
+    libva-utils
+    make
+    nautilus-python
+    ncdu
+    nvidia-vaapi-driver
+    nvtop
+    onedrive
+    openssl-devel
+    pdfgrep
+    pkgconfig
+    powertop
+    profile-sync-daemon
+    python3.11
+    python3.11-devel
+    ranger
+    ripgrep
+    rkhunter
+    sassc
+    seahorse
+    setroubleshoot-server
+    trash-cli
+    unixODBC
+    unixODBC-devel
+    unhide
+    vdpauinfo
+    w3m-img
+    wget
+    xarchiver
+    zlib-devel
+    zoxide
+    zsh
+    virt-install
+    virt-manager
+    virt-viewer
+    kf5-filesystem
+    libburn
+    libisoburn
+    libisofs
+    python3-libvirt
+    virt-manager-common
+    xorriso
+)
+
+sudo dnf install -y --skip-broken "${PKG_LIST[@]}"
+
+NO_WEAK_DEPS_PKGS=(
+    nvim
+)
+
+sudo dnf install -y --skip-broken --setopt=install_weak_deps=False "${NO_WEAK_DEPS_PKGS[@]}"
