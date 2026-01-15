@@ -1,0 +1,195 @@
+# Pipes ╰─ ╭─
+# Powerline symbols                                     
+# Wedges 🭧🭒 🭣🭧🭓
+# Random noise 🬖🬥🬔🬗
+
+# right_format = """\
+# $cmd_duration
+# """
+
+format = """
+[🭃](fg:color_bg1)\
+$os\
+$directory\
+[](bg:color_bg3 fg:color_bg1)\
+$git_branch\
+$git_commit\
+$git_status\
+[](bg:color_blue fg:color_bg3)\
+$python\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$scala\
+$docker_context\
+[🭞](fg:color_blue)
+$character"""
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+# color_fg0 = '#fbf1c7'
+color_fg0 = '#fafaff'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[fill]
+symbol = ' '
+disabled = true
+
+# format = "[ ](fg:color_fg0 bg:color_bg1)[$hostname](fg:color_fg0 bg:color_bg1)"
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character] # The name of the module we are configuring is "character"
+success_symbol = "❯"
+error_symbol = "❯"
+vimcmd_symbol = "[❮](yellow)"
+# success_symbol = "[🭓](bold fg:blue)[ ➜ ](bold bg:blue fg:#000000)[](bold fg:blue)"
+#
+# error_symbol = "[🭒](bold fg:red)[ ✗ ](bold bg:red fg:#000000)[](bold fg:red)"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[line_break]
+disabled = false
+
+[os]
+disabled = false
+format = "[$symbol ](fg:color_fg0 bg:color_bg1)($style)"
+style = "bg:color_bg1"
+
+[os.symbols]
+Fedora = "󰣛"
+Debian = "󰣚"
+Ubuntu = ""
+Windows = ""
+
+[username]
+style_user = "bold bg:color_bg1 fg:color_fg0"
+style_root = "red bold"
+format = "[$user]($style)"
+disabled = true
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[@$hostname ](fg:color_fg0 bg:color_bg1)"
+trim_at = ".companyname.com"
+disabled = true
+
+[directory]
+style = "bg:color_bg1  fg:color_fg0"
+truncation_length = 2
+truncation_symbol = "./"
+format = '[$path ]($style)'
+
+[git_branch]
+symbol = ""
+style = "bg:color_bg3"
+format = '[ $branch](fg:#83a598 bg:color_bg3)($style)'
+truncation_length = 12
+
+[git_status]
+style = "bg:color_bg3"
+renamed = '» '
+modified = '!${count}'
+staged = ' +${count}'
+untracked = ' ?${count}'
+format = '[ $all_status$ahead_behind ](fg:#83a598 bg:color_bg3)($style)'
+
+[git_commit]
+format = '[\($hash$tag\) ](fg:#83a598 bg:color_bg3)($style)'
+style = "bg:color_bg3"
+only_detached = true
+tag_disabled = false
+disabled = false
+
+[memory_usage]
+disabled = true
+threshold = -1
+symbol = " "
+style = "bold dimmed blue"
+
+[docker_context]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol $context ](bg:color_blue fg:color_fg0)($style) $path'
+
+[elixir]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[elm]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[golang]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[java]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[julia]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[nim]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[rust]
+symbol = ""
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[python]
+symbol = " "
+style = "bg:color_blue"
+format = '[ ${symbol}${pyenv_prefix}(\($virtualenv\)) ](bg:color_blue fg:color_fg0)($style)'
+
+[scala]
+symbol = " "
+style = "bg:color_blue"
+format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
+
+[time]
+disabled = true
+time_format = "%R" # Hour:Minute Format
+#style = "bg:color_blue"
+format = '[ $time ]($style)'
+
+[cmd_duration]
+min_time = 0
+format = '[🬈🬖🬥🬅 ](bold bg:cyan fg:#000000)[time:$duration](bold bg:cyan fg:#000000)[ 🬖🬥🬔🬗](bold bg:cyan fg:#000000)'
