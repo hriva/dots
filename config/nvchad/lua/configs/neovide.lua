@@ -1,5 +1,5 @@
 -- vim.o.guifont = "Commit Mono NF:h16" -- text below applies for VimScript
-vim.o.guifont = "GeistMono Nerd Font:h16"
+-- vim.o.guifont = "GeistMono Nerd Font:h16"
 vim.o.linespace = -3
 vim.g.neovide_confirm_quit = true
 vim.g.neovide_detach_on_quit = "prompt"

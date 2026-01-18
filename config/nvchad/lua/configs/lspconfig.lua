@@ -33,21 +33,25 @@ local servers = {
 		},
 	},
 
+	ty = {
+		root_dir = function(bufnr, on_dir)
+			on_dir(vim.fn.getcwd())
+		end,
+		root_markers = {
+			"pyproject.toml",
+			"setup.py",
+			"setup.cfg",
+			"requirements.txt",
+			"Pipfile",
+			"pyrightconfig.json",
+			".git",
+		},
+	},
+
 	basedpyright = { -- python
-		-- root_dir = function(fname)
-		-- 	local root_files = {
-		-- 		"pyproject.toml",
-		-- 		"setup.py",
-		-- 		"setup.cfg",
-		-- 		"requirements.txt",
-		-- 		"Pipfile",
-		-- 		"pyrightconfig.json",
-		-- 		".git",
-		-- 	}
-		-- 	local primary = lspconfig.util.root_pattern(unpack(root_files))(fname)
-		-- 	local fallback = vim.fn.getcwd()
-		-- 	return primary or fallback
-		-- end,
+		root_dir = function(bufnr, on_dir)
+			on_dir(vim.fn.getcwd())
+		end,
 		single_file_support = true,
 		settings = {
 			basedpyright = {
@@ -68,7 +72,7 @@ local servers = {
 	},
 }
 
-local disabled_lsp = { "jedi_language_server" }
+local disabled_lsp = { "jedi_language_server", "basedpyright" }
 
 local disabled_lookup = {}
 for _, name in ipairs(disabled_lsp) do
