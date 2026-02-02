@@ -1,6 +1,6 @@
 return {
 	"yetone/avante.nvim",
-	enabled = true,
+	enabled = false,
 	cmd = { "AvanteToggle", "AvanteChat", "AvanteAsk" }, -- only load when needed
 	event = "VeryLazy",
 	lazy = true,
