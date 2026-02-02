@@ -56,6 +56,5 @@ pyenv-rm() {
 }
 
 pyenv-ls() {
-    PYTHON_VENV_DIRS="$HOME"/Code/.python_virt_environments
     /usr/bin/ls -a "$PYTHON_VENV_DIRS"
 }
