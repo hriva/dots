@@ -21,4 +21,4 @@ case "$2" in
     ;;
 esac
 
-jq "$2" "$1" | sed "$sed_str" | biome format --config-path="$BIOME_CONFIG_PATH" --skip-errors --stdin-file-path file.json
+jq "$2" "$1" | sed "$sed_str" | biome format --config-path="$BIOME_CONFIG_PATH" --stdin-file-path file.json
