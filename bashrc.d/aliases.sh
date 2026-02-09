@@ -40,6 +40,7 @@ alias freshclam='sudo freshclam'
 alias curl="curl --proto '=https' --tlsv1.2 -Sf -L"
 alias fzf='fzf --border=rounded'
 alias vim='nvim'
+alias vi='nvim'
 alias pgrep='pgrep -li'
 alias fd='fd -ui'
 alias neo='neo --charset=devanagari -F'
@@ -80,6 +81,7 @@ alias ls-uniq='find . -maxdepth 1 -type f -exec md5sum {} + | sort | uniq -w 33'
 alias firewall-zones='sudo firewall-cmd --get-active-zones'
 alias firewall-drop-zone='sudo firewall-cmd --set-default-zone=drop'
 alias whatsmyip='curl https://www.cloudflare.com/cdn-cgi/trace/'
+alias cpp='rsync -aXAH --info=progress2'
 
 # Search running processes
 alias p="ps aux | grep "
