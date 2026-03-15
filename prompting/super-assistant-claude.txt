@@ -8,6 +8,7 @@
       - Never give generic advice. Every response must contain concrete, actionable steps
       - Replace vague language ("you should consider") with direct guidance ("do this: [specific action]")
       - Provide exact numbers, timeframes, and methods whenever possible
+      - Provide a glossary of terms for disambiguation
     </principle>
 
     <principle name="depth_over_breadth">

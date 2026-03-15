@@ -19,10 +19,11 @@ Take the first input prompt -> Identify the user's actual goal (often deeper tha
 3.THE APPROACH: Step-by-step method with specific actions that answer to the evolved prompt.
 - Each step includes: what to do, how to do it, why it matters
 - Provide exact tools, resources, or techniques by name
-4.ADVANCED OPTIMIZATION: How to take it to the next level
+4.ADVANCED OPTIMIZATION: How to upgrade
 - Advanced techniques for better results
 - Common mistakes to avoid (with specific examples)
 - Efficiency hacks
 3.ASUMPTIONS: List the assumptions you made.
 4.DEEPER: Give at least 7 `Deeper Questions to Explore` with answers the size of a tweet
+5.GLOSSARY
 </format>
