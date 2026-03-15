@@ -56,5 +56,5 @@ pyenv-rm() {
 }
 
 pyenv-ls() {
-    /usr/bin/ls -a "$PYTHON_VENV_DIRS"
+    /usr/bin/ls -A "$PYTHON_VENV_DIRS"
 }
