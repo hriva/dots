@@ -52,7 +52,7 @@
     ~/.config/vale/.vale.ini: config/vale/.vale.ini
     ~/.config/waybar: config/waybar
     ~/.config/wezterm: config/wezterm
-    ~/.config/wofi: config/wofi
+    # ~/.config/wofi: config/wofi
     ~/.config/zellij: config/zellij
     ~/.config/zsh: config/zsh
     ~/.config/.curlrc: config/curlrc
@@ -76,6 +76,7 @@
     - '[[ -d ~/.local/nocow ]] || (mkdir ~/.local/nocow && chattr +C ~/.local/nocow)'
     - '[[ -d ~/.local/share/libvirt ]] || (mkdir ~/.local/share/libvirt && chattr +C ~/.local/share/libvirt)'
     - '[[ -d ~/OneDrive ]] || (mkdir ~/OneDrive && chattr +C ~/OneDrive)'
+    - 'chmod 755 ~/.local/share/zsh-completion && chmod 644 ~/.local/share/zsh-completion/*'
     - mv .cache cache.OLD && mkdir ~/.cache && chattr +C ~/.cache && cp --reflink=never -a cache.OLD/* .cache/ && rm -r cache.OLD
 # If not already present, create home directories
 - create:
