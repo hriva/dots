@@ -58,6 +58,7 @@
     ~/.config/.curlrc: config/curlrc
     ~/.config/Rprofile: config/Rprofile
     ~/.config/Renviron: config/Renviron
+    ~/.config/lintr: config/lintr
     ~/.config/ripgreprc: config/ripgreprc
     ~/.config/starship.toml: config/starship-themes/default.toml
     ~/.config/.wgetrc: config/wgetrc
