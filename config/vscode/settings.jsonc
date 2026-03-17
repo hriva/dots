@@ -52,8 +52,6 @@
   "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
   "editor.inlineSuggest.suppressSuggestions": true,
   "workbench.tree.enableStickyScroll": false,
-  // containers
-  "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
   // python
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
@@ -231,6 +229,7 @@
       "before": ["<leader>", "s", "d"],
       "commands": ["workbench.actions.view.toggleProblems"]
     },
+
     // Git
     {
       "before": ["[", "c"],
@@ -283,12 +282,28 @@
     {
       "before": ["<leader>", "/"],
       "commands": ["editor.action.commentLine"]
-    },
-    // Windsurf exclusive
-    {
-      "before": ["<leader>", "k"],
-      "commands": ["deepwiki.openSymbol"]
-    }
+    } //,
+    // // Windsurf exclusive
+    // {
+    //     "before": [
+    //         "<leader>",
+    //         "k"
+    //     ],
+    //     "commands": [
+    //         "deepwiki.openSymbol",
+    //     ]
+    // },
+    // // Codex exclusive
+    // {
+    //     "before": [
+    //         "<leader>",
+    //         "a",
+    //         "a"
+    //     ],
+    //     "commands": [
+    //         "chatgpt.addToThread",
+    //     ]
+    // }
   ],
   "vim.visualModeKeyBindings": [
     {
@@ -298,10 +313,6 @@
     {
       "before": ["<"],
       "commands": ["editor.action.outdentLines"]
-    },
-    {
-      "before": ["<leader>", "/"],
-      "commands": ["editor.action.commentLine"]
     },
     {
       "before": ["<leader>", "g", "r"],
@@ -314,6 +325,10 @@
     {
       "before": ["<leader>", "g", "u"],
       "commands": ["git.unstageSelectedRanges"]
+    },
+    {
+      "before": ["<leader>", "/"],
+      "commands": ["editor.action.commentLine"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -324,12 +339,9 @@
     }
   ],
   "vim.insertModeKeyBindingsNonRecursive": [],
-  "python.venvFolders": ["~/Code/.python_virt_environments"],
   "[shellscript]": {
     "editor.defaultFormatter": "mkhl.shfmt"
   },
-  "shfmt.executablePath": "/home/alquimista/.local/share/nvim/mason/bin/shfmt",
-  "emmet.extensionsPath": ["/home/alquimista/.config/code-snippets"],
   "githubPullRequests.pullBranch": "never",
   "window.zoomLevel": 1,
   "workbench.panel.defaultLocation": "right",
@@ -337,12 +349,11 @@
   "git.openRepositoryInParentFolders": "always",
   "git.fetchOnPull": true,
   "explorer.confirmDelete": false,
-  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.env.linux": {
     "HISTFILE": "/home/alquimista/.vscode_history"
   },
   "rest-client.previewColumn": "current",
-  "python.defaultInterpreterPath": "/home/alquimista/Code/.python_virt_environments/.devel-env/bin/python",
   "[plaintext]": {
     "editor.quickSuggestions": {
       "comments": "off",
@@ -353,5 +364,25 @@
     "editor.suggestOnTriggerCharacters": false
   },
   "makefile.configureOnOpen": true,
-  "testing.resultsView.layout": "treeLeft"
+  "remote.portsAttributes": {
+    "8000": {
+      "protocol": "http"
+    }
+  },
+  "breadcrumbs.enabled": false,
+  "search.useIgnoreFiles": true,
+  "redhat.telemetry.enabled": false,
+  "python.analysis.extraPaths": ["src", "lib", "resources"],
+  "editor.smoothScrolling": false,
+  "workbench.list.smoothScrolling": false,
+  "scm.diffDecorationsGutterWidth": 2,
+  "remote.autoForwardPortsSource": "hybrid",
+  "sqltools.format": {
+    "linesBetweenQueries": 2
+  },
+  "workbench.editor.closeOnFileDelete": true,
+  "[r]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Posit.air-vscode"
+  }
 }

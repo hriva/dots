@@ -102,6 +102,11 @@
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
+    "key": "g y",
+    "command": "copyRelativeFilePath",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
     "key": "f",
     "command": "explorer.newFolder",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
@@ -140,7 +145,42 @@
     "key": "ctrl+k",
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
+  },
+  {
+    "key": "] c",
+    "command": "multiDiffEditor.goToNextChange",
+    "when": "activeEditor == 'multiDiffEditor'"
+  },
+  {
+    "key": "alt+f5",
+    "command": "-multiDiffEditor.goToNextChange",
+    "when": "activeEditor == 'multiDiffEditor'"
+  },
+  {
+    "key": "[ c",
+    "command": "multiDiffEditor.goToPreviousChange",
+    "when": "activeEditor == 'multiDiffEditor'"
+  },
+  {
+    "key": "shift+alt+f5",
+    "command": "-multiDiffEditor.goToPreviousChange",
+    "when": "activeEditor == 'multiDiffEditor'"
+  },
+  {
+    "key": "ctrl+f5",
+    "command": "workbench.action.reloadWindow"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.reloadWindow",
+    "when": "isDevelopment"
+  },
+  {
+    "key": "ctrl+alt+b",
+    "command": "-r.runFromBeginningToLine",
+    "when": "editorTextFocus && editorLangId == 'r'"
   }
+
   // Windsurf
   // {
   //     "key": "ctrl+l",
