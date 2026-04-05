@@ -7,6 +7,11 @@ local map = vim.keymap.set
 local opt = vim.opt
 
 opt.clipboard = "unnamedplus"
+opt.ignorecase = true
+opt.smartcase = true
+opt.autoread = false -- sync buffers automatically
+opt.swapfile = false -- disable swapfile and showing the error
+opt.undofile = true
 
 local vscode = require("vscode-neovim")
 
@@ -15,9 +20,7 @@ local function VS(cmd, opts)
 end
 
 -- <C-n> :nohl
-map("n", "<C-n>", function()
-	vim.cmd("nohlsearch")
-end, { silent = true })
+map("n", "<C-n>", function() vim.cmd("nohlsearch") end, { silent = true })
 
 
 -- vim.normalModeKeyBindings keybindings
@@ -97,10 +100,22 @@ map("n", "<leader>gu", function() VS("git.unstageSelectedRanges") end)
 -- map("n", "u", function() VS("undo") end)
 -- map("n", "<C-r>", function() VS("redo") end)
 
-map("n", "<C-]>", function() VS("workbench.action.decreaseViewSize") end)
-map("n", "<C-[>", function() VS("workbench.action.increaseViewSize") end)
+map("v", "J", ":m '>+1<CR>gv-gv", { desc = "move selection down" })
+map("v", "K", ":m '<-2<CR>gv-gv", { desc = "move selection up" })
+map("n", "J", "mzJ`z", { desc = "append in place" })
+
+map("n", "<C-}>", function() VS("workbench.action.decreaseViewSize") end)
+-- C-[ is escapes ascii code & conflicts
+map("n", "<C-{>", function() VS("workbench.action.increaseViewSize") end)
 
 map("n", "<leader>/", function() VS("editor.action.commentLine") end)
+map("n", "p", "pgvy", { noremap = true, silent = true })
+
+map("n", "<C-d>", "<C-d>zz", { desc = "page half down centered" })
+map("n", "<C-u>", "<C-u>zz", { desc = "page half up centered" })
+map("n", "n", "nzzzv", { desc = "next search and center" })
+map("n", "N", "Nzzzv", { desc = "prev search and center" })
+map("n", "x", '"_x', { noremap = true, silent = true, desc = "cut witouth clipboard" })
 
 -- vim.visualModeKeyBindings
 
@@ -116,6 +131,9 @@ map("x", "<leader>gu", function() VS("git.unstageSelectedRanges") end)
 -- =========================
 
 map("x", "<leader>/", function() VS("editor.action.commentLine") end)
+map("x", "x", '"_x', { noremap = true, silent = true, desc = "cut witouth clipboard" })
+map("x", "<", "<gv", { noremap = true, silent = true })
+map("x", ">", ">gv", { noremap = true, silent = true })
 
 -- vim.visualModeKeyBindingsNonRecursive (special p)
 map("x", "p", "pgvy", { noremap = true, silent = true })
