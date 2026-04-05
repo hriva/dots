@@ -87,6 +87,7 @@
 	wta = worktree add
 	wtls = worktree list
 	wtrm = worktree remove
+    undo = reset --soft HEAD~1
 
 [include]
 	path = main-user

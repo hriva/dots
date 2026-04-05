@@ -301,3 +301,11 @@ img2png() {
         -define png:exclude-chunk=all \
         "${1%.*}.png"
 }
+
+ports() {
+    lsof -iTCP -sTCP:LISTEN -P -n
+}
+
+tre() {
+    tree -aC -I '.git|node_modules|vendor|__pycache__' --dirsfirst "$@" | less -FRNX
+}
