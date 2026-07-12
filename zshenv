@@ -4,6 +4,7 @@ export HISTORY_IGNORE='(cd *|htop|vi *|vim|z *|z -|la *|git pull|git push|ranger
 export __DISABLE_ZPLUGINS=1
 export RCS=1
 export GLOBAL_RCS=1
+export UV_EXCLUDE_NEWER="P3D"
 
 # https://github.com/sorin-ionescu/prezto/blob/master/runcoms/zshenv
 # Ensure that a non-login, non-interactive shell has a defined environment.
