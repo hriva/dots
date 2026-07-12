@@ -1,8 +1,53 @@
-approval_policy = "never"
-# Default settings
-model = "gpt-5"
-model_reasoning_effort = "high"
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+personality = "pragmatic"
+web_search = "live"
+background_terminal_max_timeout = 60000 # 1m
+service_tier = "default"
+# service_tier = "flex" # gh issue hits at default on api
+project_doc_fallback_filenames = ["CLAUDE.md"]
+# default_permissions = "project-edit"
 
+[notice]
+fast_default_opt_out = true
+
+[notice.model_migrations]
+"gpt-5.1" = "gpt-5.1-codex-max"
+"gpt-5.2" = "gpt-5.2-codex"
+"gpt-5.4" = "gpt-5.5"
+
+[features]
+skills = true
+multi_agent = true
+fast_mode = false
+memories = true
+terminal_resize_reflow = true
+
+# [permissions.project-edit.filesystem]
+# glob_scan_max_depth=4
+#
+# [permissions.project-edit.filesystem.":workspace_roots"]
+# "." = "write"
+# ".context" = "deny"
+# "**/*.env" = "deny"
+
+[tui]
+status_line = [
+  "current-dir",
+  "git-branch",
+  "model-with-reasoning",
+  "context-remaining",
+  "five-hour-limit",
+  "weekly-limit",
+]
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+
+# [mcp_servers.mempalace]
+# startup_timeout_sec = 20
+# command = "podman"
+# args = ["run", "--rm", "-i", "mempalace"]
 # [mcp_servers.sequentialthinking]
 # startup_timeout_sec = 20
 # command = "podman"
