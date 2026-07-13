@@ -1,0 +1,20 @@
+{
+  "defaultModel": "minimax-m3:cloud",
+  "defaultProvider": "ollama-cloud",
+  "lastChangelogVersion": "0.80.6",
+  "packages": [
+    "npm:@ollama/pi-web-search"
+  ],
+  "theme": "light",
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "enableInstallTelemetry": true,
+  "enabledModels": [
+    "ollama-cloud/gemma4:31b-cloud",
+    "ollama-cloud/minimax-m3:cloud",
+    "ollama-cloud/deepseek-v4-flash:cloud"
+  ],
+  "defaultThinkingLevel": "medium",
+  "editorPaddingX": 0
+}
