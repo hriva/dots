@@ -1,0 +1,9 @@
+[soe][Equalizer#0#left]
+band0Gain=9.43
+band1Gain=7.77
+band2Gain=5.34
+
+[soe][Equalizer#0#right]
+band0Gain=9.43
+band1Gain=7.77
+band2Gain=5.34
