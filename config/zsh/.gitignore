@@ -3,5 +3,6 @@
 *zsh-autocomplete
 *.zcompdump*
 *.BAK
-*.zwc
+*.zwc*
 *compile/
+.zcalc_history

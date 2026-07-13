@@ -245,8 +245,8 @@ data/
 .context/
 .cursorignore
 .codeiumignore
+.databricks/
 *.ignore.*
-example-codebases
 
 # linux symlinks (no '/' for dirs)
 .ignore
@@ -256,6 +256,13 @@ example-codebases
 .context
 package-lock.json
 
+AGENTS.md
+CLAUDE.md
+.agents/
+.codex/
+.claude/
+
 # test
 .integration_tests
 test_hidden
+config/codex/AGENTS.md
