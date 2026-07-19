@@ -26,6 +26,9 @@
     },
     {
       "class": "org.gnome.Boxes"
+    },
+    {
+      "class": "python3"
     }
   ],
   "skiptaskbarhidden": [],
