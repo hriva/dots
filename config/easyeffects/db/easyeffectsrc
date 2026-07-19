@@ -2,7 +2,7 @@
 lastLoadedOutputPreset=JBL
 
 [StreamInputs]
-inputDevice=bluez_input.84:D3:52:BC:A3:DD
+inputDevice=alsa_input.pci-0000_65_00.6.analog-stereo
 visiblePage=pluginsPage
 
 [StreamOutputs]
