@@ -104,12 +104,11 @@ map("v", "J", ":m '>+1<CR>gv-gv", { desc = "move selection down" })
 map("v", "K", ":m '<-2<CR>gv-gv", { desc = "move selection up" })
 map("n", "J", "mzJ`z", { desc = "append in place" })
 
-map("n", "<C-}>", function() VS("workbench.action.decreaseViewSize") end)
+map("n", "<C-w>-", function() VS("workbench.action.decreaseViewSize") end)
 -- C-[ is escapes ascii code & conflicts
-map("n", "<C-{>", function() VS("workbench.action.increaseViewSize") end)
+map("n", "<C-w>+", function() VS("workbench.action.increaseViewSize") end)
 
 map("n", "<leader>/", function() VS("editor.action.commentLine") end)
-map("n", "p", "pgvy", { noremap = true, silent = true })
 
 map("n", "<C-d>", "<C-d>zz", { desc = "page half down centered" })
 map("n", "<C-u>", "<C-u>zz", { desc = "page half up centered" })
@@ -134,6 +133,8 @@ map("x", "<leader>/", function() VS("editor.action.commentLine") end)
 map("x", "x", '"_x', { noremap = true, silent = true, desc = "cut witouth clipboard" })
 map("x", "<", "<gv", { noremap = true, silent = true })
 map("x", ">", ">gv", { noremap = true, silent = true })
+
+map("x", "<leader>aa", function() VS("chatgpt.addToThread") end)
 
 -- vim.visualModeKeyBindingsNonRecursive (special p)
 map("x", "p", "pgvy", { noremap = true, silent = true })
