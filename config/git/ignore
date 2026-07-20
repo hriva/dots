@@ -261,6 +261,7 @@ CLAUDE.md
 .agents/
 .codex/
 .claude/
+.databricks.yml
 
 # test
 .integration_tests
