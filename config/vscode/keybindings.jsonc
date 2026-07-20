@@ -191,6 +191,26 @@
     "when": "editorTextFocus && neovim.ctrlKeysNormal.b && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
   },
   {
+    "key": "alt+f5",
+    "command": "-workbench.action.compareEditor.nextChange",
+    "when": "textCompareEditorVisible"
+  },
+  {
+    "key": "] c",
+    "command": "-workbench.action.compareEditor.nextChange",
+    "when": "editorTextFocus && textCompareEditorVisible"
+  },
+  {
+    "key": "shift+alt+f5",
+    "command": "-workbench.action.compareEditor.previousChange",
+    "when": "textCompareEditorVisible"
+  },
+  {
+    "key": "[ c",
+    "command": "workbench.action.compareEditor.previousChange",
+    "when": "editorTextFocus && textCompareEditorVisible"
+  },
+  {
     "key": "shift+alt+j",
     "command": "workbench.action.moveEditorRightInGroup",
     "when": "editorFocus || editorIsOpen"

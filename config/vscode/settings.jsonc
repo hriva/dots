@@ -107,7 +107,8 @@
   },
   // To improve performance
   "extensions.experimental.affinity": {
-    "vscodevim.vim": 1
+    "vscodevim.vim": 1,
+    "asvetliakov.vscode-neovim": 1
   },
   "vim.insertModeKeyBindings": [
     {
@@ -369,7 +370,6 @@
       "protocol": "http"
     }
   },
-  "breadcrumbs.enabled": false,
   "search.useIgnoreFiles": true,
   "redhat.telemetry.enabled": false,
   "python.analysis.extraPaths": ["src", "lib", "resources"],
@@ -377,6 +377,7 @@
   "workbench.list.smoothScrolling": false,
   "scm.diffDecorationsGutterWidth": 2,
   "remote.autoForwardPortsSource": "hybrid",
+  "sqltools.highlightQuery": false,
   "sqltools.format": {
     "linesBetweenQueries": 2
   },
@@ -384,5 +385,7 @@
   "[r]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "Posit.air-vscode"
-  }
+  },
+  "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
+  "breadcrumbs.enabled": false
 }
