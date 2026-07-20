@@ -21,8 +21,7 @@ map("n", "<leader>mr", "<cmd>!chmod 660 %<cr>", { desc = "make read/write", sile
 map("n", "<leader>q", "<cmd>bufdo bwipeout<cr>", { desc = "buffer quit all", silent = true })
 
 -- Pasting
-map("n", ",", '"0p', { desc = "paste last yank", noremap = true })
-map("v", ",", '"0p', { desc = "paste last yank", noremap = true })
+map("x", "p", '"_dP', { noremap = true, silent = true, desc = "paste no overwrite" })
 
 -- Spelling
 map("n", "<leader>ss", ":setlocal spell spelllang=es<cr>", { desc = "spelling es", noremap = true })
