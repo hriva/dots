@@ -11,7 +11,8 @@ local function font_with_fallback(name, params)
 	return wezterm.font_with_fallback(names, params)
 end
 
-local font_name = "CommitMono Nerd Font"
+-- local font_name = "CommitMono Nerd Font"
+local font_name = "BlexMono Nerd Font"
 local font_params = { weight = "Regular", stretch = "UltraCondensed", style = "Normal", bold = false }
 local colors = require("lua/japanesque").colors()
 local window_frame = require("lua/japanesque").window_frame()
@@ -36,9 +37,9 @@ return {
 		},
 	},
 	harfbuzz_features = { "cv05", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum" },
-	font_size = 16,
+	font_size = 17,
 	warn_about_missing_glyphs = false,
-	line_height = 1.01,
+	line_height = 0.90,
 	cell_width = 0.90,
 
 	-- OpenGL for GPU acceleration, Software for CPU
