@@ -7,7 +7,7 @@ visiblePage=pluginsPage
 
 [StreamOutputs]
 mostUsedPresets=JBL
-outputDevice=bluez_output.84_D3_52_BC_A3_DD.1
+outputDevice=alsa_output.pci-0000_65_00.6.analog-stereo
 plugins=bass_enhancer#0,equalizer#0,maximizer#0
 usedPresets=JBL:5
 visiblePage=pluginsPage
