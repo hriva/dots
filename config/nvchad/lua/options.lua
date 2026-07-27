@@ -3,6 +3,19 @@ local opt = vim.opt
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
+opt.clipboard = "unnamedplus"
+vim.g.clipboard = {
+	name = "OSC 52",
+	copy = {
+		["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+		["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+	},
+	paste = {
+		["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+		["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+	},
+}
+
 -- vscode format i.e json files
 vim.g.vscode_snippets_path = vim.fn.expand("~/.config/code-snippets")
 opt.guicursor = "n:block-iCursor-blinkwait300-blinkon200-blinkoff150,v-c-sm:block,i-ci-ve:ver25-Cursor,r-cr-o:hor20"
