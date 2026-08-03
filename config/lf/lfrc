@@ -2,13 +2,12 @@
 set previewer ~/.config/lf/sixel.sh
 set cleaner ~/.config/lf/cleaner
 set preview true
-set sixel true
 set cursorpreviewfmt ""
 set info size:time
 set watch true  # Polling for updates
 set dircounts
 set drawbox true
-set roundbox true
+set borderstyle roundbox
 set showbinds true
 set icons true
 set hidden true
