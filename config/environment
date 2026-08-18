@@ -1,0 +1,67 @@
+#!/usr/bin/env sh
+#
+# User Session Enviroment Variables
+# shellcheck shell=bash disable=SC2034
+# vi:ft=sh
+
+export USER_ENV_LOADED=1
+# system
+export SYSTEMD_EDITOR=vim
+export ENV_D=1
+export EDITOR=vim
+export MOZ_ENABLE_WAYLAND=1
+# VISUAL=neovide
+
+# qol
+export FZF_LAYOUT="--border=rounded"
+export FZF_DEFAULT_OPTS="--keep-right --info=inline --bind=ctrl-z:ignore,btab:up,tab:down $FZF_LAYOUT"
+export _ZO_FZF_OPTS="$FZF_DEFAULT_OPTS --height=40% --exact --no-sort --cycle --tabstop=1 --exit-0 --layout=reverse"
+export _ZO_RESOLVE_SYMLINKS=0
+export BAT_THEME=GitHub
+
+# Config overrides
+export FNM_PATH="${XDG_DATA_HOME:-${HOME}/.local/share}"/fnm
+export NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-${HOME}/.cache}"/npm
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}"/.npmrc
+export YARN_CACHE_FOLDER="${XDG_CACHE_HOME:-${HOME}/.cache}"/yarn
+export VSCODE_EXTENSIONS="${XDG_DATA_HOME:-${HOME}/.local/share}"/vscode-extensions
+export BUN_INSTALL="${XDG_DATA_HOME:-${HOME}/.local/share}"/bun
+export BUN_INSTALL_CACHE_DIR="${XDG_CACHE_HOME:-${HOME}/.cache}"/bun/install/cache
+export BIOME_CONFIG_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}"/biome/biome.json
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}"/ripgreprc
+export CODEX_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"/codex
+export CODEX_SQLITE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"/codex-sqlite
+export CODEX_INSTALLER_USE_RELEASES_OPENAI_COM=0
+export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"/claude
+export PI_CODING_AGENT_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"/pi
+export UV_EXCLUDE_NEWER="P3D"
+
+# QT
+# Use one only or per package
+# QT_FONT_DPI=115
+# QT_SCALE_FACTOR=1.2
+
+# Containers
+export DOCKER_HOST="unix://${XDG_RUNTIME_DIR:-/run/user/${UID}}/podman/podman.sock"
+export DOCKER_CONFIG="${XDG_DATA_HOME:-${HOME}/.local/share}"/docker
+export PODMAN_COMPOSE_WARNING_LOGS=false
+
+# R
+export R_LIBS_USER="$HOME"/.local/lib/R/library
+export R_LIBS_SITE=/usr/local/lib/R/site-library:/usr/local/lib/R/library:/usr/lib64/R/library:/usr/share/R/library
+export R_PROFILE_USER="${XDG_CONFIG_HOME:-${HOME}/.config}"/Rprofile
+export R_ENVIRON_USER="${XDG_CONFIG_HOME:-${HOME}/.config}"/Renviron
+export R_LINTR_LINTER_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}"/lintr
+
+# pkgconfig
+export PKG_CONFIG_PATH=/usr/bin/pkgconfig:/usr/bin/x86_64-redhat-linux-gnu-pkg-config
+
+# PATH Deduplication
+case ":${PATH}:" in
+*:"${HOME}/.local/bin":*) ;;
+*) export PATH="${HOME}/.local/bin:${PATH}" ;;
+esac
+case ":${PATH}:" in
+*:"${BUN_INSTALL}/bin":*) ;;
+*) export PATH="${BUN_INSTALL}/bin:${PATH}" ;;
+esac
