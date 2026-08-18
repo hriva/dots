@@ -1,5 +1,8 @@
 # .bash_profile
 
+USER_ENV_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/environment"
+[[ -f "$USER_ENV_FILE" ]] && source "$USER_ENV_FILE"
+
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
