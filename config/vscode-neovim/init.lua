@@ -138,5 +138,8 @@ map("x", "<leader>aa", function() VS("chatgpt.addToThread") end)
 
 -- vim.visualModeKeyBindingsNonRecursive (special p)
 map("x", "p", "pgvy", { noremap = true, silent = true })
+map("v", "x", '"_x', { noremap = true, silent = true, desc = "cut witouth clipboard" })
+map("v", "<", "<gv", { noremap = true, silent = true })
+map("v", ">", ">gv", { noremap = true, silent = true })
 
 -- end
