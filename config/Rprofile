@@ -15,10 +15,12 @@ if (requireNamespace("lintr", quietly = TRUE)) {
             indentation_linter = NULL,
             equals_na_linter = NULL,
             return_linter = NULL,
+            quotes_linter = NULL,
             object_name_linter = lintr::object_name_linter(
                 styles = c("snake_case", "camelCase", "symbols"),
                 regexes = character()
-            )
+            ),
+            pipe_consistency_linter = lintr::pipe_consistency_linter("auto")
         )
     )
 }
