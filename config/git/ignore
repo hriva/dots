@@ -235,35 +235,47 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Databricks
+.databricks.yml
+databricks.yml
+.databricks/
+
 # Local Scratchpads
 Session.vim
 data/
-.ignore/
+*.ignore/
 *.vscode/
 *.windsurf/
 *.cursor/
-.context/
+*.context/
 .cursorignore
 .codeiumignore
 .databricks/
 *.ignore.*
+*.patch
+.python-version
+sgconfig.yml
 
 # linux symlinks (no '/' for dirs)
-.ignore
+*.ignore
 *.vscode
 *.windsurf
 *.cursor
 .context
 package-lock.json
 
+# Agents
 AGENTS.md
 CLAUDE.md
+CONTEXT.md
 .agents/
 .codex/
 .claude/
-.databricks.yml
+*.specify/
 
 # test
 .integration_tests
 test_hidden
+lessons.md
+
 config/codex/AGENTS.md
