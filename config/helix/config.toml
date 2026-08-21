@@ -1,4 +1,4 @@
-theme = "ayu_dark"
+theme = "adwaita-light"
 
 [editor]
 line-number = "absolute"
