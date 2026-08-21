@@ -82,6 +82,7 @@ Fedora = "󰣛"
 Debian = "󰣚"
 Ubuntu = ""
 Windows = ""
+Macos = ""
 
 [username]
 style_user = "bold bg:color_bg1 fg:color_fg0"

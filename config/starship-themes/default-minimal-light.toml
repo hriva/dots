@@ -75,6 +75,7 @@ Fedora = "󰣛"
 Debian = "󰣚"
 Ubuntu = ""
 Windows = ""
+Macos = ""
 
 [character]
 success_symbol = "❯"
