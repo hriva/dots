@@ -1,23 +1,27 @@
 theme = light:iTerm2 Light Background,dark:Japanesque
 #font-family = "Commit Mono NF"
 
-# secondary font
-font-family = "BlexMono Nerd Font"
-adjust-cell-height = -16%
-# font-family = "GeistMono Nerd Font"
-# adjust-cell-height = -17%
-
-font-size=14
+# Font
+# Blex mono Settings
+font-family = "GeistMono Nerd Font Propo"
+adjust-cell-height = -17%
 font-feature = calt, liga, dlig
-window-padding-x=6
-window-padding-y=6
+
+# Window
 # window-decoration = server
+window-padding-x=5
+window-padding-y=5,1
 gtk-titlebar = false
 adw-toolbar-style = flat
 gtk-tabs-location = hidden
+# background-opacity = 0.85
+# background-blur = true
 resize-overlay = never
+progress-style = false
 
+# Shell
 shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = true
-# async-backend = epoll
+
+config-file = ?overrides.config
