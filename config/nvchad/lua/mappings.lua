@@ -63,6 +63,11 @@ if vim.fn.exists(":DBUIToggle") == 2 then
 	map("n", "<leader>v", "<cmd>DBUIToggle<CR>", { desc = "dadbod toggle ui" })
 end
 
+-- mini.ai
+-- Register `e, souround and encase in quoutes
+-- vim.fn.setreg("e", 'vawsa"x')
+vim.fn.setreg("e", 'vawsa"')
+
 -- Disable mappings
 local nomap = vim.keymap.del
 nomap("n", "<leader>h") -- disable horizontal term
