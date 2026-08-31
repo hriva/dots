@@ -265,6 +265,8 @@ plugins {
     }
 }
 
+scroll_mode_sync false
+
 // Plugins to load in the background when a new session starts
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
