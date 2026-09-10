@@ -29,6 +29,10 @@
     },
     {
       "class": "python3"
+    },
+    {
+      "class": "io.github.bugaevc.wl-clipboard",
+      "title": "wl-clipboard"
     }
   ],
   "skiptaskbarhidden": [],
