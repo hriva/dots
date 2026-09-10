@@ -218,3 +218,11 @@ command = "battery-time"        # shows output of command
 # when = """ [[ $OSTYPE == "linux-gnu" ]] && echo 1 """
 when = true
 os = "linux"
+
+[profiles]
+transient = """
+$character\
+"""
+
+rtransient = """
+"""

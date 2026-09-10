@@ -194,3 +194,11 @@ format = '[ $time ]($style)'
 [cmd_duration]
 min_time = 0
 format = '[🬈🬖🬥🬅 ](bold bg:cyan fg:#000000)[time:$duration](bold bg:cyan fg:#000000)[ 🬖🬥🬔🬗](bold bg:cyan fg:#000000)'
+
+[profiles]
+transient = """
+$character\
+"""
+
+rtransient = """
+"""
