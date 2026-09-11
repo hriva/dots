@@ -207,14 +207,14 @@ fw() {
     # optional: -F treat search term as a literal, not a regular expression
     # optional: -l only print filenames and not the matching lines ex. grep -irl "$1" *
     if which rg &>/dev/null; then
-        rg -iHn --color=always -- "$1" "${2:-.}" | less -r
+        rg -iHn --color=always -- "$1" "${2:-.}" 2>/dev/null | less -r
     else
-        grep -iIHrn --color=always "$1" "${2:-.}" | less -r
+        grep -iIHrn --color=always "$1" "${2:-.}" 2>/dev/null | less -r
     fi
 }
 
 ffw() {
-    grep -iIrl "$1" "${2:-.}" |
+    grep -iIrl "$1" "${2:-.}" 2>/dev/null |
         fzf --layout=default --height=100% --preview='bat --style=numbers --color=always --line-range :1000 {}'
 }
 
