@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 set -o errexit -o nounset -o pipefail -o errtrace
 if [[ "${TRACE-0}" == "1" ]]; then
@@ -23,12 +23,14 @@ draw() {
     kitten icat --stdin no --transfer-mode memory --place "${PV_WIDTH}x${PV_HEIGHT}@${X}x${Y}" "$1" </dev/null >/dev/tty
 }
 
-if [[ $TERM_PROGRAM != ghostty ]]; then
-    USE_SIXEL=true
+if [[ "${TERM_PROGRAM+x}" ]]; then
+    if [[ $TERM_PROGRAM != ghostty ]]; then
+        USE_SIXEL=true
 
-    draw() {
-        chafa -f sixels -s "$PV_WIDTH"x"$PV_HEIGHT" --animate off --polite on "$1"
-    }
+        draw() {
+            chafa -f sixels -s "$PV_WIDTH"x"$PV_HEIGHT" --animate off --polite on "$1"
+        }
+    fi
 fi
 
 case "$(file -Lb --mime-type -- "$FILE_PATH")" in

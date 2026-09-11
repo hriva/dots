@@ -32,13 +32,14 @@ cmd edit-config ${{
     $EDITOR ~/.config/lf/lfrc
     lf -remote "send $id source ~/.config/lf/lfrc"
 }}
-cmd trash ${{
+
+# Overwrite delete command
+cmd delete ${{
     set -f
     if gio trash 2>/dev/null; then
         gio trash $fx
     else
-        mkdir -p ~/.trash
-        mv -- $fx ~/.trash
+        trash-put $fx
     fi
 }}
 
@@ -53,6 +54,6 @@ map <delete> trash
 map ` !true # show  result of previous commands
 map a :push %mkdir<space>
 
-# Trashcli
+# cmd with trash cli
 cmd trash %trash-put $fx
-map D trash
+map D trash  # to avoid flicker
