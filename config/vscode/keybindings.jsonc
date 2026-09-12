@@ -1,5 +1,9 @@
 [
   {
+    "key": "ctrl+f5",
+    "command": "workbench.action.reloadWindow"
+  },
+  {
     "key": "alt+b",
     "command": "workbench.action.toggleActivityBarVisibility"
   },
@@ -167,10 +171,6 @@
     "when": "activeEditor == 'multiDiffEditor'"
   },
   {
-    "key": "ctrl+f5",
-    "command": "workbench.action.reloadWindow"
-  },
-  {
     "key": "ctrl+r",
     "command": "-workbench.action.reloadWindow",
     "when": "isDevelopment"
@@ -197,8 +197,8 @@
   },
   {
     "key": "] c",
-    "command": "-workbench.action.compareEditor.nextChange",
-    "when": "editorTextFocus && textCompareEditorVisible"
+    "command": "workbench.action.compareEditor.nextChange",
+    "when": "textCompareEditorVisible && editorTextFocus"
   },
   {
     "key": "shift+alt+f5",
@@ -208,7 +208,7 @@
   {
     "key": "[ c",
     "command": "workbench.action.compareEditor.previousChange",
-    "when": "editorTextFocus && textCompareEditorVisible"
+    "when": "textCompareEditorVisible && editorTextFocus"
   },
   {
     "key": "shift+alt+j",
@@ -219,6 +219,47 @@
     "key": "shift+alt+k",
     "command": "workbench.action.moveEditorLeftInGroup",
     "when": "editorFocus || editorIsOpen"
+  },
+  // vert terminal
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  // vscode-neovim
+  {
+    "key": "ctrl+[",
+    "command": "-editor.action.outdentLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    // escape fix
+    "key": "ctrl+[",
+    "command": "vscode-neovim.send",
+    "when": "editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'",
+    "args": "<C-["
+  },
+  {
+    "key": "ctrl+[",
+    "command": "-vscode-neovim.send",
+    "when": "editorTextFocus && neovim.init && editorLangId not in 'neovim.editorLangIdExclusions'"
+  },
+
+  // vscodevim
+  {
+    "key": "escape",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "panelFocus && activePanel == 'workbenc.panel.markers'"
+  },
+  {
+    "key": "escape",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "panelFocus && activePanel == 'workbenc.panel.output'"
+  },
+  {
+    "key": "ctrl+alt+r",
+    "command": "extension.vim_escape",
+    "when": "vim.active"
   }
 
   // Windsurf

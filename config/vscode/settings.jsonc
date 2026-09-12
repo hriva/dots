@@ -1,72 +1,70 @@
 {
   // VSCode
   "workbench.colorTheme": "Tokyo Night Light",
+  "workbench.experimental.modernUI": false,
+  "window.zoomLevel": 1,
   "github.copilot.chat.agent.thinkingTool": true,
   "github.copilot.chat.enableRetryAfterFilteredResponse": true,
   "github.copilot.chat.newWorkspace.useContext7": true,
   "chat.disableAIFeatures": true,
+  "chat.editor.wordWrap": "on",
   "chat.commandCenter.enabled": false,
-  // General
-  "editor.fontSize": 16,
-  "git.autofetch": true,
-  "editor.minimap.enabled": false,
-  "editor.cursorSurroundingLines": 8,
-  "workbench.editor.tabSizing": "shrink",
-  "window.density.editorTabHeight": "compact",
-  "workbench.editor.editorActionsLocation": "titleBar",
-  "workbench.activityBar.location": "top",
 
-  // typo
+  // System
+  "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "always",
+  "git.fetchOnPull": true,
+  "scm.diffDecorationsGutterWidth": 2,
+  "search.useIgnoreFiles": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "breadcrumbs.enabled": false,
   "editor.fontFamily": "'GeistMono NFM'",
+  "editor.fontSize": 15,
   "editor.lineHeight": 16,
+  // "editor.fontWeight": 300,
   "editor.suggestFontSize": 16,
   "editor.suggestLineHeight": 30,
-  "terminal.integrated.lineHeight": 1.0,
   "editor.wordWrap": "on",
-  "terminal.integrated.fontSize": 16,
   "editor.cursorStyle": "block",
   "editor.padding.top": 5,
   "editor.stickyScroll.enabled": true,
   "editor.cursorBlinking": "smooth",
-  "terminal.integrated.cursorBlinking": true,
   "editor.tabSize": 4,
   "editor.inlineSuggest.enabled": true,
-  // main
-  "workbench.editor.highlightModifiedTabs": true,
-  "workbench.editor.tabSizingFixedMinWidth": 38,
-  "editor.copyWithSyntaxHighlighting": false,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "editor.emptySelectionClipboard": false,
-  "workbench.editor.enablePreview": false,
-  // "files.trimTrailingWhitespace": true,
-  "diffEditor.renderSideBySide": true,
-  "editor.snippetSuggestions": "top",
-  "editor.detectIndentation": true,
-  // "workbench.editor.showTabs": "none",
-  "editor.guides.indentation": true,
-  "editor.linkedEditing": true,
-  "editor.accessibilitySupport": "off",
-  "chat.editor.wordWrap": "on",
-  "notebook.output.wordWrap": true,
-  "diffEditor.wordWrap": "on",
+  "editor.renderControlCharacters": false,
   "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
   "editor.inlineSuggest.suppressSuggestions": true,
+  "editor.snippetSuggestions": "top",
+  "editor.detectIndentation": true,
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.emptySelectionClipboard": false,
+  "editor.guides.indentation": true,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.cursorSurroundingLines": 8,
+  "editor.accessibilitySupport": "off",
+  "editor.smoothScrolling": false,
+  "workbench.list.smoothScrolling": false,
+  "workbench.panel.defaultLocation": "right",
+  "window.density.editorTabHeight": "compact",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.tabSizingFixedMinWidth": 38,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.closeOnFileDelete": true,
   "workbench.tree.enableStickyScroll": false,
-  // python
-  "[python]": {
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.formatOnType": true,
-    "editor.formatOnSave": true,
-    "diffEditor.ignoreTrimWhitespace": false
-  },
-  "autoDocstring.docstringFormat": "sphinx",
-  "python.terminal.activateEnvInCurrentTerminal": true,
-  "python.analysis.autoImportCompletions": true,
-  "python.analysis.fixAll": ["source.unusedImports"],
+  "workbench.browser.showInTitleBar": "whenOpen",
+  "workbench.editorLargeFileConfirmation": 50,
+  "workbench.navigationControl.enabled": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+  "diffEditor.wordWrap": "on",
+  // "workbench.editor.showTabs": "none",
+  // "files.trimTrailingWhitespace": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "workbench.activityBar.location": "top",
   "files.autoSave": "afterDelay",
-  "notebook.output.scrolling": true,
-  "jupyter.themeMatplotlibPlots": true,
-  "jupyter.widgetScriptSources": ["unpkg.com", "jsdelivr.com"],
   "files.exclude": {
     "**./.env": true,
     "**/.csv": true,
@@ -89,12 +87,46 @@
     "**/.git/subtree-cache/**": true,
     "**/node_modules/*/**": true,
     "**/__pycache__": true,
+    "**/.mypy_cache": true,
     "**/.pytest_cache": true,
-    "**/.ruff_cache": true
+    "**/.ruff_cache": true,
+    "**/.ignore": true,
+    "**/.context": true,
+    "**/.claude": true,
+    "**/.codex": true,
+    "**/.agents": true
   },
-  "editor.renderControlCharacters": false,
+
+  // python
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "diffEditor.ignoreTrimWhitespace": false
+  },
+  "autoDocstring.docstringFormat": "sphinx",
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.fixAll": ["source.unusedImports"],
+  "python.analysis.extraPaths": ["src", "lib", "resources"],
+  "python.venvPath": "~/.local/share/python-venvs",
+  "notebook.output.scrolling": true,
+  "notebook.output.wordWrap": true,
+  "jupyter.themeMatplotlibPlots": true,
+  "jupyter.askForKernelRestart": true,
+  "jupyter.widgetScriptSources": ["unpkg.com", "jsdelivr.com"],
+
+  // vscode-neovim
+  "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1,
+    "asvetliakov.vscode-neovim": 1
+  },
+
   // VScode VIM
-  "vim.enableNeovim": true,
+  "vim.enableNeovim": false,
+  "vim.overrideCopy": false,
   "vim.leader": "<space>",
   "vim.hlsearch": true,
   "vim.useSystemClipboard": true,
@@ -104,11 +136,6 @@
     "<C-s>": false,
     "<C-b>": false
     // "<C-p>": false
-  },
-  // To improve performance
-  "extensions.experimental.affinity": {
-    "vscodevim.vim": 1,
-    "asvetliakov.vscode-neovim": 1
   },
   "vim.insertModeKeyBindings": [
     {
@@ -340,21 +367,18 @@
     }
   ],
   "vim.insertModeKeyBindingsNonRecursive": [],
-  "[shellscript]": {
-    "editor.defaultFormatter": "mkhl.shfmt"
-  },
-  "githubPullRequests.pullBranch": "never",
-  "window.zoomLevel": 1,
-  "workbench.panel.defaultLocation": "right",
-  "bashIde.shfmt.path": "/home/alquimista/.local/share/nvim/mason/bin/shfmt",
-  "git.openRepositoryInParentFolders": "always",
-  "git.fetchOnPull": true,
-  "explorer.confirmDelete": false,
-  "terminal.integrated.defaultProfile.linux": "bash",
+
+  // Terminal
+  "terminal.integrated.lineHeight": 1.0,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.initialHint": false,
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.env.linux": {
     "HISTFILE": "/home/alquimista/.vscode_history"
   },
-  "rest-client.previewColumn": "current",
+
+  // Per file settings
   "[plaintext]": {
     "editor.quickSuggestions": {
       "comments": "off",
@@ -364,28 +388,49 @@
     "editor.wordBasedSuggestions": "off",
     "editor.suggestOnTriggerCharacters": false
   },
+  "[shellscript]": {
+    "editor.defaultFormatter": "mkhl.shfmt"
+  },
+  "bashIde.shfmt.path": "/home/alquimista/.local/share/nvim/mason/bin/shfmt",
+  "[r]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Posit.air-vscode"
+  },
+  "[markdown]": {
+    "editor.renderWhitespace": "all",
+    "files.trimTrailingWhitespace": false
+  },
+  // SQL
+  "sqltools.highlightQuery": false,
+  "sqltools.format": {
+    "linesBetweenQueries": 2
+  },
+
+  // Github Extension
+  "githubPullRequests.pullBranch": "never",
+
+  // Rest client
+  "rest-client.previewColumn": "current",
   "makefile.configureOnOpen": true,
+
+  // Remote Tunnels
+  "remote.autoForwardPortsSource": "hybrid",
   "remote.portsAttributes": {
     "8000": {
       "protocol": "http"
     }
   },
-  "search.useIgnoreFiles": true,
+
+  //  RH Yaml
   "redhat.telemetry.enabled": false,
-  "python.analysis.extraPaths": ["src", "lib", "resources"],
-  "editor.smoothScrolling": false,
-  "workbench.list.smoothScrolling": false,
-  "scm.diffDecorationsGutterWidth": 2,
-  "remote.autoForwardPortsSource": "hybrid",
-  "sqltools.highlightQuery": false,
-  "sqltools.format": {
-    "linesBetweenQueries": 2
-  },
-  "workbench.editor.closeOnFileDelete": true,
-  "[r]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "Posit.air-vscode"
-  },
-  "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
-  "breadcrumbs.enabled": false
+  "extensions.allowOpenInModalEditor": true,
+
+  // Openai
+  "chatgpt.followUppQueueMode": "steer",
+
+  // Claude Code
+  "claudeCode.preferredLocation": "sidebar",
+  "claudeCode.enableReopenClosedSessionShortcut": false,
+  "claudeCode.allowDangerouslySkipPermissions": false,
+  "claudeCode.claudeProcessWrapper": "~/.local/bin/claude-vscode-wrapper.sh"
 }
