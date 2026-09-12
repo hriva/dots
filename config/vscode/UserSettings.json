@@ -1,0 +1,8 @@
+{
+    "window.newWindowProfile": "neovim",
+    "security.workspace.trust.untrustedFiles": "open",
+    "extensions.autoUpdate": "off",
+    "extensions.autoUpdateDelay": 72,
+    "window.restoreWindows": "none"
+        
+}
