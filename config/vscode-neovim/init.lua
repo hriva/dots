@@ -12,6 +12,15 @@ opt.smartcase = true
 opt.autoread = false -- sync buffers automatically
 opt.swapfile = false -- disable swapfile and showing the error
 opt.undofile = true
+opt.autowriteall = true
+
+-- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+-- 	callback = function()
+-- 		if vim.bo.modified and vim.bo.buftype == "" and not vim.bo.readonly and _vim.fn.expand("%") ~= "" then
+-- 			vim.cmd("silent! write")
+-- 		end
+-- 	end,
+-- })
 
 local vscode = require("vscode-neovim")
 
