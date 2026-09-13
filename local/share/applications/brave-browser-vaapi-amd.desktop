@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=Brave Browser GL
+Name=Brave Web Browser
 # Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
 # From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
 GenericName=Web Browser
@@ -105,16 +105,17 @@ Comment[vi]=Truy cập Internet
 Comment[zh_CN]=访问互联网
 Comment[zh_HK]=連線到網際網路
 Comment[zh_TW]=連線到網際網路
-StartupWMClass=brave-browser
 Exec=/usr/bin/brave-bin %U
 StartupNotify=true
+StartupWMClass=brave-browser
 Terminal=false
 Icon=brave-browser
 Type=Application
 Categories=Network;WebBrowser;
 MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ipfs;x-scheme-handler/ipns;
 Actions=new-window;new-private-window;
-X-Flatpak=com.bave.Browser
+NoDisplay=true
+
 
 [Desktop Action new-window]
 Name=New Window
