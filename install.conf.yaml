@@ -10,10 +10,7 @@
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
     ~/.bashrc.d/aliases.sh: bashrc.d/aliases.sh
-    ~/.bashrc.d/R-lib: bashrc.d/R-lib
-    ~/.bashrc.d/QT-wayland: bashrc.d/QT-wayland
     ~/.bashrc.d/pyenv.sh: bashrc.d/pyenv.sh
-    ~/.bashrc.d/fzf-shell.sh: bashrc.d/fzf-shell.sh
     ~/.bashrc.d/opendir.sh: bashrc.d/opendir.sh
     ~/.bashrc.d/cpu-epp: bashrc.d/cpu-epp
     ~/.bashrc.d/lazy-fnm.sh: bashrc.d/lazy-fnm.sh
@@ -28,6 +25,8 @@
     ~/.local/bin/shrink-pdf: local/bin/shrink-pdf.sh
     ~/.local/bin/csv2json: local/bin/csv2json.py
     # Config
+    ~/.config/environment: config/environment
+    ~/.config/user-tmpfiles.d: config/user-tmpfiles.d
     ~/.config/alacritty: config/alacritty
     ~/.config/aichat/config.yaml: config/aichat/config.yaml
     ~/.config/biome: config/biome
@@ -77,7 +76,7 @@
     - '[[ -d ~/.local/nocow ]] || (mkdir ~/.local/nocow && chattr +C ~/.local/nocow)'
     - '[[ -d ~/.local/share/libvirt ]] || (mkdir ~/.local/share/libvirt && chattr +C ~/.local/share/libvirt)'
     - '[[ -d ~/OneDrive ]] || (mkdir ~/OneDrive && chattr +C ~/OneDrive)'
-    - 'chmod 755 ~/.local/share/zsh-completion && chmod 644 ~/.local/share/zsh-completion/*'
+    - chmod 755 ~/.local/share/zsh-completion && chmod 644 ~/.local/share/zsh-completion/*
     - mv .cache cache.OLD && mkdir ~/.cache && chattr +C ~/.cache && cp --reflink=never -a cache.OLD/* .cache/ && rm -r cache.OLD
 # If not already present, create home directories
 - create:
