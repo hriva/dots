@@ -59,16 +59,26 @@ enable_wifi_powersave() {
     done
 }
 
+disable_panel_overdrive() {
+    echo 0 >/sys/devices/platform/asus-nb-wmi/panel_od 2> /dev/null
+}
+
+enable_panel_overdrive() {
+    echo 1 >/sys/devices/platform/asus-nb-wmi/panel_od 2> /dev/null
+}
+
 
 start() {
     [ "$USB_AUTOSUSPEND" = 1 ] && enable_usb_autosuspend
     enable_wifi_powersave
+    disable_panel_overdrive
     return 0
 }
 
 stop() {
     [ "$USB_AUTOSUSPEND" = 1 ] && disable_usb_autosuspend
     disable_wifi_powersave
+    enable_panel_overdrive
     return 0
 }
 
