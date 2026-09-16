@@ -213,12 +213,12 @@
   {
     "key": "shift+alt+j",
     "command": "workbench.action.moveEditorRightInGroup",
-    "when": "editorFocus || editorIsOpen"
+    "when": "editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
   },
   {
     "key": "shift+alt+k",
     "command": "workbench.action.moveEditorLeftInGroup",
-    "when": "editorFocus || editorIsOpen"
+    "when": "editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
   },
   // vert terminal
   {
@@ -232,8 +232,8 @@
     "command": "-editor.action.outdentLines",
     "when": "editorTextFocus && !editorReadonly"
   },
+  // escape fix
   {
-    // escape fix
     "key": "ctrl+[",
     "command": "vscode-neovim.send",
     "when": "editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'",
@@ -241,7 +241,7 @@
   },
   {
     "key": "ctrl+[",
-    "command": "-vscode-neovim.send",
+    "command": "-vscode-neovim.escape",
     "when": "editorTextFocus && neovim.init && editorLangId not in 'neovim.editorLangIdExclusions'"
   },
 
@@ -249,17 +249,27 @@
   {
     "key": "escape",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "panelFocus && activePanel == 'workbenc.panel.markers'"
+    "when": "panelFocus && activePanel == 'workbench.panel.markers'"
   },
   {
     "key": "escape",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "panelFocus && activePanel == 'workbenc.panel.output'"
+    "when": "panelFocus && activePanel == 'workbench.panel.output'"
   },
   {
     "key": "ctrl+alt+r",
     "command": "extension.vim_escape",
     "when": "vim.active"
+  },
+  {
+    "key": "alt+f5",
+    "command": "-workbench.action.editor.nextChange",
+    "when": "editorTextFocus && !textCompareEditorActive && quickDiffDecorationCount != '0'"
+  },
+  {
+    "key": "shift+alt+f5",
+    "command": "-workbench.action.editor.previousChange",
+    "when": "editorTextFocus && !textCompareEditorActive && quickDiffDecorationCount != '0'"
   }
 
   // Windsurf

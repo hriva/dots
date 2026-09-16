@@ -106,6 +106,7 @@
   },
   "autoDocstring.docstringFormat": "sphinx",
   "python.terminal.activateEnvInCurrentTerminal": true,
+  "python.terminal.useEnvFile": true,
   "python.analysis.autoImportCompletions": true,
   "python.analysis.fixAll": ["source.unusedImports"],
   "python.analysis.extraPaths": ["src", "lib", "resources"],
@@ -426,11 +427,13 @@
   "extensions.allowOpenInModalEditor": true,
 
   // Openai
-  "chatgpt.followUppQueueMode": "steer",
+  "chatgpt.followUpQueueMode": "steer",
 
   // Claude Code
   "claudeCode.preferredLocation": "sidebar",
   "claudeCode.enableReopenClosedSessionShortcut": false,
   "claudeCode.allowDangerouslySkipPermissions": false,
-  "claudeCode.claudeProcessWrapper": "~/.local/bin/claude-vscode-wrapper.sh"
+  "claudeCode.claudeProcessWrapper": "~/.local/bin/claude-vscode-wrapper.sh",
+  "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
+  "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.podmancompose"
 }
