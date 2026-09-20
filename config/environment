@@ -34,6 +34,7 @@ export CODEX_SQLITE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"/codex-sqlite
 export CODEX_INSTALLER_USE_RELEASES_OPENAI_COM=0
 export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"/claude
 export PI_CODING_AGENT_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"/pi
+export IPYTHONDIR="${XDG_CONFIG_HOME:-${HOME}/.config}"/ipython
 export UV_EXCLUDE_NEWER="P3D"
 
 # QT
