@@ -1,10 +1,13 @@
 [/]
 control-center=['<Super>F1']
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
+email=['<Super>e']
 help=@as []
 home=['<Super>f']
 logout=@as []
+rotate-video-lock-static=@as []
 screensaver=['<Super>Escape']
+terminal=['<Super>t']
 www=['<Super>b']
 
 [custom-keybindings/custom0]
@@ -14,7 +17,7 @@ name='wezterm'
 
 [custom-keybindings/custom1]
 binding='<Super>t'
-command='gtk-launch ghostty.desktop'
+command='ghostty'
 name='ghostty'
 
 [custom-keybindings/custom2]
@@ -23,5 +26,5 @@ name='blackbox'
 
 [custom-keybindings/custom3]
 binding='<Super>i'
-command='/usr/bin/alacritty'
-name='alacritty'
+command='gtk-launch wezterm.desktop'
+name='Wezterm'
