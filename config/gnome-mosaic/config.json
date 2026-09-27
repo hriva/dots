@@ -1,0 +1,30 @@
+{
+  "float": [
+    {
+      "class": "gnome-mosaic-example",
+      "title": "gnome-mosaic-example"
+    },
+    {
+      "class": "OneDriveGUI"
+    },
+    {
+      "class": "internxt-drive",
+      "title": "Internxt Drive"
+    },
+    {
+      "class": "io.github.seadve.Kooha"
+    },
+    {
+      "class": "internxt",
+      "title": "Internxt Drive"
+    },
+    {
+      "class": "org.gnome.Boxes"
+    },
+    {
+      "class": "python3"
+    }
+  ],
+  "skiptaskbarhidden": [],
+  "log_on_focus": false
+}

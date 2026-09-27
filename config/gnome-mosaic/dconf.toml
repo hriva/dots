@@ -1,0 +1,9 @@
+[/]
+active-hint=false
+active-hint-border-width=uint32 1
+gap-inner=uint32 1
+gap-outer=uint32 1
+mosaic-cached-state=''
+mouse-cursor-follows-active-window=false
+smart-gaps=false
+tile-by-default=true
