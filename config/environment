@@ -29,6 +29,7 @@ export BUN_INSTALL="${XDG_DATA_HOME:-${HOME}/.local/share}"/bun
 export BUN_INSTALL_CACHE_DIR="${XDG_CACHE_HOME:-${HOME}/.cache}"/bun/install/cache
 export BIOME_CONFIG_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}"/biome/biome.json
 export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}"/ripgreprc
+export CARGO_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}"/cargo
 export CODEX_HOME="${XDG_CONFIG_HOME:-${HOME}/.config}"/codex
 export CODEX_SQLITE_HOME="${XDG_CACHE_HOME:-${HOME}/.cache}"/codex-sqlite
 export CODEX_INSTALLER_USE_RELEASES_OPENAI_COM=0
