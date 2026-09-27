@@ -309,3 +309,11 @@ ports() {
 tre() {
     tree -aC -I '.git|node_modules|vendor|__pycache__' --dirsfirst "$@" | less -FRNX
 }
+
+jq_sort() {
+    jq -S 'walk(if type == "array" then sort_by(tojson) else . end)' "$1"
+}
+
+lns() {
+    ln -s "$(realpath "$1")" "$(realpath "$2")"
+}
