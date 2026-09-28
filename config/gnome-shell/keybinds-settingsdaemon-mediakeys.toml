@@ -1,6 +1,6 @@
 [/]
 control-center=['<Super>F1']
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
 email=['<Super>e']
 help=@as []
 home=['<Super>f']
@@ -10,19 +10,10 @@ screensaver=['<Super>Escape']
 terminal=['<Super>t']
 www=['<Super>b']
 
-[custom-keybindings/custom0]
-binding=''
-command='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=wezterm org.wezfurlong.wezterm start --cwd .'
-name='wezterm'
-
 [custom-keybindings/custom1]
 binding='<Super>t'
 command='ghostty'
 name='ghostty'
-
-[custom-keybindings/custom2]
-command='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=blackbox com.raggesilver.BlackBox'
-name='blackbox'
 
 [custom-keybindings/custom3]
 binding='<Super>i'
