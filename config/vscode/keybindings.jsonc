@@ -121,11 +121,6 @@
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   },
   {
-    "key": "d",
-    "command": "deleteFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-  },
-  {
     "key": "x",
     "command": "filesExplorer.cut",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
@@ -271,7 +266,6 @@
     "command": "-workbench.action.editor.previousChange",
     "when": "editorTextFocus && !textCompareEditorActive && quickDiffDecorationCount != '0'"
   },
-  // Fix suggestions overriding
   {
     "key": "ctrl+n",
     "command": "workbench.action.files.newUntitledFile",
@@ -280,6 +274,26 @@
   {
     "key": "ctrl+n",
     "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "d",
+    "command": "-deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "shift+d",
+    "command": "deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "filesExplorer.cut",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "ctrl+shift+m",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
   }
 
   // Windsurf
