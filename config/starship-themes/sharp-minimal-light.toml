@@ -17,18 +17,6 @@ $git_commit\
 $git_status\
 [](bg:color_blue fg:color_bg3)\
 $python\
-$c\
-$elixir\
-$elm\
-$golang\
-$haskell\
-$java\
-$julia\
-$nodejs\
-$nim\
-$rust\
-$scala\
-$docker_context\
 [🭞](fg:color_blue)
 $character"""
 
@@ -100,7 +88,9 @@ disabled = true
 [directory]
 style = "bg:color_bg1  fg:color_fg0"
 truncation_length = 2
-truncation_symbol = "./"
+truncation_symbol = "…/"
+home_symbol = ""
+fish_style_pwd_dir_length = 1
 format = '[$path ]($style)'
 
 [git_branch]

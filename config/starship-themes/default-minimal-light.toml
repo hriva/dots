@@ -8,18 +8,6 @@ $git_commit\
 $git_status\
 [](fg:color_bg3 bg:color_blue)\
 $python\
-$c\
-$elixir\
-$elm\
-$golang\
-$haskell\
-$java\
-$julia\
-$nodejs\
-$nim\
-$rust\
-$scala\
-$docker_context\
 ${custom.foo}\ 
 [](fg:color_blue)\
 $fill\
