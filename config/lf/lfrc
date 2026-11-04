@@ -6,6 +6,7 @@ set cursorpreviewfmt ""
 set info size:time
 set watch true  # Polling for updates
 set dircounts
+set dirfirst true
 set drawbox true
 set borderstyle roundbox
 set showbinds true
