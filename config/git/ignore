@@ -253,6 +253,7 @@ data/
 .databricks/
 *.ignore.*
 *.patch
+*.worktrees
 .python-version
 sgconfig.yml
 
@@ -271,7 +272,10 @@ CONTEXT.md
 .agents/
 .codex/
 .claude/
+*.pi/
 *.specify/
+*mflow.db
+pytest-*
 
 # test
 .integration_tests
