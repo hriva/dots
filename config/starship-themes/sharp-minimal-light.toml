@@ -169,6 +169,9 @@ format = '[ $symbol ($version) ](bg:color_blue fg:color_fg0)($style)'
 symbol = " "
 style = "bg:color_blue"
 format = '[ ${symbol}${pyenv_prefix}(\($virtualenv\)) ](bg:color_blue fg:color_fg0)($style)'
+# Trigger only on virtualenv
+detect_extensions = []
+detect_files = []
 
 [scala]
 symbol = " "
