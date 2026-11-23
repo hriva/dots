@@ -1,0 +1,7 @@
+[colors]
+foreground = "#424242"
+background = "#f1f1f1"
+cursor_bg = "#008ec4"
+cursor_border = "#008ec4"
+selection_bg = "#b6d6fd"
+selection_fg = "#424242"

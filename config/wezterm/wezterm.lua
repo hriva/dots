@@ -14,8 +14,8 @@ end
 -- local font_name = "CommitMono Nerd Font"
 local font_name = "BlexMono Nerd Font"
 local font_params = { weight = "Regular", stretch = "UltraCondensed", style = "Normal", bold = false }
-local colors = require("lua/japanesque").colors()
-local window_frame = require("lua/japanesque").window_frame()
+local colors = require("lua/iterm2-light").colors()
+local window_frame = require("lua/iterm2-light").window_frame()
 
 return {
 	set_environment_variables = {
@@ -45,7 +45,7 @@ return {
 	-- OpenGL for GPU acceleration, Software for CPU
 	front_end = "OpenGL",
 
-	color_scheme = "Japanesque",
+	color_scheme = "iterm2-light",
 	colors = colors,
 	window_frame = window_frame, -- needed only if using fancy tab bar
 	-- dpi = 192.0, -- For 4K HD in wayland
@@ -164,7 +164,7 @@ return {
 	},
 
 	-- Aesthetic Night Colorscheme
-	bold_brightens_ansi_colors = true,
+	bold_brightens_ansi_colors = false,
 	-- Padding
 	window_padding = {
 		left = 11,
