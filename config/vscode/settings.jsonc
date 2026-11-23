@@ -67,34 +67,37 @@
   "files.autoSave": "afterDelay",
   "files.exclude": {
     "**./.env": true,
-    "**/.csv": true,
-    "**/.parquet": true,
-    "**/.pkl": true,
-    "**/.xls": true,
     "**/__pycache__": true,
     "**/.cache": true,
     "**/.coverage": true,
     "**/.coverage.*": true,
+    "**/.csv": true,
     "**/.hypothesis": true,
     "**/.mypy_cache": true,
     "**/.nox": true,
+    "**/.parquet": true,
+    "**/.pkl": true,
     "**/.pytest_cache": true,
     "**/.ruff_cache": true,
-    "**/.tox": true
+    "**/.tox": true,
+    "**/.worktrees": true,
+    "**/.xls": true
   },
   "files.watcherExclude": {
+    "**/__pycache__": true,
+    "**/.agents": true,
+    "**/.claude": true,
+    "**/.codex": true,
+    "**/.context": true,
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
-    "**/node_modules/*/**": true,
-    "**/__pycache__": true,
+    "**/.ignore": true,
     "**/.mypy_cache": true,
     "**/.pytest_cache": true,
     "**/.ruff_cache": true,
-    "**/.ignore": true,
-    "**/.context": true,
-    "**/.claude": true,
-    "**/.codex": true,
-    "**/.agents": true
+    "**/.worktrees/**": true,
+    "**/node_modules/*/**": true,
+    "**/pytest-of*": true
   },
 
   // python
@@ -116,6 +119,8 @@
   "jupyter.themeMatplotlibPlots": true,
   "jupyter.askForKernelRestart": true,
   "jupyter.widgetScriptSources": ["unpkg.com", "jsdelivr.com"],
+  "jupyter.interactiveWindow.cellMarker.codeRegex": "^# COMMAND ----------|^# Databricks notebook source|^(#\\s*%%|#\\s*\\<codecell\\>|#\\s*In\\[\\d*?\\]|#\\s*In\\[ \\])",
+  "jupyter.interactiveWindow.cellMarker.default": "# COMMAND ----------",
 
   // vscode-neovim
   "vscode-neovim.NVIM_APPNAME": "vscode-neovim",
@@ -125,250 +130,6 @@
     "asvetliakov.vscode-neovim": 1
   },
 
-  // VScode VIM
-  "vim.enableNeovim": false,
-  "vim.overrideCopy": false,
-  "vim.leader": "<space>",
-  "vim.hlsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false,
-    "<C-s>": false,
-    "<C-b>": false
-    // "<C-p>": false
-  },
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.normalModeKeyBindings": [
-    {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
-    },
-    {
-      "before": ["<C-h>"],
-      "commands": ["workbench.action.navigateLeft"]
-    },
-    {
-      "before": ["<C-j>"],
-      "commands": ["workbench.action.navigateDown"]
-    },
-    {
-      "before": ["<C-k>"],
-      "commands": ["workbench.action.navigateUp"]
-    },
-    {
-      "before": ["<C-l>"],
-      "commands": ["workbench.action.navigateRight"]
-    },
-    {
-      "before": ["<A-j>"],
-      "commands": ["workbench.action.nextEditor"]
-    },
-    {
-      "before": ["<A-k>"],
-      "commands": ["workbench.action.previousEditor"]
-    },
-    {
-      "before": ["<leader>", "x"],
-      "commands": ["workbench.action.closeActiveEditor"]
-    },
-    {
-      "before": ["<leader>", "f", "f"],
-      "commands": ["workbench.action.quickOpen"]
-    },
-    {
-      "before": ["<leader>", "f", "o"],
-      "commands": ["workbench.action.quickOpenWithModes"]
-    },
-    {
-      "before": ["<leader>", "f", "r"],
-      "commands": ["workbench.action.openRecent"]
-    },
-    {
-      "before": ["<leader>", "d", "t"],
-      "commands": ["workbench.files.action.compareFileWith"]
-    },
-    {
-      "before": ["<leader>", "f", "R"],
-      "commands": ["workbench.action.replaceInFiles"]
-    },
-    {
-      "before": ["<leader>", "f", "w"],
-      "commands": ["workbench.action.findInFiles"]
-    },
-    // LSP
-    {
-      "before": ["K"],
-      "commands": ["editor.action.showDefinitionPreviewHover"]
-    },
-    {
-      "before": ["g", "D"],
-      "commands": ["editor.action.revealDefinitionAside"]
-    },
-    {
-      "before": ["K"],
-      "commands": ["editor.action.showDefinitionPreviewHover"]
-    },
-    {
-      "before": ["g", "p", "d"],
-      "commands": ["editor.action.peekDefinition"]
-    },
-    {
-      "before": ["g", "h"],
-      "commands": ["editor.action.showDefinitionPreviewHover"]
-    },
-    {
-      "before": ["g", "i"],
-      "commands": ["editor.action.goToImplementation"]
-    },
-    {
-      "before": ["g", "p", "i"],
-      "commands": ["editor.action.peekImplementation"]
-    },
-    {
-      "before": ["g", "q"],
-      "commands": ["editor.action.quickFix"]
-    },
-    {
-      "before": ["g", "t"],
-      "commands": ["editor.action.goToTypeDefinition"]
-    },
-    {
-      "before": ["g", "p", "t"],
-      "commands": ["editor.action.peekTypeDefinition"]
-    },
-    {
-      "before": ["<leader>", "f", "s"],
-      "commands": ["workbench.action.showAllSymbols"]
-    },
-    {
-      "before": ["g", "r"],
-      "commands": ["references-view.findReferences"]
-    },
-    {
-      "before": ["g", "R"],
-      "commands": ["editor.action.referenceSearch.trigger"]
-    },
-    {
-      "before": ["<leader>", "s", "d"],
-      "commands": ["workbench.actions.view.toggleProblems"]
-    },
-
-    // Git
-    {
-      "before": ["[", "c"],
-      "commands": ["workbench.action.editor.previousChange"]
-    },
-    {
-      "before": ["]", "c"],
-      "commands": ["workbench.action.editor.nextChange"]
-    },
-    {
-      "before": ["]", "d"],
-      "commands": ["editor.action.marker.nextInFiles"]
-    },
-    {
-      "before": ["[", "d"],
-      "commands": ["editor.action.marker.prevInFiles"]
-    },
-    {
-      "before": ["<leader>", "g", "d"],
-      "commands": ["git.openChange"]
-    },
-    {
-      "before": ["<leader>", "g", "r"],
-      "commands": ["git.revertSelectedRanges"]
-    },
-    {
-      "before": ["<leader>", "g", "s"],
-      "commands": ["git.stageSelectedRanges"]
-    },
-    {
-      "before": ["<leader>", "g", "u"],
-      "commands": ["git.unstageSelectedRanges"]
-    },
-    {
-      "before": ["u"],
-      "commands": ["undo"]
-    },
-    {
-      "before": ["<C-r>"],
-      "commands": ["redo"]
-    },
-    {
-      "before": ["<C-]>"],
-      "commands": ["workbench.action.decreaseViewSize"]
-    },
-    {
-      "before": ["<C-[>"],
-      "commands": ["workbench.action.increaseViewSize"]
-    },
-    {
-      "before": ["<leader>", "/"],
-      "commands": ["editor.action.commentLine"]
-    } //,
-    // // Windsurf exclusive
-    // {
-    //     "before": [
-    //         "<leader>",
-    //         "k"
-    //     ],
-    //     "commands": [
-    //         "deepwiki.openSymbol",
-    //     ]
-    // },
-    // // Codex exclusive
-    // {
-    //     "before": [
-    //         "<leader>",
-    //         "a",
-    //         "a"
-    //     ],
-    //     "commands": [
-    //         "chatgpt.addToThread",
-    //     ]
-    // }
-  ],
-  "vim.visualModeKeyBindings": [
-    {
-      "before": [">"],
-      "commands": ["editor.action.indentLines"]
-    },
-    {
-      "before": ["<"],
-      "commands": ["editor.action.outdentLines"]
-    },
-    {
-      "before": ["<leader>", "g", "r"],
-      "commands": ["git.revertSelectedRanges"]
-    },
-    {
-      "before": ["<leader>", "g", "s"],
-      "commands": ["git.stageSelectedRanges"]
-    },
-    {
-      "before": ["<leader>", "g", "u"],
-      "commands": ["git.unstageSelectedRanges"]
-    },
-    {
-      "before": ["<leader>", "/"],
-      "commands": ["editor.action.commentLine"]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    // paste w/o register override
-    {
-      "before": ["p"],
-      "after": ["p", "g", "v", "y"]
-    }
-  ],
-  "vim.insertModeKeyBindingsNonRecursive": [],
-
   // Terminal
   "terminal.integrated.lineHeight": 1.0,
   "terminal.integrated.cursorBlinking": true,
@@ -376,7 +137,8 @@
   "terminal.integrated.initialHint": false,
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.env.linux": {
-    "HISTFILE": "/home/alquimista/.vscode_history"
+    "HISTFILE": "/home/alquimista/.vscode_history",
+    "EDITRC": "/home/alquimista/.config/vscode-neovim/editrc"
   },
 
   // Per file settings
@@ -435,5 +197,22 @@
   "claudeCode.allowDangerouslySkipPermissions": false,
   "claudeCode.claudeProcessWrapper": "~/.local/bin/claude-vscode-wrapper.sh",
   "containers.containerClient": "com.microsoft.visualstudio.containers.podman",
-  "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.podmancompose"
+  "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.podmancompose",
+  "python.analysis.stubPath": "~/.local/share/nvim/lazy/python-type-stubs/stubs",
+  "search.exclude": {
+    "**/.worktrees/**": true,
+    "**/pytest-of*": true
+  },
+  "git.blame.statusBarItem.template": "${authorName}:${hashShort} (${authorDateAgo})",
+  "git.repositoryScanIgnoredFolders": ["node_modules", ".worktrees"],
+  "scm.defaultViewMode": "tree",
+  "scm.repositories.visible": 0,
+  "git.worktreeSymlinkFolders": ["*.vscode", "*.context"],
+  "git.branchProtection": ["dev", "main", "test"],
+  "git.autofetchPeriod": 900,
+  "debug.breakpointsView.presentation": "tree",
+  "terminal.integrated.scrollback": 10000
+  // "python.REPL.sendToNativeREPL": true,
+  // "python.REPL.enableREPLSmartSend": true,
+  // "terminal.integrated.ignoreBracketedPasteMode": true
 }
